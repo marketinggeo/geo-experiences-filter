@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Experience Filter</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+    body {
+        font-family: 'Montserrat', sans-serif;
+        margin: 20px;
+        color: #002060;
+    }
+
+    .filter-box {
+        border: 1px solid #ccc;
+        padding: 15px;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    label {
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    select, input[type="checkbox"] {
+        margin-left: 5px;
+        padding: 5px;
+        font-family: inherit;
+    }
+
+    .experience-card {
+        border: 1px solid #ddd;
+        padding: 15px;
+        margin-top: 15px;
+        border-radius: 6px;
+        background: #fafafa;
+    }
+
+    .experience-title {
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 5px;
+    }
+
+    .experience-meta {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 6px 12px;
+        background: #002060;
+        color: white;
+        border-radius: 4px;
+        text-decoration: none;
+        font-size: 13px;
+    }
+</style>
+</head>
+
+<body>
+
+<!-- FILTER BAR -->
+<div class="filter-box">
+    <div>
+        <label>Filter by Category:</label>
+        <select id="categoryFilter">
+            <option value="all">All Categories</option>
+            <option value="Art">Art</option>
+            <option value="Artisanal Beer">Artisanal Beer</option>
+            <option value="Arts & Crafts">Arts & Crafts</option>
+        </select>
+    </div>
+
+    <div>
+        <label>Filter by Duration:</label>
+        <select id="durationFilter">
+            <option value="all">All Durations</option>
+            <option value="30 min">30 min</option>
+            <option value="1 hour">1 hour</option>
+        </select>
+    </div>
+
+    <div>
+        <label>
+            <input type="checkbox" id="bestSellerFilter"> Show Best Sellers Only
+        </label>
+    </div>
+</div>
+
+<!-- EXPERIENCE LIST -->
+<div id="experienceList"></div>
+
+<script>
+const experiences = [
+    {
+        title: "Gold Leaf restauration experience at the “La Compañia de Jesus” Church with a visit to the cupolas while enjoing a glass of sparkling wine",
+        category: "Art",
+        duration: "30 min",
+        bestSeller: true,
+        url: "https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo-2025/quito-surroundings/gold-leaf-restoration-quito"
+    },
+    {
+        title: "Beer Tasting & Pairing Lunch",
+        category: "Artisanal Beer",
+        duration: "1 hour",
+        bestSeller: false,
+        url: "https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo-2025/quito-surroundings/beer-tasting-pairing-lunch"
+    },
+    {
+        title: "Gold Leaf restauration experience",
+        category: "Arts & Crafts",
+        duration: "30 min",
+        bestSeller: true,
+        url: "https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo-2025/quito-surroundings/gold-leaf-restauration-experience"
+    }
+];
+
+function renderExperiences() {
+    const category = document.getElementById("categoryFilter").value;
+    const duration = document.getElementById("durationFilter").value;
+    const bestSeller = document.getElementById("bestSellerFilter").checked;
+
+    const list = document.getElementById("experienceList");
+    list.innerHTML = "";
+
+    const filtered = experiences.filter(exp => {
+        return (category === "all" || exp.category === category) &&
+               (duration === "all" || exp.duration === duration) &&
+               (!bestSeller || exp.bestSeller);
+    });
+
+    filtered.forEach(exp => {
+        const card = document.createElement("div");
+        card.className = "experience-card";
+
+        card.innerHTML = `
+            <div class="experience-title">${exp.title}</div>
+            <div class="experience-meta">
+                Category: ${exp.category} • Duration: ${exp.duration} ${exp.bestSeller ? "• ⭐ Best Seller" : ""}
+            </div>
+            <a class="btn" href="${exp.url}" target="_blank">View Experience</a>
+        `;
+        list.appendChild(card);
+    });
+}
+
+document.getElementById("categoryFilter").addEventListener("change", renderExperiences);
+document.getElementById("durationFilter").addEventListener("change", renderExperiences);
+document.getElementById("bestSellerFilter").addEventListener("change", renderExperiences);
+
+// Render initially
+renderExperiences();
+</script>
+
+</body>
+</html>
