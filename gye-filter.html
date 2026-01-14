@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Guayaquil Experiences Filter</title>
+
+<!-- Montserrat Font -->
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
@@ -10,112 +12,93 @@
         font-family: 'Montserrat', sans-serif;
         margin: 20px;
         color: #002060;
+    }
+
+    /* Filter Bar */
+    .filter-container {
+        display: flex;
+        gap: 25px;
+        align-items: center;
+        padding: 15px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        margin-bottom: 25px;
         background: #fafafa;
     }
 
-    h1 {
-        font-size: 28px;
+    .filter-container label {
         font-weight: 600;
-        margin-bottom: 20px;
-        color: #002060;
-    }
-
-    .filter-box {
-        display: flex;
-        gap: 20px;
-        background: white;
-        padding: 15px;
-        border-radius: 6px;
-        border: 1px solid #ddd;
-        margin-bottom: 20px;
+        margin-right: 6px;
     }
 
     select, input[type="checkbox"] {
-        padding: 10px;
         font-size: 14px;
+        padding: 6px 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-family: 'Montserrat';
     }
 
+    /* Experience Card */
     .experience-card {
-        background: white;
-        padding: 20px;
-        margin-bottom: 15px;
-        border-radius: 8px;
         border: 1px solid #ddd;
+        border-radius: 6px;
+        padding: 18px;
+        margin-bottom: 18px;
+        background: white;
     }
 
-    .experience-title {
+    .title {
         font-size: 18px;
         font-weight: 600;
+        margin-bottom: 6px;
         color: #002060;
-        margin-bottom: 8px;
+        text-decoration: none;
+    }
+
+    .meta {
+        font-size: 14px;
+        color: #444;
+        margin-bottom: 10px;
     }
 
     .best-seller {
         display: inline-block;
-        background: #FFD43B;
-        padding: 4px 8px;
+        background: #ffcc00;
+        padding: 4px 10px;
+        border-radius: 4px;
         font-weight: 600;
         font-size: 12px;
-        border-radius: 4px;
         margin-left: 10px;
-        color: #000;
-    }
-
-    .exp-meta {
-        font-size: 14px;
-        margin-bottom: 10px;
-    }
-
-    a.button {
-        display: inline-block;
-        padding: 10px 16px;
-        background: #002060;
-        color: white;
-        text-decoration: none;
-        border-radius: 4px;
-        font-size: 14px;
-        font-weight: 500;
     }
 </style>
 </head>
 
 <body>
 
-<h1>Guayaquil & Surroundings – Experiences</h1>
-
 <!-- FILTER BAR -->
-<div class="filter-box">
+<div class="filter-container">
     <div>
-        <label>Filter by Category:</label><br>
-        <select id="categoryFilter">
-            <option value="All">All Categories</option>
-        </select>
+        <label>Filter by Category:</label>
+        <select id="categoryFilter"></select>
     </div>
 
     <div>
-        <label>Filter by Duration:</label><br>
-        <select id="durationFilter">
-            <option value="All">All Durations</option>
-            <option value="1 hour">1 hour</option>
-            <option value="2 hours">2 hours</option>
-            <option value="8 hours">8 hours</option>
-        </select>
+        <label>Filter by Duration:</label>
+        <select id="durationFilter"></select>
     </div>
 
-    <div style="display:flex; align-items:center; gap:6px;">
+    <div style="display:flex; align-items:center;">
         <input type="checkbox" id="bestSellerFilter">
-        <label>Show Best Sellers Only</label>
+        <label for="bestSellerFilter" style="margin-left:6px;">Show Best Sellers Only</label>
     </div>
 </div>
 
-<!-- OUTPUT -->
+<!-- EXPERIENCE LIST -->
 <div id="experienceList"></div>
 
 <script>
-// =======================
-//   EXPERIENCES (JSON)
-// =======================
-const data = {
+const experiencesData = {
 "experiences": [
     {
         "title": "Cacao Plantation (w/ Lunch)",
@@ -161,62 +144,64 @@ const data = {
     }
 ]};
 
+// Populate Filters
+function populateFilters() {
+    const categoryFilter = document.getElementById("categoryFilter");
+    const durationFilter = document.getElementById("durationFilter");
 
-// =======================
-//   FILTER LOGIC
-// =======================
-function loadFilters() {
-    const categorySelect = document.getElementById("categoryFilter");
     const categories = new Set();
+    const durations = new Set();
 
-    data.experiences.forEach(exp => exp.category.forEach(cat => categories.add(cat)));
+    experiencesData.experiences.forEach(exp => {
+        exp.category.forEach(cat => categories.add(cat));
+        durations.add(exp.duration);
+    });
+
+    categoryFilter.innerHTML = `<option value="All">All Categories</option>`;
+    durationFilter.innerHTML = `<option value="All">All Durations</option>`;
 
     categories.forEach(cat => {
-        const opt = document.createElement("option");
-        opt.value = cat;
-        opt.textContent = cat;
-        categorySelect.appendChild(opt);
+        categoryFilter.innerHTML += `<option value="${cat}">${cat}</option>`;
+    });
+
+    durations.forEach(d => {
+        durationFilter.innerHTML += `<option value="${d}">${d}</option>`;
     });
 }
 
-function displayExperiences() {
+// Render Experiences
+function renderExperiences() {
     const category = document.getElementById("categoryFilter").value;
     const duration = document.getElementById("durationFilter").value;
-    const bestOnly = document.getElementById("bestSellerFilter").checked;
-    const container = document.getElementById("experienceList");
+    const showBest = document.getElementById("bestSellerFilter").checked;
 
-    container.innerHTML = "";
+    const list = document.getElementById("experienceList");
+    list.innerHTML = "";
 
-    data.experiences
-        .filter(exp => category === "All" || exp.category.includes(category))
-        .filter(exp => duration === "All" || exp.duration === duration)
-        .filter(exp => !bestOnly || exp.bestSeller)
-        .forEach(exp => {
-            const card = document.createElement("div");
-            card.className = "experience-card";
+    experiencesData.experiences.forEach(exp => {
+        if ((category !== "All" && !exp.category.includes(category)) ||
+            (duration !== "All" && exp.duration !== duration) ||
+            (showBest && !exp.bestSeller)) return;
 
-            card.innerHTML = `
-                <div class="experience-title">
-                    ${exp.title}
-                    ${exp.bestSeller ? `<span class="best-seller">Best Seller</span>` : ""}
-                </div>
-                <div class="exp-meta">
-                    <strong>Category:</strong> ${exp.category.join(", ")} · 
-                    <strong>Duration:</strong> ${exp.duration}
-                </div>
-                <a class="button" href="${exp.url}" target="_blank">View Experience</a>
-            `;
+        const card = document.createElement("div");
+        card.className = "experience-card";
 
-            container.appendChild(card);
-        });
+        card.innerHTML = `
+            <a href="${exp.url}" class="title">${exp.title}</a>
+            ${exp.bestSeller ? `<span class="best-seller">Best Seller</span>` : ""}
+            <div class="meta">Category: ${exp.category.join(", ")} · Duration: ${exp.duration}</div>
+        `;
+
+        list.appendChild(card);
+    });
 }
 
-document.getElementById("categoryFilter").addEventListener("change", displayExperiences);
-document.getElementById("durationFilter").addEventListener("change", displayExperiences);
-document.getElementById("bestSellerFilter").addEventListener("change", displayExperiences);
+populateFilters();
+renderExperiences();
 
-loadFilters();
-displayExperiences();
+document.getElementById("categoryFilter").addEventListener("change", renderExperiences);
+document.getElementById("durationFilter").addEventListener("change", renderExperiences);
+document.getElementById("bestSellerFilter").addEventListener("change", renderExperiences);
 </script>
 
 </body>
