@@ -2,104 +2,152 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Guayaquil Experiences Filter</title>
+<title>Experiences – Guayaquil & Surroundings</title>
 
-<!-- Montserrat Font -->
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<!-- GOOGLE FONTS -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
     body {
         font-family: 'Montserrat', sans-serif;
-        margin: 20px;
+        background: #f7f7f7;
+        margin: 0;
+        padding: 20px;
         color: #002060;
     }
 
-    /* Filter Bar */
-    .filter-container {
-        display: flex;
-        gap: 25px;
-        align-items: center;
-        padding: 15px;
-        border: 1px solid #ddd;
-        border-radius: 6px;
+    h1 {
+        font-size: 28px;
+        font-weight: 700;
         margin-bottom: 25px;
-        background: #fafafa;
     }
 
-    .filter-container label {
+    /* FILTER BAR */
+    .filter-container {
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 18px;
+        display: flex;
+        align-items: center;
+        gap: 25px;
+        flex-wrap: wrap;
+        margin-bottom: 25px;
+    }
+
+    label {
         font-weight: 600;
         margin-right: 6px;
     }
 
-    select, input[type="checkbox"] {
-        font-size: 14px;
-        padding: 6px 8px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        font-family: 'Montserrat';
-    }
-
-    /* Experience Card */
-    .experience-card {
-        border: 1px solid #ddd;
+    select {
+        padding: 8px 12px;
         border-radius: 6px;
-        padding: 18px;
-        margin-bottom: 18px;
-        background: white;
-    }
-
-    .title {
-        font-size: 18px;
-        font-weight: 600;
-        margin-bottom: 6px;
-        color: #002060;
-        text-decoration: none;
-    }
-
-    .meta {
+        border: 1px solid #ccc;
         font-size: 14px;
-        color: #444;
-        margin-bottom: 10px;
+        font-family: Montserrat;
     }
 
-    .best-seller {
-        display: inline-block;
-        background: #ffcc00;
-        padding: 4px 10px;
-        border-radius: 4px;
-        font-weight: 600;
+    input[type="checkbox"] {
+        transform: scale(1.2);
+        margin-right: 8px;
+    }
+
+    /* EXPERIENCE CARDS */
+    .experience-card {
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 25px;
+    }
+
+    .experience-title {
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 12px;
+        color: #002060;
+    }
+
+    .badge-container {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 12px;
+    }
+
+    .badge-yellow {
+        background: #FFD500;
+        color: #000;
+        padding: 5px 10px;
+        border-radius: 6px;
         font-size: 12px;
-        margin-left: 10px;
+        font-weight: 700;
+    }
+
+    .badge-blue {
+        background: #002060;
+        color: #fff;
+        padding: 5px 10px;
+        border-radius: 6px;
+        font-size: 12px;
+        font-weight: 700;
+    }
+
+    .category-text {
+        color: #555;
+        font-size: 14px;
+        margin-top: 10px;
+        margin-bottom: 18px;
+        font-weight: 500;
+    }
+
+    /* BUTTON */
+    .experience-btn {
+        background: #002060;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: 600;
+        display: inline-block;
+    }
+
+    .experience-btn:hover {
+        background: #003499;
     }
 </style>
 </head>
-
 <body>
+
+<h1>Experiences – Guayaquil & Surroundings</h1>
 
 <!-- FILTER BAR -->
 <div class="filter-container">
     <div>
         <label>Filter by Category:</label>
-        <select id="categoryFilter"></select>
+        <select id="categoryFilter">
+            <option value="All">All Categories</option>
+        </select>
     </div>
 
     <div>
         <label>Filter by Duration:</label>
-        <select id="durationFilter"></select>
+        <select id="durationFilter">
+            <option value="All">All Durations</option>
+        </select>
     </div>
 
-    <div style="display:flex; align-items:center;">
+    <div>
         <input type="checkbox" id="bestSellerFilter">
-        <label for="bestSellerFilter" style="margin-left:6px;">Show Best Sellers Only</label>
+        <label for="bestSellerFilter">Show Best Sellers Only</label>
     </div>
 </div>
 
 <!-- EXPERIENCE LIST -->
-<div id="experienceList"></div>
+<div id="experiencesContainer"></div>
 
 <script>
-const experiencesData = {
-"experiences": [
+const experiences = [
     {
         "title": "Cacao Plantation (w/ Lunch)",
         "category": ["Chocolate"],
@@ -142,66 +190,75 @@ const experiencesData = {
         "bestSeller": false,
         "url": "https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo-2025/guayaquil-surroundings/tour-of-wine-vineyard-and-premium-pairing-experience?authuser=0"
     }
-]};
+];
 
-// Populate Filters
-function populateFilters() {
-    const categoryFilter = document.getElementById("categoryFilter");
-    const durationFilter = document.getElementById("durationFilter");
+const container = document.getElementById('experiencesContainer');
 
-    const categories = new Set();
-    const durations = new Set();
-
-    experiencesData.experiences.forEach(exp => {
-        exp.category.forEach(cat => categories.add(cat));
-        durations.add(exp.duration);
-    });
-
-    categoryFilter.innerHTML = `<option value="All">All Categories</option>`;
-    durationFilter.innerHTML = `<option value="All">All Durations</option>`;
-
-    categories.forEach(cat => {
-        categoryFilter.innerHTML += `<option value="${cat}">${cat}</option>`;
-    });
-
-    durations.forEach(d => {
-        durationFilter.innerHTML += `<option value="${d}">${d}</option>`;
-    });
-}
-
-// Render Experiences
 function renderExperiences() {
-    const category = document.getElementById("categoryFilter").value;
-    const duration = document.getElementById("durationFilter").value;
-    const showBest = document.getElementById("bestSellerFilter").checked;
+    container.innerHTML = ""; 
+    
+    const selectedCategory = document.getElementById('categoryFilter').value;
+    const selectedDuration = document.getElementById('durationFilter').value;
+    const onlyBest = document.getElementById('bestSellerFilter').checked;
 
-    const list = document.getElementById("experienceList");
-    list.innerHTML = "";
+    const filtered = experiences.filter(exp => {
+        const matchesCategory = selectedCategory === "All" || exp.category.includes(selectedCategory);
+        const matchesDuration = selectedDuration === "All" || exp.duration === selectedDuration;
+        const matchesBest = !onlyBest || exp.bestSeller;
+        return matchesCategory && matchesDuration && matchesBest;
+    });
 
-    experiencesData.experiences.forEach(exp => {
-        if ((category !== "All" && !exp.category.includes(category)) ||
-            (duration !== "All" && exp.duration !== duration) ||
-            (showBest && !exp.bestSeller)) return;
-
-        const card = document.createElement("div");
+    filtered.forEach(exp => {
+        const card = document.createElement('div');
         card.className = "experience-card";
 
         card.innerHTML = `
-            <a href="${exp.url}" class="title">${exp.title}</a>
-            ${exp.bestSeller ? `<span class="best-seller">Best Seller</span>` : ""}
-            <div class="meta">Category: ${exp.category.join(", ")} · Duration: ${exp.duration}</div>
+            <div class="experience-title">${exp.title}</div>
+
+            <div class="badge-container">
+                ${exp.bestSeller ? `<div class="badge-yellow">BEST SELLER</div>` : ""}
+                <div class="badge-blue">${exp.duration}</div>
+            </div>
+
+            <div class="category-text"><strong>Category:</strong> ${exp.category.join(", ")}</div>
+
+            <a class="experience-btn" href="${exp.url}" target="_blank">View Experience</a>
         `;
 
-        list.appendChild(card);
+        container.appendChild(card);
     });
 }
 
-populateFilters();
-renderExperiences();
+// Populate dropdowns
+(function populateFilters() {
+    const categorySet = new Set();
+    const durationSet = new Set();
 
-document.getElementById("categoryFilter").addEventListener("change", renderExperiences);
-document.getElementById("durationFilter").addEventListener("change", renderExperiences);
-document.getElementById("bestSellerFilter").addEventListener("change", renderExperiences);
+    experiences.forEach(exp => {
+        exp.category.forEach(cat => categorySet.add(cat));
+        durationSet.add(exp.duration);
+    });
+
+    categorySet.forEach(cat => {
+        const option = document.createElement("option");
+        option.value = cat;
+        option.textContent = cat;
+        document.getElementById('categoryFilter').appendChild(option);
+    });
+
+    durationSet.forEach(dur => {
+        const option = document.createElement("option");
+        option.value = dur;
+        option.textContent = dur;
+        document.getElementById('durationFilter').appendChild(option);
+    });
+})();
+
+document.getElementById('categoryFilter').addEventListener('change', renderExperiences);
+document.getElementById('durationFilter').addEventListener('change', renderExperiences);
+document.getElementById('bestSellerFilter').addEventListener('change', renderExperiences);
+
+renderExperiences();
 </script>
 
 </body>
