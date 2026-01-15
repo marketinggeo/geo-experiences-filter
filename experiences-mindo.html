@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Experiences – Mindo & Surroundings</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 26px;
+    color: #002060;
+    margin-bottom: 15px;
+}
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 25px;
+    align-items: center;
+}
+
+.filters label {
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.filters select,
+.filters input[type="checkbox"] {
+    padding: 5px;
+}
+
+.experience-card {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 18px;
+    margin-bottom: 18px;
+}
+
+.experience-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #002060;
+    margin-bottom: 8px;
+}
+
+.badges {
+    margin-bottom: 10px;
+}
+
+.badge {
+    display: inline-block;
+    background: #002060;
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    margin-right: 6px;
+}
+
+.best-seller {
+    background: #f4b400;
+    color: #000;
+    font-weight: bold;
+}
+
+.category {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 12px;
+}
+
+.btn {
+    display: inline-block;
+    background: #002060;
+    color: #fff;
+    padding: 10px 16px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Experiences – Mindo & Surroundings</h1>
+
+<div class="filters">
+    <div>
+        <label>Filter by Category:</label>
+        <select id="categoryFilter">
+            <option value="all">All Categories</option>
+            <option value="Nature">Nature</option>
+            <option value="Culinary">Culinary</option>
+            <option value="Coffee">Coffee</option>
+        </select>
+    </div>
+
+    <div>
+        <label>Filter by Duration:</label>
+        <select id="durationFilter">
+            <option value="all">All Durations</option>
+            <option value="1">Up to 1 hour</option>
+            <option value="2">Up to 2 hours</option>
+        </select>
+    </div>
+
+    <div>
+        <label>
+            <input type="checkbox" id="bestSellerFilter">
+            Show Best Sellers Only
+        </label>
+    </div>
+</div>
+
+<!-- EXPERIENCE 1 -->
+<div class="experience-card"
+     data-category="Nature"
+     data-duration="1"
+     data-bestseller="no">
+
+    <div class="experience-title">
+        Close-up Hummingbird watching
+    </div>
+
+    <div class="badges">
+        <span class="badge">1 hour</span>
+    </div>
+
+    <div class="category">
+        Category: Nature
+    </div>
+
+    <a class="btn" target="_blank"
+       href="https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo-2025/mindo-surroundings/close-up-hummingbird-watching?authuser=0">
+        View Experience
+    </a>
+</div>
+
+<!-- EXPERIENCE 2 -->
+<div class="experience-card"
+     data-category="Culinary"
+     data-duration="2"
+     data-bestseller="no">
+
+    <div class="experience-title">
+        Mindo Chocolate Makers Cacao & Chocolate Experience (w/ Lunch)
+    </div>
+
+    <div class="badges">
+        <span class="badge">2 hours</span>
+    </div>
+
+    <div class="category">
+        Category: Culinary
+    </div>
+
+    <a class="btn" target="_blank"
+       href="https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo-2025/mindo-surroundings/mindo-chocolate-makers-cacao-chocolate-experience-w-lunch?authuser=0">
+        View Experience
+    </a>
+</div>
+
+<!-- EXPERIENCE 3 -->
+<div class="experience-card"
+     data-category="Coffee"
+     data-duration="2"
+     data-bestseller="no">
+
+    <div class="experience-title">
+        Specialty Ecuadorian Coffee Experience
+    </div>
+
+    <div class="badges">
+        <span class="badge">2 hours</span>
+    </div>
+
+    <div class="category">
+        Category: Coffee
+    </div>
+
+    <a class="btn" target="_blank"
+       href="https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo-2025/mindo-surroundings/specialty-ecuadorian-coffee-experience?authuser=0">
+        View Experience
+    </a>
+</div>
+
+</div>
+
+<script>
+const categoryFilter = document.getElementById('categoryFilter');
+const durationFilter = document.getElementById('durationFilter');
+const bestSellerFilter = document.getElementById('bestSellerFilter');
+const cards = document.querySelectorAll('.experience-card');
+
+function filterExperiences() {
+    const category = categoryFilter.value;
+    const duration = durationFilter.value;
+    const bestSellerOnly = bestSellerFilter.checked;
+
+    cards.forEach(card => {
+        const cardCategory = card.dataset.category;
+        const cardDuration = card.dataset.duration;
+        const cardBestSeller = card.dataset.bestseller;
+
+        let show = true;
+
+        if (category !== 'all' && cardCategory !== category) {
+            show = false;
+        }
+
+        if (duration !== 'all' && parseInt(cardDuration) > parseInt(duration)) {
+            show = false;
+        }
+
+        if (bestSellerOnly && cardBestSeller !== 'yes') {
+            show = false;
+        }
+
+        card.style.display = show ? 'block' : 'none';
+    });
+}
+
+categoryFilter.addEventListener('change', filterExperiences);
+durationFilter.addEventListener('change', filterExperiences);
+bestSellerFilter.addEventListener('change', filterExperiences);
+</script>
+
+</body>
+</html>
