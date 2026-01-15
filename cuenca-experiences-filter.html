@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Experiences – Cuenca & Surroundings</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+body{
+  font-family:'Montserrat', sans-serif;
+  background:#fff;
+  margin:0;
+  padding:0;
+  color:#002060;
+}
+
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:20px;
+}
+
+h2{
+  margin-bottom:10px;
+}
+
+.filters{
+  border:1px solid #ddd;
+  border-radius:6px;
+  padding:15px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:15px;
+  align-items:center;
+  margin-bottom:20px;
+}
+
+.filters label{
+  font-size:14px;
+  font-weight:500;
+}
+
+.filters select{
+  padding:8px;
+  font-family:'Montserrat';
+}
+
+.experience-card{
+  border:1px solid #ddd;
+  border-radius:8px;
+  padding:20px;
+  margin-bottom:15px;
+}
+
+.badges{
+  margin:10px 0;
+}
+
+.badge{
+  display:inline-block;
+  padding:4px 10px;
+  font-size:12px;
+  border-radius:4px;
+  margin-right:6px;
+  font-weight:600;
+}
+
+.badge.best{
+  background:#f5b700;
+  color:#000;
+}
+
+.badge.duration{
+  background:#002060;
+  color:#fff;
+}
+
+.category{
+  font-size:14px;
+  color:#555;
+  margin-bottom:10px;
+}
+
+.view-btn{
+  display:inline-block;
+  padding:10px 18px;
+  background:#002060;
+  color:#fff;
+  text-decoration:none;
+  border-radius:6px;
+  font-size:14px;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<h2>Experiences – Cuenca & Surroundings</h2>
+
+<div class="filters">
+  <label>
+    Filter by Category:
+    <select id="categoryFilter">
+      <option value="all">All Categories</option>
+    </select>
+  </label>
+
+  <label>
+    Filter by Duration:
+    <select id="durationFilter">
+      <option value="all">All Durations</option>
+    </select>
+  </label>
+
+  <label>
+    <input type="checkbox" id="bestSellerFilter">
+    Show Best Sellers Only
+  </label>
+</div>
+
+<div id="experiences"></div>
+
+</div>
+
+<script>
+const experiencesData = [
+  {
+    title:"An Immersive Experience at the \"Casa Museo de la Makana\" Ikat Shawl Workshop",
+    category:["Cultural","Art & Crafts"],
+    duration:"1 hour",
+    bestSeller:false,
+    url:"https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo-2025/cuenca-surroundings/an-immersive-experience-at-the-casa-museo-de-la-makana-ikat-shawl-worksho?authuser=0"
+  },
+  {
+    title:"Blacksmithing Techniques – Make Your Own Craft",
+    category:["Cultural","Art & Crafts"],
+    duration:"1 hour",
+    bestSeller:false,
+    url:"https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo-2025/cuenca-surroundings/blacksmithing-techniques-make-your-own-craft?authuser=0"
+  },
+  {
+    title:"Classical Guitar Making Techniques and Participate in the Craft",
+    category:["Cultural","Art & Crafts"],
+    duration:"1 hour",
+    bestSeller:false,
+    url:"https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo-2025/cuenca-surroundings/classical-guitar-making-techniques-and-participate-in-the-craft?authuser=0"
+  },
+  {
+    title:"Clay Pottery and Make Your Own Piece",
+    category:["Cultural","Art & Crafts"],
+    duration:"1 hour",
+    bestSeller:false,
+    url:"https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo-2025/cuenca-surroundings/clay-pottery-and-make-your-own-piece?authuser=0"
+  },
+  {
+    title:"Jeweler For a Day: Learn from the Best and Make Your Own Jewelry in Cuenca",
+    category:["Cultural","Art & Crafts"],
+    duration:"2 hours",
+    bestSeller:false,
+    url:"https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo-2025/cuenca-surroundings/jeweler-for-a-day-learn-from-the-best-and-make-your-own-jewelry-in-cuenca?authuser=0"
+  },
+  {
+    title:"Learn About the Use of Recycled Materials and Copper to Make Your Own Work of Art",
+    category:["Cultural","Art & Crafts"],
+    duration:"2 hours",
+    bestSeller:false,
+    url:"https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo-2025/cuenca-surroundings/learn-about-the-use-recycled-materials-and-copper-to-make-your-own-work-of?authuser=0"
+  },
+  {
+    title:"Learn from the Best and Make Your Own Paja Toquilla Hat in Cuenca’s Hat Museum",
+    category:["Cultural","Art & Crafts"],
+    duration:"1.5 hours",
+    bestSeller:true,
+    url:"https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo-2025/cuenca-surroundings/learn-from-the-best-and-make-your-own-paja-toquilla-hat-in-cuencas-hat-mus?authuser=0"
+  },
+  {
+    title:"The San Miguel Rum Factory & Aging Cellar",
+    category:["Spirits"],
+    duration:"1 hour",
+    bestSeller:false,
+    url:"https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo-2025/cuenca-surroundings/the-san-miguel-rum-factory-aging-cellar?authuser=0"
+  }
+];
+
+const container = document.getElementById("experiences");
+const categoryFilter = document.getElementById("categoryFilter");
+const durationFilter = document.getElementById("durationFilter");
+const bestFilter = document.getElementById("bestSellerFilter");
+
+function populateFilters(){
+  const categories = new Set();
+  const durations = new Set();
+
+  experiencesData.forEach(e=>{
+    e.category.forEach(c=>categories.add(c));
+    durations.add(e.duration);
+  });
+
+  categories.forEach(c=>{
+    categoryFilter.innerHTML += `<option value="${c}">${c}</option>`;
+  });
+
+  durations.forEach(d=>{
+    durationFilter.innerHTML += `<option value="${d}">${d}</option>`;
+  });
+}
+
+function render(){
+  container.innerHTML="";
+  const cat = categoryFilter.value;
+  const dur = durationFilter.value;
+  const best = bestFilter.checked;
+
+  experiencesData.forEach(e=>{
+    if(cat!=="all" && !e.category.includes(cat)) return;
+    if(dur!=="all" && e.duration!==dur) return;
+    if(best && !e.bestSeller) return;
+
+    container.innerHTML += `
+      <div class="experience-card">
+        <h3>${e.title}</h3>
+
+        <div class="badges">
+          ${e.bestSeller ? `<span class="badge best">BEST SELLER</span>` : ""}
+          <span class="badge duration">${e.duration}</span>
+        </div>
+
+        <div class="category">
+          Category: ${e.category.join(", ")}
+        </div>
+
+        <a href="${e.url}" target="_blank" class="view-btn">View Experience</a>
+      </div>
+    `;
+  });
+}
+
+populateFilters();
+render();
+
+categoryFilter.addEventListener("change", render);
+durationFilter.addEventListener("change", render);
+bestFilter.addEventListener("change", render);
+</script>
+
+</body>
+</html>
