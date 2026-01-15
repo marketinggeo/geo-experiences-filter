@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Experiences – Otavalo & Surroundings</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: #ffffff;
+  color: #333;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 30px auto;
+}
+
+h2 {
+  color: #002060;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.filters {
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 25px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.filters label {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+select {
+  padding: 6px 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-family: 'Montserrat';
+}
+
+.card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.card h3 {
+  margin: 0 0 10px;
+  color: #002060;
+  font-weight: 600;
+}
+
+.badges {
+  margin-bottom: 10px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-right: 6px;
+}
+
+.badge.best {
+  background: #f7c600;
+  color: #000;
+}
+
+.badge.duration {
+  background: #002060;
+  color: #fff;
+}
+
+.category {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 15px;
+}
+
+.btn {
+  background: #002060;
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  display: inline-block;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<h2>Experiences – Otavalo & Surroundings</h2>
+
+<div class="filters">
+  <label>
+    Filter by Category:
+    <select id="categoryFilter">
+      <option value="all">All Categories</option>
+    </select>
+  </label>
+
+  <label>
+    Filter by Duration:
+    <select id="durationFilter">
+      <option value="all">All Durations</option>
+    </select>
+  </label>
+
+  <label>
+    <input type="checkbox" id="bestSellerFilter"> Show Best Sellers Only
+  </label>
+</div>
+
+<div id="cards"></div>
+
+</div>
+
+<script>
+const experiences = [
+  {
+    title: "Andean Snacks and Artisanal Beer in the “Molinos de San Juan” Hacienda",
+    category: ["Culinary"],
+    duration: "1 hour",
+    bestSeller: true,
+    url: "https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo-2025/otavalo-surroundings/andean-snacks-and-artisanal-beer-in-the-molinos-de-san-juan-hacienda?authuser=0"
+  },
+  {
+    title: "Dreamcatcher Workshop",
+    category: ["Cultural, Art & Crafts"],
+    duration: "2 hours",
+    bestSeller: true,
+    url: "https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo-2025/otavalo-surroundings/dreamcatcher-workshop?authuser=0"
+  },
+  {
+    title: "Empowering Women through Textile Work",
+    category: ["Cultural, Art & Crafts"],
+    duration: "1 hour",
+    bestSeller: true,
+    url: "https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo-2025/otavalo-surroundings/empowering-women-through-textile-work?authuser=0"
+  },
+  {
+    title: "Make Your Own Felt Hat",
+    category: ["Cultural, Art & Crafts"],
+    duration: "2 hours",
+    bestSeller: false,
+    url: "https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo-2025/otavalo-surroundings/make-your-own-felt-hat?authuser=0"
+  },
+  {
+    title: "Make Your Own Leather Belt in an Artisanal Workshop",
+    category: ["Cultural, Art & Crafts"],
+    duration: "3.5 hours",
+    bestSeller: false,
+    url: "https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo-2025/otavalo-surroundings/make-your-own-leather-belt-in-an-artisanal-workshop?authuser=0"
+  },
+  {
+    title: "Musical Instrument Workshop (with Souvenir)",
+    category: ["Cultural, Art & Crafts"],
+    duration: "1 hour",
+    bestSeller: true,
+    url: "https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo-2025/otavalo-surroundings/musical-instrument-workshop-with-souvenir?authuser=0"
+  },
+  {
+    title: "Rose Plantation (w/ Lunch)",
+    category: ["Roses"],
+    duration: "3 hours",
+    bestSeller: true,
+    url: "https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo-2025/otavalo-surroundings/rose-plantation-w-lunch?authuser=0"
+  },
+  {
+    title: "Salt Biscuits (Bizcochos), Queso de Hoja and Agave Experience",
+    category: ["Culinary"],
+    duration: "30 min",
+    bestSeller: true,
+    url: "https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo-2025/otavalo-surroundings/salt-biscuits-bizcochos-queso-de-hoja-and-agave-experience?authuser=0"
+  },
+  {
+    title: "Spiritual Cleansing with a Shaman at a Local Waterfall in Iluman",
+    category: ["Cultural, Art & Crafts"],
+    duration: "1 hour",
+    bestSeller: false,
+    url: "https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo-2025/otavalo-surroundings/spiritual-cleansing-with-a-shaman-at-a-local-waterfall-in-iluman?authuser=0"
+  },
+  {
+    title: "Textile & Tapestry Workshop",
+    category: ["Cultural, Art & Crafts"],
+    duration: "30 min",
+    bestSeller: true,
+    url: "https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo-2025/otavalo-surroundings/textile-tapestry-workshop?authuser=0"
+  },
+  {
+    title: "The Angla Community: Local Indigenous Life in Otavalo (w/ Lunch)",
+    category: ["Cultural, Art & Crafts"],
+    duration: "3 hours",
+    bestSeller: true,
+    url: "https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo-2025/otavalo-surroundings/the-angla-community-local-indigenous-life-in-otavalo-w-lunch?authuser=0"
+  },
+  {
+    title: "Totora Reed Weaving Workshop (with Souvenir)",
+    category: ["Cultural, Art & Crafts"],
+    duration: "1 hour",
+    bestSeller: false,
+    url: "https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo-2025/otavalo-surroundings/totora-reed-weaving-workshop-with-souvenir?authuser=0"
+  },
+  {
+    title: "Wood Carving & Sculpture Workshop Visit",
+    category: ["Art"],
+    duration: "1 hour",
+    bestSeller: false,
+    url: "https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo-2025/otavalo-surroundings/wood-carving-sculpture-workshop-visit?authuser=0"
+  }
+];
+
+const cardsContainer = document.getElementById("cards");
+const categoryFilter = document.getElementById("categoryFilter");
+const durationFilter = document.getElementById("durationFilter");
+const bestSellerFilter = document.getElementById("bestSellerFilter");
+
+const categories = [...new Set(experiences.flatMap(e => e.category))];
+const durations = [...new Set(experiences.map(e => e.duration))];
+
+categories.forEach(c => categoryFilter.innerHTML += `<option value="${c}">${c}</option>`);
+durations.forEach(d => durationFilter.innerHTML += `<option value="${d}">${d}</option>`);
+
+function render() {
+  cardsContainer.innerHTML = "";
+
+  experiences.forEach(e => {
+    if (categoryFilter.value !== "all" && !e.category.includes(categoryFilter.value)) return;
+    if (durationFilter.value !== "all" && e.duration !== durationFilter.value) return;
+    if (bestSellerFilter.checked && !e.bestSeller) return;
+
+    cardsContainer.innerHTML += `
+      <div class="card">
+        <h3>${e.title}</h3>
+        <div class="badges">
+          ${e.bestSeller ? '<span class="badge best">BEST SELLER</span>' : ''}
+          <span class="badge duration">${e.duration}</span>
+        </div>
+        <div class="category">Category: ${e.category.join(", ")}</div>
+        <a class="btn" href="${e.url}" target="_blank">View Experience</a>
+      </div>`;
+  });
+}
+
+categoryFilter.onchange = render;
+durationFilter.onchange = render;
+bestSellerFilter.onchange = render;
+
+render();
+</script>
+
+</body>
+</html>
