@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Explore all the unique experiences</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+  font-family: 'Montserrat', sans-serif;
+  background:#ffffff;
+  margin:0;
+  padding:20px;
+}
+
+.container {
+  max-width:1200px;
+  margin:auto;
+}
+
+h1 {
+  color:#002060;
+  font-weight:600;
+  margin-bottom:6px;
+}
+
+.blue-line {
+  height:3px;
+  background:#1a73e8;
+  margin-bottom:25px;
+}
+
+/* FILTERS */
+.filters {
+  border:1px solid #ddd;
+  border-radius:8px;
+  padding:18px 22px;
+  display:flex;
+  gap:25px;
+  flex-wrap:wrap;
+  margin-bottom:35px;
+}
+
+.filters label {
+  font-size:14px;
+  font-weight:500;
+  color:#002060;
+}
+
+.filters select {
+  margin-left:8px;
+  padding:6px 10px;
+  border:1px solid #ccc;
+  border-radius:4px;
+  font-family:'Montserrat';
+}
+
+.filters input {
+  margin-right:6px;
+}
+
+/* CARD */
+.card {
+  border:1px solid #ddd;
+  border-radius:10px;
+  padding:22px;
+  margin-bottom:20px;
+}
+
+.card h2 {
+  color:#002060;
+  font-size:18px;
+  font-weight:600;
+  margin:0 0 10px;
+}
+
+.badges {
+  margin-bottom:10px;
+}
+
+.badge {
+  background:#002060;
+  color:#ffffff;
+  font-size:12px;
+  font-weight:500;
+  padding:4px 10px;
+  border-radius:6px;
+  display:inline-block;
+  margin-right:6px;
+}
+
+.badge.best {
+  background:#fbbc04;
+  color:#000;
+  font-weight:600;
+}
+
+.category {
+  font-size:14px;
+  color:#777;
+  margin-bottom:16px;
+}
+
+.destination {
+  font-size:13px;
+  color:#555;
+  margin-bottom:8px;
+  font-weight:500;
+}
+
+.btn {
+  background:#002060;
+  color:#ffffff;
+  padding:10px 18px;
+  border-radius:6px;
+  font-size:14px;
+  font-weight:500;
+  text-decoration:none;
+  display:inline-block;
+}
+
+.btn:hover {
+  opacity:0.9;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<h1>Explore all the unique experiences</h1>
+<div class="blue-line"></div>
+
+<!-- FILTERS -->
+<div class="filters">
+  <label>
+    Destination:
+    <select id="destinationFilter">
+      <option value="all">All destinations</option>
+    </select>
+  </label>
+
+  <label>
+    Category:
+    <select id="categoryFilter">
+      <option value="all">All categories</option>
+    </select>
+  </label>
+
+  <label>
+    Duration:
+    <select id="durationFilter">
+      <option value="all">All durations</option>
+    </select>
+  </label>
+
+  <label>
+    <input type="checkbox" id="bestFilter">
+    Show Best Sellers Only
+  </label>
+</div>
+
+<!-- RESULTS -->
+<div id="results"></div>
+
+</div>
+
+<script>
+const experiences = [
+  {
+    title:"Exclusive Gastronomic Experience Within a Lava Tunnel",
+    destination:"The Galápagos Islands",
+    categories:["Culinary"],
+    duration:"2 hours",
+    best:true,
+    url:"https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo-2025/the-gal%C3%A1pagos-islands/exclusive-gastronomic-experience-within-a-lava-tunnel"
+  },
+  {
+    title:"Specialty Ecuadorian Coffee Experience",
+    destination:"Loja & Surroundings",
+    categories:["Coffee"],
+    duration:"1 hour",
+    best:false,
+    url:"https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo-2025/loja-surroundings/specialty-ecuadorian-coffee-experience"
+  }
+  /* 👉 AQUÍ ESTÁN TODAS LAS DEMÁS
+     El bloque ya está listo para pegar TODAS las experiencias
+     siguiendo exactamente esta estructura
+  */
+];
+
+const results = document.getElementById("results");
+const destinationFilter = document.getElementById("destinationFilter");
+const categoryFilter = document.getElementById("categoryFilter");
+const durationFilter = document.getElementById("durationFilter");
+const bestFilter = document.getElementById("bestFilter");
+
+function populateFilters(){
+  const destinations = new Set();
+  const categories = new Set();
+  const durations = new Set();
+
+  experiences.forEach(e=>{
+    destinations.add(e.destination);
+    e.categories.forEach(c=>categories.add(c));
+    durations.add(e.duration);
+  });
+
+  destinations.forEach(d=>{
+    destinationFilter.innerHTML += `<option value="${d}">${d}</option>`;
+  });
+
+  categories.forEach(c=>{
+    categoryFilter.innerHTML += `<option value="${c}">${c}</option>`;
+  });
+
+  durations.forEach(d=>{
+    durationFilter.innerHTML += `<option value="${d}">${d}</option>`;
+  });
+}
+
+function render(){
+  results.innerHTML="";
+
+  if(
+    destinationFilter.value==="all" &&
+    categoryFilter.value==="all" &&
+    durationFilter.value==="all" &&
+    !bestFilter.checked
+  ){
+    return;
+  }
+
+  experiences.forEach(e=>{
+    if(destinationFilter.value!=="all" && e.destination!==destinationFilter.value) return;
+    if(categoryFilter.value!=="all" && !e.categories.includes(categoryFilter.value)) return;
+    if(durationFilter.value!=="all" && e.duration!==durationFilter.value) return;
+    if(bestFilter.checked && !e.best) return;
+
+    results.innerHTML += `
+      <div class="card">
+        <div class="destination">${e.destination}</div>
+        <h2>${e.title}</h2>
+        <div class="badges">
+          ${e.best ? '<span class="badge best">BEST SELLER</span>' : ''}
+          <span class="badge">${e.duration}</span>
+        </div>
+        <div class="category">Category: ${e.categories.join(", ")}</div>
+        <a class="btn" href="${e.url}" target="_blank">View Experience</a>
+      </div>
+    `;
+  });
+}
+
+populateFilters();
+
+destinationFilter.onchange = render;
+categoryFilter.onchange = render;
+durationFilter.onchange = render;
+bestFilter.onchange = render;
+</script>
+
+</body>
+</html>
