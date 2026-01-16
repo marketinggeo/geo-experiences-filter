@@ -3,97 +3,114 @@
 <head>
 <meta charset="UTF-8">
 <title>Experiences – Mindo & Surroundings</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- GOOGLE FONT – SAME AS QUITO -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     background: #ffffff;
+    color: #002060;
     margin: 0;
     padding: 0;
 }
 
 .container {
     max-width: 1100px;
-    margin: 0 auto;
-    padding: 20px;
+    margin: 40px auto;
+    padding: 0 20px;
 }
 
 h1 {
-    font-size: 26px;
-    color: #002060;
-    margin-bottom: 15px;
+    font-size: 34px;
+    font-weight: 700;
+    margin-bottom: 25px;
 }
 
 .filters {
+    border: 1px solid #d9d9d9;
+    border-radius: 8px;
+    padding: 20px;
     display: flex;
     flex-wrap: wrap;
-    gap: 15px;
-    margin-bottom: 25px;
+    gap: 20px;
     align-items: center;
+    margin-bottom: 30px;
 }
 
 .filters label {
-    font-weight: bold;
-    margin-right: 5px;
+    font-weight: 600;
+    margin-right: 8px;
 }
 
-.filters select,
+.filters select {
+    padding: 8px 12px;
+    font-family: 'Montserrat', sans-serif;
+}
+
 .filters input[type="checkbox"] {
-    padding: 5px;
-}
-
-.experience-card {
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    padding: 18px;
-    margin-bottom: 18px;
-}
-
-.experience-title {
-    font-size: 18px;
-    font-weight: bold;
-    color: #002060;
-    margin-bottom: 8px;
-}
-
-.badges {
-    margin-bottom: 10px;
-}
-
-.badge {
-    display: inline-block;
-    background: #002060;
-    color: #fff;
-    padding: 4px 8px;
-    border-radius: 4px;
-    font-size: 12px;
+    transform: scale(1.1);
     margin-right: 6px;
 }
 
-.best-seller {
-    background: #f4b400;
-    color: #000;
-    font-weight: bold;
+.experience-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 28px;
+    margin-bottom: 25px;
 }
 
-.category {
-    font-size: 14px;
-    color: #666;
+.experience-title {
+    font-size: 22px;
+    font-weight: 700;
     margin-bottom: 12px;
 }
 
-.btn {
-    display: inline-block;
-    background: #002060;
-    color: #fff;
-    padding: 10px 16px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-size: 14px;
+.badges {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 12px;
 }
 
-.btn:hover {
-    opacity: 0.9;
+.badge {
+    font-size: 13px;
+    font-weight: 600;
+    padding: 5px 10px;
+    border-radius: 6px;
+    display: inline-block;
+}
+
+.badge.duration {
+    background: #002060;
+    color: #ffffff;
+}
+
+.badge.best {
+    background: #f5c400;
+    color: #000000;
+}
+
+.category {
+    font-size: 15px;
+    color: #555555;
+    margin-bottom: 16px;
+}
+
+.view-btn {
+    display: inline-block;
+    background: #002060;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 12px 22px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.view-btn:hover {
+    background: #001744;
 }
 </style>
 </head>
@@ -119,39 +136,32 @@ h1 {
         <label>Filter by Duration:</label>
         <select id="durationFilter">
             <option value="all">All Durations</option>
-            <option value="1">Up to 1 hour</option>
-            <option value="2">Up to 2 hours</option>
+            <option value="1 hour">1 hour</option>
+            <option value="2 hours">2 hours</option>
         </select>
     </div>
 
     <div>
-        <label>
-            <input type="checkbox" id="bestSellerFilter">
-            Show Best Sellers Only
-        </label>
+        <input type="checkbox" id="bestSellerFilter">
+        <label>Show Best Sellers Only</label>
     </div>
 </div>
 
 <!-- EXPERIENCE 1 -->
 <div class="experience-card"
      data-category="Nature"
-     data-duration="1"
-     data-bestseller="no">
+     data-duration="1 hour"
+     data-best="no">
 
-    <div class="experience-title">
-        Close-up Hummingbird watching
-    </div>
+    <div class="experience-title">Close-up Hummingbird watching</div>
 
     <div class="badges">
-        <span class="badge">1 hour</span>
+        <span class="badge duration">1 hour</span>
     </div>
 
-    <div class="category">
-        Category: Nature
-    </div>
+    <div class="category">Category: Nature</div>
 
-    <a class="btn" target="_blank"
-       href="https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo-2025/mindo-surroundings/close-up-hummingbird-watching?authuser=0">
+    <a class="view-btn" href="https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo-2025/mindo-surroundings/close-up-hummingbird-watching?authuser=0" target="_blank">
         View Experience
     </a>
 </div>
@@ -159,23 +169,18 @@ h1 {
 <!-- EXPERIENCE 2 -->
 <div class="experience-card"
      data-category="Culinary"
-     data-duration="2"
-     data-bestseller="no">
+     data-duration="2 hours"
+     data-best="no">
 
-    <div class="experience-title">
-        Mindo Chocolate Makers Cacao & Chocolate Experience (w/ Lunch)
-    </div>
+    <div class="experience-title">Mindo Chocolate Makers Cacao & Chocolate Experience (w/ Lunch)</div>
 
     <div class="badges">
-        <span class="badge">2 hours</span>
+        <span class="badge duration">2 hours</span>
     </div>
 
-    <div class="category">
-        Category: Culinary
-    </div>
+    <div class="category">Category: Culinary</div>
 
-    <a class="btn" target="_blank"
-       href="https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo-2025/mindo-surroundings/mindo-chocolate-makers-cacao-chocolate-experience-w-lunch?authuser=0">
+    <a class="view-btn" href="https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo-2025/mindo-surroundings/mindo-chocolate-makers-cacao-chocolate-experience-w-lunch?authuser=0" target="_blank">
         View Experience
     </a>
 </div>
@@ -183,23 +188,18 @@ h1 {
 <!-- EXPERIENCE 3 -->
 <div class="experience-card"
      data-category="Coffee"
-     data-duration="2"
-     data-bestseller="no">
+     data-duration="2 hours"
+     data-best="no">
 
-    <div class="experience-title">
-        Specialty Ecuadorian Coffee Experience
-    </div>
+    <div class="experience-title">Specialty Ecuadorian Coffee Experience</div>
 
     <div class="badges">
-        <span class="badge">2 hours</span>
+        <span class="badge duration">2 hours</span>
     </div>
 
-    <div class="category">
-        Category: Coffee
-    </div>
+    <div class="category">Category: Coffee</div>
 
-    <a class="btn" target="_blank"
-       href="https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo-2025/mindo-surroundings/specialty-ecuadorian-coffee-experience?authuser=0">
+    <a class="view-btn" href="https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo-2025/mindo-surroundings/specialty-ecuadorian-coffee-experience?authuser=0" target="_blank">
         View Experience
     </a>
 </div>
@@ -212,37 +212,29 @@ const durationFilter = document.getElementById('durationFilter');
 const bestSellerFilter = document.getElementById('bestSellerFilter');
 const cards = document.querySelectorAll('.experience-card');
 
-function filterExperiences() {
+function applyFilters() {
     const category = categoryFilter.value;
     const duration = durationFilter.value;
-    const bestSellerOnly = bestSellerFilter.checked;
+    const bestOnly = bestSellerFilter.checked;
 
     cards.forEach(card => {
         const cardCategory = card.dataset.category;
         const cardDuration = card.dataset.duration;
-        const cardBestSeller = card.dataset.bestseller;
+        const cardBest = card.dataset.best;
 
-        let show = true;
+        let visible = true;
 
-        if (category !== 'all' && cardCategory !== category) {
-            show = false;
-        }
+        if (category !== 'all' && cardCategory !== category) visible = false;
+        if (duration !== 'all' && cardDuration !== duration) visible = false;
+        if (bestOnly && cardBest !== 'yes') visible = false;
 
-        if (duration !== 'all' && parseInt(cardDuration) > parseInt(duration)) {
-            show = false;
-        }
-
-        if (bestSellerOnly && cardBestSeller !== 'yes') {
-            show = false;
-        }
-
-        card.style.display = show ? 'block' : 'none';
+        card.style.display = visible ? 'block' : 'none';
     });
 }
 
-categoryFilter.addEventListener('change', filterExperiences);
-durationFilter.addEventListener('change', filterExperiences);
-bestSellerFilter.addEventListener('change', filterExperiences);
+categoryFilter.addEventListener('change', applyFilters);
+durationFilter.addEventListener('change', applyFilters);
+bestSellerFilter.addEventListener('change', applyFilters);
 </script>
 
 </body>
