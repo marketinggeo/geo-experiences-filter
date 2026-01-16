@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Experiences – Upper Napo Area</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+  font-family: 'Montserrat', sans-serif;
+  background:#ffffff;
+  margin:0;
+  padding:20px;
+}
+
+.container {
+  max-width:1200px;
+  margin:auto;
+}
+
+h1 {
+  color:#002060;
+  font-weight:600;
+  margin-bottom:6px;
+}
+
+.blue-line {
+  height:3px;
+  background:#1a73e8;
+  margin-bottom:25px;
+}
+
+/* FILTERS */
+.filters {
+  border:1px solid #ddd;
+  border-radius:8px;
+  padding:15px 20px;
+  display:flex;
+  align-items:center;
+  gap:25px;
+  flex-wrap:wrap;
+  margin-bottom:30px;
+}
+
+.filters label {
+  font-size:14px;
+  font-weight:500;
+  color:#002060;
+}
+
+.filters select {
+  margin-left:8px;
+  padding:6px 10px;
+  border:1px solid #ccc;
+  border-radius:4px;
+  font-family:'Montserrat';
+}
+
+.filters input {
+  margin-right:6px;
+}
+
+/* CARD */
+.card {
+  border:1px solid #ddd;
+  border-radius:10px;
+  padding:22px;
+  margin-bottom:20px;
+}
+
+.card h2 {
+  color:#002060;
+  font-size:18px;
+  font-weight:600;
+  margin:0 0 10px;
+}
+
+.badges {
+  margin-bottom:10px;
+}
+
+.badge {
+  background:#002060;
+  color:#ffffff;
+  font-size:12px;
+  font-weight:500;
+  padding:4px 10px;
+  border-radius:6px;
+  display:inline-block;
+  margin-right:6px;
+}
+
+.badge.best {
+  background:#fbbc04;
+  color:#000;
+  font-weight:600;
+}
+
+.category {
+  font-size:14px;
+  color:#777;
+  margin-bottom:16px;
+}
+
+.btn {
+  background:#002060;
+  color:#ffffff;
+  padding:10px 18px;
+  border-radius:6px;
+  font-size:14px;
+  font-weight:500;
+  text-decoration:none;
+  display:inline-block;
+}
+
+.btn:hover {
+  opacity:0.9;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<!-- TITLE -->
+<h1>Experiences – Upper Napo Area</h1>
+<div class="blue-line"></div>
+
+<!-- FILTERS -->
+<div class="filters">
+  <label>
+    Filter by Category:
+    <select id="categoryFilter" onchange="applyFilters()">
+      <option value="all">All Categories</option>
+      <option value="Cultural">Cultural</option>
+      <option value="Chocolate">Chocolate</option>
+      <option value="Culinary">Culinary</option>
+    </select>
+  </label>
+
+  <label>
+    Filter by Duration:
+    <select id="durationFilter" onchange="applyFilters()">
+      <option value="all">All Durations</option>
+      <option value="1 hour">1 hour</option>
+    </select>
+  </label>
+
+  <label>
+    <input type="checkbox" id="bestFilter" onchange="applyFilters()">
+    Show Best Sellers Only
+  </label>
+</div>
+
+<!-- EXPERIENCE CARD -->
+<div class="card"
+     data-category="Cultural,Chocolate,Culinary"
+     data-duration="1 hour"
+     data-best="no">
+
+  <h2>The Santa Rita Community and Its Community Tourism & Cacao Project (w/ Lunch)</h2>
+
+  <div class="badges">
+    <span class="badge">1 hour</span>
+  </div>
+
+  <div class="category">
+    Category: Cultural, Chocolate, Culinary
+  </div>
+
+  <a class="btn"
+     href="https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo-2025/upper-napo-area/the-santa-rita-community-and-its-community-tourism-cacao-project-w-lunc?authuser=0"
+     target="_blank">
+    View Experience
+  </a>
+</div>
+
+</div>
+
+<script>
+function applyFilters() {
+  const category = document.getElementById("categoryFilter").value;
+  const duration = document.getElementById("durationFilter").value;
+  const bestOnly = document.getElementById("bestFilter").checked;
+
+  document.querySelectorAll(".card").forEach(card => {
+    const categories = card.dataset.category.split(",");
+    const matchCategory = category === "all" || categories.includes(category);
+    const matchDuration = duration === "all" || card.dataset.duration === duration;
+    const matchBest = !bestOnly || card.dataset.best === "yes";
+
+    card.style.display = (matchCategory && matchDuration && matchBest) ? "block" : "none";
+  });
+}
+</script>
+
+</body>
+</html>
