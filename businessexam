@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Simulador Examen Business Plan – Maestría</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    margin: 0;
+    padding: 20px;
+}
+.container {
+    max-width: 900px;
+    margin: auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+}
+h1 {
+    text-align: center;
+}
+.question {
+    margin-bottom: 25px;
+}
+.options label {
+    display: block;
+    margin: 6px 0;
+    cursor: pointer;
+}
+button {
+    margin-top: 10px;
+    padding: 8px 14px;
+    background: #003366;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+button:hover {
+    background: #00509e;
+}
+.feedback {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 4px;
+}
+.correct {
+    background: #e6f4ea;
+    color: #256029;
+}
+.incorrect {
+    background: #fdecea;
+    color: #8a1c1c;
+}
+.explanation {
+    margin-top: 5px;
+    font-size: 0.95em;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+<h1>Simulador de Examen – Business Plan (Maestría)</h1>
+
+<div id="quiz"></div>
+
+</div>
+
+<script>
+const questions = [
+{
+q: "¿Cuál es la función estratégica principal de un Business Plan en un contexto de incertidumbre?",
+o: [
+"Describir detalladamente todas las actividades operativas",
+"Servir como documento rígido de ejecución",
+"Guiar la toma de decisiones y facilitar la adaptación estratégica",
+"Sustituir la necesidad de investigación de mercado"
+],
+a: 2,
+e: "Un Business Plan moderno es un documento dinámico que orienta decisiones estratégicas y permite ajustes frente a cambios del entorno."
+},
+{
+q: "Según la literatura académica, ¿qué diferencia clave existe entre un Business Plan y un Modelo de Negocio?",
+o: [
+"El Business Plan solo se usa en startups",
+"El modelo de negocio explica cómo se crea y captura valor; el Business Plan operacionaliza esa lógica",
+"Ambos son exactamente lo mismo",
+"El modelo de negocio es más financiero"
+],
+a: 1,
+e: "El modelo de negocio define la lógica de creación de valor, mientras el Business Plan la desarrolla y ejecuta estratégicamente."
+},
+{
+q: "¿Cuál de las siguientes afirmaciones describe mejor el análisis PESTEL?",
+o: [
+"Evalúa únicamente factores internos",
+"Analiza la estructura organizativa",
+"Examina factores macroambientales externos",
+"Sirve para definir precios"
+],
+a: 2,
+e: "PESTEL analiza factores Políticos, Económicos, Sociales, Tecnológicos, Ecológicos y Legales."
+},
+{
+q: "¿Qué objetivo cumple la cadena de valor de Porter dentro del análisis interno?",
+o: [
+"Identificar segmentos de clientes",
+"Determinar precios de mercado",
+"Analizar actividades que generan valor y costos",
+"Evaluar el entorno legal"
+],
+a: 2,
+e: "La cadena de valor permite identificar actividades primarias y de apoyo que generan valor o ineficiencias."
+},
+{
+q: "¿Cuál es el principal riesgo de un análisis FODA mal aplicado?",
+o: [
+"Generar demasiados datos financieros",
+"Convertirse en un ejercicio descriptivo sin impacto estratégico",
+"Excluir factores externos",
+"Duplicar el análisis PESTEL"
+],
+a: 1,
+e: "Un FODA mal aplicado se queda en la descripción y no se traduce en decisiones estratégicas."
+},
+
+/* SEMANA 2 – MODELOS DE NEGOCIO */
+
+{
+q: "Según Osterwalder y Pigneur, un modelo de negocio describe principalmente:",
+o: [
+"La estructura organizativa",
+"Cómo una empresa crea, entrega y captura valor",
+"Las proyecciones financieras",
+"Las campañas de marketing"
+],
+a: 1,
+e: "El modelo de negocio se centra en la lógica de creación, entrega y captura de valor."
+},
+{
+q: "¿Qué ventaja principal ofrece el Lean Canvas frente al Business Model Canvas?",
+o: [
+"Mayor complejidad",
+"Enfoque ágil y validación temprana",
+"Más detalle financiero",
+"Mayor orientación legal"
+],
+a: 1,
+e: "Lean Canvas prioriza hipótesis críticas y validación rápida, ideal para startups."
+},
+{
+q: "¿Qué bloque del Lean Canvas busca proteger el modelo frente a la imitación?",
+o: [
+"Métricas clave",
+"Ventaja injusta",
+"Canales",
+"Estructura de costos"
+],
+a: 1,
+e: "La ventaja injusta es aquello difícil de copiar y clave para la sostenibilidad."
+},
+{
+q: "¿Cuál es el propósito principal del MVP en Lean Startup?",
+o: [
+"Lanzar el producto final",
+"Reducir costos publicitarios",
+"Validar hipótesis con clientes reales",
+"Aumentar márgenes"
+],
+a: 2,
+e: "El MVP permite aprender del mercado con mínima inversión."
+},
+{
+q: "¿Qué metodología se basa en patrones de modelos exitosos existentes?",
+o: [
+"Lean Canvas",
+"Design Thinking",
+"Business Model Navigator",
+"PESTEL"
+],
+a: 2,
+e: "Business Model Navigator se basa en 55 patrones de modelos probados."
+},
+
+/* SEMANA 3 – PLAN DE MARKETING */
+
+{
+q: "¿Cuál es la función principal del plan de marketing dentro del Business Plan?",
+o: [
+"Controlar operaciones internas",
+"Definir la estructura legal",
+"Conectar la propuesta de valor con el mercado",
+"Reemplazar el modelo de negocio"
+],
+a: 2,
+e: "El plan de marketing traduce la estrategia en acciones orientadas al mercado."
+},
+{
+q: "¿Qué caracteriza a un objetivo SMART?",
+o: [
+"Es general y flexible",
+"No tiene límite temporal",
+"Es específico, medible y alcanzable",
+"Se enfoca solo en ventas"
+],
+a: 2,
+e: "SMART garantiza claridad, medición y viabilidad del objetivo."
+},
+{
+q: "¿Cuál es el orden lógico del marketing estratégico?",
+o: [
+"Posicionamiento → Segmentación → Targeting",
+"Segmentación → Targeting → Posicionamiento",
+"Precio → Producto → Plaza",
+"Promoción → Precio → Producto"
+],
+a: 1,
+e: "El proceso estratégico sigue STP: Segmentación, Targeting y Posicionamiento."
+},
+{
+q: "¿Qué herramienta permite relacionar FODA con decisiones estratégicas?",
+o: [
+"PESTEL",
+"TOWS",
+"Canvas",
+"Benchmarking"
+],
+a: 1,
+e: "La matriz TOWS cruza factores internos y externos para generar estrategias."
+},
+{
+q: "¿Cuál de las siguientes NO es una P del marketing mix tradicional?",
+o: [
+"Producto",
+"Precio",
+"Personas",
+"Plaza"
+],
+a: 2,
+e: "Personas pertenece a extensiones del mix, no a las 4P clásicas."
+},
+
+/* SEMANA 4 – IMPLEMENTACIÓN Y CONTROL */
+
+{
+q: "¿Por qué el Business Plan debe considerarse un documento dinámico?",
+o: [
+"Para evitar revisiones",
+"Para ajustarse a cambios del entorno",
+"Para cumplir requisitos legales",
+"Para atraer únicamente inversores"
+],
+a: 1,
+e: "La adaptabilidad es clave en entornos cambiantes."
+},
+{
+q: "¿Qué función cumplen los KPIs?",
+o: [
+"Reemplazar los objetivos",
+"Medir y monitorear el desempeño",
+"Definir la visión",
+"Analizar la competencia"
+],
+a: 1,
+e: "Los KPIs permiten evaluar avances y tomar decisiones correctivas."
+},
+{
+q: "¿Qué análisis evalúa cómo cambian los resultados ante variaciones clave?",
+o: [
+"Benchmarking",
+"Análisis de sensibilidad",
+"PESTEL",
+"Cadena de valor"
+],
+a: 1,
+e: "El análisis de sensibilidad evalúa impactos ante cambios en supuestos."
+},
+{
+q: "¿Qué error es crítico en la implementación del Business Plan?",
+o: [
+"No comunicarlo",
+"No monitorear resultados",
+"No imprimirlo",
+"Usar gráficos"
+],
+a: 1,
+e: "Sin monitoreo, el plan pierde capacidad de control y aprendizaje."
+},
+{
+q: "¿Cuál es el objetivo final de evaluar un Business Plan?",
+o: [
+"Cumplir una tarea académica",
+"Justificar gastos",
+"Tomar decisiones informadas y sostenibles",
+"Eliminar riesgos"
+],
+a: 2,
+e: "El Business Plan sirve para decidir estratégicamente, no para eliminar riesgos."
+}
+];
+
+const quiz = document.getElementById("quiz");
+
+questions.forEach((q, i) => {
+    const div = document.createElement("div");
+    div.className = "question";
+    div.innerHTML = `<strong>${i+1}. ${q.q}</strong>`;
+    const opts = document.createElement("div");
+    opts.className = "options";
+
+    q.o.forEach((opt, idx) => {
+        opts.innerHTML += `
+        <label>
+        <input type="radio" name="q${i}" value="${idx}">
+        ${opt}
+        </label>`;
+    });
+
+    const btn = document.createElement("button");
+    btn.textContent = "Responder";
+    const fb = document.createElement("div");
+
+    btn.onclick = () => {
+        const sel = document.querySelector(`input[name="q${i}"]:checked`);
+        if (!sel) return;
+        fb.className = "feedback " + (sel.value == q.a ? "correct" : "incorrect");
+        fb.innerHTML = sel.value == q.a
+            ? "✔ Respuesta correcta"
+            : "✘ Respuesta incorrecta";
+        fb.innerHTML += `<div class="explanation">${q.e}</div>`;
+    };
+
+    div.appendChild(opts);
+    div.appendChild(btn);
+    div.appendChild(fb);
+    quiz.appendChild(div);
+});
+</script>
+
+</body>
+</html>
