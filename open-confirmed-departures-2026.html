@@ -8,10 +8,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+
 body{
-  font-family: 'Montserrat', sans-serif;
-  background:#f5f6f8;
-  margin:40px;
+  font-family:'Montserrat',sans-serif;
+  margin:0;
+  padding:30px;
+  background:#ffffff;
 }
 
 h2{
@@ -22,11 +24,12 @@ h2{
 .filters{
   display:flex;
   flex-wrap:wrap;
-  gap:12px;
+  gap:10px;
   margin-bottom:25px;
 }
 
 .filter-btn{
+  font-family:'Montserrat',sans-serif;
   padding:8px 16px;
   border-radius:20px;
   border:1px solid #002060;
@@ -47,9 +50,6 @@ h2{
 table{
   width:100%;
   border-collapse:collapse;
-  background:#ffffff;
-  border-radius:8px;
-  overflow:hidden;
 }
 
 thead{
@@ -59,23 +59,18 @@ thead{
 
 th, td{
   padding:14px;
-  text-align:left;
   font-size:14px;
+  text-align:left;
 }
 
 th{
-  font-weight:600;
-  text-transform:uppercase;
   font-size:12px;
+  text-transform:uppercase;
   letter-spacing:0.5px;
 }
 
 tbody tr{
   border-bottom:1px solid #e5e5e5;
-}
-
-tbody tr:last-child{
-  border-bottom:none;
 }
 
 .badge{
@@ -86,11 +81,19 @@ tbody tr:last-child{
   display:inline-block;
 }
 
-.open{ background:#d9f2e3; color:#0c6b3f; }
-.confirmed{ background:#cfe3ff; color:#003b91; }
-.almost{ background:#fff4d6; color:#b26a00; }
-.sold{ background:#ffd6d6; color:#a30000; }
-.promo{ background:#f3e7d9; color:#8a5b00; }
+.open{ background:#e6f4ea; color:#1e7e34; }
+.confirmed{ background:#e0eaff; color:#003b91; }
+.almost{ background:#fff3cd; color:#b26a00; }
+.sold{ background:#f8d7da; color:#842029; }
+
+.promo-box{
+  font-size:12px;
+  color:#8a5b00;
+  background:#f3e7d9;
+  padding:8px;
+  border-radius:6px;
+  line-height:1.4;
+}
 
 .view-link{
   color:#002060;
@@ -106,12 +109,7 @@ tbody tr:last-child{
   table, thead, tbody, th, td, tr{
     display:block;
   }
-  thead{
-    display:none;
-  }
-  td{
-    padding:10px 0;
-  }
+  thead{ display:none; }
   tr{
     margin-bottom:20px;
     border:1px solid #ddd;
@@ -119,6 +117,7 @@ tbody tr:last-child{
     border-radius:6px;
   }
 }
+
 </style>
 </head>
 
@@ -127,12 +126,12 @@ tbody tr:last-child{
 <h2>Open & Confirmed Departures 2026</h2>
 
 <div class="filters">
-  <button class="filter-btn active" onclick="filterTable('all')">All</button>
-  <button class="filter-btn" onclick="filterTable('galapagos')">Galápagos</button>
-  <button class="filter-btn" onclick="filterTable('volcano')">Volcano Avenue</button>
-  <button class="filter-btn" onclick="filterTable('promo')">With Promotions</button>
-  <button class="filter-btn" onclick="filterTable('almost')">Almost Sold Out</button>
-  <button class="filter-btn" onclick="filterTable('sold')">Sold Out</button>
+  <button class="filter-btn active" onclick="filterTable('all', this)">All</button>
+  <button class="filter-btn" onclick="filterTable('galapagos', this)">Galápagos</button>
+  <button class="filter-btn" onclick="filterTable('volcano', this)">Volcano Avenue</button>
+  <button class="filter-btn" onclick="filterTable('promo', this)">With Special Condition</button>
+  <button class="filter-btn" onclick="filterTable('almost', this)">Almost Sold Out</button>
+  <button class="filter-btn" onclick="filterTable('sold', this)">Sold Out</button>
 </div>
 
 <table id="departuresTable">
@@ -142,37 +141,57 @@ tbody tr:last-child{
 <th>Program</th>
 <th>Region</th>
 <th>Status</th>
-<th>Promotion</th>
+<th>Special Condition</th>
 <th>Action</th>
 </tr>
 </thead>
 <tbody>
 
+<!-- LOOP – REGULAR SUNDAYS 2026 -->
+<tr data-region="galapagos" data-status="open" data-promo="no">
+<td>04 Jan 2026</td>
+<td>Galápagos Loop – 6D/5N</td>
+<td>Galápagos</td>
+<td><span class="badge open">OPEN</span></td>
+<td>—</td>
+<td><a href="https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2027/gal%C3%A1pagos/gal%C3%A1pagos-loop" class="view-link">View →</a></td>
+</tr>
+
 <tr data-region="galapagos" data-status="confirmed" data-promo="yes">
-<td>25–30 January 2026</td>
+<td>25–30 Jan 2026</td>
 <td>Galápagos Loop – 6D/5N</td>
 <td>Galápagos</td>
 <td><span class="badge confirmed">CONFIRMED</span></td>
-<td><span class="badge promo">Special Condition</span></td>
-<td><a href="#" class="view-link">View →</a></td>
+<td>
+<div class="promo-box">
+PNG entrance fee OR Dinner at Lava Lounge.<br>
+4+ passengers: both included.
+</div>
+</td>
+<td><a href="https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2027/gal%C3%A1pagos/gal%C3%A1pagos-loop" class="view-link">View →</a></td>
 </tr>
 
 <tr data-region="galapagos" data-status="sold" data-promo="no">
-<td>15–20 February 2026</td>
+<td>15–20 Feb 2026</td>
 <td>Galápagos Loop – 6D/5N</td>
 <td>Galápagos</td>
 <td><span class="badge sold">SOLD OUT</span></td>
 <td>—</td>
-<td><a href="#" class="view-link">View →</a></td>
+<td><a href="https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2027/gal%C3%A1pagos/gal%C3%A1pagos-loop" class="view-link">View →</a></td>
 </tr>
 
 <tr data-region="galapagos" data-status="confirmed" data-promo="yes">
-<td>1–6 March 2026</td>
+<td>01–06 Mar 2026</td>
 <td>Galápagos Loop – 6D/5N</td>
 <td>Galápagos</td>
 <td><span class="badge confirmed">CONFIRMED</span></td>
-<td><span class="badge promo">Special Condition</span></td>
-<td><a href="#" class="view-link">View →</a></td>
+<td>
+<div class="promo-box">
+PNG entrance fee OR Dinner at Lava Lounge.<br>
+4+ passengers: both included.
+</div>
+</td>
+<td><a href="https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2027/gal%C3%A1pagos/gal%C3%A1pagos-loop" class="view-link">View →</a></td>
 </tr>
 
 <tr data-region="galapagos" data-status="confirmed" data-promo="yes">
@@ -180,12 +199,27 @@ tbody tr:last-child{
 <td>Galápagos Loop – 6D/5N</td>
 <td>Galápagos</td>
 <td><span class="badge confirmed">CONFIRMED</span></td>
-<td><span class="badge promo">Special Condition</span></td>
+<td>
+<div class="promo-box">
+PNG entrance fee OR Dinner at Lava Lounge.<br>
+4+ passengers: both included.
+</div>
+</td>
+<td><a href="https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2027/gal%C3%A1pagos/gal%C3%A1pagos-loop" class="view-link">View →</a></td>
+</tr>
+
+<!-- ANDEAN TREASURES -->
+<tr data-region="volcano" data-status="open" data-promo="no">
+<td>07 Jun 2026</td>
+<td>Andean Treasures – 8D/7N</td>
+<td>Volcano Avenue</td>
+<td><span class="badge open">OPEN</span></td>
+<td>—</td>
 <td><a href="#" class="view-link">View →</a></td>
 </tr>
 
 <tr data-region="volcano" data-status="open" data-promo="no">
-<td>June 7, 2026</td>
+<td>05 Jul 2026</td>
 <td>Andean Treasures – 8D/7N</td>
 <td>Volcano Avenue</td>
 <td><span class="badge open">OPEN</span></td>
@@ -194,10 +228,28 @@ tbody tr:last-child{
 </tr>
 
 <tr data-region="volcano" data-status="almost" data-promo="no">
-<td>August 2, 2026</td>
+<td>02 Aug 2026</td>
 <td>Andean Treasures – 8D/7N</td>
 <td>Volcano Avenue</td>
 <td><span class="badge almost">ALMOST SOLD OUT</span></td>
+<td>—</td>
+<td><a href="#" class="view-link">View →</a></td>
+</tr>
+
+<tr data-region="volcano" data-status="open" data-promo="no">
+<td>06 Sep 2026</td>
+<td>Andean Treasures – 8D/7N</td>
+<td>Volcano Avenue</td>
+<td><span class="badge open">OPEN</span></td>
+<td>—</td>
+<td><a href="#" class="view-link">View →</a></td>
+</tr>
+
+<tr data-region="volcano" data-status="open" data-promo="no">
+<td>04 Oct 2026</td>
+<td>Andean Treasures – 8D/7N</td>
+<td>Volcano Avenue</td>
+<td><span class="badge open">OPEN</span></td>
 <td>—</td>
 <td><a href="#" class="view-link">View →</a></td>
 </tr>
@@ -206,12 +258,12 @@ tbody tr:last-child{
 </table>
 
 <script>
-function filterTable(type){
+function filterTable(type, btn){
   let rows = document.querySelectorAll("#departuresTable tbody tr");
   let buttons = document.querySelectorAll(".filter-btn");
   
-  buttons.forEach(btn=>btn.classList.remove("active"));
-  event.target.classList.add("active");
+  buttons.forEach(b=>b.classList.remove("active"));
+  btn.classList.add("active");
 
   rows.forEach(row=>{
     let region = row.dataset.region;
