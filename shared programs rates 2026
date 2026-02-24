@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Geo Boutique | Rates 2026</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+body{
+  font-family:'Montserrat', sans-serif;
+  margin:0;
+  background:#f5f5f5;
+}
+
+.container{
+  max-width:1300px;
+  margin:60px auto;
+  padding:0 20px;
+}
+
+.card-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+}
+
+.rate-card{
+  background:#ffffff;
+  border:1px solid #d9d9d9;
+  padding:40px;
+  cursor:pointer;
+  transition:all 0.25s ease;
+}
+
+.rate-card:hover{
+  border-color:#002060;
+  box-shadow:0 6px 20px rgba(0,0,0,0.06);
+}
+
+.rate-card h2{
+  margin:0 0 10px 0;
+  font-size:20px;
+  font-weight:600;
+  color:#002060;
+}
+
+.rate-card p{
+  margin:0;
+  font-size:14px;
+  color:#555;
+}
+
+.rate-section{
+  display:none;
+  margin-top:60px;
+}
+
+.filter-bar{
+  margin-bottom:30px;
+}
+
+.filter-bar select{
+  padding:10px 14px;
+  font-family:'Montserrat', sans-serif;
+  font-size:13px;
+  border:1px solid #d9d9d9;
+}
+
+.back-btn{
+  margin-bottom:30px;
+  font-size:13px;
+  color:#002060;
+  cursor:pointer;
+}
+
+/* Program wrapper spacing */
+.program{
+  margin-bottom:80px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- MAIN MENU -->
+<div class="card-grid" id="mainMenu">
+    
+  <div class="rate-card" onclick="showSection('galapagos')">
+    <h2>Galápagos Rates 2026</h2>
+    <p>Shared tours and island programs.</p>
+  </div>
+
+  <div class="rate-card">
+    <h2>Mainland Rates 2026</h2>
+    <p>Coming next phase.</p>
+  </div>
+
+</div>
+
+
+<!-- GALAPAGOS SECTION -->
+<div id="galapagos" class="rate-section">
+
+<div class="back-btn" onclick="goBack()">← Back</div>
+
+<div class="filter-bar">
+  <select id="galapagosFilter" onchange="filterPrograms()">
+    <option value="all">All Programs</option>
+    <option value="loop6">Galápagos Loop 6D/5N</option>
+    <option value="loop7">Galápagos Loop 7D/6N Immersive</option>
+    <option value="extension">Post Loop Extension</option>
+    <option value="darwin">Charles Darwin Path</option>
+  </select>
+</div>
+
+<div id="galapagosPrograms">
+
+<!-- ================= LOOP 6D ================= -->
+<div class="program loop6">
+
+<div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:15px;">
+    
+<div>
+<h2 style="margin:0; color:#002060; font-weight:600; font-size:22px;">
+Galápagos Loop 6D/5N
+</h2>
+<div style="font-size:13px; color:#666; margin-top:4px;">
+6 Days / 5 Nights · Every Sunday
+</div>
+</div>
+
+<div>
+<a href="https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2027/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0"
+style="text-decoration:none; color:#002060; font-size:13px; font-weight:500;">
+View Itinerary →
+</a>
+</div>
+
+</div>
+
+
+<div style="overflow-x:auto;">
+<table style="width:100%; border-collapse:collapse; font-size:13px;">
+
+<thead>
+<tr style="background:#002060; color:#ffffff;">
+<th style="padding:12px; border:1px solid #d9d9d9;">CODE</th>
+<th style="padding:12px; border:1px solid #d9d9d9;">PROGRAM</th>
+<th style="padding:12px; border:1px solid #d9d9d9;">ISLANDS</th>
+<th style="padding:12px; border:1px solid #d9d9d9;">DEPARTURES</th>
+<th style="padding:12px; border:1px solid #d9d9d9;">CATEGORY</th>
+<th style="padding:12px; border:1px solid #d9d9d9;">ACCOMMODATION</th>
+<th style="padding:12px; border:1px solid #d9d9d9;">SGL</th>
+<th style="padding:12px; border:1px solid #d9d9d9;">DBL</th>
+<th style="padding:12px; border:1px solid #d9d9d9;">TPL</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr style="background:#F3F3F3;">
+<td style="padding:12px; border:1px solid #d9d9d9;">SG-04-A</td>
+<td style="padding:12px; border:1px solid #d9d9d9; line-height:1.5;">
+The Galápagos Loop 6D/5N<br>
+DAYS OF OPERATION: SUNDAY TO FRIDAY<br>
+WITH AN ENGLISH-SPEAKING TOUR GUIDE
+</td>
+<td style="padding:12px; border:1px solid #d9d9d9; line-height:1.6;">
+Santa Cruz<br>
+Floreana<br>
+Isabela
+</td>
+<td style="padding:12px; border:1px solid #d9d9d9; font-weight:500;">
+EVERY SUNDAY
+</td>
+<td style="padding:12px; border:1px solid #d9d9d9;">Tourist</td>
+<td style="padding:12px; border:1px solid #d9d9d9; line-height:1.6;">
+DEJA VU<br>
+AGUA MARINA<br>
+CALLY
+</td>
+<td style="padding:12px; border:1px solid #d9d9d9; text-align:center;">2.491</td>
+<td style="padding:12px; border:1px solid #d9d9d9; text-align:center;">2.420</td>
+<td style="padding:12px; border:1px solid #d9d9d9; text-align:center;">2.399</td>
+</tr>
+
+<tr>
+<td style="padding:12px; border:1px solid #d9d9d9;">SG-04-A</td>
+<td style="padding:12px; border:1px solid #d9d9d9; line-height:1.5;">
+The Galápagos Loop 6D/5N<br>
+DAYS OF OPERATION: SUNDAY TO FRIDAY<br>
+WITH AN ENGLISH-SPEAKING TOUR GUIDE
+</td>
+<td style="padding:12px; border:1px solid #d9d9d9; line-height:1.6;">
+Santa Cruz<br>
+Floreana<br>
+Isabela
+</td>
+<td style="padding:12px; border:1px solid #d9d9d9; font-weight:500;">
+EVERY SUNDAY
+</td>
+<td style="padding:12px; border:1px solid #d9d9d9;">Tourist - Tourist Superior</td>
+<td style="padding:12px; border:1px solid #d9d9d9; line-height:1.6;">
+VILLA LAGUNA<br>
+AGUA MARINA (SANTA MARÍA)<br>
+VOLCANO
+</td>
+<td style="padding:12px; border:1px solid #d9d9d9; text-align:center;">2.757</td>
+<td style="padding:12px; border:1px solid #d9d9d9; text-align:center;">2.477</td>
+<td style="padding:12px; border:1px solid #d9d9d9; text-align:center;">2.440</td>
+</tr>
+
+<tr style="background:#F3F3F3;">
+<td style="padding:12px; border:1px solid #d9d9d9;">SG-04-A</td>
+<td style="padding:12px; border:1px solid #d9d9d9; line-height:1.5;">
+The Galápagos Loop 6D/5N<br>
+DAYS OF OPERATION: SUNDAY TO FRIDAY<br>
+WITH AN ENGLISH-SPEAKING TOUR GUIDE
+</td>
+<td style="padding:12px; border:1px solid #d9d9d9; line-height:1.6;">
+Santa Cruz<br>
+Floreana<br>
+Isabela
+</td>
+<td style="padding:12px; border:1px solid #d9d9d9; font-weight:500;">
+EVERY SUNDAY
+</td>
+<td style="padding:12px; border:1px solid #d9d9d9;">First Class</td>
+<td style="padding:12px; border:1px solid #d9d9d9; line-height:1.6;">
+IKALA SUITE<br>
+AGUA MARINA<br>
+CASA MARITA OCEAN FRONT
+</td>
+<td style="padding:12px; border:1px solid #d9d9d9; text-align:center;">3.349</td>
+<td style="padding:12px; border:1px solid #d9d9d9; text-align:center;">2.803</td>
+<td style="padding:12px; border:1px solid #d9d9d9; text-align:center;">2.696</td>
+</tr>
+
+</tbody>
+</table>
+</div>
+
+</div>
+<!-- ================= LOOP 7D IMMERSIVE ================= -->
+<div class="program loop7">
+
+<div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:15px;">
+    
+<div>
+<h2 style="margin:0; color:#002060; font-weight:600; font-size:22px;">
+Galápagos Loop 7D/6N – Immersive Experience
+</h2>
+<div style="font-size:13px; color:#666; margin-top:4px;">
+7 Days / 6 Nights · Every Saturday
+</div>
+</div>
+
+<div>
+<a href="https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2027/gal%C3%A1pagos/gal%C3%A1pagos-loop-immersive-experience?authuser=0"
+style="text-decoration:none; color:#002060; font-size:13px; font-weight:500;">
+View Itinerary →
+</a>
+</div>
+
+</div>
+
+<div style="overflow-x:auto;">
+<table style="width:100%; border-collapse:collapse; font-size:13px;">
+
+<thead>
+<tr style="background:#002060; color:#ffffff;">
+<th style="padding:12px; border:1px solid #d9d9d9;">CODE</th>
+<th style="padding:12px; border:1px solid #d9d9d9;">PROGRAM</th>
+<th style="padding:12px; border:1px solid #d9d9d9;">ISLANDS</th>
+<th style="padding:12px; border:1px solid #d9d9d9;">DEPARTURES</th>
+<th style="padding:12px; border:1px solid #d9d9d9;">CATEGORY</th>
+<th style="padding:12px; border:1px solid #d9d9d9;">ACCOMMODATION</th>
+<th style="padding:12px; border:1px solid #d9d9d9;">SGL</th>
+<th style="padding:12px; border:1px solid #d9d9d9;">DBL</th>
+<th style="padding:12px; border:1px solid #d9d9d9;">TPL</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr style="background:#F3F3F3;">
+<td style="padding:12px; border:1px solid #d9d9d9;">SG-04-B</td>
+<td style="padding:12px; border:1px solid #d9d9d9; line-height:1.5;">
+The Galápagos Loop 7D/6N – The Immersive Experience<br>
+DAYS OF OPERATION: SATURDAY TO FRIDAY<br>
+WITH AN ENGLISH-SPEAKING TOUR GUIDE
+</td>
+<td style="padding:12px; border:1px solid #d9d9d9; line-height:1.6;">
+Santa Cruz<br>
+Floreana<br>
+Isabela
+</td>
+<td style="padding:12px; border:1px solid #d9d9d9; font-weight:500;">
+EVERY SATURDAY
+</td>
+<td style="padding:12px; border:1px solid #d9d9d9;">Tourist</td>
+<td style="padding:12px; border:1px solid #d9d9d9; line-height:1.6;">
+DEJA VU<br>
+AGUA MARINA<br>
+CALLY
+</td>
+<td style="padding:12px; border:1px solid #d9d9d9; text-align:center;">2.877</td>
+<td style="padding:12px; border:1px solid #d9d9d9; text-align:center;">2.794</td>
+<td style="padding:12px; border:1px solid #d9d9d9; text-align:center;">2.764</td>
+</tr>
+
+<tr>
+<td style="padding:12px; border:1px solid #d9d9d9;">SG-04-B</td>
+<td style="padding:12px; border:1px solid #d9d9d9; line-height:1.5;">
+The Galápagos Loop 7D/6N – The Immersive Experience<br>
+DAYS OF OPERATION: SATURDAY TO FRIDAY<br>
+WITH AN ENGLISH-SPEAKING TOUR GUIDE
+</td>
+<td style="padding:12px; border:1px solid #d9d9d9; line-height:1.6;">
+Santa Cruz<br>
+Floreana<br>
+Isabela
+</td>
+<td style="padding:12px; border:1px solid #d9d9d9; font-weight:500;">
+EVERY SATURDAY
+</td>
+<td style="padding:12px; border:1px solid #d9d9d9;">Tourist - Tourist Superior</td>
+<td style="padding:12px; border:1px solid #d9d9d9; line-height:1.6;">
+VILLA LAGUNA<br>
+AGUA MARINA (SANTA MARÍA)<br>
+VOLCANO
+</td>
+<td style="padding:12px; border:1px solid #d9d9d9; text-align:center;">3.143</td>
+<td style="padding:12px; border:1px solid #d9d9d9; text-align:center;">2.851</td>
+<td style="padding:12px; border:1px solid #d9d9d9; text-align:center;">2.805</td>
+</tr>
+
+<tr style="background:#F3F3F3;">
+<td style="padding:12px; border:1px solid #d9d9d9;">SG-04-B</td>
+<td style="padding:12px; border:1px solid #d9d9d9; line-height:1.5;">
+The Galápagos Loop 7D/6N – The Immersive Experience<br>
+DAYS OF OPERATION: SATURDAY TO FRIDAY<br>
+WITH AN ENGLISH-SPEAKING TOUR GUIDE
+</td>
+<td style="padding:12px; border:1px solid #d9d9d9; line-height:1.6;">
+Santa Cruz<br>
+Floreana<br>
+Isabela
+</td>
+<td style="padding:12px; border:1px solid #d9d9d9; font-weight:500;">
+EVERY SATURDAY
+</td>
+<td style="padding:12px; border:1px solid #d9d9d9;">First Class</td>
+<td style="padding:12px; border:1px solid #d9d9d9; line-height:1.6;">
+IKALA SUITE<br>
+AGUA MARINA<br>
+CASA MARITA OCEAN FRONT
+</td>
+<td style="padding:12px; border:1px solid #d9d9d9; text-align:center;">3.735</td>
+<td style="padding:12px; border:1px solid #d9d9d9; text-align:center;">3.177</td>
+<td style="padding:12px; border:1px solid #d9d9d9; text-align:center;">3.061</td>
+</tr>
+
+</tbody>
+</table>
+</div>
+
+</div>
+<!-- ================= EXTENSION ================= -->
+<div class="program extension">
+
+<div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:15px;">
+    
+<div>
+<h2 style="margin:0; color:#002060; font-weight:600; font-size:22px;">
+Post Galápagos Loop Extension 3D/2N
+</h2>
+<div style="font-size:13px; color:#666; margin-top:4px;">
+3 Days / 2 Nights · Every Friday (Post Loop)
+</div>
+</div>
+
+</div>
+
+<div style="overflow-x:auto;">
+<table style="width:100%; border-collapse:collapse; font-size:13px;">
+
+<thead>
+<tr style="background:#002060; color:#ffffff;">
+<th style="padding:12px; border:1px solid #d9d9d9;">CODE</th>
+<th style="padding:12px; border:1px solid #d9d9d9;">PROGRAM</th>
+<th style="padding:12px; border:1px solid #d9d9d9;">ISLAND</th>
+<th style="padding:12px; border:1px solid #d9d9d9;">DEPARTURES</th>
+<th style="padding:12px; border:1px solid #d9d9d9;">CATEGORY</th>
+<th style="padding:12px; border:1px solid #d9d9d9;">ACCOMMODATION</th>
+<th style="padding:12px; border:1px solid #d9d9d9;">SGL</th>
+<th style="padding:12px; border:1px solid #d9d9d9;">DBL</th>
+<th style="padding:12px; border:1px solid #d9d9d9;">TPL</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr style="background:#F3F3F3;">
+<td style="padding:12px; border:1px solid #d9d9d9;">SG-04</td>
+<td style="padding:12px; border:1px solid #d9d9d9;">
+Extension Post Galápagos Loop 3D/2N
+</td>
+<td style="padding:12px; border:1px solid #d9d9d9;">Santa Cruz</td>
+<td style="padding:12px; border:1px solid #d9d9d9; font-weight:500;">
+EVERY FRIDAY (Post Loop)
+</td>
+<td style="padding:12px; border:1px solid #d9d9d9;">Tourist</td>
+<td style="padding:12px; border:1px solid #d9d9d9;">DEJA VU</td>
+<td style="padding:12px; border:1px solid #d9d9d9; text-align:center;">877</td>
+<td style="padding:12px; border:1px solid #d9d9d9; text-align:center;">852</td>
+<td style="padding:12px; border:1px solid #d9d9d9; text-align:center;">844</td>
+</tr>
+
+<tr>
+<td style="padding:12px; border:1px solid #d9d9d9;">SG-04</td>
+<td style="padding:12px; border:1px solid #d9d9d9;">
+Extension Post Galápagos Loop 3D/2N
+</td>
+<td style="padding:12px; border:1px solid #d9d9d9;">Santa Cruz</td>
+<td style="padding:12px; border:1px solid #d9d9d9; font-weight:500;">
+EVERY FRIDAY (Post Loop)
+</td>
+<td style="padding:12px; border:1px solid #d9d9d9;">Tourist Superior</td>
+<td style="padding:12px; border:1px solid #d9d9d9;">VILLA LAGUNA</td>
+<td style="padding:12px; border:1px solid #d9d9d9; text-align:center;">985</td>
+<td style="padding:12px; border:1px solid #d9d9d9; text-align:center;">869</td>
+<td style="padding:12px; border:1px solid #d9d9d9; text-align:center;">849</td>
+</tr>
+
+<tr style="background:#F3F3F3;">
+<td style="padding:12px; border:1px solid #d9d9d9;">SG-04</td>
+<td style="padding:12px; border:1px solid #d9d9d9;">
+Extension Post Galápagos Loop 3D/2N
+</td>
+<td style="padding:12px; border:1px solid #d9d9d9;">Santa Cruz</td>
+<td style="padding:12px; border:1px solid #d9d9d9; font-weight:500;">
+EVERY FRIDAY (Post Loop)
+</td>
+<td style="padding:12px; border:1px solid #d9d9d9;">First Class</td>
+<td style="padding:12px; border:1px solid #d9d9d9;">IKALA SUITE</td>
+<td style="padding:12px; border:1px solid #d9d9d9; text-align:center;">1.341</td>
+<td style="padding:12px; border:1px solid #d9d9d9; text-align:center;">1.077</td>
+<td style="padding:12px; border:1px solid #d9d9d9; text-align:center;">753</td>
+</tr>
+
+</tbody>
+</table>
+</div>
+
+</div>
+
+
+
+<!-- ================= CHARLES DARWIN PATH ================= -->
+<div class="program darwin">
+
+<div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:15px;">
+    
+<div>
+<h2 style="margin:0; color:#002060; font-weight:600; font-size:22px;">
+Charles Darwin Path 8D/7N
+</h2>
+<div style="font-size:13px; color:#666; margin-top:4px;">
+8 Days / 7 Nights · Every Friday
+</div>
+</div>
+
+<div>
+<a href="https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2027/gal%C3%A1pagos/charles-darwin-path?authuser=0"
+style="text-decoration:none; color:#002060; font-size:13px; font-weight:500;">
+View Itinerary →
+</a>
+</div>
+
+</div>
+
+<!-- (Tabla Darwin completa va aquí — continúa en el siguiente bloque para evitar corte) -->
+
+</div>
+<!-- CONTINUACIÓN TABLA CHARLES DARWIN -->
+
+<div style="overflow-x:auto;">
+<table style="width:100%; border-collapse:collapse; font-size:13px;">
+
+<thead>
+<tr style="background:#002060; color:#ffffff;">
+<th style="padding:12px; border:1px solid #d9d9d9;">CODE</th>
+<th style="padding:12px; border:1px solid #d9d9d9;">PROGRAM</th>
+<th style="padding:12px; border:1px solid #d9d9d9;">ISLANDS</th>
+<th style="padding:12px; border:1px solid #d9d9d9;">DEPARTURES</th>
+<th style="padding:12px; border:1px solid #d9d9d9;">CATEGORY</th>
+<th style="padding:12px; border:1px solid #d9d9d9;">ACCOMMODATION</th>
+<th style="padding:12px; border:1px solid #d9d9d9;">SGL</th>
+<th style="padding:12px; border:1px solid #d9d9d9;">DBL</th>
+<th style="padding:12px; border:1px solid #d9d9d9;">TPL</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr style="background:#F3F3F3;">
+<td style="padding:12px; border:1px solid #d9d9d9;">SG-05</td>
+<td style="padding:12px; border:1px solid #d9d9d9; line-height:1.5;">
+Charles Darwin Path 8D/7N<br>
+DAYS OF OPERATION: FRIDAY TO FRIDAY<br>
+WITH AN ENGLISH-SPEAKING TOUR GUIDE
+</td>
+<td style="padding:12px; border:1px solid #d9d9d9; line-height:1.6;">
+Cristobal<br>
+Santa Cruz<br>
+Floreana<br>
+Isabela
+</td>
+<td style="padding:12px; border:1px solid #d9d9d9; font-weight:500;">
+EVERY FRIDAY
+</td>
+<td style="padding:12px; border:1px solid #d9d9d9;">Tourist</td>
+<td style="padding:12px; border:1px solid #d9d9d9; line-height:1.6;">
+PIMAMPIRO<br>
+DEJA VU<br>
+AGUA MARINA<br>
+CALLY
+</td>
+<td style="padding:12px; border:1px solid #d9d9d9; text-align:center;">3.146</td>
+<td style="padding:12px; border:1px solid #d9d9d9; text-align:center;">3.053</td>
+<td style="padding:12px; border:1px solid #d9d9d9; text-align:center;">3.022</td>
+</tr>
+
+<tr>
+<td style="padding:12px; border:1px solid #d9d9d9;">SG-05</td>
+<td style="padding:12px; border:1px solid #d9d9d9; line-height:1.5;">
+Charles Darwin Path 8D/7N<br>
+DAYS OF OPERATION: FRIDAY TO FRIDAY<br>
+WITH AN ENGLISH-SPEAKING TOUR GUIDE
+</td>
+<td style="padding:12px; border:1px solid #d9d9d9; line-height:1.6;">
+Cristobal<br>
+Santa Cruz<br>
+Floreana<br>
+Isabela
+</td>
+<td style="padding:12px; border:1px solid #d9d9d9; font-weight:500;">
+EVERY FRIDAY
+</td>
+<td style="padding:12px; border:1px solid #d9d9d9;">Tourist Superior</td>
+<td style="padding:12px; border:1px solid #d9d9d9; line-height:1.6;">
+KATARMA<br>
+VILLA LAGUNA<br>
+AGUA MARINA (SANTA MARÍA)<br>
+VOLCANO
+</td>
+<td style="padding:12px; border:1px solid #d9d9d9; text-align:center;">3.518</td>
+<td style="padding:12px; border:1px solid #d9d9d9; text-align:center;">3.180</td>
+<td style="padding:12px; border:1px solid #d9d9d9; text-align:center;">3.117</td>
+</tr>
+
+<tr style="background:#F3F3F3;">
+<td style="padding:12px; border:1px solid #d9d9d9;">SG-05</td>
+<td style="padding:12px; border:1px solid #d9d9d9; line-height:1.5;">
+Charles Darwin Path 8D/7N<br>
+DAYS OF OPERATION: FRIDAY TO FRIDAY<br>
+WITH AN ENGLISH-SPEAKING TOUR GUIDE
+</td>
+<td style="padding:12px; border:1px solid #d9d9d9; line-height:1.6;">
+Cristobal<br>
+Santa Cruz<br>
+Floreana<br>
+Isabela
+</td>
+<td style="padding:12px; border:1px solid #d9d9d9; font-weight:500;">
+EVERY FRIDAY
+</td>
+<td style="padding:12px; border:1px solid #d9d9d9;">First Class</td>
+<td style="padding:12px; border:1px solid #d9d9d9; line-height:1.6;">
+CASA OPUNTIA (SUITE)<br>
+IKALA SUITE<br>
+AGUA MARINA<br>
+CASA MARITA OCEAN FRONT
+</td>
+<td style="padding:12px; border:1px solid #d9d9d9; text-align:center;">4.334</td>
+<td style="padding:12px; border:1px solid #d9d9d9; text-align:center;">3.602</td>
+<td style="padding:12px; border:1px solid #d9d9d9; text-align:center;">3.439</td>
+</tr>
+
+</tbody>
+</table>
+</div>
+
+</div>
+
+
+
+<!-- ================= SUPPLEMENTS ================= -->
+<div class="program supplements">
+
+<h2 style="margin:60px 0 15px 0; color:#002060; font-weight:600; font-size:22px;">
+Galápagos Supplements
+</h2>
+
+<div style="overflow-x:auto;">
+<table style="width:100%; border-collapse:collapse; font-size:13px;">
+
+<thead>
+<tr style="background:#002060; color:#ffffff;">
+<th style="padding:12px; border:1px solid #d9d9d9;">Supplement Description</th>
+<th style="padding:12px; border:1px solid #d9d9d9;">Net Rate (USD) Per Person</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr style="background:#F3F3F3;">
+<td style="padding:12px; border:1px solid #d9d9d9;">
+Extra private transfer in Santa Cruz (English-speaking driver)<br>
+Minimum 2 pax
+</td>
+<td style="padding:12px; border:1px solid #d9d9d9;">
+71 (1–2 Pax)<br>
+49 (3–4 Pax)
+</td>
+</tr>
+
+<tr>
+<td style="padding:12px; border:1px solid #d9d9d9;">
+Supplement for shared Tunnels instead of Tintoreras (optional)
+</td>
+<td style="padding:12px; border:1px solid #d9d9d9;">
+120
+</td>
+</tr>
+
+</tbody>
+</table>
+</div>
+
+</div>
+
+
+
+</div>
+</div>
+</div>
+
+
+
+<script>
+function showSection(section){
+document.getElementById('mainMenu').style.display='none';
+document.getElementById(section).style.display='block';
+}
+
+function goBack(){
+document.getElementById('mainMenu').style.display='grid';
+document.getElementById('galapagos').style.display='none';
+}
+
+function filterPrograms(){
+const filterValue = document.getElementById('galapagosFilter').value;
+const programs = document.getElementsByClassName('program');
+
+for(let i=0;i<programs.length;i++){
+if(filterValue==='all'){
+programs[i].style.display='block';
+}else{
+if(programs[i].classList.contains(filterValue)){
+programs[i].style.display='block';
+}else{
+programs[i].style.display='none';
+}
+}
+}
+}
+</script>
+
+</body>
+</html>
