@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Geo Boutique | Rates 2026</title>
+<title>Geo Boutique | Shared Programs Rates 2026</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
 
@@ -67,6 +67,7 @@ body{
   padding:10px 14px;
   font-size:13px;
   border:1px solid #d9d9d9;
+  font-family:'Montserrat', sans-serif;
 }
 
 .program{
@@ -77,6 +78,44 @@ body{
   display:none !important;
 }
 
+table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:13px;
+  font-family:'Montserrat', sans-serif;
+}
+
+th{
+  background:#002060;
+  color:#fff;
+  padding:12px;
+  border:1px solid #d9d9d9;
+  font-weight:500;
+}
+
+td{
+  padding:12px;
+  border:1px solid #d9d9d9;
+}
+
+.alt{
+  background:#F3F3F3;
+}
+
+.program h2{
+  color:#002060;
+  font-size:22px;
+  font-weight:600;
+  margin-bottom:10px;
+}
+
+.program a{
+  font-size:13px;
+  font-weight:500;
+  color:#002060;
+  text-decoration:none;
+}
+
 </style>
 </head>
 
@@ -84,311 +123,139 @@ body{
 
 <div class="container">
 
-<!-- MAIN MENU -->
+<!-- ================= MENU ================= -->
 <div id="mainMenu" class="card-grid">
 
 <div class="rate-card" onclick="showSection('galapagos')">
 <h2>Galápagos Rates 2026</h2>
-<p>Shared tours and island programs.</p>
+<p>Shared island programs.</p>
 </div>
 
 <div class="rate-card" onclick="showSection('mainland')">
 <h2>Mainland Rates 2026</h2>
-<p>Shared mainland programs.</p>
+<p>Shared continental programs.</p>
 </div>
 
 </div>
 
-<!-- GALAPAGOS SECTION -->
+<!-- ================= GALÁPAGOS ================= -->
 <div id="galapagos" class="rate-section">
 
 <div class="back-btn" onclick="goBack()">← Back</div>
 
 <div class="filter-bar">
-<select onchange="filterPrograms(this, 'galapagos')">
+<select onchange="filterPrograms(this,'galapagos')">
 <option value="all">All Programs</option>
 <option value="loop6">Galápagos Loop 6D/5N</option>
 <option value="loop7">Galápagos Loop 7D/6N</option>
 <option value="darwin">Charles Darwin Path</option>
+<option value="extension">Extension</option>
 </select>
 </div>
 
-<div class="programs-wrapper">
-<!-- PROGRAMS GO HERE -->
+<!-- LOOP 6D -->
+<div class="program" data-category="loop6">
+<h2>Galápagos Loop 6D/5N</h2>
+<a href="https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2027/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0">View Itinerary →</a>
+<table>
+<tr><th>Category</th><th>SGL</th><th>DBL</th><th>TPL</th></tr>
+<tr class="alt"><td>Tourist</td><td>2.491</td><td>2.420</td><td>2.399</td></tr>
+<tr><td>Tourist - Tourist Superior</td><td>2.757</td><td>2.477</td><td>2.440</td></tr>
+<tr class="alt"><td>First Class</td><td>3.349</td><td>2.803</td><td>2.696</td></tr>
+</table>
+</div>
+
+<!-- LOOP 7D -->
+<div class="program" data-category="loop7">
+<h2>Galápagos Loop 7D/6N – Immersive Experience</h2>
+<a href="https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2027/gal%C3%A1pagos/gal%C3%A1pagos-loop-immersive-experience?authuser=0">View Itinerary →</a>
+<table>
+<tr><th>Category</th><th>SGL</th><th>DBL</th><th>TPL</th></tr>
+<tr class="alt"><td>Tourist</td><td>2.877</td><td>2.794</td><td>2.764</td></tr>
+<tr><td>Tourist - Tourist Superior</td><td>3.143</td><td>2.851</td><td>2.805</td></tr>
+<tr class="alt"><td>First Class</td><td>3.735</td><td>3.177</td><td>3.061</td></tr>
+</table>
+</div>
+
+<!-- DARWIN -->
+<div class="program" data-category="darwin">
+<h2>Charles Darwin Path 8D/7N</h2>
+<a href="https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2027/gal%C3%A1pagos/charles-darwin-path?authuser=0">View Itinerary →</a>
+<table>
+<tr><th>Category</th><th>SGL</th><th>DBL</th><th>TPL</th></tr>
+<tr class="alt"><td>Tourist</td><td>3.146</td><td>3.053</td><td>3.022</td></tr>
+<tr><td>Tourist Superior</td><td>3.518</td><td>3.180</td><td>3.117</td></tr>
+<tr class="alt"><td>First Class</td><td>4.334</td><td>3.602</td><td>3.439</td></tr>
+</table>
+</div>
+
+<!-- EXTENSION -->
+<div class="program" data-category="extension">
+<h2>Extension Post Galápagos Loop 3D/2N</h2>
+<table>
+<tr><th>Category</th><th>SGL</th><th>DBL</th><th>TPL</th></tr>
+<tr class="alt"><td>Tourist</td><td>877</td><td>852</td><td>844</td></tr>
+<tr><td>Tourist Superior</td><td>985</td><td>869</td><td>849</td></tr>
+<tr class="alt"><td>First Class</td><td>1.341</td><td>1.077</td><td>753</td></tr>
+</table>
 </div>
 
 </div>
 
-<!-- MAINLAND SECTION -->
+<!-- ================= MAINLAND ================= -->
 <div id="mainland" class="rate-section">
 
 <div class="back-btn" onclick="goBack()">← Back</div>
 
 <div class="filter-bar">
-<select onchange="filterPrograms(this, 'mainland')">
+<select onchange="filterPrograms(this,'mainland')">
 <option value="all">All Programs</option>
-<option value="volcano3d">Volcano Avenue 3D/2N</option>
-<option value="volcano5d">Volcano Avenue 5D/4N</option>
-<option value="volcano6d">Volcano Avenue 6D/5N</option>
+<option value="andean">Andean Treasures</option>
+<option value="volcano3d">Volcano 3D/2N</option>
+<option value="volcano5d">Volcano 5D/4N</option>
+<option value="volcano6d">Volcano 6D/5N</option>
 </select>
 </div>
 
-<div class="programs-wrapper">
-<!-- ================= GALÁPAGOS PROGRAMS ================= -->
-
-<!-- LOOP 6D -->
-<div class="program" data-category="loop6">
-
-<h2 style="color:#002060; font-weight:600; font-size:22px; margin-bottom:10px;">
-Galápagos Loop 6D/5N
-</h2>
-
-<a href="https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2027/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0"
-style="font-size:13px; font-weight:500; color:#002060; text-decoration:none;">
-View Itinerary →
-</a>
-
-<div style="margin-top:20px; overflow-x:auto;">
-<table style="width:100%; border-collapse:collapse; font-size:13px;">
-<thead>
-<tr style="background:#002060; color:#fff;">
-<th style="padding:12px; border:1px solid #d9d9d9;">CATEGORY</th>
-<th style="padding:12px; border:1px solid #d9d9d9;">SGL</th>
-<th style="padding:12px; border:1px solid #d9d9d9;">DBL</th>
-<th style="padding:12px; border:1px solid #d9d9d9;">TPL</th>
-</tr>
-</thead>
-<tbody>
-<tr style="background:#F3F3F3;">
-<td style="padding:12px; border:1px solid #d9d9d9;">Tourist</td>
-<td style="text-align:center; border:1px solid #d9d9d9;">2.491</td>
-<td style="text-align:center; border:1px solid #d9d9d9;">2.420</td>
-<td style="text-align:center; border:1px solid #d9d9d9;">2.399</td>
-</tr>
-<tr>
-<td style="padding:12px; border:1px solid #d9d9d9;">Tourist - Tourist Superior</td>
-<td style="text-align:center; border:1px solid #d9d9d9;">2.757</td>
-<td style="text-align:center; border:1px solid #d9d9d9;">2.477</td>
-<td style="text-align:center; border:1px solid #d9d9d9;">2.440</td>
-</tr>
-<tr style="background:#F3F3F3;">
-<td style="padding:12px; border:1px solid #d9d9d9;">First Class</td>
-<td style="text-align:center; border:1px solid #d9d9d9;">3.349</td>
-<td style="text-align:center; border:1px solid #d9d9d9;">2.803</td>
-<td style="text-align:center; border:1px solid #d9d9d9;">2.696</td>
-</tr>
-</tbody>
+<!-- ANDES -->
+<div class="program" data-category="andean">
+<h2>Andean Treasures 8D/7N</h2>
+<a href="https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2027/volcano-avenue/andean-treasures?authuser=0">View Itinerary →</a>
+<table>
+<tr><th>Category</th><th>DBL</th><th>S.S</th></tr>
+<tr class="alt"><td>Standard</td><td>1.395</td><td>166</td></tr>
+<tr><td>Superior</td><td>1.571</td><td>400</td></tr>
 </table>
 </div>
 
 </div>
 
-<!-- LOOP 7D IMMERSIVE -->
-<div class="program" data-category="loop7" style="margin-top:80px;">
-
-<h2 style="color:#002060; font-weight:600; font-size:22px; margin-bottom:10px;">
-Galápagos Loop 7D/6N – Immersive Experience
-</h2>
-
-<a href="https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2027/gal%C3%A1pagos/gal%C3%A1pagos-loop-immersive-experience?authuser=0"
-style="font-size:13px; font-weight:500; color:#002060; text-decoration:none;">
-View Itinerary →
-</a>
-
-<div style="margin-top:20px; overflow-x:auto;">
-<table style="width:100%; border-collapse:collapse; font-size:13px;">
-<thead>
-<tr style="background:#002060; color:#fff;">
-<th style="padding:12px; border:1px solid #d9d9d9;">CATEGORY</th>
-<th style="padding:12px; border:1px solid #d9d9d9;">SGL</th>
-<th style="padding:12px; border:1px solid #d9d9d9;">DBL</th>
-<th style="padding:12px; border:1px solid #d9d9d9;">TPL</th>
-</tr>
-</thead>
-<tbody>
-<tr style="background:#F3F3F3;">
-<td style="padding:12px; border:1px solid #d9d9d9;">Tourist</td>
-<td style="text-align:center; border:1px solid #d9d9d9;">2.877</td>
-<td style="text-align:center; border:1px solid #d9d9d9;">2.794</td>
-<td style="text-align:center; border:1px solid #d9d9d9;">2.764</td>
-</tr>
-<tr>
-<td style="padding:12px; border:1px solid #d9d9d9;">Tourist - Tourist Superior</td>
-<td style="text-align:center; border:1px solid #d9d9d9;">3.143</td>
-<td style="text-align:center; border:1px solid #d9d9d9;">2.851</td>
-<td style="text-align:center; border:1px solid #d9d9d9;">2.805</td>
-</tr>
-<tr style="background:#F3F3F3;">
-<td style="padding:12px; border:1px solid #d9d9d9;">First Class</td>
-<td style="text-align:center; border:1px solid #d9d9d9;">3.735</td>
-<td style="text-align:center; border:1px solid #d9d9d9;">3.177</td>
-<td style="text-align:center; border:1px solid #d9d9d9;">3.061</td>
-</tr>
-</tbody>
-</table>
 </div>
 
-</div>
-
-<!-- CHARLES DARWIN -->
-<div class="program" data-category="darwin" style="margin-top:80px;">
-
-<h2 style="color:#002060; font-weight:600; font-size:22px;">
-Charles Darwin Path 8D/7N
-</h2>
-
-<a href="https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2027/gal%C3%A1pagos/charles-darwin-path?authuser=0"
-style="font-size:13px; font-weight:500; color:#002060; text-decoration:none;">
-View Itinerary →
-</a>
-
-<div style="margin-top:20px; overflow-x:auto;">
-<table style="width:100%; border-collapse:collapse; font-size:13px;">
-<thead>
-<tr style="background:#002060; color:#fff;">
-<th style="padding:12px; border:1px solid #d9d9d9;">CATEGORY</th>
-<th style="padding:12px; border:1px solid #d9d9d9;">SGL</th>
-<th style="padding:12px; border:1px solid #d9d9d9;">DBL</th>
-<th style="padding:12px; border:1px solid #d9d9d9;">TPL</th>
-</tr>
-</thead>
-<tbody>
-<tr style="background:#F3F3F3;">
-<td style="padding:12px; border:1px solid #d9d9d9;">Tourist</td>
-<td style="text-align:center; border:1px solid #d9d9d9;">3.146</td>
-<td style="text-align:center; border:1px solid #d9d9d9;">3.053</td>
-<td style="text-align:center; border:1px solid #d9d9d9;">3.022</td>
-</tr>
-<tr>
-<td style="padding:12px; border:1px solid #d9d9d9;">Tourist Superior</td>
-<td style="text-align:center; border:1px solid #d9d9d9;">3.518</td>
-<td style="text-align:center; border:1px solid #d9d9d9;">3.180</td>
-<td style="text-align:center; border:1px solid #d9d9d9;">3.117</td>
-</tr>
-<tr style="background:#F3F3F3;">
-<td style="padding:12px; border:1px solid #d9d9d9;">First Class</td>
-<td style="text-align:center; border:1px solid #d9d9d9;">4.334</td>
-<td style="text-align:center; border:1px solid #d9d9d9;">3.602</td>
-<td style="text-align:center; border:1px solid #d9d9d9;">3.439</td>
-</tr>
-</tbody>
-</table>
-</div>
-
-</div>
-
-<!-- EXTENSION -->
-<div class="program" data-category="extension" style="margin-top:80px;">
-
-<h2 style="color:#002060; font-weight:600; font-size:22px;">
-Extension Post Galápagos Loop 3D/2N
-</h2>
-
-<div style="margin-top:20px; overflow-x:auto;">
-<table style="width:100%; border-collapse:collapse; font-size:13px;">
-<thead>
-<tr style="background:#002060; color:#fff;">
-<th style="padding:12px; border:1px solid #d9d9d9;">CATEGORY</th>
-<th style="padding:12px; border:1px solid #d9d9d9;">SGL</th>
-<th style="padding:12px; border:1px solid #d9d9d9;">DBL</th>
-<th style="padding:12px; border:1px solid #d9d9d9;">TPL</th>
-</tr>
-</thead>
-<tbody>
-<tr style="background:#F3F3F3;">
-<td style="padding:12px; border:1px solid #d9d9d9;">Tourist</td>
-<td style="text-align:center; border:1px solid #d9d9d9;">877</td>
-<td style="text-align:center; border:1px solid #d9d9d9;">852</td>
-<td style="text-align:center; border:1px solid #d9d9d9;">844</td>
-</tr>
-<tr>
-<td style="padding:12px; border:1px solid #d9d9d9;">Tourist Superior</td>
-<td style="text-align:center; border:1px solid #d9d9d9;">985</td>
-<td style="text-align:center; border:1px solid #d9d9d9;">869</td>
-<td style="text-align:center; border:1px solid #d9d9d9;">849</td>
-</tr>
-<tr style="background:#F3F3F3;">
-<td style="padding:12px; border:1px solid #d9d9d9;">First Class</td>
-<td style="text-align:center; border:1px solid #d9d9d9;">1.341</td>
-<td style="text-align:center; border:1px solid #d9d9d9;">1.077</td>
-<td style="text-align:center; border:1px solid #d9d9d9;">753</td>
-</tr>
-</tbody>
-</table>
-</div>
-
-</div>
-</div>
-
-</div>
-
-</div>
 <script>
 
 function showSection(sectionId){
-
-  // Ocultar menú principal
-  document.getElementById('mainMenu').style.display = 'none';
-
-  // Ocultar todas las secciones
-  const sections = document.querySelectorAll('.rate-section');
-  sections.forEach(section => {
-    section.style.display = 'none';
-  });
-
-  // Mostrar la sección solicitada
-  const activeSection = document.getElementById(sectionId);
-  activeSection.style.display = 'block';
-
-  // Resetear filtro al entrar
-  const select = activeSection.querySelector('select');
-  if(select){
-    select.value = 'all';
-    filterPrograms(select, sectionId);
-  }
-
+document.getElementById('mainMenu').style.display='none';
+document.querySelectorAll('.rate-section').forEach(s=>s.style.display='none');
+document.getElementById(sectionId).style.display='block';
+const select=document.getElementById(sectionId).querySelector('select');
+if(select){select.value='all';filterPrograms(select,sectionId);}
 }
 
 function goBack(){
+document.getElementById('mainMenu').style.display='grid';
+document.querySelectorAll('.rate-section').forEach(s=>s.style.display='none');
+}
 
-  // Mostrar menú principal
-  document.getElementById('mainMenu').style.display = 'grid';
-
-  // Ocultar todas las secciones
-  const sections = document.querySelectorAll('.rate-section');
-  sections.forEach(section => {
-    section.style.display = 'none';
-  });
-
+function filterPrograms(select,sectionId){
+const value=select.value;
+document.getElementById(sectionId).querySelectorAll('.program').forEach(p=>{
+if(value==='all'||p.dataset.category===value){p.classList.remove('hidden');}
+else{p.classList.add('hidden');}
+});
 }
 
 </script>
-<script>
 
-function filterPrograms(selectElement, sectionId){
-
-  const selectedValue = selectElement.value;
-
-  // Obtener la sección activa (galapagos o mainland)
-  const section = document.getElementById(sectionId);
-
-  // Obtener SOLO los programas dentro de esa sección
-  const programs = section.querySelectorAll('.program');
-
-  programs.forEach(program => {
-
-    if(selectedValue === 'all'){
-      program.classList.remove('hidden');
-    } else {
-      if(program.dataset.category === selectedValue){
-        program.classList.remove('hidden');
-      } else {
-        program.classList.add('hidden');
-      }
-    }
-
-  });
-
-}
-
-</script>
+</body>
+</html>
