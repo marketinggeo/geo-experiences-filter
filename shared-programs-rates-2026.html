@@ -140,3 +140,43 @@ body{
 </div>
 
 </div>
+<script>
+
+function showSection(sectionId){
+
+  // Ocultar menú principal
+  document.getElementById('mainMenu').style.display = 'none';
+
+  // Ocultar todas las secciones
+  const sections = document.querySelectorAll('.rate-section');
+  sections.forEach(section => {
+    section.style.display = 'none';
+  });
+
+  // Mostrar la sección solicitada
+  const activeSection = document.getElementById(sectionId);
+  activeSection.style.display = 'block';
+
+  // Resetear filtro al entrar
+  const select = activeSection.querySelector('select');
+  if(select){
+    select.value = 'all';
+    filterPrograms(select, sectionId);
+  }
+
+}
+
+function goBack(){
+
+  // Mostrar menú principal
+  document.getElementById('mainMenu').style.display = 'grid';
+
+  // Ocultar todas las secciones
+  const sections = document.querySelectorAll('.rate-section');
+  sections.forEach(section => {
+    section.style.display = 'none';
+  });
+
+}
+
+</script>
