@@ -630,36 +630,6 @@ Supplement for shared Tunnels instead of Tintoreras (optional)
 </div>
 </div>
 </div>
-
-
-
-<script>
-function showSection(section){
-document.getElementById('mainMenu').style.display='none';
-document.getElementById(section).style.display='block';
-}
-
-function goBack(){
-document.getElementById('mainMenu').style.display='grid';
-document.getElementById('galapagos').style.display='none';
-}
-
-function filterPrograms(){
-const filterValue = document.getElementById('galapagosFilter').value;
-const programs = document.getElementsByClassName('program');
-
-for(let i=0;i<programs.length;i++){
-if(filterValue==='all'){
-programs[i].style.display='block';
-}else{
-if(programs[i].classList.contains(filterValue)){
-programs[i].style.display='block';
-}else{
-programs[i].style.display='none';
-}
-}
-}
-}
 <!-- ================= MAINLAND SECTION ================= -->
 <div id="mainland" class="rate-section" style="display:none;">
 
@@ -685,8 +655,46 @@ style="padding:8px 12px; font-family:'Montserrat', sans-serif; font-size:13px; b
 
 <!-- PROGRAMS WILL BE INSERTED BELOW -->
 
-</div> 
-</script>
+</div>
+<script>
 
-</body>
-</html>
+function showSection(section){
+  document.getElementById('mainMenu').style.display = 'none';
+
+  var sections = document.getElementsByClassName('rate-section');
+  for (var i = 0; i < sections.length; i++) {
+    sections[i].style.display = 'none';
+  }
+
+  document.getElementById(section).style.display = 'block';
+}
+
+function goBack(){
+  document.getElementById('mainMenu').style.display = 'grid';
+
+  var sections = document.getElementsByClassName('rate-section');
+  for (var i = 0; i < sections.length; i++) {
+    sections[i].style.display = 'none';
+  }
+}
+
+function filterPrograms(value){
+
+  var programs = document.getElementsByClassName('program');
+
+  for (var i = 0; i < programs.length; i++) {
+
+    if(value === 'all'){
+      programs[i].style.display = 'block';
+    } else {
+      if(programs[i].classList.contains(value)){
+        programs[i].style.display = 'block';
+      } else {
+        programs[i].style.display = 'none';
+      }
+    }
+
+  }
+}
+
+</script>
