@@ -15,7 +15,7 @@ body{
 }
 
 .container{
-  max-width:1400px;
+  max-width:1500px;
   margin:60px auto;
   padding:0 20px;
 }
@@ -31,17 +31,6 @@ body{
   border:1px solid #d9d9d9;
   padding:40px;
   cursor:pointer;
-  transition:.25s ease;
-}
-
-.rate-card:hover{
-  border-color:#002060;
-  box-shadow:0 8px 25px rgba(0,0,0,0.05);
-}
-
-.rate-card h2{
-  margin:0 0 10px;
-  color:#002060;
 }
 
 .rate-section{
@@ -57,7 +46,7 @@ body{
 }
 
 .filter-bar{
-  margin-bottom:40px;
+  margin-bottom:30px;
 }
 
 .filter-bar select{
@@ -65,14 +54,6 @@ body{
   font-family:'Montserrat', sans-serif;
   font-size:13px;
   border:1px solid #d9d9d9;
-}
-
-.program{
-  margin-bottom:80px;
-}
-
-.hidden{
-  display:none !important;
 }
 
 table{
@@ -99,14 +80,12 @@ td{
   background:#f0f6fb;
 }
 
-h2{
-  color:#002060;
-  margin-bottom:10px;
+.hidden{
+  display:none !important;
 }
 
-p{
-  font-size:13px;
-  line-height:1.5;
+h2{
+  color:#002060;
 }
 </style>
 </head>
@@ -115,19 +94,14 @@ p{
 
 <div class="container">
 
-<!-- ================= MENU ================= -->
+<!-- MENU -->
 <div id="mainMenu" class="card-grid">
-
 <div class="rate-card" onclick="showSection('galapagos')">
 <h2>Galápagos Rates 2026</h2>
-<p>Shared island programs</p>
 </div>
-
 <div class="rate-card" onclick="showSection('mainland')">
 <h2>Mainland Rates 2026</h2>
-<p>Shared continental programs</p>
 </div>
-
 </div>
 
 <!-- ================= GALÁPAGOS ================= -->
@@ -139,33 +113,31 @@ p{
 <select onchange="filterPrograms(this,'galapagos')">
 <option value="all">All Programs</option>
 <option value="loop6">Galápagos Loop 6D/5N</option>
-<option value="loop7">Galápagos Loop 7D/6N Immersive</option>
+<option value="loop7">Galápagos Loop 7D/6N</option>
 <option value="extension">Extension</option>
 <option value="darwin">Charles Darwin Path</option>
 </select>
 </div>
 
-<!-- LOOP 6D -->
-<div class="program" data-category="loop6">
-
-<h2>SG-04-A | Galápagos Loop 6D/5N</h2>
-<p>
-<strong>Days of Operation:</strong> Sunday to Friday<br>
-<strong>Departures:</strong> Every Sunday<br>
-<strong>Islands:</strong> Santa Cruz – Floreana – Isabela<br>
-With an English-speaking tour guide
-</p>
-
 <table>
 <tr>
-<th>Category</th>
-<th>Accommodation</th>
+<th>CODE</th>
+<th>PROGRAM</th>
+<th>ISLANDS</th>
+<th>DEPARTURES 2026</th>
+<th>CATEGORY</th>
+<th>ACCOMMODATION</th>
 <th>SGL</th>
 <th>DBL</th>
 <th>TPL</th>
 </tr>
 
-<tr class="alt">
+<!-- LOOP 6D -->
+<tr class="program alt" data-category="loop6">
+<td>SG-04-A</td>
+<td>The Galápagos Loop 6D/5N<br>DAYS: Sunday to Friday<br>English-speaking guide</td>
+<td>Santa Cruz<br>Floreana<br>Isabela</td>
+<td>Every Sunday</td>
 <td>Tourist</td>
 <td>DEJA VU<br>AGUA MARINA<br>CALLY</td>
 <td>2.491</td>
@@ -173,7 +145,11 @@ With an English-speaking tour guide
 <td>2.399</td>
 </tr>
 
-<tr>
+<tr class="program" data-category="loop6">
+<td>SG-04-A</td>
+<td>The Galápagos Loop 6D/5N</td>
+<td>Santa Cruz<br>Floreana<br>Isabela</td>
+<td>Every Sunday</td>
 <td>Tourist - Tourist Superior</td>
 <td>VILLA LAGUNA<br>AGUA MARINA (Santa María)<br>VOLCANO</td>
 <td>2.757</td>
@@ -181,7 +157,11 @@ With an English-speaking tour guide
 <td>2.440</td>
 </tr>
 
-<tr class="alt">
+<tr class="program alt" data-category="loop6">
+<td>SG-04-A</td>
+<td>The Galápagos Loop 6D/5N</td>
+<td>Santa Cruz<br>Floreana<br>Isabela</td>
+<td>Every Sunday</td>
 <td>First Class</td>
 <td>IKALA SUITE<br>AGUA MARINA<br>CASA MARITA OCEAN FRONT</td>
 <td>3.349</td>
@@ -189,31 +169,12 @@ With an English-speaking tour guide
 <td>2.696</td>
 </tr>
 
-</table>
-</div>
-
-
 <!-- LOOP 7D -->
-<div class="program" data-category="loop7">
-
-<h2>SG-04-B | Galápagos Loop 7D/6N – The Immersive Experience</h2>
-<p>
-<strong>Days of Operation:</strong> Saturday to Friday<br>
-<strong>Departures:</strong> Every Saturday<br>
-<strong>Islands:</strong> Santa Cruz – Floreana – Isabela<br>
-With an English-speaking tour guide
-</p>
-
-<table>
-<tr>
-<th>Category</th>
-<th>Accommodation</th>
-<th>SGL</th>
-<th>DBL</th>
-<th>TPL</th>
-</tr>
-
-<tr class="alt">
+<tr class="program" data-category="loop7">
+<td>SG-04-B</td>
+<td>The Galápagos Loop 7D/6N – Immersive<br>DAYS: Saturday to Friday<br>English-speaking guide</td>
+<td>Santa Cruz<br>Floreana<br>Isabela</td>
+<td>Every Saturday</td>
 <td>Tourist</td>
 <td>DEJA VU<br>AGUA MARINA<br>CALLY</td>
 <td>2.877</td>
@@ -221,7 +182,11 @@ With an English-speaking tour guide
 <td>2.764</td>
 </tr>
 
-<tr>
+<tr class="program alt" data-category="loop7">
+<td>SG-04-B</td>
+<td>The Galápagos Loop 7D/6N – Immersive</td>
+<td>Santa Cruz<br>Floreana<br>Isabela</td>
+<td>Every Saturday</td>
 <td>Tourist - Tourist Superior</td>
 <td>VILLA LAGUNA<br>AGUA MARINA (Santa María)<br>VOLCANO</td>
 <td>3.143</td>
@@ -229,7 +194,11 @@ With an English-speaking tour guide
 <td>2.805</td>
 </tr>
 
-<tr class="alt">
+<tr class="program" data-category="loop7">
+<td>SG-04-B</td>
+<td>The Galápagos Loop 7D/6N – Immersive</td>
+<td>Santa Cruz<br>Floreana<br>Isabela</td>
+<td>Every Saturday</td>
 <td>First Class</td>
 <td>IKALA SUITE<br>AGUA MARINA<br>CASA MARITA OCEAN FRONT</td>
 <td>3.735</td>
@@ -237,29 +206,12 @@ With an English-speaking tour guide
 <td>3.061</td>
 </tr>
 
-</table>
-</div>
-
-
 <!-- EXTENSION -->
-<div class="program" data-category="extension">
-
-<h2>SG-04 (Extension) | Post Galápagos Loop 3D/2N</h2>
-<p>
-<strong>Departures:</strong> Every Friday (Post Loop)<br>
-<strong>Island:</strong> Santa Cruz
-</p>
-
-<table>
-<tr>
-<th>Category</th>
-<th>Accommodation</th>
-<th>SGL</th>
-<th>DBL</th>
-<th>TPL</th>
-</tr>
-
-<tr class="alt">
+<tr class="program alt" data-category="extension">
+<td>SG-04 (Extension)</td>
+<td>Extension Post Galápagos Loop 3D/2N</td>
+<td>Santa Cruz</td>
+<td>Every Friday (Post Loop)</td>
 <td>Tourist</td>
 <td>DEJA VU</td>
 <td>877</td>
@@ -267,7 +219,11 @@ With an English-speaking tour guide
 <td>844</td>
 </tr>
 
-<tr>
+<tr class="program" data-category="extension">
+<td>SG-04 (Extension)</td>
+<td>Extension Post Galápagos Loop 3D/2N</td>
+<td>Santa Cruz</td>
+<td>Every Friday (Post Loop)</td>
 <td>Tourist Superior</td>
 <td>VILLA LAGUNA</td>
 <td>985</td>
@@ -275,7 +231,11 @@ With an English-speaking tour guide
 <td>849</td>
 </tr>
 
-<tr class="alt">
+<tr class="program alt" data-category="extension">
+<td>SG-04 (Extension)</td>
+<td>Extension Post Galápagos Loop 3D/2N</td>
+<td>Santa Cruz</td>
+<td>Every Friday (Post Loop)</td>
 <td>First Class</td>
 <td>IKALA SUITE</td>
 <td>1.341</td>
@@ -283,31 +243,12 @@ With an English-speaking tour guide
 <td>753</td>
 </tr>
 
-</table>
-</div>
-
-
 <!-- DARWIN -->
-<div class="program" data-category="darwin">
-
-<h2>SG-05 | Charles Darwin Path 8D/7N</h2>
-<p>
-<strong>Days of Operation:</strong> Friday to Friday<br>
-<strong>Departures:</strong> Every Friday<br>
-<strong>Islands:</strong> Cristobal – Santa Cruz – Floreana – Isabela<br>
-With an English-speaking tour guide
-</p>
-
-<table>
-<tr>
-<th>Category</th>
-<th>Accommodation</th>
-<th>SGL</th>
-<th>DBL</th>
-<th>TPL</th>
-</tr>
-
-<tr class="alt">
+<tr class="program" data-category="darwin">
+<td>SG-05</td>
+<td>Charles Darwin Path 8D/7N<br>DAYS: Friday to Friday<br>English-speaking guide</td>
+<td>Cristobal<br>Santa Cruz<br>Floreana<br>Isabela</td>
+<td>Every Friday</td>
 <td>Tourist</td>
 <td>PIMAMPIRO<br>DEJA VU<br>AGUA MARINA<br>CALLY</td>
 <td>3.146</td>
@@ -315,7 +256,11 @@ With an English-speaking tour guide
 <td>3.022</td>
 </tr>
 
-<tr>
+<tr class="program alt" data-category="darwin">
+<td>SG-05</td>
+<td>Charles Darwin Path 8D/7N</td>
+<td>Cristobal<br>Santa Cruz<br>Floreana<br>Isabela</td>
+<td>Every Friday</td>
 <td>Tourist Superior</td>
 <td>KATARMA<br>VILLA LAGUNA<br>AGUA MARINA (Santa María)<br>VOLCANO</td>
 <td>3.518</td>
@@ -323,7 +268,11 @@ With an English-speaking tour guide
 <td>3.117</td>
 </tr>
 
-<tr class="alt">
+<tr class="program" data-category="darwin">
+<td>SG-05</td>
+<td>Charles Darwin Path 8D/7N</td>
+<td>Cristobal<br>Santa Cruz<br>Floreana<br>Isabela</td>
+<td>Every Friday</td>
 <td>First Class</td>
 <td>CASA OPUNTIA (Suite)<br>IKALA SUITE<br>AGUA MARINA<br>CASA MARITA OCEAN FRONT</td>
 <td>4.334</td>
@@ -332,12 +281,11 @@ With an English-speaking tour guide
 </tr>
 
 </table>
-</div>
 
+<br><br>
 
-<!-- SUPPLEMENTS -->
-<div style="margin-top:100px;">
 <h2>Supplements</h2>
+
 <table>
 <tr>
 <th>Supplement Description</th>
@@ -346,7 +294,7 @@ With an English-speaking tour guide
 
 <tr class="alt">
 <td>
-Extra private transfer in Santa Cruz (English-speaking driver)<br>
+Extra private transfer in Santa Cruz (English speaking driver)<br>
 Minimum 2 pax
 </td>
 <td>
@@ -356,19 +304,16 @@ Minimum 2 pax
 </tr>
 
 <tr>
-<td>
-Supplement for shared Tunnels instead of Tintoreras (optional)
-</td>
+<td>Supplement for shared Tunnels instead of Tintoreras (optional)</td>
 <td>120</td>
 </tr>
 
 </table>
-</div>
 
 </div>
 
 
-<!-- ================= MAINLAND (SOLO FILTRO POR AHORA) ================= -->
+<!-- ================= MAINLAND (SOLO FILTRO) ================= -->
 <div id="mainland" class="rate-section">
 
 <div class="back-btn" onclick="goBack()">← Back</div>
@@ -385,45 +330,33 @@ Supplement for shared Tunnels instead of Tintoreras (optional)
 </select>
 </div>
 
-<!-- (SIN PROGRAMAS AÚN, SOLO FILTRO PARA PRUEBA) -->
-
 </div>
 
 </div>
-
 
 <script>
-
 function showSection(id){
-  document.getElementById('mainMenu').style.display='none';
-  document.querySelectorAll('.rate-section').forEach(sec => sec.style.display='none');
-  document.getElementById(id).style.display='block';
-
-  const select = document.getElementById(id).querySelector('select');
-  if(select){
-    select.value='all';
-    filterPrograms(select,id);
-  }
+document.getElementById('mainMenu').style.display='none';
+document.querySelectorAll('.rate-section').forEach(sec=>sec.style.display='none');
+document.getElementById(id).style.display='block';
 }
 
 function goBack(){
-  document.getElementById('mainMenu').style.display='grid';
-  document.querySelectorAll('.rate-section').forEach(sec => sec.style.display='none');
+document.getElementById('mainMenu').style.display='grid';
+document.querySelectorAll('.rate-section').forEach(sec=>sec.style.display='none');
 }
 
 function filterPrograms(select,sectionId){
-  const value = select.value;
-  const programs = document.getElementById(sectionId).querySelectorAll('.program');
-
-  programs.forEach(program => {
-    if(value === 'all' || program.dataset.category === value){
-      program.classList.remove('hidden');
-    } else {
-      program.classList.add('hidden');
-    }
-  });
+const value=select.value;
+const programs=document.getElementById(sectionId).querySelectorAll('.program');
+programs.forEach(program=>{
+if(value==='all'||program.dataset.category===value){
+program.classList.remove('hidden');
+}else{
+program.classList.add('hidden');
 }
-
+});
+}
 </script>
 
 </body>
