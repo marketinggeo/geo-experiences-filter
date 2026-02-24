@@ -8,7 +8,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
 
 <style>
-
 body{
   font-family:'Montserrat', sans-serif;
   margin:0;
@@ -82,7 +81,6 @@ table{
   width:100%;
   border-collapse:collapse;
   font-size:13px;
-  font-family:'Montserrat', sans-serif;
 }
 
 th{
@@ -115,7 +113,6 @@ td{
   color:#002060;
   text-decoration:none;
 }
-
 </style>
 </head>
 
@@ -125,7 +122,6 @@ td{
 
 <!-- ================= MENU ================= -->
 <div id="mainMenu" class="card-grid">
-
 <div class="rate-card" onclick="showSection('galapagos')">
 <h2>Galápagos Rates 2026</h2>
 <p>Shared island programs.</p>
@@ -135,7 +131,6 @@ td{
 <h2>Mainland Rates 2026</h2>
 <p>Shared continental programs.</p>
 </div>
-
 </div>
 
 <!-- ================= GALÁPAGOS ================= -->
@@ -200,6 +195,16 @@ td{
 </table>
 </div>
 
+<!-- SUPPLEMENTS (SIEMPRE VISIBLES) -->
+<div style="margin-top:80px;">
+<h2>Supplements</h2>
+<table>
+<tr><th>Description</th><th>Net Rate (USD)</th></tr>
+<tr class="alt"><td>Extra private transfer in Santa Cruz (English-speaking driver) – Min 2 pax</td><td>71 (1–2 Pax) / 49 (3–4 Pax)</td></tr>
+<tr><td>Shared Tunnels instead of Tintoreras (optional)</td><td>120</td></tr>
+</table>
+</div>
+
 </div>
 
 <!-- ================= MAINLAND ================= -->
@@ -210,6 +215,7 @@ td{
 <div class="filter-bar">
 <select onchange="filterPrograms(this,'mainland')">
 <option value="all">All Programs</option>
+<option value="quito">Shared Tours Departing from Quito</option>
 <option value="andean">Andean Treasures</option>
 <option value="volcano3d">Volcano 3D/2N</option>
 <option value="volcano5d">Volcano 5D/4N</option>
@@ -217,7 +223,20 @@ td{
 </select>
 </div>
 
-<!-- ANDES -->
+<!-- QUITO DAILY -->
+<div class="program" data-category="quito">
+<h2>Shared Tours Departing from Quito</h2>
+<a href="https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2027/volcano-avenue/shared-tours-departing-from-quito?authuser=0">View Itinerary →</a>
+<table>
+<tr><th>Program</th><th>Net Rate</th></tr>
+<tr class="alt"><td>Walking Quito City Tour</td><td>24</td></tr>
+<tr><td>Quito & Middle of the World</td><td>60</td></tr>
+<tr class="alt"><td>Otavalo Indigenous Market</td><td>75</td></tr>
+<tr><td>Cotopaxi National Park</td><td>75</td></tr>
+</table>
+</div>
+
+<!-- ANDEAN TREASURES -->
 <div class="program" data-category="andean">
 <h2>Andean Treasures 8D/7N</h2>
 <a href="https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2027/volcano-avenue/andean-treasures?authuser=0">View Itinerary →</a>
@@ -233,13 +252,12 @@ td{
 </div>
 
 <script>
-
-function showSection(sectionId){
+function showSection(id){
 document.getElementById('mainMenu').style.display='none';
 document.querySelectorAll('.rate-section').forEach(s=>s.style.display='none');
-document.getElementById(sectionId).style.display='block';
-const select=document.getElementById(sectionId).querySelector('select');
-if(select){select.value='all';filterPrograms(select,sectionId);}
+document.getElementById(id).style.display='block';
+const select=document.getElementById(id).querySelector('select');
+if(select){select.value='all';filterPrograms(select,id);}
 }
 
 function goBack(){
@@ -254,7 +272,6 @@ if(value==='all'||p.dataset.category===value){p.classList.remove('hidden');}
 else{p.classList.add('hidden');}
 });
 }
-
 </script>
 
 </body>
