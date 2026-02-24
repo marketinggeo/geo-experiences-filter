@@ -180,3 +180,32 @@ function goBack(){
 }
 
 </script>
+<script>
+
+function filterPrograms(selectElement, sectionId){
+
+  const selectedValue = selectElement.value;
+
+  // Obtener la sección activa (galapagos o mainland)
+  const section = document.getElementById(sectionId);
+
+  // Obtener SOLO los programas dentro de esa sección
+  const programs = section.querySelectorAll('.program');
+
+  programs.forEach(program => {
+
+    if(selectedValue === 'all'){
+      program.classList.remove('hidden');
+    } else {
+      if(program.dataset.category === selectedValue){
+        program.classList.remove('hidden');
+      } else {
+        program.classList.add('hidden');
+      }
+    }
+
+  });
+
+}
+
+</script>
