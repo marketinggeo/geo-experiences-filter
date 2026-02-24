@@ -11,11 +11,11 @@
 body{
   font-family:'Montserrat', sans-serif;
   margin:0;
-  background:#f5f5f5;
+  background:#f4f4f4;
 }
 
 .container{
-  max-width:1300px;
+  max-width:1400px;
   margin:60px auto;
   padding:0 20px;
 }
@@ -31,18 +31,16 @@ body{
   border:1px solid #d9d9d9;
   padding:40px;
   cursor:pointer;
-  transition:all 0.25s ease;
+  transition:.25s ease;
 }
 
 .rate-card:hover{
   border-color:#002060;
-  box-shadow:0 6px 20px rgba(0,0,0,0.06);
+  box-shadow:0 8px 25px rgba(0,0,0,0.05);
 }
 
 .rate-card h2{
-  margin:0 0 10px 0;
-  font-size:20px;
-  font-weight:600;
+  margin:0 0 10px;
   color:#002060;
 }
 
@@ -54,19 +52,19 @@ body{
 .back-btn{
   margin-bottom:30px;
   font-size:13px;
-  color:#002060;
   cursor:pointer;
+  color:#002060;
 }
 
 .filter-bar{
-  margin-bottom:30px;
+  margin-bottom:40px;
 }
 
 .filter-bar select{
-  padding:10px 14px;
+  padding:10px 15px;
+  font-family:'Montserrat', sans-serif;
   font-size:13px;
   border:1px solid #d9d9d9;
-  font-family:'Montserrat', sans-serif;
 }
 
 .program{
@@ -88,30 +86,27 @@ th{
   color:#fff;
   padding:12px;
   border:1px solid #d9d9d9;
-  font-weight:500;
+  text-align:left;
 }
 
 td{
   padding:12px;
   border:1px solid #d9d9d9;
+  vertical-align:top;
 }
 
 .alt{
-  background:#F3F3F3;
+  background:#f0f6fb;
 }
 
-.program h2{
+h2{
   color:#002060;
-  font-size:22px;
-  font-weight:600;
   margin-bottom:10px;
 }
 
-.program a{
+p{
   font-size:13px;
-  font-weight:500;
-  color:#002060;
-  text-decoration:none;
+  line-height:1.5;
 }
 </style>
 </head>
@@ -122,15 +117,17 @@ td{
 
 <!-- ================= MENU ================= -->
 <div id="mainMenu" class="card-grid">
+
 <div class="rate-card" onclick="showSection('galapagos')">
 <h2>Galápagos Rates 2026</h2>
-<p>Shared island programs.</p>
+<p>Shared island programs</p>
 </div>
 
 <div class="rate-card" onclick="showSection('mainland')">
 <h2>Mainland Rates 2026</h2>
-<p>Shared continental programs.</p>
+<p>Shared continental programs</p>
 </div>
+
 </div>
 
 <!-- ================= GALÁPAGOS ================= -->
@@ -142,72 +139,236 @@ td{
 <select onchange="filterPrograms(this,'galapagos')">
 <option value="all">All Programs</option>
 <option value="loop6">Galápagos Loop 6D/5N</option>
-<option value="loop7">Galápagos Loop 7D/6N</option>
-<option value="darwin">Charles Darwin Path</option>
+<option value="loop7">Galápagos Loop 7D/6N Immersive</option>
 <option value="extension">Extension</option>
+<option value="darwin">Charles Darwin Path</option>
 </select>
 </div>
 
 <!-- LOOP 6D -->
 <div class="program" data-category="loop6">
-<h2>Galápagos Loop 6D/5N</h2>
-<a href="https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2027/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0">View Itinerary →</a>
+
+<h2>SG-04-A | Galápagos Loop 6D/5N</h2>
+<p>
+<strong>Days of Operation:</strong> Sunday to Friday<br>
+<strong>Departures:</strong> Every Sunday<br>
+<strong>Islands:</strong> Santa Cruz – Floreana – Isabela<br>
+With an English-speaking tour guide
+</p>
+
 <table>
-<tr><th>Category</th><th>SGL</th><th>DBL</th><th>TPL</th></tr>
-<tr class="alt"><td>Tourist</td><td>2.491</td><td>2.420</td><td>2.399</td></tr>
-<tr><td>Tourist - Tourist Superior</td><td>2.757</td><td>2.477</td><td>2.440</td></tr>
-<tr class="alt"><td>First Class</td><td>3.349</td><td>2.803</td><td>2.696</td></tr>
+<tr>
+<th>Category</th>
+<th>Accommodation</th>
+<th>SGL</th>
+<th>DBL</th>
+<th>TPL</th>
+</tr>
+
+<tr class="alt">
+<td>Tourist</td>
+<td>DEJA VU<br>AGUA MARINA<br>CALLY</td>
+<td>2.491</td>
+<td>2.420</td>
+<td>2.399</td>
+</tr>
+
+<tr>
+<td>Tourist - Tourist Superior</td>
+<td>VILLA LAGUNA<br>AGUA MARINA (Santa María)<br>VOLCANO</td>
+<td>2.757</td>
+<td>2.477</td>
+<td>2.440</td>
+</tr>
+
+<tr class="alt">
+<td>First Class</td>
+<td>IKALA SUITE<br>AGUA MARINA<br>CASA MARITA OCEAN FRONT</td>
+<td>3.349</td>
+<td>2.803</td>
+<td>2.696</td>
+</tr>
+
 </table>
 </div>
+
 
 <!-- LOOP 7D -->
 <div class="program" data-category="loop7">
-<h2>Galápagos Loop 7D/6N – Immersive Experience</h2>
-<a href="https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2027/gal%C3%A1pagos/gal%C3%A1pagos-loop-immersive-experience?authuser=0">View Itinerary →</a>
+
+<h2>SG-04-B | Galápagos Loop 7D/6N – The Immersive Experience</h2>
+<p>
+<strong>Days of Operation:</strong> Saturday to Friday<br>
+<strong>Departures:</strong> Every Saturday<br>
+<strong>Islands:</strong> Santa Cruz – Floreana – Isabela<br>
+With an English-speaking tour guide
+</p>
+
 <table>
-<tr><th>Category</th><th>SGL</th><th>DBL</th><th>TPL</th></tr>
-<tr class="alt"><td>Tourist</td><td>2.877</td><td>2.794</td><td>2.764</td></tr>
-<tr><td>Tourist - Tourist Superior</td><td>3.143</td><td>2.851</td><td>2.805</td></tr>
-<tr class="alt"><td>First Class</td><td>3.735</td><td>3.177</td><td>3.061</td></tr>
+<tr>
+<th>Category</th>
+<th>Accommodation</th>
+<th>SGL</th>
+<th>DBL</th>
+<th>TPL</th>
+</tr>
+
+<tr class="alt">
+<td>Tourist</td>
+<td>DEJA VU<br>AGUA MARINA<br>CALLY</td>
+<td>2.877</td>
+<td>2.794</td>
+<td>2.764</td>
+</tr>
+
+<tr>
+<td>Tourist - Tourist Superior</td>
+<td>VILLA LAGUNA<br>AGUA MARINA (Santa María)<br>VOLCANO</td>
+<td>3.143</td>
+<td>2.851</td>
+<td>2.805</td>
+</tr>
+
+<tr class="alt">
+<td>First Class</td>
+<td>IKALA SUITE<br>AGUA MARINA<br>CASA MARITA OCEAN FRONT</td>
+<td>3.735</td>
+<td>3.177</td>
+<td>3.061</td>
+</tr>
+
 </table>
 </div>
 
-<!-- DARWIN -->
-<div class="program" data-category="darwin">
-<h2>Charles Darwin Path 8D/7N</h2>
-<a href="https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2027/gal%C3%A1pagos/charles-darwin-path?authuser=0">View Itinerary →</a>
-<table>
-<tr><th>Category</th><th>SGL</th><th>DBL</th><th>TPL</th></tr>
-<tr class="alt"><td>Tourist</td><td>3.146</td><td>3.053</td><td>3.022</td></tr>
-<tr><td>Tourist Superior</td><td>3.518</td><td>3.180</td><td>3.117</td></tr>
-<tr class="alt"><td>First Class</td><td>4.334</td><td>3.602</td><td>3.439</td></tr>
-</table>
-</div>
 
 <!-- EXTENSION -->
 <div class="program" data-category="extension">
-<h2>Extension Post Galápagos Loop 3D/2N</h2>
+
+<h2>SG-04 (Extension) | Post Galápagos Loop 3D/2N</h2>
+<p>
+<strong>Departures:</strong> Every Friday (Post Loop)<br>
+<strong>Island:</strong> Santa Cruz
+</p>
+
 <table>
-<tr><th>Category</th><th>SGL</th><th>DBL</th><th>TPL</th></tr>
-<tr class="alt"><td>Tourist</td><td>877</td><td>852</td><td>844</td></tr>
-<tr><td>Tourist Superior</td><td>985</td><td>869</td><td>849</td></tr>
-<tr class="alt"><td>First Class</td><td>1.341</td><td>1.077</td><td>753</td></tr>
+<tr>
+<th>Category</th>
+<th>Accommodation</th>
+<th>SGL</th>
+<th>DBL</th>
+<th>TPL</th>
+</tr>
+
+<tr class="alt">
+<td>Tourist</td>
+<td>DEJA VU</td>
+<td>877</td>
+<td>852</td>
+<td>844</td>
+</tr>
+
+<tr>
+<td>Tourist Superior</td>
+<td>VILLA LAGUNA</td>
+<td>985</td>
+<td>869</td>
+<td>849</td>
+</tr>
+
+<tr class="alt">
+<td>First Class</td>
+<td>IKALA SUITE</td>
+<td>1.341</td>
+<td>1.077</td>
+<td>753</td>
+</tr>
+
 </table>
 </div>
 
-<!-- SUPPLEMENTS (SIEMPRE VISIBLES) -->
-<div style="margin-top:80px;">
+
+<!-- DARWIN -->
+<div class="program" data-category="darwin">
+
+<h2>SG-05 | Charles Darwin Path 8D/7N</h2>
+<p>
+<strong>Days of Operation:</strong> Friday to Friday<br>
+<strong>Departures:</strong> Every Friday<br>
+<strong>Islands:</strong> Cristobal – Santa Cruz – Floreana – Isabela<br>
+With an English-speaking tour guide
+</p>
+
+<table>
+<tr>
+<th>Category</th>
+<th>Accommodation</th>
+<th>SGL</th>
+<th>DBL</th>
+<th>TPL</th>
+</tr>
+
+<tr class="alt">
+<td>Tourist</td>
+<td>PIMAMPIRO<br>DEJA VU<br>AGUA MARINA<br>CALLY</td>
+<td>3.146</td>
+<td>3.053</td>
+<td>3.022</td>
+</tr>
+
+<tr>
+<td>Tourist Superior</td>
+<td>KATARMA<br>VILLA LAGUNA<br>AGUA MARINA (Santa María)<br>VOLCANO</td>
+<td>3.518</td>
+<td>3.180</td>
+<td>3.117</td>
+</tr>
+
+<tr class="alt">
+<td>First Class</td>
+<td>CASA OPUNTIA (Suite)<br>IKALA SUITE<br>AGUA MARINA<br>CASA MARITA OCEAN FRONT</td>
+<td>4.334</td>
+<td>3.602</td>
+<td>3.439</td>
+</tr>
+
+</table>
+</div>
+
+
+<!-- SUPPLEMENTS -->
+<div style="margin-top:100px;">
 <h2>Supplements</h2>
 <table>
-<tr><th>Description</th><th>Net Rate (USD)</th></tr>
-<tr class="alt"><td>Extra private transfer in Santa Cruz (English-speaking driver) – Min 2 pax</td><td>71 (1–2 Pax) / 49 (3–4 Pax)</td></tr>
-<tr><td>Shared Tunnels instead of Tintoreras (optional)</td><td>120</td></tr>
+<tr>
+<th>Supplement Description</th>
+<th>Net Rate (USD) per person</th>
+</tr>
+
+<tr class="alt">
+<td>
+Extra private transfer in Santa Cruz (English-speaking driver)<br>
+Minimum 2 pax
+</td>
+<td>
+71 (1–2 Pax)<br>
+49 (3–4 Pax)
+</td>
+</tr>
+
+<tr>
+<td>
+Supplement for shared Tunnels instead of Tintoreras (optional)
+</td>
+<td>120</td>
+</tr>
+
 </table>
 </div>
 
 </div>
 
-<!-- ================= MAINLAND ================= -->
+
+<!-- ================= MAINLAND (SOLO FILTRO POR AHORA) ================= -->
 <div id="mainland" class="rate-section">
 
 <div class="back-btn" onclick="goBack()">← Back</div>
@@ -217,61 +378,52 @@ td{
 <option value="all">All Programs</option>
 <option value="quito">Shared Tours Departing from Quito</option>
 <option value="andean">Andean Treasures</option>
-<option value="volcano3d">Volcano 3D/2N</option>
-<option value="volcano5d">Volcano 5D/4N</option>
-<option value="volcano6d">Volcano 6D/5N</option>
+<option value="volcano2d">Volcano Avenue 2D/1N</option>
+<option value="volcano3d">Volcano Avenue 3D/2N</option>
+<option value="volcano5d">Volcano Avenue 5D/4N</option>
+<option value="volcano6d">Volcano Avenue 6D/5N</option>
 </select>
 </div>
 
-<!-- QUITO DAILY -->
-<div class="program" data-category="quito">
-<h2>Shared Tours Departing from Quito</h2>
-<a href="https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2027/volcano-avenue/shared-tours-departing-from-quito?authuser=0">View Itinerary →</a>
-<table>
-<tr><th>Program</th><th>Net Rate</th></tr>
-<tr class="alt"><td>Walking Quito City Tour</td><td>24</td></tr>
-<tr><td>Quito & Middle of the World</td><td>60</td></tr>
-<tr class="alt"><td>Otavalo Indigenous Market</td><td>75</td></tr>
-<tr><td>Cotopaxi National Park</td><td>75</td></tr>
-</table>
-</div>
-
-<!-- ANDEAN TREASURES -->
-<div class="program" data-category="andean">
-<h2>Andean Treasures 8D/7N</h2>
-<a href="https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2027/volcano-avenue/andean-treasures?authuser=0">View Itinerary →</a>
-<table>
-<tr><th>Category</th><th>DBL</th><th>S.S</th></tr>
-<tr class="alt"><td>Standard</td><td>1.395</td><td>166</td></tr>
-<tr><td>Superior</td><td>1.571</td><td>400</td></tr>
-</table>
-</div>
+<!-- (SIN PROGRAMAS AÚN, SOLO FILTRO PARA PRUEBA) -->
 
 </div>
 
 </div>
+
 
 <script>
+
 function showSection(id){
-document.getElementById('mainMenu').style.display='none';
-document.querySelectorAll('.rate-section').forEach(s=>s.style.display='none');
-document.getElementById(id).style.display='block';
-const select=document.getElementById(id).querySelector('select');
-if(select){select.value='all';filterPrograms(select,id);}
+  document.getElementById('mainMenu').style.display='none';
+  document.querySelectorAll('.rate-section').forEach(sec => sec.style.display='none');
+  document.getElementById(id).style.display='block';
+
+  const select = document.getElementById(id).querySelector('select');
+  if(select){
+    select.value='all';
+    filterPrograms(select,id);
+  }
 }
 
 function goBack(){
-document.getElementById('mainMenu').style.display='grid';
-document.querySelectorAll('.rate-section').forEach(s=>s.style.display='none');
+  document.getElementById('mainMenu').style.display='grid';
+  document.querySelectorAll('.rate-section').forEach(sec => sec.style.display='none');
 }
 
 function filterPrograms(select,sectionId){
-const value=select.value;
-document.getElementById(sectionId).querySelectorAll('.program').forEach(p=>{
-if(value==='all'||p.dataset.category===value){p.classList.remove('hidden');}
-else{p.classList.add('hidden');}
-});
+  const value = select.value;
+  const programs = document.getElementById(sectionId).querySelectorAll('.program');
+
+  programs.forEach(program => {
+    if(value === 'all' || program.dataset.category === value){
+      program.classList.remove('hidden');
+    } else {
+      program.classList.add('hidden');
+    }
+  });
 }
+
 </script>
 
 </body>
