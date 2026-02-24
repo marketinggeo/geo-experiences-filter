@@ -95,10 +95,10 @@ body{
     <p>Shared tours and island programs.</p>
   </div>
 
-  <div class="rate-card">
-    <h2>Mainland Rates 2026</h2>
-    <p>Coming next phase.</p>
-  </div>
+  <div class="rate-card" onclick="showSection('mainland')">
+<h2>Mainland Rates 2026</h2>
+<p>Shared mainland programs.</p>
+</div>
 
 </div>
 
@@ -660,6 +660,32 @@ programs[i].style.display='none';
 }
 }
 }
+<!-- ================= MAINLAND SECTION ================= -->
+<div id="mainland" class="rate-section" style="display:none;">
+
+<div class="back-btn" onclick="goBack()">← Back</div>
+
+<!-- FILTER -->
+<div style="margin:30px 0;">
+
+<select onchange="filterPrograms(this.value)" 
+style="padding:8px 12px; font-family:'Montserrat', sans-serif; font-size:13px; border:1px solid #d9d9d9;">
+
+<option value="all">All Programs</option>
+<option value="quitoDaily">Shared Tours Departing from Quito</option>
+<option value="andeanTreasures">Andean Treasures 8D/7N</option>
+<option value="volcano2d">Volcano Avenue 2D/1N</option>
+<option value="volcano3d">Volcano Avenue 3D/2N</option>
+<option value="volcano5d">Volcano Avenue 5D/4N</option>
+<option value="volcano6d">Volcano Avenue 6D/5N</option>
+
+</select>
+
+</div>
+
+<!-- PROGRAMS WILL BE INSERTED BELOW -->
+
+</div> 
 </script>
 
 </body>
