@@ -313,7 +313,7 @@ Minimum 2 pax
 </div>
 
 
-<!-- ================= MAINLAND (SOLO FILTRO) ================= -->
+<!-- ================= MAINLAND ================= -->
 <div id="mainland" class="rate-section">
 
 <div class="back-btn" onclick="goBack()">← Back</div>
@@ -321,14 +321,217 @@ Minimum 2 pax
 <div class="filter-bar">
 <select onchange="filterPrograms(this,'mainland')">
 <option value="all">All Programs</option>
-<option value="quito">Shared Tours Departing from Quito</option>
-<option value="andean">Andean Treasures</option>
+<option value="daily">Shared Daily Tours</option>
 <option value="volcano2d">Volcano Avenue 2D/1N</option>
 <option value="volcano3d">Volcano Avenue 3D/2N</option>
 <option value="volcano5d">Volcano Avenue 5D/4N</option>
 <option value="volcano6d">Volcano Avenue 6D/5N</option>
+<option value="andean">Andean Treasures 8D/7N</option>
 </select>
 </div>
+
+<table>
+<tr>
+<th>CODE</th>
+<th>PROGRAM</th>
+<th>ENTRANCES</th>
+<th>DEPARTURES 2026</th>
+<th>CATEGORY</th>
+<th>CITY / ROUTE</th>
+<th>HOTELS</th>
+<th>NET RATE</th>
+<th>S.S</th>
+</tr>
+
+<!-- ================= DAILY TOURS ================= -->
+<tr class="program alt" data-category="daily">
+<td>GR-SM-01</td>
+<td>Walking Quito City Tour (Half Day)<br>(English - Spanish)</td>
+<td>No</td>
+<td>Every Tuesday & Friday</td>
+<td>-</td>
+<td>Quito</td>
+<td>-</td>
+<td>24</td>
+<td>-</td>
+</tr>
+
+<tr class="program" data-category="daily">
+<td>GR-SM-02</td>
+<td>Quito City Tour & Middle of the World<br>(English - Spanish)</td>
+<td>No</td>
+<td>Every Tuesday & Friday</td>
+<td>-</td>
+<td>Quito</td>
+<td>-</td>
+<td>60</td>
+<td>-</td>
+</tr>
+
+<tr class="program alt" data-category="daily">
+<td>GR-SM-03</td>
+<td>Otavalo Indigenous Market<br>(English - Spanish)</td>
+<td>No</td>
+<td>Every Wednesday & Saturday</td>
+<td>-</td>
+<td>Otavalo</td>
+<td>-</td>
+<td>75</td>
+<td>-</td>
+</tr>
+
+<tr class="program" data-category="daily">
+<td>GR-SM-04</td>
+<td>Cotopaxi National Park<br>(English - Spanish)</td>
+<td>No</td>
+<td>Every Thursday & Sunday</td>
+<td>-</td>
+<td>Cotopaxi</td>
+<td>-</td>
+<td>75</td>
+<td>-</td>
+</tr>
+
+<!-- ================= VOLCANO 2D ================= -->
+<tr class="program alt" data-category="volcano2d">
+<td>GR-SM-05</td>
+<td>Volcano Avenue 2D/1N</td>
+<td>No</td>
+<td>Every Thursday</td>
+<td>Tourist</td>
+<td>Quito – Cotopaxi – Baños – Riobamba – Quito</td>
+<td>La Floresta</td>
+<td>251</td>
+<td>18</td>
+</tr>
+
+<tr class="program" data-category="volcano2d">
+<td>GR-SM-05</td>
+<td>Volcano Avenue 2D/1N</td>
+<td>No</td>
+<td>Every Thursday</td>
+<td>Tourist Superior</td>
+<td>Quito – Cotopaxi – Baños – Riobamba – Quito</td>
+<td>Hotel Sangay (Std Room)</td>
+<td>298</td>
+<td>40</td>
+</tr>
+
+<tr class="program alt" data-category="volcano2d">
+<td>GR-SM-05</td>
+<td>Volcano Avenue 2D/1N</td>
+<td>No</td>
+<td>Every Thursday</td>
+<td>First Class</td>
+<td>Quito – Cotopaxi – Baños – Riobamba – Quito</td>
+<td>Samari Spa</td>
+<td>335</td>
+<td>122</td>
+</tr>
+
+<!-- ================= VOLCANO 3D ================= -->
+<tr class="program" data-category="volcano3d">
+<td>GR-SM-06</td>
+<td>Volcano Avenue 3D/2N</td>
+<td>No</td>
+<td>Every Thursday</td>
+<td>Tourist</td>
+<td>Quito – Cotopaxi – Baños – Riobamba – Nariz del Diablo – Cuenca</td>
+<td>La Floresta / Casa Real</td>
+<td>470</td>
+<td>44</td>
+</tr>
+
+<tr class="program alt" data-category="volcano3d">
+<td>GR-SM-06</td>
+<td>Volcano Avenue 3D/2N</td>
+<td>No</td>
+<td>Every Thursday</td>
+<td>Tourist Superior</td>
+<td>Quito – Cotopaxi – Baños – Riobamba – Nariz del Diablo – Cuenca</td>
+<td>Hotel Sangay / Hacienda Abraspungo</td>
+<td>543</td>
+<td>66</td>
+</tr>
+
+<tr class="program" data-category="volcano3d">
+<td>GR-SM-06</td>
+<td>Volcano Avenue 3D/2N</td>
+<td>No</td>
+<td>Every Thursday</td>
+<td>First Class</td>
+<td>Quito – Cotopaxi – Baños – Riobamba – Nariz del Diablo – Cuenca</td>
+<td>Samari Spa / Hacienda Abraspungo</td>
+<td>601</td>
+<td>265</td>
+</tr>
+
+<!-- ================= ANDEAN TREASURES ================= -->
+<tr class="program alt" data-category="andean">
+<td>GR-SM-11</td>
+<td>Andean Treasures 8D/7N<br>Sunday to Sunday<br>English/German Guide</td>
+<td>Yes</td>
+<td>
+04 Jan / 01 Feb / 08 Mar / 05 Apr / 03 May / 07 Jun<br>
+05 Jul / 02 Aug / 06 Sep / 04 Oct / 08 Nov / 06 Dec
+</td>
+<td>Standard</td>
+<td>Quito – Cotopaxi – Baños – Riobamba – Cuenca – Guayaquil</td>
+<td>Hotel Ikala / La Cienega / Floresta / Mansión Santa Isabella / Los Balcones / Grand Hotel GYE</td>
+<td>1.395</td>
+<td>166</td>
+</tr>
+
+<tr class="program" data-category="andean">
+<td>GR-SM-11</td>
+<td>Andean Treasures 8D/7N</td>
+<td>Yes</td>
+<td>Same dates as above</td>
+<td>Superior</td>
+<td>Quito – Cotopaxi – Baños – Riobamba – Cuenca – Guayaquil</td>
+<td>Adamas House / La Ciénega Suite / Samari / Abraspungo / Santa Lucia / Wyndham</td>
+<td>1.571</td>
+<td>400</td>
+</tr>
+
+</table>
+
+<br><br>
+
+<h2>Pre & Post Tour Supplements</h2>
+
+<table>
+<tr>
+<th>Description</th>
+<th>Service</th>
+<th>Net Rate</th>
+</tr>
+
+<tr class="alt">
+<td>Pre Tour Quito – Standard</td>
+<td>Hotel Ikala + Transfer IN Quito</td>
+<td>82</td>
+</tr>
+
+<tr>
+<td>Pre Tour Quito – Superior</td>
+<td>Adamas House + Transfer IN Quito</td>
+<td>108</td>
+</tr>
+
+<tr class="alt">
+<td>Post Tour Guayaquil – Standard</td>
+<td>Grand Hotel Guayaquil + Transfer OUT GYE</td>
+<td>69</td>
+</tr>
+
+<tr>
+<td>Post Tour Guayaquil – Superior</td>
+<td>Wyndham Santa Ana DLX + Transfer OUT GYE</td>
+<td>94</td>
+</tr>
+
+</table>
 
 </div>
 
