@@ -9,152 +9,176 @@
 <style>
 
 body{
-  font-family:'Montserrat', sans-serif;
-  margin:0;
-  padding:30px;
-  background:#ffffff;
+font-family:'Montserrat', sans-serif;
+margin:0;
+padding:30px;
+background:#ffffff;
 }
 
 .filters{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  margin-bottom:25px;
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+margin-bottom:25px;
 }
 
 .filter-btn{
-  font-family:'Montserrat', sans-serif;
-  padding:8px 16px;
-  border-radius:20px;
-  border:1px solid #002060;
-  background:#ffffff;
-  color:#002060;
-  cursor:pointer;
-  font-size:13px;
-  font-weight:600;
-  transition:0.2s;
+font-family:'Montserrat', sans-serif;
+padding:8px 16px;
+border-radius:20px;
+border:1px solid #002060;
+background:#ffffff;
+color:#002060;
+cursor:pointer;
+font-size:13px;
+font-weight:600;
+transition:0.2s;
 }
 
 .filter-btn.active,
 .filter-btn:hover{
-  background:#002060;
-  color:#ffffff;
+background:#002060;
+color:#ffffff;
 }
 
 table{
-  width:100%;
-  border-collapse:collapse;
+width:100%;
+border-collapse:collapse;
 }
 
 thead{
-  background:#002060;
-  color:#ffffff;
-  font-family:'Montserrat', sans-serif;
+background:#002060;
+color:#ffffff;
 }
 
 th{
-  padding:14px;
-  font-size:12px;
-  text-transform:uppercase;
-  letter-spacing:0.5px;
-  text-align:left;
+padding:14px;
+font-size:12px;
+text-transform:uppercase;
+letter-spacing:0.5px;
+text-align:left;
 }
 
 td{
-  padding:14px;
-  font-size:14px;
-  vertical-align:top;
+padding:14px;
+font-size:14px;
+vertical-align:top;
 }
 
 tbody tr{
-  border-bottom:1px solid #e5e5e5;
+border-bottom:1px solid #e5e5e5;
 }
 
 .program-name{
-  font-weight:600;
-  margin-bottom:4px;
+font-weight:600;
+margin-bottom:4px;
 }
 
 .itinerary-link{
-  font-size:12px;
-  font-weight:500;
-  color:#002060;
-  text-decoration:none;
+font-size:12px;
+font-weight:500;
+color:#002060;
+text-decoration:none;
 }
 
 .itinerary-link:hover{
-  text-decoration:underline;
+text-decoration:underline;
 }
 
 .badge{
-  padding:4px 10px;
-  border-radius:12px;
-  font-size:11px;
-  font-weight:600;
-  display:inline-block;
+padding:4px 10px;
+border-radius:12px;
+font-size:11px;
+font-weight:600;
+display:inline-block;
+margin-right:5px;
+margin-bottom:4px;
 }
+
+/* STATUS COLORS */
 
 .open{ background:#e6f4ea; color:#1e7e34; }
-.confirmed{ background:#e0eaff; color:#003b91; }
+
+.confirmed{ background:#e6f4ea; color:#1e7e34; }
+
 .almost{ background:#fff3cd; color:#b26a00; }
+
 .sold{ background:#f8d7da; color:#842029; }
 
+.operated{ background:#e0eaff; color:#003b91; }
+
+/* PROMO BOX */
+
 .promo-box{
-  font-size:12px;
-  color:#8a5b00;
-  background:#f3e7d9;
-  padding:8px;
-  border-radius:6px;
-  line-height:1.4;
+font-size:12px;
+color:#8a4b08;
+background:#fff4e6;
+padding:10px;
+border-radius:6px;
+line-height:1.4;
+border-left:4px solid #e67e22;
+display:flex;
+gap:8px;
+align-items:flex-start;
 }
 
+.promo-icon{
+font-size:14px;
+font-weight:700;
+color:#e67e22;
+margin-top:1px;
+}
+
+/* BUTTON */
+
 .action-btn{
-  display:inline-block;
-  padding:6px 12px;
-  background:#002060;
-  color:#ffffff;
-  font-size:12px;
-  font-weight:600;
-  border-radius:4px;
-  text-decoration:none;
-  transition:0.2s;
+display:inline-block;
+padding:6px 12px;
+background:#002060;
+color:#ffffff;
+font-size:12px;
+font-weight:600;
+border-radius:4px;
+text-decoration:none;
+transition:0.2s;
 }
 
 .action-btn:hover{
-  background:#001845;
+background:#001845;
 }
 
-/* Mobile UX improvement */
+/* MOBILE */
 
 @media(max-width:900px){
 
-  table, thead, tbody, th, td, tr{
-    display:block;
-  }
+table, thead, tbody, th, td, tr{
+display:block;
+}
 
-  thead{ display:none; }
+thead{ display:none; }
 
-  tr{
-    margin-bottom:20px;
-    border:1px solid #ddd;
-    padding:15px;
-    border-radius:6px;
-  }
+tr{
+margin-bottom:20px;
+border:1px solid #ddd;
+padding:15px;
+border-radius:6px;
+}
 
-  td{
-    position:relative;
-    padding-left:50%;
-  }
+td{
+position:relative;
+padding-left:50%;
+}
 
-  td::before{
-    content:attr(data-label);
-    position:absolute;
-    left:15px;
-    top:14px;
-    font-weight:600;
-    color:#002060;
-    font-size:12px;
-  }
+td::before{
+content:attr(data-label);
+position:absolute;
+left:15px;
+top:14px;
+font-weight:600;
+color:#002060;
+font-size:12px;
+}
+
 }
 
 </style>
@@ -163,15 +187,16 @@ tbody tr{
 <body>
 
 <div class="filters">
-  <button class="filter-btn active" onclick="filterTable('all', this)">All</button>
-  <button class="filter-btn" onclick="filterTable('galapagos', this)">Galápagos</button>
-  <button class="filter-btn" onclick="filterTable('volcano', this)">Volcano Avenue</button>
-  <button class="filter-btn" onclick="filterTable('promo', this)">With Special Condition</button>
-  <button class="filter-btn" onclick="filterTable('almost', this)">Almost Sold Out</button>
-  <button class="filter-btn" onclick="filterTable('sold', this)">Sold Out</button>
+<button class="filter-btn active" onclick="filterTable('all', this)">All</button>
+<button class="filter-btn" onclick="filterTable('galapagos', this)">Galápagos</button>
+<button class="filter-btn" onclick="filterTable('volcano', this)">Volcano Avenue</button>
+<button class="filter-btn" onclick="filterTable('promo', this)">With Special Condition</button>
+<button class="filter-btn" onclick="filterTable('almost', this)">Almost Sold Out</button>
+<button class="filter-btn" onclick="filterTable('sold', this)">Sold Out</button>
 </div>
 
 <table id="departuresTable">
+
 <thead>
 <tr>
 <th>Date</th>
@@ -185,233 +210,327 @@ tbody tr{
 
 <tbody>
 
-<!-- GALÁPAGOS LOOP – 5 FECHAS -->
+<!-- GALAPAGOS -->
 
-<tr data-region="galapagos" data-status="open" data-promo="no">
+<tr data-region="galapagos" data-status="operated" data-promo="no">
+
 <td data-label="Date">04 Jan 2026</td>
+
 <td data-label="Program">
 <div class="program-name">Galápagos Loop – 6D/5N</div>
 <a href="https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0" target="_blank" class="itinerary-link">View itinerary →</a>
 </td>
+
 <td data-label="Region">Galápagos</td>
-<td data-label="Status"><span class="badge open">OPEN</span></td>
-<td data-label="Special Condition">—</td>
-<td data-label="Action">
-<a href="https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/contact-us?authuser=0&program=GalapagosLoop6D5N&date=04Jan2026"
-target="_blank"
-class="action-btn">
-Request Information
-</a>
+
+<td data-label="Status">
+<span class="badge operated">OPERATED</span>
 </td>
+
+<td data-label="Special Condition">—</td>
+
+<td data-label="Action">
+<a href="#" class="action-btn">Request Information</a>
+</td>
+
 </tr>
 
-<tr data-region="galapagos" data-status="confirmed" data-promo="yes">
+
+<tr data-region="galapagos" data-status="operated" data-promo="yes">
+
 <td data-label="Date">25–30 Jan 2026</td>
+
 <td data-label="Program">
 <div class="program-name">Galápagos Loop – 6D/5N</div>
 <a href="https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0" target="_blank" class="itinerary-link">View itinerary →</a>
 </td>
+
 <td data-label="Region">Galápagos</td>
-<td data-label="Status"><span class="badge confirmed">CONFIRMED</span></td>
+
+<td data-label="Status">
+<span class="badge operated">OPERATED</span>
+</td>
+
 <td data-label="Special Condition">
+
 <div class="promo-box">
-For all new confirmations on these departures, one special benefit will apply: 
-Galápagos National Park entrance fee (PNG) or dinner at Lava Lounge in Puerto Ayora.<br>
+<span class="promo-icon">%</span>
+<span>
+For all new confirmations on these departures, one special benefit will apply:
+Galápagos National Park entrance fee (PNG) or dinner at Lava Lounge in Puerto Ayora.
 For groups of four passengers or more, both benefits will be included.
+</span>
 </div>
+
 </td>
+
 <td data-label="Action">
-<a href="https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/contact-us?authuser=0&program=SG-04-A&date=25-30Jan2026"
-target="_blank"
-class="action-btn">
-Request Information
-</a>
+<a href="#" class="action-btn">Request Information</a>
 </td>
+
 </tr>
+
 
 <tr data-region="galapagos" data-status="sold" data-promo="no">
+
 <td data-label="Date">15–20 Feb 2026</td>
+
 <td data-label="Program">
 <div class="program-name">Galápagos Loop – 6D/5N</div>
 <a href="https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0" target="_blank" class="itinerary-link">View itinerary →</a>
 </td>
+
 <td data-label="Region">Galápagos</td>
-<td data-label="Status"><span class="badge sold">SOLD OUT</span></td>
-<td data-label="Special Condition">—</td>
-<td data-label="Action">
-<a href="https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/contact-us?authuser=0&program=SG-04-A&date=01-06Mar2026"
-target="_blank"
-class="action-btn">
-Request Information
-</a>
+
+<td data-label="Status">
+<span class="badge operated">OPERATED</span>
+<span class="badge sold">SOLD OUT</span>
 </td>
+
+<td data-label="Special Condition">—</td>
+
+<td data-label="Action">
+<a href="#" class="action-btn">Request Information</a>
+</td>
+
 </tr>
 
-<tr data-region="galapagos" data-status="confirmed" data-promo="yes">
+
+<tr data-region="galapagos" data-status="operated" data-promo="yes">
+
 <td data-label="Date">01–06 Mar 2026</td>
+
 <td data-label="Program">
 <div class="program-name">Galápagos Loop – 6D/5N</div>
 <a href="https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0" target="_blank" class="itinerary-link">View itinerary →</a>
 </td>
+
 <td data-label="Region">Galápagos</td>
-<td data-label="Status"><span class="badge confirmed">CONFIRMED</span></td>
+
+<td data-label="Status">
+<span class="badge operated">OPERATED</span>
+</td>
+
 <td data-label="Special Condition">
+
 <div class="promo-box">
-For all new confirmations on these departures, one special benefit will apply: 
-Galápagos National Park entrance fee (PNG) or dinner at Lava Lounge in Puerto Ayora.<br>
+<span class="promo-icon">%</span>
+<span>
+For all new confirmations on these departures, one special benefit will apply:
+Galápagos National Park entrance fee (PNG) or dinner at Lava Lounge in Puerto Ayora.
 For groups of four passengers or more, both benefits will be included.
+</span>
 </div>
+
 </td>
+
 <td data-label="Action">
-<a href="https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/contact-us?authuser=0&program=SG-04-A&date=01-06Mar2026"
-target="_blank"
-class="action-btn">
-Request Information
-</a>
+<a href="#" class="action-btn">Request Information</a>
 </td>
+
 </tr>
+
 
 <tr data-region="galapagos" data-status="confirmed" data-promo="yes">
+
 <td data-label="Date">10–15 May 2026</td>
+
 <td data-label="Program">
 <div class="program-name">Galápagos Loop – 6D/5N</div>
 <a href="https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0" target="_blank" class="itinerary-link">View itinerary →</a>
 </td>
+
 <td data-label="Region">Galápagos</td>
-<td data-label="Status"><span class="badge confirmed">CONFIRMED</span></td>
+
+<td data-label="Status">
+<span class="badge open">OPEN</span>
+<span class="badge confirmed">CONFIRMED</span>
+</td>
+
 <td data-label="Special Condition">
+
 <div class="promo-box">
-For all new confirmations on these departures, one special benefit will apply: 
-Galápagos National Park entrance fee (PNG) or dinner at Lava Lounge in Puerto Ayora.<br>
+<span class="promo-icon">%</span>
+<span>
+For all new confirmations on these departures, one special benefit will apply:
+Galápagos National Park entrance fee (PNG) or dinner at Lava Lounge in Puerto Ayora.
 For groups of four passengers or more, both benefits will be included.
+</span>
 </div>
+
 </td>
+
 <td data-label="Action">
-<a href="https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/contact-us?authuser=0&program=SG-04-A&date=10-15May2026"
-target="_blank"
-class="action-btn">
-Request Information
-</a>
+<a href="#" class="action-btn">Request Information</a>
 </td>
+
 </tr>
 
-<!-- ANDEAN TREASURES – 5 FECHAS -->
 
-<tr data-region="volcano" data-status="open" data-promo="no">
+<!-- ANDEAN TREASURES -->
+
+<tr data-region="volcano" data-status="confirmed" data-promo="no">
+
 <td data-label="Date">07 Jun 2026</td>
+
 <td data-label="Program">
 <div class="program-name">Andean Treasures – 8D/7N</div>
 <a href="https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/volcano-avenue/andean-treasures?authuser=0" target="_blank" class="itinerary-link">View itinerary →</a>
 </td>
+
 <td data-label="Region">Volcano Avenue</td>
-<td data-label="Status"><span class="badge open">OPEN</span></td>
-<td data-label="Special Condition">—</td>
-<td data-label="Action">
-<a href="https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/contact-us?authuser=0&program=GR-SM-11&date=07Jun2026"
-target="_blank"
-class="action-btn">
-Request Information
-</a>
+
+<td data-label="Status">
+<span class="badge open">OPEN</span>
+<span class="badge confirmed">CONFIRMED</span>
 </td>
+
+<td data-label="Special Condition">—</td>
+
+<td data-label="Action">
+<a href="#" class="action-btn">Request Information</a>
+</td>
+
 </tr>
 
-<tr data-region="volcano" data-status="open" data-promo="no">
+
+<tr data-region="volcano" data-status="confirmed" data-promo="no">
+
 <td data-label="Date">05 Jul 2026</td>
+
 <td data-label="Program">
 <div class="program-name">Andean Treasures – 8D/7N</div>
 <a href="https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/volcano-avenue/andean-treasures?authuser=0" target="_blank" class="itinerary-link">View itinerary →</a>
 </td>
+
 <td data-label="Region">Volcano Avenue</td>
-<td data-label="Status"><span class="badge open">OPEN</span></td>
-<td data-label="Special Condition">—</td>
-<td data-label="Action">
-<a href="https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/contact-us?authuser=0&program=GR-SM-11&date=05Jul2026"
-target="_blank"
-class="action-btn">
-Request Information
-</a>
+
+<td data-label="Status">
+<span class="badge open">OPEN</span>
+<span class="badge confirmed">CONFIRMED</span>
 </td>
+
+<td data-label="Special Condition">—</td>
+
+<td data-label="Action">
+<a href="#" class="action-btn">Request Information</a>
+</td>
+
 </tr>
+
 
 <tr data-region="volcano" data-status="almost" data-promo="no">
+
 <td data-label="Date">02 Aug 2026</td>
+
 <td data-label="Program">
 <div class="program-name">Andean Treasures – 8D/7N</div>
 <a href="https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/volcano-avenue/andean-treasures?authuser=0" target="_blank" class="itinerary-link">View itinerary →</a>
 </td>
+
 <td data-label="Region">Volcano Avenue</td>
-<td data-label="Status"><span class="badge almost">ALMOST SOLD OUT</span></td>
-<td data-label="Special Condition">—</td>
-<td data-label="Action">
-<a href="https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/contact-us?authuser=0&program=GR-SM-11&date=02Aug2026"
-target="_blank"
-class="action-btn">
-Request Information
-</a>
+
+<td data-label="Status">
+<span class="badge almost">ALMOST SOLD OUT</span>
+<span class="badge confirmed">CONFIRMED</span>
 </td>
+
+<td data-label="Special Condition">—</td>
+
+<td data-label="Action">
+<a href="#" class="action-btn">Request Information</a>
+</td>
+
 </tr>
 
-<tr data-region="volcano" data-status="open" data-promo="no">
+
+<tr data-region="volcano" data-status="confirmed" data-promo="no">
+
 <td data-label="Date">06 Sep 2026</td>
+
 <td data-label="Program">
 <div class="program-name">Andean Treasures – 8D/7N</div>
 <a href="https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/volcano-avenue/andean-treasures?authuser=0" target="_blank" class="itinerary-link">View itinerary →</a>
 </td>
+
 <td data-label="Region">Volcano Avenue</td>
-<td data-label="Status"><span class="badge open">OPEN</span></td>
-<td data-label="Special Condition">—</td>
-<td data-label="Action">
-<a href="https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/contact-us?authuser=0&program=GR-SM-11&date=06Sep2026"
-target="_blank"
-class="action-btn">
-Request Information
-</a>
+
+<td data-label="Status">
+<span class="badge open">OPEN</span>
+<span class="badge confirmed">CONFIRMED</span>
 </td>
+
+<td data-label="Special Condition">—</td>
+
+<td data-label="Action">
+<a href="#" class="action-btn">Request Information</a>
+</td>
+
 </tr>
 
-<tr data-region="volcano" data-status="open" data-promo="no">
+
+<tr data-region="volcano" data-status="confirmed" data-promo="no">
+
 <td data-label="Date">04 Oct 2026</td>
+
 <td data-label="Program">
 <div class="program-name">Andean Treasures – 8D/7N</div>
 <a href="https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/volcano-avenue/andean-treasures?authuser=0" target="_blank" class="itinerary-link">View itinerary →</a>
 </td>
+
 <td data-label="Region">Volcano Avenue</td>
-<td data-label="Status"><span class="badge open">OPEN</span></td>
-<td data-label="Special Condition">—</td>
-<td data-label="Action">
-<a href="https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/contact-us?authuser=0&program=GR-SM-11&date=04Oct2026"
-target="_blank"
-class="action-btn">
-Request Information
-</a>
+
+<td data-label="Status">
+<span class="badge open">OPEN</span>
+<span class="badge confirmed">CONFIRMED</span>
 </td>
+
+<td data-label="Special Condition">—</td>
+
+<td data-label="Action">
+<a href="#" class="action-btn">Request Information</a>
+</td>
+
 </tr>
 
 </tbody>
+
 </table>
 
 <script>
+
 function filterTable(type, btn){
-  let rows = document.querySelectorAll("#departuresTable tbody tr");
-  let buttons = document.querySelectorAll(".filter-btn");
 
-  buttons.forEach(b=>b.classList.remove("active"));
-  btn.classList.add("active");
+let rows=document.querySelectorAll("#departuresTable tbody tr");
+let buttons=document.querySelectorAll(".filter-btn");
 
-  rows.forEach(row=>{
-    let region = row.dataset.region;
-    let status = row.dataset.status;
-    let promo = row.dataset.promo;
+buttons.forEach(b=>b.classList.remove("active"));
+btn.classList.add("active");
 
-    if(type==="all") row.style.display="";
-    else if(type==="galapagos" && region==="galapagos") row.style.display="";
-    else if(type==="volcano" && region==="volcano") row.style.display="";
-    else if(type==="promo" && promo==="yes") row.style.display="";
-    else if(type==="almost" && status==="almost") row.style.display="";
-    else if(type==="sold" && status==="sold") row.style.display="";
-    else row.style.display="none";
-  });
+rows.forEach(row=>{
+
+let region=row.dataset.region;
+let status=row.dataset.status;
+let promo=row.dataset.promo;
+
+if(type==="all") row.style.display="";
+
+else if(type==="galapagos" && region==="galapagos") row.style.display="";
+
+else if(type==="volcano" && region==="volcano") row.style.display="";
+
+else if(type==="promo" && promo==="yes") row.style.display="";
+
+else if(type==="almost" && status==="almost") row.style.display="";
+
+else if(type==="sold" && status==="sold") row.style.display="";
+
+else row.style.display="none";
+
+});
+
 }
+
 </script>
 
 </body>
