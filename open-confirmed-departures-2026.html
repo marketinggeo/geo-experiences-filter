@@ -104,9 +104,13 @@ margin-bottom:4px;
 }
 
 .open{ background:#e6f4ea; color:#1e7e34; }
+
 .confirmed{ background:#e6f4ea; color:#1e7e34; }
+
 .almost{ background:#fff3cd; color:#b26a00; }
+
 .sold{ background:#f8d7da; color:#842029; }
+
 .operated{ background:#e0eaff; color:#003b91; }
 
 /* PROMO BOX */
@@ -160,14 +164,14 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-background:rgba(0,0,0,0.5);
+background:rgba(0,0,0,0.45);
 z-index:999;
 }
 
 .modal-box{
-background:#fff;
+background:#ffffff;
 max-width:700px;
-margin:60px auto;
+margin:70px auto;
 padding:30px;
 border-radius:8px;
 font-family:'Montserrat', sans-serif;
@@ -175,9 +179,9 @@ font-family:'Montserrat', sans-serif;
 
 .modal-close{
 float:right;
+font-size:18px;
 cursor:pointer;
 font-weight:700;
-font-size:18px;
 color:#002060;
 }
 
@@ -186,6 +190,7 @@ color:#002060;
 .rates-table{
 width:100%;
 border-collapse:collapse;
+margin-top:20px;
 margin-bottom:25px;
 }
 
@@ -194,12 +199,14 @@ background:#002060;
 color:#fff;
 padding:10px;
 font-size:12px;
+text-align:center;
 }
 
 .rates-table td{
 padding:10px;
 border-bottom:1px solid #eee;
 text-align:center;
+font-size:14px;
 }
 
 /* BEST OFFER */
@@ -249,6 +256,10 @@ border:none;
 border-radius:6px;
 cursor:pointer;
 font-weight:600;
+}
+
+.contact-button:hover{
+background:#001845;
 }
 
 /* MOBILE */
@@ -333,10 +344,9 @@ font-size:12px;
 
 <td data-label="Special Condition">—</td>
 
-<td data-label="Action">
-<a class="action-btn" onclick="openBookingModal('Galápagos Loop – 6D/5N','04 Jan 2026')">Book Now</a>
-</td>
+<td data-label="Action">—</td>
 </tr>
+
 
 
 <tr data-region="galapagos" data-status="operated" data-promo="yes">
@@ -367,11 +377,10 @@ For groups of four passengers or more, both benefits will be included.
 
 </td>
 
-<td data-label="Action">
-<a class="action-btn" onclick="openBookingModal('Galápagos Loop – 6D/5N','25–30 Jan 2026')">Book Now</a>
-</td>
+<td data-label="Action">—</td>
 
 </tr>
+
 
 
 <tr data-region="galapagos" data-status="sold" data-promo="no">
@@ -392,11 +401,10 @@ For groups of four passengers or more, both benefits will be included.
 
 <td data-label="Special Condition">—</td>
 
-<td data-label="Action">
-<a class="action-btn" onclick="openBookingModal('Galápagos Loop – 6D/5N','15–20 Feb 2026')">Book Now</a>
-</td>
+<td data-label="Action">—</td>
 
 </tr>
+
 
 
 <tr data-region="galapagos" data-status="operated" data-promo="yes">
@@ -427,11 +435,10 @@ For groups of four passengers or more, both benefits will be included.
 
 </td>
 
-<td data-label="Action">
-<a class="action-btn" onclick="openBookingModal('Galápagos Loop – 6D/5N','01–06 Mar 2026')">Book Now</a>
-</td>
+<td data-label="Action">—</td>
 
 </tr>
+
 
 
 <tr data-region="galapagos" data-status="confirmed" data-promo="yes">
@@ -470,7 +477,9 @@ For groups of four passengers or more, both benefits will be included.
 </tr>
 
 
+
 <tr data-region="galapagos" data-status="confirmed" data-promo="no">
+
 <td data-label="Date">07–12 Jun 2026</td>
 
 <td data-label="Program">
@@ -489,10 +498,13 @@ For groups of four passengers or more, both benefits will be included.
 <td data-label="Action">
 <a class="action-btn" onclick="openBookingModal('Galápagos Loop – 6D/5N','07–12 Jun 2026')">Book Now</a>
 </td>
+
 </tr>
 
 
+
 <tr data-region="galapagos" data-status="confirmed" data-promo="no">
+
 <td data-label="Date">21–26 Jun 2026</td>
 
 <td data-label="Program">
@@ -511,7 +523,9 @@ For groups of four passengers or more, both benefits will be included.
 <td data-label="Action">
 <a class="action-btn" onclick="openBookingModal('Galápagos Loop – 6D/5N','21–26 Jun 2026')">Book Now</a>
 </td>
+
 </tr>
+
 
 
 <!-- NUEVAS FECHAS LOOP -->
@@ -679,6 +693,7 @@ method="POST">
 <input type="text" name="phone">
 
 <label>Message</label>
+
 <textarea name="message" rows="4">
 I would like more information about this departure.
 </textarea>
@@ -698,7 +713,7 @@ Our team will receive your request and will contact you as soon as possible.
 <script>
 
 /* ===============================
-   FILTER TABLE (TU SCRIPT ORIGINAL)
+   FILTER TABLE (MISMA LÓGICA ORIGINAL)
 ================================ */
 
 function filterTable(type, btn){
@@ -735,7 +750,7 @@ else row.style.display="none";
 
 
 /* ===============================
-   OPEN MODAL
+   OPEN BOOKING MODAL
 ================================ */
 
 function openBookingModal(program,date){
@@ -744,30 +759,34 @@ let modal=document.getElementById("bookingModal");
 
 modal.style.display="block";
 
+/* TITLES */
+
 document.getElementById("modalProgramTitle").innerText=program;
 document.getElementById("modalDepartureDate").innerText=date;
+
+/* FORM VALUES */
 
 document.getElementById("formProgram").value=program;
 document.getElementById("formDeparture").value=date;
 
-
-/* SHOW CORRECT RATE TABLE */
+/* RATE TABLES */
 
 let loop=document.getElementById("loopRatesBlock");
 let andean=document.getElementById("andeanRatesBlock");
 
-if(program.includes("Galápagos Loop")){
+/* RESET VISIBILITY */
 
-loop.style.display="block";
+loop.style.display="none";
 andean.style.display="none";
 
+/* SHOW CORRECT TABLE */
+
+if(program.includes("Galápagos Loop")){
+loop.style.display="block";
 }
 
 if(program.includes("Andean Treasures")){
-
-loop.style.display="none";
 andean.style.display="block";
-
 }
 
 }
@@ -785,7 +804,7 @@ document.getElementById("bookingModal").style.display="none";
 
 
 /* ===============================
-   CLOSE MODAL CLICK OUTSIDE
+   CLOSE IF CLICK OUTSIDE
 ================================ */
 
 window.onclick=function(event){
@@ -793,15 +812,12 @@ window.onclick=function(event){
 let modal=document.getElementById("bookingModal");
 
 if(event.target==modal){
-
 modal.style.display="none";
-
 }
 
 }
 
 </script>
-
 
 </body>
 </html>
