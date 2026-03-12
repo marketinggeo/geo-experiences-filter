@@ -784,3 +784,33 @@ modal.style.display="none";
 }
 
 </script>
+<script>
+
+document.querySelectorAll(".program-name").forEach(program => {
+
+let link="";
+
+if(program.innerText.includes("Galápagos Loop")){
+link="https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0";
+}
+
+if(program.innerText.includes("Andean Treasures")){
+link="https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/volcano-avenue/andean-treasures?authuser=0";
+}
+
+if(link!==""){
+
+const itinerary=document.createElement("a");
+
+itinerary.href=link;
+itinerary.target="_blank";
+itinerary.className="itinerary-link";
+itinerary.innerHTML="View itinerary →";
+
+program.parentNode.appendChild(itinerary);
+
+}
+
+});
+
+</script>
