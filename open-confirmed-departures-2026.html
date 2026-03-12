@@ -1,13 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
 body{
-font-family:'Montserrat',sans-serif;
+font-family:'Montserrat', sans-serif;
 margin:0;
 padding:30px;
 background:#ffffff;
 }
+
+/* FILTERS */
 
 .filters{
 display:flex;
@@ -17,7 +27,7 @@ margin-bottom:25px;
 }
 
 .filter-btn{
-font-family:'Montserrat',sans-serif;
+font-family:'Montserrat', sans-serif;
 padding:8px 16px;
 border-radius:20px;
 border:1px solid #002060;
@@ -34,6 +44,8 @@ transition:0.2s;
 background:#002060;
 color:#ffffff;
 }
+
+/* TABLE */
 
 table{
 width:100%;
@@ -79,6 +91,8 @@ text-decoration:none;
 text-decoration:underline;
 }
 
+/* BADGES */
+
 .badge{
 padding:4px 10px;
 border-radius:12px;
@@ -95,6 +109,30 @@ margin-bottom:4px;
 .sold{ background:#f8d7da; color:#842029; }
 .operated{ background:#e0eaff; color:#003b91; }
 
+/* PROMO BOX */
+
+.promo-box{
+font-size:12px;
+color:#8a4b08;
+background:#fff4e6;
+padding:10px;
+border-radius:6px;
+line-height:1.4;
+border-left:4px solid #e67e22;
+display:flex;
+gap:8px;
+align-items:flex-start;
+}
+
+.promo-icon{
+font-size:14px;
+font-weight:700;
+color:#e67e22;
+margin-top:1px;
+}
+
+/* BUTTON */
+
 .action-btn{
 display:inline-block;
 padding:6px 12px;
@@ -104,14 +142,116 @@ font-size:12px;
 font-weight:600;
 border-radius:4px;
 text-decoration:none;
+transition:0.2s;
 cursor:pointer;
+font-family:'Montserrat', sans-serif;
 }
 
 .action-btn:hover{
 background:#001845;
 }
 
-/* mobile */
+/* MODAL */
+
+.modal-overlay{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.5);
+z-index:999;
+}
+
+.modal-box{
+background:#fff;
+max-width:700px;
+margin:60px auto;
+padding:30px;
+border-radius:8px;
+font-family:'Montserrat', sans-serif;
+}
+
+.modal-close{
+float:right;
+cursor:pointer;
+font-weight:700;
+font-size:18px;
+color:#002060;
+}
+
+/* RATES TABLE */
+
+.rates-table{
+width:100%;
+border-collapse:collapse;
+margin-bottom:25px;
+}
+
+.rates-table th{
+background:#002060;
+color:#fff;
+padding:10px;
+font-size:12px;
+}
+
+.rates-table td{
+padding:10px;
+border-bottom:1px solid #eee;
+text-align:center;
+}
+
+/* BEST OFFER */
+
+.best-offer{
+color:#d32f2f;
+font-weight:700;
+position:relative;
+cursor:pointer;
+}
+
+.best-offer span{
+display:none;
+position:absolute;
+background:#002060;
+color:#fff;
+padding:4px 8px;
+border-radius:4px;
+font-size:11px;
+top:-28px;
+left:50%;
+transform:translateX(-50%);
+}
+
+.best-offer:hover span{
+display:block;
+}
+
+/* FORM */
+
+.modal-form input,
+.modal-form textarea{
+width:100%;
+padding:10px;
+margin-bottom:12px;
+border:1px solid #ddd;
+border-radius:6px;
+font-family:'Montserrat', sans-serif;
+}
+
+.contact-button{
+font-family:'Montserrat', sans-serif;
+background:#002060;
+color:#fff;
+padding:12px 22px;
+border:none;
+border-radius:6px;
+cursor:pointer;
+font-weight:600;
+}
+
+/* MOBILE */
 
 @media(max-width:900px){
 
@@ -147,11 +287,14 @@ font-size:12px;
 
 </style>
 
+</head>
+<body>
 
 <div class="filters">
 <button class="filter-btn active" onclick="filterTable('all', this)">All</button>
 <button class="filter-btn" onclick="filterTable('galapagos', this)">Galápagos</button>
 <button class="filter-btn" onclick="filterTable('volcano', this)">Volcano Avenue</button>
+<button class="filter-btn" onclick="filterTable('promo', this)">With Special Condition</button>
 <button class="filter-btn" onclick="filterTable('almost', this)">Almost Sold Out</button>
 <button class="filter-btn" onclick="filterTable('sold', this)">Sold Out</button>
 </div>
@@ -165,21 +308,139 @@ font-size:12px;
 <th>Program</th>
 <th>Region</th>
 <th>Status</th>
+<th>Special Condition</th>
 <th>Action</th>
 </tr>
 </thead>
 
 <tbody>
 
+<!-- GALAPAGOS -->
 
-<!-- GALAPAGOS LOOP -->
+<tr data-region="galapagos" data-status="operated" data-promo="no">
+<td data-label="Date">04 Jan 2026</td>
 
-<tr data-region="galapagos" data-status="confirmed">
+<td data-label="Program">
+<div class="program-name">Galápagos Loop – 6D/5N</div>
+<a href="https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0" target="_blank" class="itinerary-link">View itinerary →</a>
+</td>
+
+<td data-label="Region">Galápagos</td>
+
+<td data-label="Status">
+<span class="badge operated">OPERATED</span>
+</td>
+
+<td data-label="Special Condition">—</td>
+
+<td data-label="Action">
+<a class="action-btn" onclick="openBookingModal('Galápagos Loop – 6D/5N','04 Jan 2026')">Book Now</a>
+</td>
+</tr>
+
+
+<tr data-region="galapagos" data-status="operated" data-promo="yes">
+
+<td data-label="Date">25–30 Jan 2026</td>
+
+<td data-label="Program">
+<div class="program-name">Galápagos Loop – 6D/5N</div>
+<a href="https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0" target="_blank" class="itinerary-link">View itinerary →</a>
+</td>
+
+<td data-label="Region">Galápagos</td>
+
+<td data-label="Status">
+<span class="badge operated">OPERATED</span>
+</td>
+
+<td data-label="Special Condition">
+
+<div class="promo-box">
+<span class="promo-icon">%</span>
+<span>
+For all new confirmations on these departures, one special benefit will apply:
+Galápagos National Park entrance fee (PNG) or dinner at Lava Lounge in Puerto Ayora.
+For groups of four passengers or more, both benefits will be included.
+</span>
+</div>
+
+</td>
+
+<td data-label="Action">
+<a class="action-btn" onclick="openBookingModal('Galápagos Loop – 6D/5N','25–30 Jan 2026')">Book Now</a>
+</td>
+
+</tr>
+
+
+<tr data-region="galapagos" data-status="sold" data-promo="no">
+
+<td data-label="Date">15–20 Feb 2026</td>
+
+<td data-label="Program">
+<div class="program-name">Galápagos Loop – 6D/5N</div>
+<a href="https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0" target="_blank" class="itinerary-link">View itinerary →</a>
+</td>
+
+<td data-label="Region">Galápagos</td>
+
+<td data-label="Status">
+<span class="badge operated">OPERATED</span>
+<span class="badge sold">SOLD OUT</span>
+</td>
+
+<td data-label="Special Condition">—</td>
+
+<td data-label="Action">
+<a class="action-btn" onclick="openBookingModal('Galápagos Loop – 6D/5N','15–20 Feb 2026')">Book Now</a>
+</td>
+
+</tr>
+
+
+<tr data-region="galapagos" data-status="operated" data-promo="yes">
+
+<td data-label="Date">01–06 Mar 2026</td>
+
+<td data-label="Program">
+<div class="program-name">Galápagos Loop – 6D/5N</div>
+<a href="https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0" target="_blank" class="itinerary-link">View itinerary →</a>
+</td>
+
+<td data-label="Region">Galápagos</td>
+
+<td data-label="Status">
+<span class="badge operated">OPERATED</span>
+</td>
+
+<td data-label="Special Condition">
+
+<div class="promo-box">
+<span class="promo-icon">%</span>
+<span>
+For all new confirmations on these departures, one special benefit will apply:
+Galápagos National Park entrance fee (PNG) or dinner at Lava Lounge in Puerto Ayora.
+For groups of four passengers or more, both benefits will be included.
+</span>
+</div>
+
+</td>
+
+<td data-label="Action">
+<a class="action-btn" onclick="openBookingModal('Galápagos Loop – 6D/5N','01–06 Mar 2026')">Book Now</a>
+</td>
+
+</tr>
+
+
+<tr data-region="galapagos" data-status="confirmed" data-promo="yes">
+
 <td data-label="Date">10–15 May 2026</td>
 
 <td data-label="Program">
 <div class="program-name">Galápagos Loop – 6D/5N</div>
-<a href="#" class="itinerary-link">View itinerary →</a>
+<a href="https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0" target="_blank" class="itinerary-link">View itinerary →</a>
 </td>
 
 <td data-label="Region">Galápagos</td>
@@ -189,138 +450,130 @@ font-size:12px;
 <span class="badge confirmed">CONFIRMED</span>
 </td>
 
-<td data-label="Action">
-<a class="action-btn" onclick="openModal('Galápagos Loop – 6D/5N','10–15 May 2026')">Book Now</a>
-</td>
-</tr>
+<td data-label="Special Condition">
 
-
-<tr data-region="galapagos" data-status="confirmed">
-<td data-label="Date">12–17 Jul 2026</td>
-
-<td data-label="Program">
-<div class="program-name">Galápagos Loop – 6D/5N</div>
-</td>
-
-<td data-label="Region">Galápagos</td>
-
-<td data-label="Status">
-<span class="badge open">OPEN</span>
-<span class="badge confirmed">CONFIRMED</span>
-</td>
-
-<td data-label="Action">
-<a class="action-btn" onclick="openModal('Galápagos Loop – 6D/5N','12–17 Jul 2026')">Book Now</a>
-</td>
-</tr>
-
-
-<tr data-region="galapagos" data-status="confirmed">
-<td data-label="Date">02–07 Aug 2026</td>
-
-<td data-label="Program">
-<div class="program-name">Galápagos Loop – 6D/5N</div>
-</td>
-
-<td data-label="Region">Galápagos</td>
-
-<td data-label="Status">
-<span class="badge open">OPEN</span>
-<span class="badge confirmed">CONFIRMED</span>
-</td>
-
-<td data-label="Action">
-<a class="action-btn" onclick="openModal('Galápagos Loop – 6D/5N','02–07 Aug 2026')">Book Now</a>
-</td>
-</tr>
-
-
-<tr data-region="galapagos" data-status="confirmed">
-<td data-label="Date">13–18 Sep 2026</td>
-
-<td data-label="Program">
-<div class="program-name">Galápagos Loop – 6D/5N</div>
-</td>
-
-<td data-label="Region">Galápagos</td>
-
-<td data-label="Status">
-<span class="badge open">OPEN</span>
-<span class="badge confirmed">CONFIRMED</span>
-</td>
-
-<td data-label="Action">
-<a class="action-btn" onclick="openModal('Galápagos Loop – 6D/5N','13–18 Sep 2026')">Book Now</a>
-</td>
-</tr>
-
-
-<tr data-region="galapagos" data-status="confirmed">
-<td data-label="Date">27 Sep – 02 Oct 2026</td>
-
-<td data-label="Program">
-<div class="program-name">Galápagos Loop – 6D/5N</div>
-</td>
-
-<td data-label="Region">Galápagos</td>
-
-<td data-label="Status">
-<span class="badge open">OPEN</span>
-<span class="badge confirmed">CONFIRMED</span>
-</td>
-
-<td data-label="Action">
-<a class="action-btn" onclick="openModal('Galápagos Loop – 6D/5N','27 Sep – 02 Oct 2026')">Book Now</a>
-</td>
-</tr>
-
-
-<!-- ANDEAN TREASURES -->
-
-<tr data-region="volcano" data-status="confirmed">
-
-<td data-label="Date">07 Jun 2026</td>
-
-<td data-label="Program">
-<div class="program-name">Andean Treasures – 8D/7N</div>
-</td>
-
-<td data-label="Region">Volcano Avenue</td>
-
-<td data-label="Status">
-<span class="badge open">OPEN</span>
-<span class="badge confirmed">CONFIRMED</span>
-</td>
-
-<td data-label="Action">
-<a class="action-btn" onclick="openModal('Andean Treasures – 8D/7N','07 Jun 2026')">Book Now</a>
-</td>
-
-</tr>
-
-</tbody>
-
-</table>
-<!-- MODAL -->
-
-<div id="bookingModal" class="geo-modal">
-
-<div class="geo-modal-content">
-
-<span class="geo-close" onclick="closeModal()">×</span>
-
-<h2 id="modalProgram">Program</h2>
-
-<div class="geo-departure">
-Departure selected: <strong id="modalDate"></strong>
+<div class="promo-box">
+<span class="promo-icon">%</span>
+<span>
+For all new confirmations on these departures, one special benefit will apply:
+Galápagos National Park entrance fee (PNG) or dinner at Lava Lounge in Puerto Ayora.
+For groups of four passengers or more, both benefits will be included.
+</span>
 </div>
 
+</td>
 
-<!-- LOOP RATES TABLE -->
+<td data-label="Action">
+<a class="action-btn" onclick="openBookingModal('Galápagos Loop – 6D/5N','10–15 May 2026')">Book Now</a>
+</td>
 
-<div id="loopRates" class="rates-table">
+</tr>
 
-<table>
+
+<tr data-region="galapagos" data-status="confirmed" data-promo="no">
+<td data-label="Date">07–12 Jun 2026</td>
+
+<td data-label="Program">
+<div class="program-name">Galápagos Loop – 6D/5N</div>
+</td>
+
+<td data-label="Region">Galápagos</td>
+
+<td data-label="Status">
+<span class="badge open">OPEN</span>
+<span class="badge confirmed">CONFIRMED</span>
+</td>
+
+<td data-label="Special Condition">—</td>
+
+<td data-label="Action">
+<a class="action-btn" onclick="openBookingModal('Galápagos Loop – 6D/5N','07–12 Jun 2026')">Book Now</a>
+</td>
+</tr>
+
+
+<tr data-region="galapagos" data-status="confirmed" data-promo="no">
+<td data-label="Date">21–26 Jun 2026</td>
+
+<td data-label="Program">
+<div class="program-name">Galápagos Loop – 6D/5N</div>
+</td>
+
+<td data-label="Region">Galápagos</td>
+
+<td data-label="Status">
+<span class="badge open">OPEN</span>
+<span class="badge confirmed">CONFIRMED</span>
+</td>
+
+<td data-label="Special Condition">—</td>
+
+<td data-label="Action">
+<a class="action-btn" onclick="openBookingModal('Galápagos Loop – 6D/5N','21–26 Jun 2026')">Book Now</a>
+</td>
+</tr>
+
+
+<!-- NUEVAS FECHAS LOOP -->
+
+<tr data-region="galapagos" data-status="confirmed" data-promo="no">
+<td data-label="Date">12–17 Jul 2026</td>
+<td data-label="Program"><div class="program-name">Galápagos Loop – 6D/5N</div></td>
+<td data-label="Region">Galápagos</td>
+<td data-label="Status"><span class="badge open">OPEN</span><span class="badge confirmed">CONFIRMED</span></td>
+<td data-label="Special Condition">—</td>
+<td data-label="Action"><a class="action-btn" onclick="openBookingModal('Galápagos Loop – 6D/5N','12–17 Jul 2026')">Book Now</a></td>
+</tr>
+
+<tr data-region="galapagos" data-status="confirmed" data-promo="no">
+<td data-label="Date">02–07 Aug 2026</td>
+<td data-label="Program"><div class="program-name">Galápagos Loop – 6D/5N</div></td>
+<td data-label="Region">Galápagos</td>
+<td data-label="Status"><span class="badge open">OPEN</span><span class="badge confirmed">CONFIRMED</span></td>
+<td data-label="Special Condition">—</td>
+<td data-label="Action"><a class="action-btn" onclick="openBookingModal('Galápagos Loop – 6D/5N','02–07 Aug 2026')">Book Now</a></td>
+</tr>
+
+<tr data-region="galapagos" data-status="confirmed" data-promo="no">
+<td data-label="Date">13–18 Sep 2026</td>
+<td data-label="Program"><div class="program-name">Galápagos Loop – 6D/5N</div></td>
+<td data-label="Region">Galápagos</td>
+<td data-label="Status"><span class="badge open">OPEN</span><span class="badge confirmed">CONFIRMED</span></td>
+<td data-label="Special Condition">—</td>
+<td data-label="Action"><a class="action-btn" onclick="openBookingModal('Galápagos Loop – 6D/5N','13–18 Sep 2026')">Book Now</a></td>
+</tr>
+
+<tr data-region="galapagos" data-status="confirmed" data-promo="no">
+<td data-label="Date">27 Sep – 02 Oct 2026</td>
+<td data-label="Program"><div class="program-name">Galápagos Loop – 6D/5N</div></td>
+<td data-label="Region">Galápagos</td>
+<td data-label="Status"><span class="badge open">OPEN</span><span class="badge confirmed">CONFIRMED</span></td>
+<td data-label="Special Condition">—</td>
+<td data-label="Action"><a class="action-btn" onclick="openBookingModal('Galápagos Loop – 6D/5N','27 Sep – 02 Oct 2026')">Book Now</a></td>
+</tr>
+<!-- BOOKING MODAL -->
+
+<div id="bookingModal" class="modal-overlay">
+
+<div class="modal-box">
+
+<span class="modal-close" onclick="closeBookingModal()">✕</span>
+
+<h3 id="modalProgramTitle"></h3>
+
+<p>
+<strong>Departure selected:</strong>
+<span id="modalDepartureDate"></span>
+</p>
+
+
+<!-- LOOP RATES -->
+
+<div id="loopRatesBlock">
+
+<h4>Galápagos Loop – Rates</h4>
+
+<table class="rates-table">
 
 <thead>
 <tr>
@@ -339,7 +592,7 @@ Departure selected: <strong id="modalDate"></strong>
 
 <td class="best-offer">
 1999
-<span class="tooltip">Best offer</span>
+<span>Best Offer</span>
 </td>
 
 <td>2399</td>
@@ -366,16 +619,17 @@ Departure selected: <strong id="modalDate"></strong>
 </div>
 
 
-
 <!-- ANDEAN RATES -->
 
-<div id="andeanRates" class="rates-table">
+<div id="andeanRatesBlock">
 
-<table>
+<h4>Andean Treasures – Rates</h4>
+
+<table class="rates-table">
 
 <thead>
 <tr>
-<th>Guide Language</th>
+<th>Guide</th>
 <th>Price</th>
 <th>Single Supplement</th>
 </tr>
@@ -402,16 +656,18 @@ Departure selected: <strong id="modalDate"></strong>
 </div>
 
 
-
 <!-- CONTACT FORM -->
 
-<form action="https://formspree.io/f/xaqdeevb" method="POST" class="modal-form">
+<form
+class="modal-form"
+action="https://formspree.io/f/xaqdeevb"
+method="POST">
 
 <input type="hidden" name="program" id="formProgram">
-<input type="hidden" name="departure_date" id="formDate">
+<input type="hidden" name="departure" id="formDeparture">
 
 <label>Full Name *</label>
-<input type="text" name="full_name" required>
+<input type="text" name="fullname" required>
 
 <label>Company *</label>
 <input type="text" name="company" required>
@@ -423,224 +679,129 @@ Departure selected: <strong id="modalDate"></strong>
 <input type="text" name="phone">
 
 <label>Message</label>
-
 <textarea name="message" rows="4">
-I would like to book this departure.
+I would like more information about this departure.
 </textarea>
 
 <button type="submit" class="contact-button">
 Send Request
 </button>
 
-<div class="confirmation-message" id="confirmationMessage">
-Thank you for your request.<br>
-Our team will receive your request and will contact you as soon as possible.
-</div>
-
 </form>
 
+<p style="margin-top:15px;font-size:13px;color:#555;">
+Our team will receive your request and will contact you as soon as possible.
+</p>
+
 </div>
 </div>
-
-
-
-<style>
-
-/* MODAL */
-
-.geo-modal{
-display:none;
-position:fixed;
-z-index:999;
-left:0;
-top:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.45);
-}
-
-.geo-modal-content{
-background:#ffffff;
-margin:5% auto;
-padding:35px;
-border-radius:10px;
-width:90%;
-max-width:650px;
-font-family:'Montserrat',sans-serif;
-}
-
-.geo-close{
-float:right;
-font-size:24px;
-cursor:pointer;
-color:#002060;
-}
-
-.geo-departure{
-margin:10px 0 25px 0;
-font-weight:600;
-color:#002060;
-}
-
-
-/* RATES TABLE */
-
-.rates-table table{
-width:100%;
-border-collapse:collapse;
-margin-bottom:25px;
-}
-
-.rates-table th{
-background:#002060;
-color:#fff;
-padding:10px;
-font-size:13px;
-}
-
-.rates-table td{
-padding:10px;
-border-bottom:1px solid #eee;
-font-size:14px;
-text-align:center;
-}
-
-
-/* BEST OFFER */
-
-.best-offer{
-color:#c62828;
-font-weight:700;
-position:relative;
-cursor:pointer;
-}
-
-.tooltip{
-visibility:hidden;
-position:absolute;
-background:#002060;
-color:#fff;
-padding:4px 8px;
-font-size:11px;
-border-radius:4px;
-top:-28px;
-left:50%;
-transform:translateX(-50%);
-white-space:nowrap;
-}
-
-.best-offer:hover .tooltip{
-visibility:visible;
-}
-
-
-/* FORM */
-
-.modal-form label{
-font-size:13px;
-font-weight:600;
-color:#002060;
-display:block;
-margin-bottom:6px;
-}
-
-.modal-form input,
-.modal-form textarea{
-width:100%;
-padding:10px;
-margin-bottom:14px;
-border:1px solid #ddd;
-border-radius:6px;
-font-family:'Montserrat',sans-serif;
-}
-
-.contact-button{
-background:#002060;
-color:#fff;
-border:none;
-padding:12px 22px;
-border-radius:6px;
-cursor:pointer;
-font-weight:600;
-}
-
-.contact-button:hover{
-background:#001846;
-}
-
-.confirmation-message{
-display:none;
-margin-top:15px;
-font-size:14px;
-color:#1e7e34;
-font-weight:600;
-}
-
-
-/* MOBILE */
-
-@media(max-width:700px){
-
-.geo-modal-content{
-margin-top:20%;
-padding:25px;
-}
-
-}
-
-</style>
-
-
-
 <script>
 
-function openModal(program,date){
+/* ===============================
+   FILTER TABLE (TU SCRIPT ORIGINAL)
+================================ */
 
-document.getElementById("bookingModal").style.display="block";
+function filterTable(type, btn){
 
-document.getElementById("modalProgram").innerText=program;
+let rows=document.querySelectorAll("#departuresTable tbody tr");
+let buttons=document.querySelectorAll(".filter-btn");
 
-document.getElementById("modalDate").innerText=date;
+buttons.forEach(b=>b.classList.remove("active"));
+btn.classList.add("active");
+
+rows.forEach(row=>{
+
+let region=row.dataset.region;
+let status=row.dataset.status;
+let promo=row.dataset.promo;
+
+if(type==="all") row.style.display="";
+
+else if(type==="galapagos" && region==="galapagos") row.style.display="";
+
+else if(type==="volcano" && region==="volcano") row.style.display="";
+
+else if(type==="promo" && promo==="yes") row.style.display="";
+
+else if(type==="almost" && status==="almost") row.style.display="";
+
+else if(type==="sold" && status==="sold") row.style.display="";
+
+else row.style.display="none";
+
+});
+
+}
+
+
+/* ===============================
+   OPEN MODAL
+================================ */
+
+function openBookingModal(program,date){
+
+let modal=document.getElementById("bookingModal");
+
+modal.style.display="block";
+
+document.getElementById("modalProgramTitle").innerText=program;
+document.getElementById("modalDepartureDate").innerText=date;
 
 document.getElementById("formProgram").value=program;
+document.getElementById("formDeparture").value=date;
 
-document.getElementById("formDate").value=date;
 
+/* SHOW CORRECT RATE TABLE */
 
-/* show correct rates */
+let loop=document.getElementById("loopRatesBlock");
+let andean=document.getElementById("andeanRatesBlock");
 
 if(program.includes("Galápagos Loop")){
 
-document.getElementById("loopRates").style.display="block";
-document.getElementById("andeanRates").style.display="none";
+loop.style.display="block";
+andean.style.display="none";
 
 }
 
 if(program.includes("Andean Treasures")){
 
-document.getElementById("loopRates").style.display="none";
-document.getElementById("andeanRates").style.display="block";
+loop.style.display="none";
+andean.style.display="block";
 
 }
 
 }
 
 
-function closeModal(){
+/* ===============================
+   CLOSE MODAL
+================================ */
+
+function closeBookingModal(){
 
 document.getElementById("bookingModal").style.display="none";
 
 }
 
 
-/* confirmation message */
+/* ===============================
+   CLOSE MODAL CLICK OUTSIDE
+================================ */
 
-const form=document.querySelector(".modal-form");
+window.onclick=function(event){
 
-form.addEventListener("submit",function(){
+let modal=document.getElementById("bookingModal");
 
-document.getElementById("confirmationMessage").style.display="block";
+if(event.target==modal){
 
-});
+modal.style.display="none";
+
+}
+
+}
 
 </script>
+
+
+</body>
+</html>
