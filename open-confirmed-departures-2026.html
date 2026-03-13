@@ -947,6 +947,11 @@ let modal=document.getElementById("bookingModal");
 
 modal.style.display="block";
 
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
 /* SET TITLES */
 
 document.getElementById("modalProgramTitle").innerText=program;
