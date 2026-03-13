@@ -233,6 +233,31 @@ transition:opacity 0.2s ease;
 opacity:1;
 }
 
+/* FIX — keep price tables as tables on mobile */
+
+.rates-table{
+display:table;
+width:100%;
+border-collapse:collapse;
+}
+
+.rates-table thead{
+display:table-header-group;
+}
+
+.rates-table tbody{
+display:table-row-group;
+}
+
+.rates-table tr{
+display:table-row;
+}
+
+.rates-table th,
+.rates-table td{
+display:table-cell;
+}
+
 /* ===============================
    MOBILE LAYOUT
 ================================ */
