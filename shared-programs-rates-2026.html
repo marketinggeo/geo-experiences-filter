@@ -1138,3 +1138,141 @@ Specific departures 2026
 </table>
 
 </div>
+<!-- POPUP GERMAN DATES -->
+<div id="germanDatesPopup" class="popup">
+
+<div class="popup-content">
+
+<span class="close" onclick="closeGermanDates()">×</span>
+
+<h3>German-speaking departures 2026</h3>
+
+<div id="popupDates"></div>
+
+</div>
+
+</div>
+
+
+<script>
+
+function showSection(id){
+
+document.getElementById('mainMenu').style.display='none'
+
+document.querySelectorAll('.rate-section').forEach(sec=>sec.style.display='none')
+
+document.getElementById(id).style.display='block'
+
+}
+
+function goBack(){
+
+document.getElementById('mainMenu').style.display='grid'
+
+document.querySelectorAll('.rate-section').forEach(sec=>sec.style.display='none'
+
+)}
+
+function filterPrograms(select,sectionId){
+
+const value=select.value
+
+const programs=document.getElementById(sectionId).querySelectorAll('.program')
+
+programs.forEach(program=>{
+
+if(value==='all'||program.dataset.category===value){
+
+program.classList.remove('hidden')
+
+}else{
+
+program.classList.add('hidden')
+
+}
+
+})
+
+}
+
+
+const germanDepartures = {
+
+loop6:[
+"DATE",
+"DATE",
+"DATE"
+],
+
+loop7:[
+"DATE",
+"DATE",
+"DATE"
+],
+
+extension:[
+"DATE",
+"DATE"
+],
+
+darwin:[
+"DATE",
+"DATE"
+],
+
+andean:[
+"DATE",
+"DATE",
+"DATE"
+]
+
+}
+
+
+function openGermanDates(program){
+
+const popup=document.getElementById("germanDatesPopup")
+
+const container=document.getElementById("popupDates")
+
+container.innerHTML=""
+
+germanDepartures[program].forEach(date=>{
+
+const p=document.createElement("p")
+
+p.textContent=date
+
+container.appendChild(p)
+
+})
+
+popup.style.display="flex"
+
+}
+
+function closeGermanDates(){
+
+document.getElementById("germanDatesPopup").style.display="none"
+
+}
+
+</script>
+<!-- POPUP GERMAN DATES -->
+<div id="germanDatesPopup" class="popup">
+
+<div class="popup-content">
+
+<span class="close" onclick="closeGermanDates()">×</span>
+
+<h3>German-speaking departures 2026</h3>
+
+<div id="popupDates"></div>
+
+</div>
+
+</div>
+
+</body>
+</html>
