@@ -950,13 +950,15 @@ else row.style.display="none";
    OPEN BOOKING MODAL
 ================================ */
 
-function openBookingModal(btn,program,date){
+function openBookingModal(program,date){
 
 let modal=document.getElementById("bookingModal");
 
 modal.style.display="block";
 
-/* scroll to clicked button */
+/* detect clicked button automatically */
+
+let btn = event.target;
 
 setTimeout(function(){
 
