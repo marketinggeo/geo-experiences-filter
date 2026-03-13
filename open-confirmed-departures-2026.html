@@ -956,10 +956,14 @@ let modal=document.getElementById("bookingModal");
 
 modal.style.display="block";
 
-window.scrollTo({
-top:0,
-behavior:"smooth"
+/* scroll to modal */
+
+setTimeout(function(){
+modal.querySelector(".modal-content").scrollIntoView({
+behavior:"smooth",
+block:"start"
 });
+},100);
 
 /* SET TITLES */
 
