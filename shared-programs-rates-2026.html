@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Geo Boutique | Shared Programs Rates 2026</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
@@ -36,7 +37,7 @@ transition:0.2s;
 }
 
 .rate-card:hover{
-box-shadow:0 4px 14px rgba(0,0,0,0.08);
+box-shadow:0 6px 20px rgba(0,0,0,0.08);
 }
 
 .rate-section{
@@ -98,11 +99,16 @@ color:#002060;
 font-weight:500;
 }
 
+.flag{
+font-size:16px;
+margin-right:6px;
+}
+
 .german-btn{
 background:#002060;
 color:#fff;
 border:none;
-padding:6px 12px;
+padding:6px 10px;
 font-size:12px;
 cursor:pointer;
 font-family:'Montserrat';
@@ -115,7 +121,7 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-background:rgba(0,0,0,0.45);
+background:rgba(0,0,0,0.5);
 align-items:center;
 justify-content:center;
 }
@@ -123,7 +129,7 @@ justify-content:center;
 .popup-content{
 background:#fff;
 padding:30px;
-max-width:420px;
+max-width:450px;
 }
 
 .close{
@@ -133,10 +139,14 @@ font-size:20px;
 }
 
 </style>
+
 </head>
+
 <body>
 
 <div class="container">
+
+<!-- MENU -->
 
 <div id="mainMenu" class="card-grid">
 
@@ -181,30 +191,34 @@ font-size:20px;
 <th>DBL</th>
 <th>TPL</th>
 </tr>
+
+
+<!-- LOOP 6 -->
+
 <tr class="program alt" data-category="loop6">
 
-<td>SG-04-A</td>
+<td rowspan="2">SG-04-A</td>
 
-<td>
+<td rowspan="2">
 The Galápagos Loop 6D/5N<br>
 DAYS: Sunday to Friday
 </td>
 
-<td>
+<td rowspan="2">
 Santa Cruz<br>
 Floreana<br>
 Isabela
 </td>
 
-<td>Tourist</td>
+<td rowspan="2">Tourist</td>
 
-<td>
+<td rowspan="2">
 DEJA VU<br>
 AGUA MARINA<br>
 CALLY
 </td>
 
-<td class="lang">🇬🇧 English</td>
+<td class="lang"><span class="flag">🇬🇧</span>English</td>
 
 <td>Every Sunday</td>
 
@@ -214,31 +228,9 @@ CALLY
 
 </tr>
 
-
 <tr class="program" data-category="loop6">
 
-<td>SG-04-A</td>
-
-<td>
-The Galápagos Loop 6D/5N<br>
-DAYS: Sunday to Friday
-</td>
-
-<td>
-Santa Cruz<br>
-Floreana<br>
-Isabela
-</td>
-
-<td>Tourist</td>
-
-<td>
-DEJA VU<br>
-AGUA MARINA<br>
-CALLY
-</td>
-
-<td class="lang">🇩🇪 German</td>
+<td class="lang"><span class="flag">🇩🇪</span>German</td>
 
 <td>
 <button class="german-btn" onclick="openGermanDates('loop6')">
@@ -251,30 +243,35 @@ Specific departures 2026
 <td>2.399</td>
 
 </tr>
+
+
+
+<!-- LOOP 7 -->
+
 <tr class="program alt" data-category="loop7">
 
-<td>SG-04-B</td>
+<td rowspan="2">SG-04-B</td>
 
-<td>
+<td rowspan="2">
 The Galápagos Loop 7D/6N – Immersive<br>
 DAYS: Saturday to Friday
 </td>
 
-<td>
+<td rowspan="2">
 Santa Cruz<br>
 Floreana<br>
 Isabela
 </td>
 
-<td>Tourist</td>
+<td rowspan="2">Tourist</td>
 
-<td>
+<td rowspan="2">
 DEJA VU<br>
 AGUA MARINA<br>
 CALLY
 </td>
 
-<td class="lang">🇬🇧 English</td>
+<td class="lang"><span class="flag">🇬🇧</span>English</td>
 
 <td>Every Saturday</td>
 
@@ -284,31 +281,9 @@ CALLY
 
 </tr>
 
-
 <tr class="program" data-category="loop7">
 
-<td>SG-04-B</td>
-
-<td>
-The Galápagos Loop 7D/6N – Immersive<br>
-DAYS: Saturday to Friday
-</td>
-
-<td>
-Santa Cruz<br>
-Floreana<br>
-Isabela
-</td>
-
-<td>Tourist</td>
-
-<td>
-DEJA VU<br>
-AGUA MARINA<br>
-CALLY
-</td>
-
-<td class="lang">🇩🇪 German</td>
+<td class="lang"><span class="flag">🇩🇪</span>German</td>
 
 <td>
 <button class="german-btn" onclick="openGermanDates('loop7')">
@@ -325,19 +300,19 @@ Specific departures 2026
 
 <tr class="program alt" data-category="extension">
 
-<td>SG-04 (Extension)</td>
+<td rowspan="2">SG-04 (Extension)</td>
 
-<td>
+<td rowspan="2">
 Extension Post Galápagos Loop 3D/2N
 </td>
 
-<td>Santa Cruz</td>
+<td rowspan="2">Santa Cruz</td>
 
-<td>Tourist</td>
+<td rowspan="2">Tourist</td>
 
-<td>DEJA VU</td>
+<td rowspan="2">DEJA VU</td>
 
-<td class="lang">🇬🇧 English</td>
+<td class="lang"><span class="flag">🇬🇧</span>English</td>
 
 <td>Every Friday (Post Loop)</td>
 
@@ -347,22 +322,9 @@ Extension Post Galápagos Loop 3D/2N
 
 </tr>
 
-
 <tr class="program" data-category="extension">
 
-<td>SG-04 (Extension)</td>
-
-<td>
-Extension Post Galápagos Loop 3D/2N
-</td>
-
-<td>Santa Cruz</td>
-
-<td>Tourist</td>
-
-<td>DEJA VU</td>
-
-<td class="lang">🇩🇪 German</td>
+<td class="lang"><span class="flag">🇩🇪</span>German</td>
 
 <td>
 <button class="german-btn" onclick="openGermanDates('extension')">
@@ -382,30 +344,30 @@ Specific departures 2026
 
 <tr class="program alt" data-category="darwin">
 
-<td>SG-05</td>
+<td rowspan="2">SG-05</td>
 
-<td>
+<td rowspan="2">
 Charles Darwin Path 8D/7N<br>
 DAYS: Friday to Friday
 </td>
 
-<td>
+<td rowspan="2">
 Cristobal<br>
 Santa Cruz<br>
 Floreana<br>
 Isabela
 </td>
 
-<td>Tourist</td>
+<td rowspan="2">Tourist</td>
 
-<td>
+<td rowspan="2">
 PIMAMPIRO<br>
 DEJA VU<br>
 AGUA MARINA<br>
 CALLY
 </td>
 
-<td class="lang">🇬🇧 English</td>
+<td class="lang"><span class="flag">🇬🇧</span>English</td>
 
 <td>Every Friday</td>
 
@@ -415,33 +377,9 @@ CALLY
 
 </tr>
 
-
 <tr class="program" data-category="darwin">
 
-<td>SG-05</td>
-
-<td>
-Charles Darwin Path 8D/7N<br>
-DAYS: Friday to Friday
-</td>
-
-<td>
-Cristobal<br>
-Santa Cruz<br>
-Floreana<br>
-Isabela
-</td>
-
-<td>Tourist</td>
-
-<td>
-PIMAMPIRO<br>
-DEJA VU<br>
-AGUA MARINA<br>
-CALLY
-</td>
-
-<td class="lang">🇩🇪 German</td>
+<td class="lang"><span class="flag">🇩🇪</span>German</td>
 
 <td>
 <button class="german-btn" onclick="openGermanDates('darwin')">
@@ -454,9 +392,12 @@ Specific departures 2026
 <td>3.022</td>
 
 </tr>
+
 </table>
 
+
 <br><br>
+
 
 <h2>Supplements</h2>
 
@@ -468,24 +409,32 @@ Specific departures 2026
 </tr>
 
 <tr class="alt">
+
 <td>
 Extra private transfer in Santa Cruz (English speaking driver)<br>
 Minimum 2 pax
 </td>
+
 <td>
 71 (1–2 Pax)<br>
 49 (3–4 Pax)
 </td>
+
 </tr>
 
 <tr>
+
 <td>Supplement for shared Tunnels instead of Tintoreras (optional)</td>
+
 <td>120</td>
+
 </tr>
 
 </table>
 
 </div>
+
+
 <!-- ================= MAINLAND ================= -->
 
 <div id="mainland" class="rate-section">
@@ -493,6 +442,7 @@ Minimum 2 pax
 <div class="back-btn" onclick="goBack()">← Back</div>
 
 <div class="filter-bar">
+
 <select onchange="filterPrograms(this,'mainland')">
 
 <option value="all">All Programs</option>
@@ -504,7 +454,209 @@ Minimum 2 pax
 <option value="andean">Andean Treasures 8D/7N</option>
 
 </select>
+
 </div>
+
+<table>
+
+<tr>
+<th>CODE</th>
+<th>PROGRAM</th>
+<th>ENTRANCES</th>
+<th>CATEGORY</th>
+<th>CITY / ROUTE</th>
+<th>HOTELS</th>
+<th>LANGUAGE</th>
+<th>DEPARTURES 2026</th>
+<th>NET RATE</th>
+<th>S.S</th>
+</tr>
+<!-- ================= DAILY TOURS ================= -->
+
+<tr class="program alt" data-category="daily">
+
+<td rowspan="2">GR-SM-01</td>
+
+<td rowspan="2">
+Walking Quito City Tour (Half Day)
+</td>
+
+<td rowspan="2">No</td>
+
+<td rowspan="2">-</td>
+
+<td rowspan="2">Quito</td>
+
+<td rowspan="2">-</td>
+
+<td class="lang"><span class="flag">🇬🇧</span>English</td>
+
+<td>Every Tuesday & Friday</td>
+
+<td>24</td>
+
+<td>-</td>
+
+</tr>
+
+<tr class="program" data-category="daily">
+
+<td class="lang"><span class="flag">🇩🇪</span>German</td>
+
+<td>
+<button class="german-btn" onclick="openGermanDates('daily')">
+Specific departures 2026
+</button>
+</td>
+
+<td>24</td>
+
+<td>-</td>
+
+</tr>
+
+
+
+<tr class="program alt" data-category="daily">
+
+<td rowspan="2">GR-SM-02</td>
+
+<td rowspan="2">
+Quito City Tour & Middle of the World
+</td>
+
+<td rowspan="2">No</td>
+
+<td rowspan="2">-</td>
+
+<td rowspan="2">Quito</td>
+
+<td rowspan="2">-</td>
+
+<td class="lang"><span class="flag">🇬🇧</span>English</td>
+
+<td>Every Tuesday & Friday</td>
+
+<td>60</td>
+
+<td>-</td>
+
+</tr>
+
+<tr class="program" data-category="daily">
+
+<td class="lang"><span class="flag">🇩🇪</span>German</td>
+
+<td>
+<button class="german-btn" onclick="openGermanDates('daily')">
+Specific departures 2026
+</button>
+</td>
+
+<td>60</td>
+
+<td>-</td>
+
+</tr>
+
+
+
+<tr class="program alt" data-category="daily">
+
+<td rowspan="2">GR-SM-03</td>
+
+<td rowspan="2">
+Otavalo Indigenous Market
+</td>
+
+<td rowspan="2">No</td>
+
+<td rowspan="2">-</td>
+
+<td rowspan="2">Otavalo</td>
+
+<td rowspan="2">-</td>
+
+<td class="lang"><span class="flag">🇬🇧</span>English</td>
+
+<td>Every Wednesday & Saturday</td>
+
+<td>75</td>
+
+<td>-</td>
+
+</tr>
+
+<tr class="program" data-category="daily">
+
+<td class="lang"><span class="flag">🇩🇪</span>German</td>
+
+<td>
+<button class="german-btn" onclick="openGermanDates('daily')">
+Specific departures 2026
+</button>
+</td>
+
+<td>75</td>
+
+<td>-</td>
+
+</tr>
+
+
+
+<tr class="program alt" data-category="daily">
+
+<td rowspan="2">GR-SM-04</td>
+
+<td rowspan="2">
+Cotopaxi National Park
+</td>
+
+<td rowspan="2">No</td>
+
+<td rowspan="2">-</td>
+
+<td rowspan="2">Cotopaxi</td>
+
+<td rowspan="2">-</td>
+
+<td class="lang"><span class="flag">🇬🇧</span>English</td>
+
+<td>Every Thursday & Sunday</td>
+
+<td>75</td>
+
+<td>-</td>
+
+</tr>
+
+<tr class="program" data-category="daily">
+
+<td class="lang"><span class="flag">🇩🇪</span>German</td>
+
+<td>
+<button class="german-btn" onclick="openGermanDates('daily')">
+Specific departures 2026
+</button>
+</td>
+
+<td>75</td>
+
+<td>-</td>
+
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+
+
+<!-- POPUP -->
+
 <div id="germanDatesPopup" class="popup">
 
 <div class="popup-content">
@@ -518,40 +670,53 @@ Minimum 2 pax
 </div>
 
 </div>
+
+
+
 <script>
 
 function showSection(id){
-document.getElementById('mainMenu').style.display='none';
-document.querySelectorAll('.rate-section').forEach(sec=>sec.style.display='none');
-document.getElementById(id).style.display='block';
+
+document.getElementById('mainMenu').style.display='none'
+
+document.querySelectorAll('.rate-section').forEach(sec=>sec.style.display='none')
+
+document.getElementById(id).style.display='block'
+
 }
 
+
 function goBack(){
-document.getElementById('mainMenu').style.display='grid';
-document.querySelectorAll('.rate-section').forEach(sec=>sec.style.display='none');
+
+document.getElementById('mainMenu').style.display='grid'
+
+document.querySelectorAll('.rate-section').forEach(sec=>sec.style.display='none')
+
 }
+
 
 function filterPrograms(select,sectionId){
 
-const value=select.value;
+const value=select.value
 
-const programs=document.getElementById(sectionId).querySelectorAll('.program');
+const programs=document.getElementById(sectionId).querySelectorAll('.program')
 
 programs.forEach(program=>{
 
 if(value==='all'||program.dataset.category===value){
 
-program.classList.remove('hidden');
+program.classList.remove('hidden')
 
 }else{
 
-program.classList.add('hidden');
+program.classList.add('hidden')
 
 }
 
-});
+})
 
 }
+
 
 
 function openGermanDates(program){
@@ -562,25 +727,35 @@ const container=document.getElementById("popupDates")
 
 container.innerHTML=""
 
+
+
 const germanDepartures={
 
 loop6:[
-"Insert German dates here"
+"Insert German dates"
 ],
 
 loop7:[
-"Insert German dates here"
+"Insert German dates"
 ],
 
 extension:[
-"Insert German dates here"
+"Insert German dates"
 ],
 
 darwin:[
-"Insert German dates here"
+"Insert German dates"
+],
+
+daily:[
+"Insert German dates"
 ]
 
 }
+
+
+
+if(germanDepartures[program]){
 
 germanDepartures[program].forEach(date=>{
 
@@ -592,9 +767,15 @@ container.appendChild(p)
 
 })
 
+}
+
+
+
 popup.style.display="flex"
 
 }
+
+
 
 function closeGermanDates(){
 
@@ -603,3 +784,7 @@ document.getElementById("germanDatesPopup").style.display="none"
 }
 
 </script>
+
+</body>
+
+</html>
