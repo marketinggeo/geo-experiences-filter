@@ -489,7 +489,7 @@ For groups of four passengers or more, both benefits will be included.
 
 <td data-label="Action">
 <button class="action-btn"
-onclick="openBookingModal(this,'Galápagos Loop – 6D/5N','10–15 May 2026')">
+onclick="openBookingModal('Galápagos Loop – 6D/5N','10–15 May 2026')">
 Book Now
 </button>
 </td>
@@ -950,24 +950,20 @@ else row.style.display="none";
    OPEN BOOKING MODAL
 ================================ */
 
-function openBookingModal(btn,program,date){
+function openBookingModal(program,date){
 
 let modal=document.getElementById("bookingModal");
 
 modal.style.display="block";
 
-/* scroll to clicked button */
+/* scroll to modal */
 
 setTimeout(function(){
-
-let y = btn.getBoundingClientRect().top + window.pageYOffset - 120;
-
-window.scrollTo({
-top:y,
-behavior:"smooth"
+modal.querySelector(".modal-content").scrollIntoView({
+behavior:"smooth",
+block:"start"
 });
-
-},50);
+},100);
 
 /* SET TITLES */
 
