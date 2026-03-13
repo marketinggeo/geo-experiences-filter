@@ -950,20 +950,24 @@ else row.style.display="none";
    OPEN BOOKING MODAL
 ================================ */
 
-function openBookingModal(program,date){
+function openBookingModal(btn,program,date){
 
 let modal=document.getElementById("bookingModal");
 
 modal.style.display="block";
 
-/* scroll to modal */
+/* scroll to clicked button */
 
 setTimeout(function(){
-modal.querySelector(".modal-content").scrollIntoView({
-behavior:"smooth",
-block:"start"
+
+let y = btn.getBoundingClientRect().top + window.pageYOffset - 120;
+
+window.scrollTo({
+top:y,
+behavior:"smooth"
 });
-},100);
+
+},50);
 
 /* SET TITLES */
 
