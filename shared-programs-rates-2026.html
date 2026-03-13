@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Geo Boutique | Shared Programs Rates 2026</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
@@ -12,7 +10,7 @@
 <style>
 
 body{
-font-family:'Montserrat',sans-serif;
+font-family:'Montserrat', sans-serif;
 margin:0;
 background:#f4f4f4;
 }
@@ -34,6 +32,11 @@ background:#fff;
 border:1px solid #d9d9d9;
 padding:40px;
 cursor:pointer;
+transition:0.2s;
+}
+
+.rate-card:hover{
+box-shadow:0 4px 14px rgba(0,0,0,0.08);
 }
 
 .rate-section{
@@ -54,7 +57,7 @@ margin-bottom:30px;
 
 .filter-bar select{
 padding:10px 15px;
-font-family:'Montserrat',sans-serif;
+font-family:'Montserrat', sans-serif;
 font-size:13px;
 border:1px solid #d9d9d9;
 }
@@ -91,31 +94,19 @@ h2{
 color:#002060;
 }
 
-
-/* LANGUAGE COLUMN */
-
 .lang{
-display:flex;
-align-items:center;
-gap:6px;
 font-weight:500;
 }
-
-
-/* BUTTON FOR GERMAN DATES */
 
 .german-btn{
 background:#002060;
 color:#fff;
 border:none;
-padding:7px 12px;
-font-family:'Montserrat',sans-serif;
+padding:6px 12px;
 font-size:12px;
 cursor:pointer;
+font-family:'Montserrat';
 }
-
-
-/* POPUP */
 
 .popup{
 display:none;
@@ -127,39 +118,25 @@ height:100%;
 background:rgba(0,0,0,0.45);
 align-items:center;
 justify-content:center;
-z-index:1000;
 }
 
 .popup-content{
 background:#fff;
-padding:35px;
+padding:30px;
 max-width:420px;
-width:90%;
-font-family:'Montserrat',sans-serif;
-}
-
-.popup-content h3{
-margin-top:0;
-color:#002060;
 }
 
 .close{
-float:right;
 cursor:pointer;
-font-size:22px;
+float:right;
+font-size:20px;
 }
 
 </style>
-
 </head>
-
-
 <body>
 
 <div class="container">
-
-
-<!-- MENU PRINCIPAL -->
 
 <div id="mainMenu" class="card-grid">
 
@@ -172,253 +149,13 @@ font-size:22px;
 </div>
 
 </div>
-
-
-<!-- ================= GALAPAGOS ================= -->
+<!-- ================= GALÁPAGOS ================= -->
 
 <div id="galapagos" class="rate-section">
 
 <div class="back-btn" onclick="goBack()">← Back</div>
 
 <div class="filter-bar">
-
-<select onchange="filterPrograms(this,'galapagos')">
-
-<option value="all">All Programs</option>
-
-<option value="loop6">Galápagos Loop 6D/5N</option>
-
-<option value="loop7">Galápagos Loop 7D/6N</option>
-
-<option value="extension">Extension</option>
-
-<option value="darwin">Charles Darwin Path</option>
-
-</select>
-
-</div>
-
-
-<table>
-
-<tr>
-
-<th>CODE</th>
-
-<th>PROGRAM</th>
-
-<th>ISLANDS</th>
-
-<th>CATEGORY</th>
-
-<th>ACCOMMODATION</th>
-
-<th>LANGUAGE</th>
-
-<th>DEPARTURES 2026</th>
-
-<th>SGL</th>
-
-<th>DBL</th>
-
-<th>TPL</th>
-
-</tr>
-
-
-<!-- ================= TEST ROW ================= -->
-
-<tr class="program alt" data-category="loop6">
-
-<td>SG-04-A</td>
-
-<td>
-The Galápagos Loop 6D/5N<br>
-DAYS: Sunday to Friday
-</td>
-
-<td>
-Santa Cruz<br>
-Floreana<br>
-Isabela
-</td>
-
-<td>Tourist</td>
-
-<td>
-DEJA VU<br>
-AGUA MARINA<br>
-CALLY
-</td>
-
-<td class="lang">
-🇬🇧 English
-</td>
-
-<td>
-Every Sunday with English-speaking guide
-</td>
-
-<td>[PRICE]</td>
-<td>[PRICE]</td>
-<td>[PRICE]</td>
-
-</tr>
-
-
-<tr class="program" data-category="loop6">
-
-<td>SG-04-A</td>
-
-<td>
-The Galápagos Loop 6D/5N<br>
-DAYS: Sunday to Friday
-</td>
-
-<td>
-Santa Cruz<br>
-Floreana<br>
-Isabela
-</td>
-
-<td>Tourist</td>
-
-<td>
-DEJA VU<br>
-AGUA MARINA<br>
-CALLY
-</td>
-
-<td class="lang">
-🇩🇪 German
-</td>
-
-<td>
-
-<button class="german-btn" onclick="openGermanDates()">
-Specific departures 2026
-</button>
-
-</td>
-
-<td>[PRICE]</td>
-<td>[PRICE]</td>
-<td>[PRICE]</td>
-
-</tr>
-
-</table>
-
-</div>
-
-
-<!-- ================= MAINLAND ================= -->
-
-<div id="mainland" class="rate-section">
-
-<div class="back-btn" onclick="goBack()">← Back</div>
-
-<p>Rates section under reconstruction</p>
-
-</div>
-
-</div>
-
-
-<!-- ================= POPUP FECHAS ALEMAN ================= -->
-
-<div id="germanDatesPopup" class="popup">
-
-<div class="popup-content">
-
-<span class="close" onclick="closeGermanDates()">×</span>
-
-<h3>German-speaking departures 2026</h3>
-
-<p>
-
-Aquí colocaremos las fechas reales que me envíes.
-
-</p>
-
-</div>
-
-</div>
-
-
-<script>
-
-
-function showSection(id){
-
-document.getElementById('mainMenu').style.display='none'
-
-document.querySelectorAll('.rate-section').forEach(sec=>sec.style.display='none')
-
-document.getElementById(id).style.display='block'
-
-}
-
-
-function goBack(){
-
-document.getElementById('mainMenu').style.display='grid'
-
-document.querySelectorAll('.rate-section').forEach(sec=>sec.style.display='none')
-
-}
-
-
-function filterPrograms(select,sectionId){
-
-const value=select.value
-
-const programs=document.getElementById(sectionId).querySelectorAll('.program')
-
-programs.forEach(program=>{
-
-if(value==='all'||program.dataset.category===value){
-
-program.classList.remove('hidden')
-
-}else{
-
-program.classList.add('hidden')
-
-}
-
-})
-
-}
-
-
-function openGermanDates(){
-
-document.getElementById("germanDatesPopup").style.display="flex"
-
-}
-
-
-function closeGermanDates(){
-
-document.getElementById("germanDatesPopup").style.display="none"
-
-}
-
-
-</script>
-
-
-</body>
-</html>
-<!-- ================= GALAPAGOS ================= -->
-
-<div id="galapagos" class="rate-section">
-
-<div class="back-btn" onclick="goBack()">← Back</div>
-
-<div class="filter-bar">
-
 <select onchange="filterPrograms(this,'galapagos')">
 
 <option value="all">All Programs</option>
@@ -428,14 +165,11 @@ document.getElementById("germanDatesPopup").style.display="none"
 <option value="darwin">Charles Darwin Path</option>
 
 </select>
-
 </div>
-
 
 <table>
 
 <tr>
-
 <th>CODE</th>
 <th>PROGRAM</th>
 <th>ISLANDS</th>
@@ -446,12 +180,7 @@ document.getElementById("germanDatesPopup").style.display="none"
 <th>SGL</th>
 <th>DBL</th>
 <th>TPL</th>
-
 </tr>
-
-
-<!-- ================= LOOP 6D TOURIST ================= -->
-
 <tr class="program alt" data-category="loop6">
 
 <td>SG-04-A</td>
@@ -477,13 +206,11 @@ CALLY
 
 <td class="lang">🇬🇧 English</td>
 
-<td>
-Every Sunday with English-speaking guide
-</td>
+<td>Every Sunday</td>
 
-<td>[PRICE]</td>
-<td>[PRICE]</td>
-<td>[PRICE]</td>
+<td>2.491</td>
+<td>2.420</td>
+<td>2.399</td>
 
 </tr>
 
@@ -514,166 +241,16 @@ CALLY
 <td class="lang">🇩🇪 German</td>
 
 <td>
-
-<button class="german-btn" onclick="openGermanDates()">
+<button class="german-btn" onclick="openGermanDates('loop6')">
 Specific departures 2026
 </button>
-
 </td>
 
-<td>[PRICE]</td>
-<td>[PRICE]</td>
-<td>[PRICE]</td>
+<td>2.491</td>
+<td>2.420</td>
+<td>2.399</td>
 
 </tr>
-
-
-<!-- ================= LOOP 6D TOURIST SUPERIOR ================= -->
-
-<tr class="program alt" data-category="loop6">
-
-<td>SG-04-A</td>
-
-<td>The Galápagos Loop 6D/5N</td>
-
-<td>
-Santa Cruz<br>
-Floreana<br>
-Isabela
-</td>
-
-<td>Tourist Superior</td>
-
-<td>
-VILLA LAGUNA<br>
-AGUA MARINA (Santa María)<br>
-VOLCANO
-</td>
-
-<td class="lang">🇬🇧 English</td>
-
-<td>
-Every Sunday with English-speaking guide
-</td>
-
-<td>[PRICE]</td>
-<td>[PRICE]</td>
-<td>[PRICE]</td>
-
-</tr>
-
-
-<tr class="program" data-category="loop6">
-
-<td>SG-04-A</td>
-
-<td>The Galápagos Loop 6D/5N</td>
-
-<td>
-Santa Cruz<br>
-Floreana<br>
-Isabela
-</td>
-
-<td>Tourist Superior</td>
-
-<td>
-VILLA LAGUNA<br>
-AGUA MARINA (Santa María)<br>
-VOLCANO
-</td>
-
-<td class="lang">🇩🇪 German</td>
-
-<td>
-
-<button class="german-btn" onclick="openGermanDates()">
-Specific departures 2026
-</button>
-
-</td>
-
-<td>[PRICE]</td>
-<td>[PRICE]</td>
-<td>[PRICE]</td>
-
-</tr>
-
-
-<!-- ================= LOOP 6D FIRST CLASS ================= -->
-
-<tr class="program alt" data-category="loop6">
-
-<td>SG-04-A</td>
-
-<td>The Galápagos Loop 6D/5N</td>
-
-<td>
-Santa Cruz<br>
-Floreana<br>
-Isabela
-</td>
-
-<td>First Class</td>
-
-<td>
-IKALA SUITE<br>
-AGUA MARINA<br>
-CASA MARITA OCEAN FRONT
-</td>
-
-<td class="lang">🇬🇧 English</td>
-
-<td>
-Every Sunday with English-speaking guide
-</td>
-
-<td>[PRICE]</td>
-<td>[PRICE]</td>
-<td>[PRICE]</td>
-
-</tr>
-
-
-<tr class="program" data-category="loop6">
-
-<td>SG-04-A</td>
-
-<td>The Galápagos Loop 6D/5N</td>
-
-<td>
-Santa Cruz<br>
-Floreana<br>
-Isabela
-</td>
-
-<td>First Class</td>
-
-<td>
-IKALA SUITE<br>
-AGUA MARINA<br>
-CASA MARITA OCEAN FRONT
-</td>
-
-<td class="lang">🇩🇪 German</td>
-
-<td>
-
-<button class="german-btn" onclick="openGermanDates()">
-Specific departures 2026
-</button>
-
-</td>
-
-<td>[PRICE]</td>
-<td>[PRICE]</td>
-<td>[PRICE]</td>
-
-</tr>
-
-
-<!-- ================= LOOP 7D ================= -->
-
 <tr class="program alt" data-category="loop7">
 
 <td>SG-04-B</td>
@@ -699,13 +276,11 @@ CALLY
 
 <td class="lang">🇬🇧 English</td>
 
-<td>
-Every Saturday with English-speaking guide
-</td>
+<td>Every Saturday</td>
 
-<td>[PRICE]</td>
-<td>[PRICE]</td>
-<td>[PRICE]</td>
+<td>2.877</td>
+<td>2.794</td>
+<td>2.764</td>
 
 </tr>
 
@@ -736,27 +311,25 @@ CALLY
 <td class="lang">🇩🇪 German</td>
 
 <td>
-
-<button class="german-btn" onclick="openGermanDates()">
+<button class="german-btn" onclick="openGermanDates('loop7')">
 Specific departures 2026
 </button>
-
 </td>
 
-<td>[PRICE]</td>
-<td>[PRICE]</td>
-<td>[PRICE]</td>
+<td>2.877</td>
+<td>2.794</td>
+<td>2.764</td>
 
 </tr>
-
-
-<!-- ================= EXTENSION ================= -->
+<!-- EXTENSION -->
 
 <tr class="program alt" data-category="extension">
 
-<td>SG-04 EXT</td>
+<td>SG-04 (Extension)</td>
 
-<td>Extension Post Galápagos Loop 3D/2N</td>
+<td>
+Extension Post Galápagos Loop 3D/2N
+</td>
 
 <td>Santa Cruz</td>
 
@@ -766,22 +339,22 @@ Specific departures 2026
 
 <td class="lang">🇬🇧 English</td>
 
-<td>
-Every Friday with English-speaking guide
-</td>
+<td>Every Friday (Post Loop)</td>
 
-<td>[PRICE]</td>
-<td>[PRICE]</td>
-<td>[PRICE]</td>
+<td>877</td>
+<td>852</td>
+<td>844</td>
 
 </tr>
 
 
 <tr class="program" data-category="extension">
 
-<td>SG-04 EXT</td>
+<td>SG-04 (Extension)</td>
 
-<td>Extension Post Galápagos Loop 3D/2N</td>
+<td>
+Extension Post Galápagos Loop 3D/2N
+</td>
 
 <td>Santa Cruz</td>
 
@@ -792,19 +365,123 @@ Every Friday with English-speaking guide
 <td class="lang">🇩🇪 German</td>
 
 <td>
-
-<button class="german-btn" onclick="openGermanDates()">
+<button class="german-btn" onclick="openGermanDates('extension')">
 Specific departures 2026
 </button>
-
 </td>
 
-<td>[PRICE]</td>
-<td>[PRICE]</td>
-<td>[PRICE]</td>
+<td>877</td>
+<td>852</td>
+<td>844</td>
 
 </tr>
 
+
+
+<!-- DARWIN -->
+
+<tr class="program alt" data-category="darwin">
+
+<td>SG-05</td>
+
+<td>
+Charles Darwin Path 8D/7N<br>
+DAYS: Friday to Friday
+</td>
+
+<td>
+Cristobal<br>
+Santa Cruz<br>
+Floreana<br>
+Isabela
+</td>
+
+<td>Tourist</td>
+
+<td>
+PIMAMPIRO<br>
+DEJA VU<br>
+AGUA MARINA<br>
+CALLY
+</td>
+
+<td class="lang">🇬🇧 English</td>
+
+<td>Every Friday</td>
+
+<td>3.146</td>
+<td>3.053</td>
+<td>3.022</td>
+
+</tr>
+
+
+<tr class="program" data-category="darwin">
+
+<td>SG-05</td>
+
+<td>
+Charles Darwin Path 8D/7N<br>
+DAYS: Friday to Friday
+</td>
+
+<td>
+Cristobal<br>
+Santa Cruz<br>
+Floreana<br>
+Isabela
+</td>
+
+<td>Tourist</td>
+
+<td>
+PIMAMPIRO<br>
+DEJA VU<br>
+AGUA MARINA<br>
+CALLY
+</td>
+
+<td class="lang">🇩🇪 German</td>
+
+<td>
+<button class="german-btn" onclick="openGermanDates('darwin')">
+Specific departures 2026
+</button>
+</td>
+
+<td>3.146</td>
+<td>3.053</td>
+<td>3.022</td>
+
+</tr>
+</table>
+
+<br><br>
+
+<h2>Supplements</h2>
+
+<table>
+
+<tr>
+<th>Supplement Description</th>
+<th>Net Rate (USD) per person</th>
+</tr>
+
+<tr class="alt">
+<td>
+Extra private transfer in Santa Cruz (English speaking driver)<br>
+Minimum 2 pax
+</td>
+<td>
+71 (1–2 Pax)<br>
+49 (3–4 Pax)
+</td>
+</tr>
+
+<tr>
+<td>Supplement for shared Tunnels instead of Tintoreras (optional)</td>
+<td>120</td>
+</tr>
 
 </table>
 
@@ -816,7 +493,6 @@ Specific departures 2026
 <div class="back-btn" onclick="goBack()">← Back</div>
 
 <div class="filter-bar">
-
 <select onchange="filterPrograms(this,'mainland')">
 
 <option value="all">All Programs</option>
@@ -828,317 +504,7 @@ Specific departures 2026
 <option value="andean">Andean Treasures 8D/7N</option>
 
 </select>
-
 </div>
-
-
-<table>
-
-<tr>
-
-<th>CODE</th>
-<th>PROGRAM</th>
-<th>ISLANDS / REGION</th>
-<th>CATEGORY</th>
-<th>ACCOMMODATION</th>
-<th>LANGUAGE</th>
-<th>DEPARTURES 2026</th>
-<th>SGL</th>
-<th>DBL</th>
-<th>TPL</th>
-
-</tr>
-
-
-<!-- ================= DAILY TOURS ================= -->
-
-<tr class="program alt" data-category="daily">
-
-<td>GR-SM-01</td>
-
-<td>Walking Quito City Tour (Half Day)</td>
-
-<td>Quito</td>
-
-<td>-</td>
-
-<td>-</td>
-
-<td class="lang">🇬🇧 English</td>
-
-<td>Every Tuesday & Friday</td>
-
-<td>[PRICE]</td>
-<td>[PRICE]</td>
-<td>[PRICE]</td>
-
-</tr>
-
-
-<tr class="program" data-category="daily">
-
-<td>GR-SM-01</td>
-
-<td>Walking Quito City Tour (Half Day)</td>
-
-<td>Quito</td>
-
-<td>-</td>
-
-<td>-</td>
-
-<td class="lang">🇩🇪 German</td>
-
-<td>
-
-<button class="german-btn" onclick="openGermanDates()">
-Specific departures 2026
-</button>
-
-</td>
-
-<td>[PRICE]</td>
-<td>[PRICE]</td>
-<td>[PRICE]</td>
-
-</tr>
-
-
-<tr class="program alt" data-category="daily">
-
-<td>GR-SM-02</td>
-
-<td>Quito City Tour & Middle of the World</td>
-
-<td>Quito</td>
-
-<td>-</td>
-
-<td>-</td>
-
-<td class="lang">🇬🇧 English</td>
-
-<td>Every Tuesday & Friday</td>
-
-<td>[PRICE]</td>
-<td>[PRICE]</td>
-<td>[PRICE]</td>
-
-</tr>
-
-
-<tr class="program" data-category="daily">
-
-<td>GR-SM-02</td>
-
-<td>Quito City Tour & Middle of the World</td>
-
-<td>Quito</td>
-
-<td>-</td>
-
-<td>-</td>
-
-<td class="lang">🇩🇪 German</td>
-
-<td>
-
-<button class="german-btn" onclick="openGermanDates()">
-Specific departures 2026
-</button>
-
-</td>
-
-<td>[PRICE]</td>
-<td>[PRICE]</td>
-<td>[PRICE]</td>
-
-</tr>
-
-
-<!-- ================= VOLCANO AVENUE 2D ================= -->
-
-<tr class="program alt" data-category="volcano2d">
-
-<td>GR-SM-05</td>
-
-<td>Volcano Avenue 2D/1N</td>
-
-<td>Cotopaxi – Baños – Riobamba</td>
-
-<td>Tourist</td>
-
-<td>La Floresta</td>
-
-<td class="lang">🇬🇧 English</td>
-
-<td>Every Thursday with English-speaking guide</td>
-
-<td>[PRICE]</td>
-<td>[PRICE]</td>
-<td>[PRICE]</td>
-
-</tr>
-
-
-<tr class="program" data-category="volcano2d">
-
-<td>GR-SM-05</td>
-
-<td>Volcano Avenue 2D/1N</td>
-
-<td>Cotopaxi – Baños – Riobamba</td>
-
-<td>Tourist</td>
-
-<td>La Floresta</td>
-
-<td class="lang">🇩🇪 German</td>
-
-<td>
-
-<button class="german-btn" onclick="openGermanDates()">
-Specific departures 2026
-</button>
-
-</td>
-
-<td>[PRICE]</td>
-<td>[PRICE]</td>
-<td>[PRICE]</td>
-
-</tr>
-
-
-<!-- ================= VOLCANO AVENUE 3D ================= -->
-
-<tr class="program alt" data-category="volcano3d">
-
-<td>GR-SM-06</td>
-
-<td>Volcano Avenue 3D/2N</td>
-
-<td>Cotopaxi – Baños – Riobamba – Cuenca</td>
-
-<td>Tourist</td>
-
-<td>La Floresta / Casa Real</td>
-
-<td class="lang">🇬🇧 English</td>
-
-<td>Every Thursday with English-speaking guide</td>
-
-<td>[PRICE]</td>
-<td>[PRICE]</td>
-<td>[PRICE]</td>
-
-</tr>
-
-
-<tr class="program" data-category="volcano3d">
-
-<td>GR-SM-06</td>
-
-<td>Volcano Avenue 3D/2N</td>
-
-<td>Cotopaxi – Baños – Riobamba – Cuenca</td>
-
-<td>Tourist</td>
-
-<td>La Floresta / Casa Real</td>
-
-<td class="lang">🇩🇪 German</td>
-
-<td>
-
-<button class="german-btn" onclick="openGermanDates()">
-Specific departures 2026
-</button>
-
-</td>
-
-<td>[PRICE]</td>
-<td>[PRICE]</td>
-<td>[PRICE]</td>
-
-</tr>
-
-
-<!-- ================= ANDEAN TREASURES ================= -->
-
-<tr class="program alt" data-category="andean">
-
-<td>GR-SM-11</td>
-
-<td>
-Andean Treasures 8D/7N<br>
-Sunday to Sunday
-</td>
-
-<td>
-Quito – Cotopaxi – Baños – Riobamba – Cuenca – Guayaquil
-</td>
-
-<td>Standard</td>
-
-<td>
-Ikala / La Cienega / Floresta / Santa Isabella / Los Balcones / Grand Hotel
-</td>
-
-<td class="lang">🇬🇧 English</td>
-
-<td>
-04 Jan / 01 Feb / 08 Mar / 05 Apr / 03 May / 07 Jun<br>
-05 Jul / 02 Aug / 06 Sep / 04 Oct / 08 Nov / 06 Dec
-</td>
-
-<td>[PRICE]</td>
-<td>[PRICE]</td>
-<td>[PRICE]</td>
-
-</tr>
-
-
-<tr class="program" data-category="andean">
-
-<td>GR-SM-11</td>
-
-<td>
-Andean Treasures 8D/7N<br>
-Sunday to Sunday
-</td>
-
-<td>
-Quito – Cotopaxi – Baños – Riobamba – Cuenca – Guayaquil
-</td>
-
-<td>Standard</td>
-
-<td>
-Ikala / La Cienega / Floresta / Santa Isabella / Los Balcones / Grand Hotel
-</td>
-
-<td class="lang">🇩🇪 German</td>
-
-<td>
-
-<button class="german-btn" onclick="openGermanDates()">
-Specific departures 2026
-</button>
-
-</td>
-
-<td>[PRICE]</td>
-<td>[PRICE]</td>
-<td>[PRICE]</td>
-
-</tr>
-
-
-</table>
-
-</div>
-<!-- POPUP GERMAN DATES -->
 <div id="germanDatesPopup" class="popup">
 
 <div class="popup-content">
@@ -1152,80 +518,38 @@ Specific departures 2026
 </div>
 
 </div>
-
-
 <script>
 
 function showSection(id){
-
-document.getElementById('mainMenu').style.display='none'
-
-document.querySelectorAll('.rate-section').forEach(sec=>sec.style.display='none')
-
-document.getElementById(id).style.display='block'
-
+document.getElementById('mainMenu').style.display='none';
+document.querySelectorAll('.rate-section').forEach(sec=>sec.style.display='none');
+document.getElementById(id).style.display='block';
 }
 
 function goBack(){
-
-document.getElementById('mainMenu').style.display='grid'
-
-document.querySelectorAll('.rate-section').forEach(sec=>sec.style.display='none'
-
-)}
+document.getElementById('mainMenu').style.display='grid';
+document.querySelectorAll('.rate-section').forEach(sec=>sec.style.display='none');
+}
 
 function filterPrograms(select,sectionId){
 
-const value=select.value
+const value=select.value;
 
-const programs=document.getElementById(sectionId).querySelectorAll('.program')
+const programs=document.getElementById(sectionId).querySelectorAll('.program');
 
 programs.forEach(program=>{
 
 if(value==='all'||program.dataset.category===value){
 
-program.classList.remove('hidden')
+program.classList.remove('hidden');
 
 }else{
 
-program.classList.add('hidden')
+program.classList.add('hidden');
 
 }
 
-})
-
-}
-
-
-const germanDepartures = {
-
-loop6:[
-"DATE",
-"DATE",
-"DATE"
-],
-
-loop7:[
-"DATE",
-"DATE",
-"DATE"
-],
-
-extension:[
-"DATE",
-"DATE"
-],
-
-darwin:[
-"DATE",
-"DATE"
-],
-
-andean:[
-"DATE",
-"DATE",
-"DATE"
-]
+});
 
 }
 
@@ -1237,6 +561,26 @@ const popup=document.getElementById("germanDatesPopup")
 const container=document.getElementById("popupDates")
 
 container.innerHTML=""
+
+const germanDepartures={
+
+loop6:[
+"Insert German dates here"
+],
+
+loop7:[
+"Insert German dates here"
+],
+
+extension:[
+"Insert German dates here"
+],
+
+darwin:[
+"Insert German dates here"
+]
+
+}
 
 germanDepartures[program].forEach(date=>{
 
@@ -1259,20 +603,3 @@ document.getElementById("germanDatesPopup").style.display="none"
 }
 
 </script>
-<!-- POPUP GERMAN DATES -->
-<div id="germanDatesPopup" class="popup">
-
-<div class="popup-content">
-
-<span class="close" onclick="closeGermanDates()">×</span>
-
-<h3>German-speaking departures 2026</h3>
-
-<div id="popupDates"></div>
-
-</div>
-
-</div>
-
-</body>
-</html>
