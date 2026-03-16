@@ -45,6 +45,8 @@ body{
   font-family:'Montserrat', sans-serif;
   font-size:13px;
   border:1px solid #d9d9d9;
+  width:100%;
+  max-width:320px;
 }
 table{
   width:100%;
@@ -72,12 +74,15 @@ td{
 h2{
   color:#002060;
 }
+.table-wrap{
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+}
 
 /* Language flag cell */
 .lang-cell{
   text-align:center;
   vertical-align:middle;
-  font-size:22px;
   white-space:nowrap;
   min-width:44px;
 }
@@ -101,7 +106,7 @@ h2{
   background:#003399;
 }
 
-/* English departures text */
+/* Departures text */
 .en-departures{
   font-size:12px;
 }
@@ -181,11 +186,106 @@ h2{
 .modal-table tr:nth-child(even) td{
   background:#f0f6fb;
 }
-.modal-empty-note{
-  font-size:12px;
-  color:#888;
-  font-style:italic;
-  margin-top:10px;
+
+/* =============================================
+   MOBILE RESPONSIVE — Card layout
+   ============================================= */
+@media (max-width: 768px) {
+
+  .container{
+    margin:20px auto;
+    padding:0 12px;
+  }
+
+  .card-grid{
+    grid-template-columns:1fr;
+  }
+
+  .rate-card{
+    padding:24px;
+  }
+
+  /* Hide table headers on mobile */
+  table thead{
+    display:none;
+  }
+
+  /* Each row becomes a card */
+  table, tbody, tr, td{
+    display:block;
+    width:100%;
+  }
+
+  tr.program{
+    background:#fff;
+    border:1px solid #d9d9d9;
+    border-radius:4px;
+    margin-bottom:12px;
+    padding:0;
+  }
+
+  tr.program.alt{
+    background:#f0f6fb;
+  }
+
+  tr.program.hidden{
+    display:none !important;
+  }
+
+  /* Each cell shows its label */
+  td{
+    border:none;
+    border-bottom:1px solid #e8e8e8;
+    padding:10px 14px;
+    position:relative;
+    padding-left:42%;
+    min-height:36px;
+    font-size:12px;
+    box-sizing:border-box;
+  }
+
+  td:last-child{
+    border-bottom:none;
+  }
+
+  td::before{
+    content: attr(data-label);
+    position:absolute;
+    left:14px;
+    top:10px;
+    width:38%;
+    font-weight:600;
+    color:#002060;
+    font-size:11px;
+    text-transform:uppercase;
+    line-height:1.4;
+  }
+
+  /* Lang cell special handling */
+  td.lang-cell{
+    padding-left:42%;
+    text-align:left;
+  }
+
+  /* Supplements table on mobile */
+  .supplements-table tr{
+    background:#fff;
+    border:1px solid #d9d9d9;
+    border-radius:4px;
+    margin-bottom:12px;
+  }
+
+  .supplements-table tr.alt{
+    background:#f0f6fb;
+  }
+
+  .filter-bar select{
+    max-width:100%;
+  }
+
+  .modal-box{
+    padding:24px;
+  }
 }
 </style>
 </head>
@@ -218,7 +318,9 @@ h2{
     </select>
   </div>
 
+  <div class="table-wrap">
   <table>
+    <thead>
     <tr>
       <th>CODE</th>
       <th>PROGRAM</th>
@@ -231,242 +333,252 @@ h2{
       <th>DBL</th>
       <th>TPL</th>
     </tr>
+    </thead>
+    <tbody>
 
     <!-- LOOP 6D – Tourist -->
     <tr class="program alt" data-category="loop6">
-      <td rowspan="2">SG-04-A</td>
-      <td rowspan="2">The Galápagos Loop 6D/5N<br>DAYS: Sunday to Friday<br>English-speaking guide</td>
-      <td rowspan="2">Santa Cruz<br>Floreana<br>Isabela</td>
-      <td rowspan="2">Tourist</td>
-      <td rowspan="2">DEJA VU<br>AGUA MARINA<br>CALLY</td>
-      <td class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td><span class="en-departures">Every Sunday<span class="guide-note">With English speaking tour guide</span></span></td>
-      <td>2.491</td><td>2.420</td><td>2.399</td>
+      <td data-label="Code" rowspan="2">SG-04-A</td>
+      <td data-label="Program" rowspan="2">The Galápagos Loop 6D/5N<br>DAYS: Sunday to Friday<br>English-speaking guide</td>
+      <td data-label="Islands" rowspan="2">Santa Cruz<br>Floreana<br>Isabela</td>
+      <td data-label="Category" rowspan="2">Tourist</td>
+      <td data-label="Accommodation" rowspan="2">DEJA VU<br>AGUA MARINA<br>CALLY</td>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Departures"><span class="en-departures">Every Sunday<span class="guide-note">With English speaking tour guide</span></span></td>
+      <td data-label="SGL">2.491</td><td data-label="DBL">2.420</td><td data-label="TPL">2.399</td>
     </tr>
     <tr class="program alt" data-category="loop6">
-      <td class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td><button class="specific-dep-btn" onclick="openModal('loop6-tourist')">Specific departures 2026</button></td>
-      <td>2.491</td><td>2.420</td><td>2.399</td>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Departures"><button class="specific-dep-btn" onclick="openModal('loop6-tourist')">Specific departures 2026</button></td>
+      <td data-label="SGL">2.491</td><td data-label="DBL">2.420</td><td data-label="TPL">2.399</td>
     </tr>
 
     <!-- LOOP 6D – Tourist Superior -->
     <tr class="program" data-category="loop6">
-      <td rowspan="2">SG-04-A</td>
-      <td rowspan="2">The Galápagos Loop 6D/5N</td>
-      <td rowspan="2">Santa Cruz<br>Floreana<br>Isabela</td>
-      <td rowspan="2">Tourist - Tourist Superior</td>
-      <td rowspan="2">VILLA LAGUNA<br>AGUA MARINA (Santa María)<br>VOLCANO</td>
-      <td class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td><span class="en-departures">Every Sunday<span class="guide-note">With English speaking tour guide</span></span></td>
-      <td>2.757</td><td>2.477</td><td>2.440</td>
+      <td data-label="Code" rowspan="2">SG-04-A</td>
+      <td data-label="Program" rowspan="2">The Galápagos Loop 6D/5N</td>
+      <td data-label="Islands" rowspan="2">Santa Cruz<br>Floreana<br>Isabela</td>
+      <td data-label="Category" rowspan="2">Tourist - Tourist Superior</td>
+      <td data-label="Accommodation" rowspan="2">VILLA LAGUNA<br>AGUA MARINA (Santa María)<br>VOLCANO</td>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Departures"><span class="en-departures">Every Sunday<span class="guide-note">With English speaking tour guide</span></span></td>
+      <td data-label="SGL">2.757</td><td data-label="DBL">2.477</td><td data-label="TPL">2.440</td>
     </tr>
     <tr class="program" data-category="loop6">
-      <td class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td><button class="specific-dep-btn" onclick="openModal('loop6-touristsup')">Specific departures 2026</button></td>
-      <td>2.757</td><td>2.477</td><td>2.440</td>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Departures"><button class="specific-dep-btn" onclick="openModal('loop6-touristsup')">Specific departures 2026</button></td>
+      <td data-label="SGL">2.757</td><td data-label="DBL">2.477</td><td data-label="TPL">2.440</td>
     </tr>
 
     <!-- LOOP 6D – First Class -->
     <tr class="program alt" data-category="loop6">
-      <td rowspan="2">SG-04-A</td>
-      <td rowspan="2">The Galápagos Loop 6D/5N</td>
-      <td rowspan="2">Santa Cruz<br>Floreana<br>Isabela</td>
-      <td rowspan="2">First Class</td>
-      <td rowspan="2">IKALA SUITE<br>AGUA MARINA<br>CASA MARITA OCEAN FRONT</td>
-      <td class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td><span class="en-departures">Every Sunday<span class="guide-note">With English speaking tour guide</span></span></td>
-      <td>3.349</td><td>2.803</td><td>2.696</td>
+      <td data-label="Code" rowspan="2">SG-04-A</td>
+      <td data-label="Program" rowspan="2">The Galápagos Loop 6D/5N</td>
+      <td data-label="Islands" rowspan="2">Santa Cruz<br>Floreana<br>Isabela</td>
+      <td data-label="Category" rowspan="2">First Class</td>
+      <td data-label="Accommodation" rowspan="2">IKALA SUITE<br>AGUA MARINA<br>CASA MARITA OCEAN FRONT</td>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Departures"><span class="en-departures">Every Sunday<span class="guide-note">With English speaking tour guide</span></span></td>
+      <td data-label="SGL">3.349</td><td data-label="DBL">2.803</td><td data-label="TPL">2.696</td>
     </tr>
     <tr class="program alt" data-category="loop6">
-      <td class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td><button class="specific-dep-btn" onclick="openModal('loop6-firstclass')">Specific departures 2026</button></td>
-      <td>3.349</td><td>2.803</td><td>2.696</td>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Departures"><button class="specific-dep-btn" onclick="openModal('loop6-firstclass')">Specific departures 2026</button></td>
+      <td data-label="SGL">3.349</td><td data-label="DBL">2.803</td><td data-label="TPL">2.696</td>
     </tr>
 
     <!-- LOOP 7D – Tourist -->
     <tr class="program" data-category="loop7">
-      <td rowspan="2">SG-04-B</td>
-      <td rowspan="2">The Galápagos Loop 7D/6N – Immersive<br>DAYS: Saturday to Friday<br>English-speaking guide</td>
-      <td rowspan="2">Santa Cruz<br>Floreana<br>Isabela</td>
-      <td rowspan="2">Tourist</td>
-      <td rowspan="2">DEJA VU<br>AGUA MARINA<br>CALLY</td>
-      <td class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td><span class="en-departures">Every Saturday<span class="guide-note">With English speaking tour guide</span></span></td>
-      <td>2.877</td><td>2.794</td><td>2.764</td>
+      <td data-label="Code" rowspan="2">SG-04-B</td>
+      <td data-label="Program" rowspan="2">The Galápagos Loop 7D/6N – Immersive<br>DAYS: Saturday to Friday<br>English-speaking guide</td>
+      <td data-label="Islands" rowspan="2">Santa Cruz<br>Floreana<br>Isabela</td>
+      <td data-label="Category" rowspan="2">Tourist</td>
+      <td data-label="Accommodation" rowspan="2">DEJA VU<br>AGUA MARINA<br>CALLY</td>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Departures"><span class="en-departures">Every Saturday<span class="guide-note">With English speaking tour guide</span></span></td>
+      <td data-label="SGL">2.877</td><td data-label="DBL">2.794</td><td data-label="TPL">2.764</td>
     </tr>
     <tr class="program" data-category="loop7">
-      <td class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td><button class="specific-dep-btn" onclick="openModal('loop7-tourist')">Specific departures 2026</button></td>
-      <td>2.877</td><td>2.794</td><td>2.764</td>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Departures"><button class="specific-dep-btn" onclick="openModal('loop7-tourist')">Specific departures 2026</button></td>
+      <td data-label="SGL">2.877</td><td data-label="DBL">2.794</td><td data-label="TPL">2.764</td>
     </tr>
 
     <!-- LOOP 7D – Tourist Superior -->
     <tr class="program alt" data-category="loop7">
-      <td rowspan="2">SG-04-B</td>
-      <td rowspan="2">The Galápagos Loop 7D/6N – Immersive</td>
-      <td rowspan="2">Santa Cruz<br>Floreana<br>Isabela</td>
-      <td rowspan="2">Tourist - Tourist Superior</td>
-      <td rowspan="2">VILLA LAGUNA<br>AGUA MARINA (Santa María)<br>VOLCANO</td>
-      <td class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td><span class="en-departures">Every Saturday<span class="guide-note">With English speaking tour guide</span></span></td>
-      <td>3.143</td><td>2.851</td><td>2.805</td>
+      <td data-label="Code" rowspan="2">SG-04-B</td>
+      <td data-label="Program" rowspan="2">The Galápagos Loop 7D/6N – Immersive</td>
+      <td data-label="Islands" rowspan="2">Santa Cruz<br>Floreana<br>Isabela</td>
+      <td data-label="Category" rowspan="2">Tourist - Tourist Superior</td>
+      <td data-label="Accommodation" rowspan="2">VILLA LAGUNA<br>AGUA MARINA (Santa María)<br>VOLCANO</td>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Departures"><span class="en-departures">Every Saturday<span class="guide-note">With English speaking tour guide</span></span></td>
+      <td data-label="SGL">3.143</td><td data-label="DBL">2.851</td><td data-label="TPL">2.805</td>
     </tr>
     <tr class="program alt" data-category="loop7">
-      <td class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td><button class="specific-dep-btn" onclick="openModal('loop7-touristsup')">Specific departures 2026</button></td>
-      <td>3.143</td><td>2.851</td><td>2.805</td>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Departures"><button class="specific-dep-btn" onclick="openModal('loop7-touristsup')">Specific departures 2026</button></td>
+      <td data-label="SGL">3.143</td><td data-label="DBL">2.851</td><td data-label="TPL">2.805</td>
     </tr>
 
     <!-- LOOP 7D – First Class -->
     <tr class="program" data-category="loop7">
-      <td rowspan="2">SG-04-B</td>
-      <td rowspan="2">The Galápagos Loop 7D/6N – Immersive</td>
-      <td rowspan="2">Santa Cruz<br>Floreana<br>Isabela</td>
-      <td rowspan="2">First Class</td>
-      <td rowspan="2">IKALA SUITE<br>AGUA MARINA<br>CASA MARITA OCEAN FRONT</td>
-      <td class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td><span class="en-departures">Every Saturday<span class="guide-note">With English speaking tour guide</span></span></td>
-      <td>3.735</td><td>3.177</td><td>3.061</td>
+      <td data-label="Code" rowspan="2">SG-04-B</td>
+      <td data-label="Program" rowspan="2">The Galápagos Loop 7D/6N – Immersive</td>
+      <td data-label="Islands" rowspan="2">Santa Cruz<br>Floreana<br>Isabela</td>
+      <td data-label="Category" rowspan="2">First Class</td>
+      <td data-label="Accommodation" rowspan="2">IKALA SUITE<br>AGUA MARINA<br>CASA MARITA OCEAN FRONT</td>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Departures"><span class="en-departures">Every Saturday<span class="guide-note">With English speaking tour guide</span></span></td>
+      <td data-label="SGL">3.735</td><td data-label="DBL">3.177</td><td data-label="TPL">3.061</td>
     </tr>
     <tr class="program" data-category="loop7">
-      <td class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td><button class="specific-dep-btn" onclick="openModal('loop7-firstclass')">Specific departures 2026</button></td>
-      <td>3.735</td><td>3.177</td><td>3.061</td>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Departures"><button class="specific-dep-btn" onclick="openModal('loop7-firstclass')">Specific departures 2026</button></td>
+      <td data-label="SGL">3.735</td><td data-label="DBL">3.177</td><td data-label="TPL">3.061</td>
     </tr>
 
     <!-- EXTENSION – Tourist -->
     <tr class="program alt" data-category="extension">
-      <td rowspan="2">SG-04 (Extension)</td>
-      <td rowspan="2">Extension Post Galápagos Loop 3D/2N</td>
-      <td rowspan="2">Santa Cruz</td>
-      <td rowspan="2">Tourist</td>
-      <td rowspan="2">DEJA VU</td>
-      <td class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td><span class="en-departures">Every Friday (Post Loop)<span class="guide-note">With English speaking tour guide</span></span></td>
-      <td>877</td><td>852</td><td>844</td>
+      <td data-label="Code" rowspan="2">SG-04 (Extension)</td>
+      <td data-label="Program" rowspan="2">Extension Post Galápagos Loop 3D/2N</td>
+      <td data-label="Islands" rowspan="2">Santa Cruz</td>
+      <td data-label="Category" rowspan="2">Tourist</td>
+      <td data-label="Accommodation" rowspan="2">DEJA VU</td>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Departures"><span class="en-departures">Every Friday after Loop departure<span class="guide-note">With English speaking tour guide</span></span></td>
+      <td data-label="SGL">877</td><td data-label="DBL">852</td><td data-label="TPL">844</td>
     </tr>
     <tr class="program alt" data-category="extension">
-      <td class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td><span class="en-departures">Every Friday (Post Loop)<span class="guide-note">With German speaking tour guide</span></span></td>
-      <td>877</td><td>852</td><td>844</td>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Departures"><span class="en-departures">Friday, following each German Loop departure<span class="guide-note">With German speaking tour guide — available on specific dates only</span></span></td>
+      <td data-label="SGL">877</td><td data-label="DBL">852</td><td data-label="TPL">844</td>
     </tr>
 
     <!-- EXTENSION – Tourist Superior -->
     <tr class="program" data-category="extension">
-      <td rowspan="2">SG-04 (Extension)</td>
-      <td rowspan="2">Extension Post Galápagos Loop 3D/2N</td>
-      <td rowspan="2">Santa Cruz</td>
-      <td rowspan="2">Tourist Superior</td>
-      <td rowspan="2">VILLA LAGUNA</td>
-      <td class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td><span class="en-departures">Every Friday (Post Loop)<span class="guide-note">With English speaking tour guide</span></span></td>
-      <td>985</td><td>869</td><td>849</td>
+      <td data-label="Code" rowspan="2">SG-04 (Extension)</td>
+      <td data-label="Program" rowspan="2">Extension Post Galápagos Loop 3D/2N</td>
+      <td data-label="Islands" rowspan="2">Santa Cruz</td>
+      <td data-label="Category" rowspan="2">Tourist Superior</td>
+      <td data-label="Accommodation" rowspan="2">VILLA LAGUNA</td>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Departures"><span class="en-departures">Every Friday after Loop departure<span class="guide-note">With English speaking tour guide</span></span></td>
+      <td data-label="SGL">985</td><td data-label="DBL">869</td><td data-label="TPL">849</td>
     </tr>
     <tr class="program" data-category="extension">
-      <td class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td><span class="en-departures">Every Friday (Post Loop)<span class="guide-note">With German speaking tour guide</span></span></td>
-      <td>985</td><td>869</td><td>849</td>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Departures"><span class="en-departures">Friday, following each German Loop departure<span class="guide-note">With German speaking tour guide — available on specific dates only</span></span></td>
+      <td data-label="SGL">985</td><td data-label="DBL">869</td><td data-label="TPL">849</td>
     </tr>
 
     <!-- EXTENSION – First Class -->
     <tr class="program alt" data-category="extension">
-      <td rowspan="2">SG-04 (Extension)</td>
-      <td rowspan="2">Extension Post Galápagos Loop 3D/2N</td>
-      <td rowspan="2">Santa Cruz</td>
-      <td rowspan="2">First Class</td>
-      <td rowspan="2">IKALA SUITE</td>
-      <td class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td><span class="en-departures">Every Friday (Post Loop)<span class="guide-note">With English speaking tour guide</span></span></td>
-      <td>1.341</td><td>1.077</td><td>753</td>
+      <td data-label="Code" rowspan="2">SG-04 (Extension)</td>
+      <td data-label="Program" rowspan="2">Extension Post Galápagos Loop 3D/2N</td>
+      <td data-label="Islands" rowspan="2">Santa Cruz</td>
+      <td data-label="Category" rowspan="2">First Class</td>
+      <td data-label="Accommodation" rowspan="2">IKALA SUITE</td>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Departures"><span class="en-departures">Every Friday after Loop departure<span class="guide-note">With English speaking tour guide</span></span></td>
+      <td data-label="SGL">1.341</td><td data-label="DBL">1.077</td><td data-label="TPL">753</td>
     </tr>
     <tr class="program alt" data-category="extension">
-      <td class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td><span class="en-departures">Every Friday (Post Loop)<span class="guide-note">With German speaking tour guide</span></span></td>
-      <td>1.341</td><td>1.077</td><td>753</td>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Departures"><span class="en-departures">Friday, following each German Loop departure<span class="guide-note">With German speaking tour guide — available on specific dates only</span></span></td>
+      <td data-label="SGL">1.341</td><td data-label="DBL">1.077</td><td data-label="TPL">753</td>
     </tr>
 
     <!-- DARWIN – Tourist -->
     <tr class="program" data-category="darwin">
-      <td rowspan="2">SG-05</td>
-      <td rowspan="2">Charles Darwin Path 8D/7N<br>DAYS: Friday to Friday<br>English-speaking guide</td>
-      <td rowspan="2">Cristobal<br>Santa Cruz<br>Floreana<br>Isabela</td>
-      <td rowspan="2">Tourist</td>
-      <td rowspan="2">PIMAMPIRO<br>DEJA VU<br>AGUA MARINA<br>CALLY</td>
-      <td class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td><span class="en-departures">Every Friday<span class="guide-note">With English speaking tour guide</span></span></td>
-      <td>3.146</td><td>3.053</td><td>3.022</td>
+      <td data-label="Code" rowspan="2">SG-05</td>
+      <td data-label="Program" rowspan="2">Charles Darwin Path 8D/7N<br>DAYS: Friday to Friday<br>English-speaking guide</td>
+      <td data-label="Islands" rowspan="2">Cristobal<br>Santa Cruz<br>Floreana<br>Isabela</td>
+      <td data-label="Category" rowspan="2">Tourist</td>
+      <td data-label="Accommodation" rowspan="2">PIMAMPIRO<br>DEJA VU<br>AGUA MARINA<br>CALLY</td>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Departures"><span class="en-departures">Every Friday<span class="guide-note">With English speaking tour guide</span></span></td>
+      <td data-label="SGL">3.146</td><td data-label="DBL">3.053</td><td data-label="TPL">3.022</td>
     </tr>
     <tr class="program" data-category="darwin">
-      <td class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td><button class="specific-dep-btn" onclick="openModal('darwin-tourist')">Specific departures 2026</button></td>
-      <td>3.146</td><td>3.053</td><td>3.022</td>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Departures"><button class="specific-dep-btn" onclick="openModal('darwin-tourist')">Specific departures 2026</button></td>
+      <td data-label="SGL">3.146</td><td data-label="DBL">3.053</td><td data-label="TPL">3.022</td>
     </tr>
 
     <!-- DARWIN – Tourist Superior -->
     <tr class="program alt" data-category="darwin">
-      <td rowspan="2">SG-05</td>
-      <td rowspan="2">Charles Darwin Path 8D/7N</td>
-      <td rowspan="2">Cristobal<br>Santa Cruz<br>Floreana<br>Isabela</td>
-      <td rowspan="2">Tourist Superior</td>
-      <td rowspan="2">KATARMA<br>VILLA LAGUNA<br>AGUA MARINA (Santa María)<br>VOLCANO</td>
-      <td class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td><span class="en-departures">Every Friday<span class="guide-note">With English speaking tour guide</span></span></td>
-      <td>3.518</td><td>3.180</td><td>3.117</td>
+      <td data-label="Code" rowspan="2">SG-05</td>
+      <td data-label="Program" rowspan="2">Charles Darwin Path 8D/7N</td>
+      <td data-label="Islands" rowspan="2">Cristobal<br>Santa Cruz<br>Floreana<br>Isabela</td>
+      <td data-label="Category" rowspan="2">Tourist Superior</td>
+      <td data-label="Accommodation" rowspan="2">KATARMA<br>VILLA LAGUNA<br>AGUA MARINA (Santa María)<br>VOLCANO</td>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Departures"><span class="en-departures">Every Friday<span class="guide-note">With English speaking tour guide</span></span></td>
+      <td data-label="SGL">3.518</td><td data-label="DBL">3.180</td><td data-label="TPL">3.117</td>
     </tr>
     <tr class="program alt" data-category="darwin">
-      <td class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td><button class="specific-dep-btn" onclick="openModal('darwin-touristsup')">Specific departures 2026</button></td>
-      <td>3.518</td><td>3.180</td><td>3.117</td>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Departures"><button class="specific-dep-btn" onclick="openModal('darwin-touristsup')">Specific departures 2026</button></td>
+      <td data-label="SGL">3.518</td><td data-label="DBL">3.180</td><td data-label="TPL">3.117</td>
     </tr>
 
     <!-- DARWIN – First Class -->
     <tr class="program" data-category="darwin">
-      <td rowspan="2">SG-05</td>
-      <td rowspan="2">Charles Darwin Path 8D/7N</td>
-      <td rowspan="2">Cristobal<br>Santa Cruz<br>Floreana<br>Isabela</td>
-      <td rowspan="2">First Class</td>
-      <td rowspan="2">CASA OPUNTIA (Suite)<br>IKALA SUITE<br>AGUA MARINA<br>CASA MARITA OCEAN FRONT</td>
-      <td class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td><span class="en-departures">Every Friday<span class="guide-note">With English speaking tour guide</span></span></td>
-      <td>4.334</td><td>3.602</td><td>3.439</td>
+      <td data-label="Code" rowspan="2">SG-05</td>
+      <td data-label="Program" rowspan="2">Charles Darwin Path 8D/7N</td>
+      <td data-label="Islands" rowspan="2">Cristobal<br>Santa Cruz<br>Floreana<br>Isabela</td>
+      <td data-label="Category" rowspan="2">First Class</td>
+      <td data-label="Accommodation" rowspan="2">CASA OPUNTIA (Suite)<br>IKALA SUITE<br>AGUA MARINA<br>CASA MARITA OCEAN FRONT</td>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Departures"><span class="en-departures">Every Friday<span class="guide-note">With English speaking tour guide</span></span></td>
+      <td data-label="SGL">4.334</td><td data-label="DBL">3.602</td><td data-label="TPL">3.439</td>
     </tr>
     <tr class="program" data-category="darwin">
-      <td class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td><button class="specific-dep-btn" onclick="openModal('darwin-firstclass')">Specific departures 2026</button></td>
-      <td>4.334</td><td>3.602</td><td>3.439</td>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Departures"><button class="specific-dep-btn" onclick="openModal('darwin-firstclass')">Specific departures 2026</button></td>
+      <td data-label="SGL">4.334</td><td data-label="DBL">3.602</td><td data-label="TPL">3.439</td>
     </tr>
 
+    </tbody>
   </table>
+  </div>
 
   <br><br>
 
   <h2>Supplements</h2>
 
-  <table>
+  <div class="table-wrap">
+  <table class="supplements-table">
+    <thead>
     <tr>
       <th>Supplement Description</th>
       <th>LANGUAGE</th>
       <th>Net Rate (USD) per person</th>
     </tr>
+    </thead>
+    <tbody>
     <tr class="alt">
-      <td rowspan="2">Extra private transfer in Santa Cruz (English speaking driver)<br>Minimum 2 pax</td>
-      <td class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td>71 (1–2 Pax)<br>49 (3–4 Pax)</td>
+      <td data-label="Supplement" rowspan="2">Extra private transfer in Santa Cruz (English speaking driver)<br>Minimum 2 pax</td>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Net Rate">71 (1–2 Pax)<br>49 (3–4 Pax)</td>
     </tr>
     <tr class="alt">
-      <td class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td>71 (1–2 Pax)<br>49 (3–4 Pax)</td>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Net Rate">71 (1–2 Pax)<br>49 (3–4 Pax)</td>
     </tr>
     <tr>
-      <td rowspan="2">Supplement for shared Tunnels instead of Tintoreras (optional)</td>
-      <td class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td>120</td>
+      <td data-label="Supplement" rowspan="2">Supplement for shared Tunnels instead of Tintoreras (optional)</td>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Net Rate">120</td>
     </tr>
     <tr>
-      <td class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td>120</td>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Net Rate">120</td>
     </tr>
+    </tbody>
   </table>
+  </div>
 
 </div>
 
@@ -488,7 +600,9 @@ h2{
     </select>
   </div>
 
+  <div class="table-wrap">
   <table>
+    <thead>
     <tr>
       <th>CODE</th>
       <th>PROGRAM</th>
@@ -501,377 +615,375 @@ h2{
       <th>NET RATE</th>
       <th>S.S</th>
     </tr>
+    </thead>
+    <tbody>
 
-    <!-- DAILY TOURS – single language row, no specific departures -->
+    <!-- DAILY TOURS -->
     <tr class="program alt" data-category="daily">
-      <td>GR-SM-01</td>
-      <td>Walking Quito City Tour (Half Day)<br>(English - Spanish)</td>
-      <td>No</td>
-      <td>-</td>
-      <td>Quito</td>
-      <td>-</td>
-      <td class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td>Every Tuesday &amp; Friday</td>
-      <td>24</td>
-      <td>-</td>
+      <td data-label="Code">GR-SM-01</td>
+      <td data-label="Program">Walking Quito City Tour (Half Day)<br>(English - Spanish)</td>
+      <td data-label="Entrances">No</td>
+      <td data-label="Category">-</td>
+      <td data-label="City / Route">Quito</td>
+      <td data-label="Hotels">-</td>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Departures">Every Tuesday &amp; Friday</td>
+      <td data-label="Net Rate">24</td>
+      <td data-label="S.S">-</td>
     </tr>
-
     <tr class="program" data-category="daily">
-      <td>GR-SM-02</td>
-      <td>Quito City Tour &amp; Middle of the World<br>(English - Spanish)</td>
-      <td>No</td>
-      <td>-</td>
-      <td>Quito</td>
-      <td>-</td>
-      <td class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td>Every Tuesday &amp; Friday</td>
-      <td>60</td>
-      <td>-</td>
+      <td data-label="Code">GR-SM-02</td>
+      <td data-label="Program">Quito City Tour &amp; Middle of the World<br>(English - Spanish)</td>
+      <td data-label="Entrances">No</td>
+      <td data-label="Category">-</td>
+      <td data-label="City / Route">Quito</td>
+      <td data-label="Hotels">-</td>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Departures">Every Tuesday &amp; Friday</td>
+      <td data-label="Net Rate">60</td>
+      <td data-label="S.S">-</td>
     </tr>
-
     <tr class="program alt" data-category="daily">
-      <td>GR-SM-03</td>
-      <td>Otavalo Indigenous Market<br>(English - Spanish)</td>
-      <td>No</td>
-      <td>-</td>
-      <td>Otavalo</td>
-      <td>-</td>
-      <td class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td>Every Wednesday &amp; Saturday</td>
-      <td>75</td>
-      <td>-</td>
+      <td data-label="Code">GR-SM-03</td>
+      <td data-label="Program">Otavalo Indigenous Market<br>(English - Spanish)</td>
+      <td data-label="Entrances">No</td>
+      <td data-label="Category">-</td>
+      <td data-label="City / Route">Otavalo</td>
+      <td data-label="Hotels">-</td>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Departures">Every Wednesday &amp; Saturday</td>
+      <td data-label="Net Rate">75</td>
+      <td data-label="S.S">-</td>
     </tr>
-
     <tr class="program" data-category="daily">
-      <td>GR-SM-04</td>
-      <td>Cotopaxi National Park<br>(English - Spanish)</td>
-      <td>No</td>
-      <td>-</td>
-      <td>Cotopaxi</td>
-      <td>-</td>
-      <td class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td>Every Thursday &amp; Sunday</td>
-      <td>75</td>
-      <td>-</td>
+      <td data-label="Code">GR-SM-04</td>
+      <td data-label="Program">Cotopaxi National Park<br>(English - Spanish)</td>
+      <td data-label="Entrances">No</td>
+      <td data-label="Category">-</td>
+      <td data-label="City / Route">Cotopaxi</td>
+      <td data-label="Hotels">-</td>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Departures">Every Thursday &amp; Sunday</td>
+      <td data-label="Net Rate">75</td>
+      <td data-label="S.S">-</td>
     </tr>
 
     <!-- VOLCANO 2D – Tourist -->
     <tr class="program alt" data-category="volcano2d">
-      <td rowspan="2">GR-SM-05</td>
-      <td rowspan="2">Volcano Avenue 2D/1N</td>
-      <td rowspan="2">No</td>
-      <td rowspan="2">Tourist</td>
-      <td rowspan="2">Quito – Cotopaxi – Baños – Riobamba – Quito</td>
-      <td rowspan="2">La Floresta</td>
-      <td class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td><span class="en-departures">Every Thursday<span class="guide-note">With English speaking tour guide</span></span></td>
-      <td>251</td><td>18</td>
+      <td data-label="Code" rowspan="2">GR-SM-05</td>
+      <td data-label="Program" rowspan="2">Volcano Avenue 2D/1N</td>
+      <td data-label="Entrances" rowspan="2">No</td>
+      <td data-label="Category" rowspan="2">Tourist</td>
+      <td data-label="City / Route" rowspan="2">Quito – Cotopaxi – Baños – Riobamba – Quito</td>
+      <td data-label="Hotels" rowspan="2">La Floresta</td>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Departures"><span class="en-departures">Every Thursday<span class="guide-note">With English speaking tour guide</span></span></td>
+      <td data-label="Net Rate">251</td><td data-label="S.S">18</td>
     </tr>
     <tr class="program alt" data-category="volcano2d">
-      <td class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td><span class="en-departures">Every Thursday<span class="guide-note">With German speaking tour guide</span></span></td>
-      <td>251</td><td>18</td>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Departures"><span class="en-departures">Every Thursday<span class="guide-note">With German speaking tour guide</span></span></td>
+      <td data-label="Net Rate">251</td><td data-label="S.S">18</td>
     </tr>
 
     <!-- VOLCANO 2D – Tourist Superior -->
     <tr class="program" data-category="volcano2d">
-      <td rowspan="2">GR-SM-05</td>
-      <td rowspan="2">Volcano Avenue 2D/1N</td>
-      <td rowspan="2">No</td>
-      <td rowspan="2">Tourist Superior</td>
-      <td rowspan="2">Quito – Cotopaxi – Baños – Riobamba – Quito</td>
-      <td rowspan="2">Hotel Sangay (Std Room)</td>
-      <td class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td><span class="en-departures">Every Thursday<span class="guide-note">With English speaking tour guide</span></span></td>
-      <td>298</td><td>40</td>
+      <td data-label="Code" rowspan="2">GR-SM-05</td>
+      <td data-label="Program" rowspan="2">Volcano Avenue 2D/1N</td>
+      <td data-label="Entrances" rowspan="2">No</td>
+      <td data-label="Category" rowspan="2">Tourist Superior</td>
+      <td data-label="City / Route" rowspan="2">Quito – Cotopaxi – Baños – Riobamba – Quito</td>
+      <td data-label="Hotels" rowspan="2">Hotel Sangay (Std Room)</td>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Departures"><span class="en-departures">Every Thursday<span class="guide-note">With English speaking tour guide</span></span></td>
+      <td data-label="Net Rate">298</td><td data-label="S.S">40</td>
     </tr>
     <tr class="program" data-category="volcano2d">
-      <td class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td><span class="en-departures">Every Thursday<span class="guide-note">With German speaking tour guide</span></span></td>
-      <td>298</td><td>40</td>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Departures"><span class="en-departures">Every Thursday<span class="guide-note">With German speaking tour guide</span></span></td>
+      <td data-label="Net Rate">298</td><td data-label="S.S">40</td>
     </tr>
 
     <!-- VOLCANO 2D – First Class -->
     <tr class="program alt" data-category="volcano2d">
-      <td rowspan="2">GR-SM-05</td>
-      <td rowspan="2">Volcano Avenue 2D/1N</td>
-      <td rowspan="2">No</td>
-      <td rowspan="2">First Class</td>
-      <td rowspan="2">Quito – Cotopaxi – Baños – Riobamba – Quito</td>
-      <td rowspan="2">Samari Spa</td>
-      <td class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td><span class="en-departures">Every Thursday<span class="guide-note">With English speaking tour guide</span></span></td>
-      <td>335</td><td>122</td>
+      <td data-label="Code" rowspan="2">GR-SM-05</td>
+      <td data-label="Program" rowspan="2">Volcano Avenue 2D/1N</td>
+      <td data-label="Entrances" rowspan="2">No</td>
+      <td data-label="Category" rowspan="2">First Class</td>
+      <td data-label="City / Route" rowspan="2">Quito – Cotopaxi – Baños – Riobamba – Quito</td>
+      <td data-label="Hotels" rowspan="2">Samari Spa</td>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Departures"><span class="en-departures">Every Thursday<span class="guide-note">With English speaking tour guide</span></span></td>
+      <td data-label="Net Rate">335</td><td data-label="S.S">122</td>
     </tr>
     <tr class="program alt" data-category="volcano2d">
-      <td class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td><span class="en-departures">Every Thursday<span class="guide-note">With German speaking tour guide</span></span></td>
-      <td>335</td><td>122</td>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Departures"><span class="en-departures">Every Thursday<span class="guide-note">With German speaking tour guide</span></span></td>
+      <td data-label="Net Rate">335</td><td data-label="S.S">122</td>
     </tr>
 
     <!-- VOLCANO 3D – Tourist -->
     <tr class="program" data-category="volcano3d">
-      <td rowspan="2">GR-SM-06</td>
-      <td rowspan="2">Volcano Avenue 3D/2N</td>
-      <td rowspan="2">No</td>
-      <td rowspan="2">Tourist</td>
-      <td rowspan="2">Quito – Cotopaxi – Baños – Riobamba – Nariz del Diablo – Cuenca</td>
-      <td rowspan="2">La Floresta / Casa Real</td>
-      <td class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td><span class="en-departures">Every Thursday<span class="guide-note">With English speaking tour guide</span></span></td>
-      <td>470</td><td>44</td>
+      <td data-label="Code" rowspan="2">GR-SM-06</td>
+      <td data-label="Program" rowspan="2">Volcano Avenue 3D/2N</td>
+      <td data-label="Entrances" rowspan="2">No</td>
+      <td data-label="Category" rowspan="2">Tourist</td>
+      <td data-label="City / Route" rowspan="2">Quito – Cotopaxi – Baños – Riobamba – Nariz del Diablo – Cuenca</td>
+      <td data-label="Hotels" rowspan="2">La Floresta / Casa Real</td>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Departures"><span class="en-departures">Every Thursday<span class="guide-note">With English speaking tour guide</span></span></td>
+      <td data-label="Net Rate">470</td><td data-label="S.S">44</td>
     </tr>
     <tr class="program" data-category="volcano3d">
-      <td class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td><span class="en-departures">Every Thursday<span class="guide-note">With German speaking tour guide</span></span></td>
-      <td>470</td><td>44</td>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Departures"><span class="en-departures">Every Thursday<span class="guide-note">With German speaking tour guide</span></span></td>
+      <td data-label="Net Rate">470</td><td data-label="S.S">44</td>
     </tr>
 
     <!-- VOLCANO 3D – Tourist Superior -->
     <tr class="program alt" data-category="volcano3d">
-      <td rowspan="2">GR-SM-06</td>
-      <td rowspan="2">Volcano Avenue 3D/2N</td>
-      <td rowspan="2">No</td>
-      <td rowspan="2">Tourist Superior</td>
-      <td rowspan="2">Quito – Cotopaxi – Baños – Riobamba – Nariz del Diablo – Cuenca</td>
-      <td rowspan="2">Hotel Sangay / Hacienda Abraspungo</td>
-      <td class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td><span class="en-departures">Every Thursday<span class="guide-note">With English speaking tour guide</span></span></td>
-      <td>543</td><td>66</td>
+      <td data-label="Code" rowspan="2">GR-SM-06</td>
+      <td data-label="Program" rowspan="2">Volcano Avenue 3D/2N</td>
+      <td data-label="Entrances" rowspan="2">No</td>
+      <td data-label="Category" rowspan="2">Tourist Superior</td>
+      <td data-label="City / Route" rowspan="2">Quito – Cotopaxi – Baños – Riobamba – Nariz del Diablo – Cuenca</td>
+      <td data-label="Hotels" rowspan="2">Hotel Sangay / Hacienda Abraspungo</td>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Departures"><span class="en-departures">Every Thursday<span class="guide-note">With English speaking tour guide</span></span></td>
+      <td data-label="Net Rate">543</td><td data-label="S.S">66</td>
     </tr>
     <tr class="program alt" data-category="volcano3d">
-      <td class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td><span class="en-departures">Every Thursday<span class="guide-note">With German speaking tour guide</span></span></td>
-      <td>543</td><td>66</td>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Departures"><span class="en-departures">Every Thursday<span class="guide-note">With German speaking tour guide</span></span></td>
+      <td data-label="Net Rate">543</td><td data-label="S.S">66</td>
     </tr>
 
     <!-- VOLCANO 3D – First Class -->
     <tr class="program" data-category="volcano3d">
-      <td rowspan="2">GR-SM-06</td>
-      <td rowspan="2">Volcano Avenue 3D/2N</td>
-      <td rowspan="2">No</td>
-      <td rowspan="2">First Class</td>
-      <td rowspan="2">Quito – Cotopaxi – Baños – Riobamba – Nariz del Diablo – Cuenca</td>
-      <td rowspan="2">Samari Spa / Hacienda Abraspungo</td>
-      <td class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td><span class="en-departures">Every Thursday<span class="guide-note">With English speaking tour guide</span></span></td>
-      <td>601</td><td>265</td>
+      <td data-label="Code" rowspan="2">GR-SM-06</td>
+      <td data-label="Program" rowspan="2">Volcano Avenue 3D/2N</td>
+      <td data-label="Entrances" rowspan="2">No</td>
+      <td data-label="Category" rowspan="2">First Class</td>
+      <td data-label="City / Route" rowspan="2">Quito – Cotopaxi – Baños – Riobamba – Nariz del Diablo – Cuenca</td>
+      <td data-label="Hotels" rowspan="2">Samari Spa / Hacienda Abraspungo</td>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Departures"><span class="en-departures">Every Thursday<span class="guide-note">With English speaking tour guide</span></span></td>
+      <td data-label="Net Rate">601</td><td data-label="S.S">265</td>
     </tr>
     <tr class="program" data-category="volcano3d">
-      <td class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td><span class="en-departures">Every Thursday<span class="guide-note">With German speaking tour guide</span></span></td>
-      <td>601</td><td>265</td>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Departures"><span class="en-departures">Every Thursday<span class="guide-note">With German speaking tour guide</span></span></td>
+      <td data-label="Net Rate">601</td><td data-label="S.S">265</td>
     </tr>
 
     <!-- VOLCANO 5D – Tourist -->
     <tr class="program" data-category="volcano5d">
-      <td rowspan="2">GR-SM-07</td>
-      <td rowspan="2">Volcano Avenue 5D/4N<br>(English - Spanish)</td>
-      <td rowspan="2">No</td>
-      <td rowspan="2">Tourist</td>
-      <td rowspan="2">Quito (pick up)<br>Cotopaxi<br>Baños<br>Riobamba<br>Nariz del Diablo<br>Cuenca<br>Guayaquil (drop off)</td>
-      <td rowspan="2">la Floresta<br>Casa Real<br>Los Balcones</td>
-      <td class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td><span class="en-departures">EVERY THURSDAY**<span class="guide-note">With English speaking tour guide</span></span></td>
-      <td>738</td><td>82</td>
+      <td data-label="Code" rowspan="2">GR-SM-07</td>
+      <td data-label="Program" rowspan="2">Volcano Avenue 5D/4N<br>(English - Spanish)</td>
+      <td data-label="Entrances" rowspan="2">No</td>
+      <td data-label="Category" rowspan="2">Tourist</td>
+      <td data-label="City / Route" rowspan="2">Quito (pick up)<br>Cotopaxi<br>Baños<br>Riobamba<br>Nariz del Diablo<br>Cuenca<br>Guayaquil (drop off)</td>
+      <td data-label="Hotels" rowspan="2">la Floresta<br>Casa Real<br>Los Balcones</td>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Departures"><span class="en-departures">EVERY THURSDAY**<span class="guide-note">With English speaking tour guide</span></span></td>
+      <td data-label="Net Rate">738</td><td data-label="S.S">82</td>
     </tr>
     <tr class="program" data-category="volcano5d">
-      <td class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td><span class="en-departures">EVERY THURSDAY**<span class="guide-note">With German speaking tour guide</span></span></td>
-      <td>738</td><td>82</td>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Departures"><span class="en-departures">EVERY THURSDAY**<span class="guide-note">With German speaking tour guide</span></span></td>
+      <td data-label="Net Rate">738</td><td data-label="S.S">82</td>
     </tr>
 
     <!-- VOLCANO 5D – Tourist Superior -->
     <tr class="program alt" data-category="volcano5d">
-      <td rowspan="2">GR-SM-07</td>
-      <td rowspan="2">Volcano Avenue 5D/4N<br>(English - Spanish)</td>
-      <td rowspan="2">No</td>
-      <td rowspan="2">Tourist Superior</td>
-      <td rowspan="2">Quito (pick up)<br>Cotopaxi<br>Baños<br>Riobamba<br>Nariz del Diablo<br>Cuenca<br>Guayaquil (drop off)</td>
-      <td rowspan="2">Hotel Sangay<br>Hacienda Abraspungo (STD)<br>San Juan</td>
-      <td class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td><span class="en-departures">EVERY THURSDAY**<span class="guide-note">With English speaking tour guide</span></span></td>
-      <td>885</td><td>124</td>
+      <td data-label="Code" rowspan="2">GR-SM-07</td>
+      <td data-label="Program" rowspan="2">Volcano Avenue 5D/4N<br>(English - Spanish)</td>
+      <td data-label="Entrances" rowspan="2">No</td>
+      <td data-label="Category" rowspan="2">Tourist Superior</td>
+      <td data-label="City / Route" rowspan="2">Quito (pick up)<br>Cotopaxi<br>Baños<br>Riobamba<br>Nariz del Diablo<br>Cuenca<br>Guayaquil (drop off)</td>
+      <td data-label="Hotels" rowspan="2">Hotel Sangay<br>Hacienda Abraspungo (STD)<br>San Juan</td>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Departures"><span class="en-departures">EVERY THURSDAY**<span class="guide-note">With English speaking tour guide</span></span></td>
+      <td data-label="Net Rate">885</td><td data-label="S.S">124</td>
     </tr>
     <tr class="program alt" data-category="volcano5d">
-      <td class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td><span class="en-departures">EVERY THURSDAY**<span class="guide-note">With German speaking tour guide</span></span></td>
-      <td>885</td><td>124</td>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Departures"><span class="en-departures">EVERY THURSDAY**<span class="guide-note">With German speaking tour guide</span></span></td>
+      <td data-label="Net Rate">885</td><td data-label="S.S">124</td>
     </tr>
 
     <!-- VOLCANO 5D – First Class -->
     <tr class="program" data-category="volcano5d">
-      <td rowspan="2">GR-SM-07</td>
-      <td rowspan="2">Volcano Avenue 5D/4N<br>(English - Spanish)</td>
-      <td rowspan="2">No</td>
-      <td rowspan="2">First Class</td>
-      <td rowspan="2">Quito (pick up)<br>Cotopaxi<br>Baños<br>Riobamba<br>Nariz del Diablo<br>Cuenca<br>Guayaquil (drop off)</td>
-      <td rowspan="2">Samari Spa<br>Hacienda Abraspungo (Suite)<br>Cruz del Vado</td>
-      <td class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td><span class="en-departures">EVERY THURSDAY**<span class="guide-note">With English speaking tour guide</span></span></td>
-      <td>1.067</td><td>391</td>
+      <td data-label="Code" rowspan="2">GR-SM-07</td>
+      <td data-label="Program" rowspan="2">Volcano Avenue 5D/4N<br>(English - Spanish)</td>
+      <td data-label="Entrances" rowspan="2">No</td>
+      <td data-label="Category" rowspan="2">First Class</td>
+      <td data-label="City / Route" rowspan="2">Quito (pick up)<br>Cotopaxi<br>Baños<br>Riobamba<br>Nariz del Diablo<br>Cuenca<br>Guayaquil (drop off)</td>
+      <td data-label="Hotels" rowspan="2">Samari Spa<br>Hacienda Abraspungo (Suite)<br>Cruz del Vado</td>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Departures"><span class="en-departures">EVERY THURSDAY**<span class="guide-note">With English speaking tour guide</span></span></td>
+      <td data-label="Net Rate">1.067</td><td data-label="S.S">391</td>
     </tr>
     <tr class="program" data-category="volcano5d">
-      <td class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td><span class="en-departures">EVERY THURSDAY**<span class="guide-note">With German speaking tour guide</span></span></td>
-      <td>1.067</td><td>391</td>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Departures"><span class="en-departures">EVERY THURSDAY**<span class="guide-note">With German speaking tour guide</span></span></td>
+      <td data-label="Net Rate">1.067</td><td data-label="S.S">391</td>
     </tr>
 
     <!-- VOLCANO 6D – Tourist -->
     <tr class="program alt" data-category="volcano6d">
-      <td rowspan="2">GR-SM-08</td>
-      <td rowspan="2">Volcano Avenue 6D/5N<br>(English - Spanish)</td>
-      <td rowspan="2">No</td>
-      <td rowspan="2">Tourist</td>
-      <td rowspan="2">Quito (pick up)<br>Cotopaxi<br>Baños<br>Riobamba<br>Nariz del Diablo<br>Cuenca<br>Guayaquil (transfer out)</td>
-      <td rowspan="2">la Floresta<br>Casa Real<br>Los Balcones<br>Grand Hotel Guayaquil</td>
-      <td class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td><span class="en-departures">EVERY THURSDAY**<span class="guide-note">With English speaking tour guide</span></span></td>
-      <td>807</td><td>114</td>
+      <td data-label="Code" rowspan="2">GR-SM-08</td>
+      <td data-label="Program" rowspan="2">Volcano Avenue 6D/5N<br>(English - Spanish)</td>
+      <td data-label="Entrances" rowspan="2">No</td>
+      <td data-label="Category" rowspan="2">Tourist</td>
+      <td data-label="City / Route" rowspan="2">Quito (pick up)<br>Cotopaxi<br>Baños<br>Riobamba<br>Nariz del Diablo<br>Cuenca<br>Guayaquil (transfer out)</td>
+      <td data-label="Hotels" rowspan="2">la Floresta<br>Casa Real<br>Los Balcones<br>Grand Hotel Guayaquil</td>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Departures"><span class="en-departures">EVERY THURSDAY**<span class="guide-note">With English speaking tour guide</span></span></td>
+      <td data-label="Net Rate">807</td><td data-label="S.S">114</td>
     </tr>
     <tr class="program alt" data-category="volcano6d">
-      <td class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td><span class="en-departures">EVERY THURSDAY**<span class="guide-note">With German speaking tour guide</span></span></td>
-      <td>807</td><td>114</td>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Departures"><span class="en-departures">EVERY THURSDAY**<span class="guide-note">With German speaking tour guide</span></span></td>
+      <td data-label="Net Rate">807</td><td data-label="S.S">114</td>
     </tr>
 
     <!-- VOLCANO 6D – Tourist Superior -->
     <tr class="program" data-category="volcano6d">
-      <td rowspan="2">GR-SM-08</td>
-      <td rowspan="2">Volcano Avenue 6D/5N<br>(English - Spanish)</td>
-      <td rowspan="2">No</td>
-      <td rowspan="2">Tourist Superior</td>
-      <td rowspan="2">Quito (pick up)<br>Cotopaxi<br>Baños<br>Riobamba<br>Nariz del Diablo<br>Cuenca<br>Guayaquil (transfer out)</td>
-      <td rowspan="2">Hotel Sangay<br>Hacienda Abraspungo (STD)<br>San Juan<br>Tryp by Wyndham</td>
-      <td class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td><span class="en-departures">EVERY THURSDAY**<span class="guide-note">With English speaking tour guide</span></span></td>
-      <td>968</td><td>177</td>
+      <td data-label="Code" rowspan="2">GR-SM-08</td>
+      <td data-label="Program" rowspan="2">Volcano Avenue 6D/5N<br>(English - Spanish)</td>
+      <td data-label="Entrances" rowspan="2">No</td>
+      <td data-label="Category" rowspan="2">Tourist Superior</td>
+      <td data-label="City / Route" rowspan="2">Quito (pick up)<br>Cotopaxi<br>Baños<br>Riobamba<br>Nariz del Diablo<br>Cuenca<br>Guayaquil (transfer out)</td>
+      <td data-label="Hotels" rowspan="2">Hotel Sangay<br>Hacienda Abraspungo (STD)<br>San Juan<br>Tryp by Wyndham</td>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Departures"><span class="en-departures">EVERY THURSDAY**<span class="guide-note">With English speaking tour guide</span></span></td>
+      <td data-label="Net Rate">968</td><td data-label="S.S">177</td>
     </tr>
     <tr class="program" data-category="volcano6d">
-      <td class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td><span class="en-departures">EVERY THURSDAY**<span class="guide-note">With German speaking tour guide</span></span></td>
-      <td>968</td><td>177</td>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Departures"><span class="en-departures">EVERY THURSDAY**<span class="guide-note">With German speaking tour guide</span></span></td>
+      <td data-label="Net Rate">968</td><td data-label="S.S">177</td>
     </tr>
 
     <!-- VOLCANO 6D – First Class -->
     <tr class="program alt" data-category="volcano6d">
-      <td rowspan="2">GR-SM-08</td>
-      <td rowspan="2">Volcano Avenue 6D/5N<br>(English - Spanish)</td>
-      <td rowspan="2">No</td>
-      <td rowspan="2">First Class</td>
-      <td rowspan="2">Quito (pick up)<br>Cotopaxi<br>Baños<br>Riobamba<br>Nariz del Diablo<br>Cuenca<br>Guayaquil (transfer out)</td>
-      <td rowspan="2">Samari Spa<br>Hacienda Abraspungo<br>Cruz del Vado<br>Wyndham Santa Ana</td>
-      <td class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td><span class="en-departures">EVERY THURSDAY**<span class="guide-note">With English speaking tour guide</span></span></td>
-      <td>1.217</td><td>462</td>
+      <td data-label="Code" rowspan="2">GR-SM-08</td>
+      <td data-label="Program" rowspan="2">Volcano Avenue 6D/5N<br>(English - Spanish)</td>
+      <td data-label="Entrances" rowspan="2">No</td>
+      <td data-label="Category" rowspan="2">First Class</td>
+      <td data-label="City / Route" rowspan="2">Quito (pick up)<br>Cotopaxi<br>Baños<br>Riobamba<br>Nariz del Diablo<br>Cuenca<br>Guayaquil (transfer out)</td>
+      <td data-label="Hotels" rowspan="2">Samari Spa<br>Hacienda Abraspungo<br>Cruz del Vado<br>Wyndham Santa Ana</td>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Departures"><span class="en-departures">EVERY THURSDAY**<span class="guide-note">With English speaking tour guide</span></span></td>
+      <td data-label="Net Rate">1.217</td><td data-label="S.S">462</td>
     </tr>
     <tr class="program alt" data-category="volcano6d">
-      <td class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td><span class="en-departures">EVERY THURSDAY**<span class="guide-note">With German speaking tour guide</span></span></td>
-      <td>1.217</td><td>462</td>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Departures"><span class="en-departures">EVERY THURSDAY**<span class="guide-note">With German speaking tour guide</span></span></td>
+      <td data-label="Net Rate">1.217</td><td data-label="S.S">462</td>
     </tr>
 
     <!-- ANDEAN TREASURES – Standard -->
     <tr class="program alt" data-category="andean">
-      <td rowspan="2">GR-SM-11</td>
-      <td rowspan="2">Andean Treasures 8D/7N<br>Sunday to Sunday<br>English/German Guide</td>
-      <td rowspan="2">Yes</td>
-      <td rowspan="2">Standard</td>
-      <td rowspan="2">Quito – Cotopaxi – Baños – Riobamba – Cuenca – Guayaquil</td>
-      <td rowspan="2">Hotel Ikala / La Cienega / Floresta / Mansión Santa Isabella / Los Balcones / Grand Hotel GYE</td>
-      <td class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td>
-        <span class="en-departures">
-          04 Jan / 01 Feb / 08 Mar / 05 Apr / 03 May / 07 Jun<br>
-          05 Jul / 02 Aug / 06 Sep / 04 Oct / 08 Nov / 06 Dec
-          <span class="guide-note">With English speaking tour guide</span>
-        </span>
-      </td>
-      <td>1.395</td><td>166</td>
+      <td data-label="Code" rowspan="2">GR-SM-11</td>
+      <td data-label="Program" rowspan="2">Andean Treasures 8D/7N<br>Sunday to Sunday<br>English/German Guide</td>
+      <td data-label="Entrances" rowspan="2">Yes</td>
+      <td data-label="Category" rowspan="2">Standard</td>
+      <td data-label="City / Route" rowspan="2">Quito – Cotopaxi – Baños – Riobamba – Cuenca – Guayaquil</td>
+      <td data-label="Hotels" rowspan="2">Hotel Ikala / La Cienega / Floresta / Mansión Santa Isabella / Los Balcones / Grand Hotel GYE</td>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Departures"><span class="en-departures">04 Jan / 01 Feb / 08 Mar / 05 Apr / 03 May / 07 Jun<br>05 Jul / 02 Aug / 06 Sep / 04 Oct / 08 Nov / 06 Dec<span class="guide-note">With English speaking tour guide</span></span></td>
+      <td data-label="Net Rate">1.395</td><td data-label="S.S">166</td>
     </tr>
     <tr class="program alt" data-category="andean">
-      <td class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td><button class="specific-dep-btn" onclick="openModal('andean-standard')">Specific departures 2026</button></td>
-      <td>1.395</td><td>166</td>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Departures"><button class="specific-dep-btn" onclick="openModal('andean-standard')">Specific departures 2026</button></td>
+      <td data-label="Net Rate">1.395</td><td data-label="S.S">166</td>
     </tr>
 
     <!-- ANDEAN TREASURES – Superior -->
     <tr class="program" data-category="andean">
-      <td rowspan="2">GR-SM-11</td>
-      <td rowspan="2">Andean Treasures 8D/7N</td>
-      <td rowspan="2">Yes</td>
-      <td rowspan="2">Superior</td>
-      <td rowspan="2">Quito – Cotopaxi – Baños – Riobamba – Cuenca – Guayaquil</td>
-      <td rowspan="2">Adamas House / La Ciénega Suite / Samari / Abraspungo / Santa Lucia / Wyndham</td>
-      <td class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td>
-        <span class="en-departures">Same dates as above<span class="guide-note">With English speaking tour guide</span></span>
-      </td>
-      <td>1.571</td><td>400</td>
+      <td data-label="Code" rowspan="2">GR-SM-11</td>
+      <td data-label="Program" rowspan="2">Andean Treasures 8D/7N</td>
+      <td data-label="Entrances" rowspan="2">Yes</td>
+      <td data-label="Category" rowspan="2">Superior</td>
+      <td data-label="City / Route" rowspan="2">Quito – Cotopaxi – Baños – Riobamba – Cuenca – Guayaquil</td>
+      <td data-label="Hotels" rowspan="2">Adamas House / La Ciénega Suite / Samari / Abraspungo / Santa Lucia / Wyndham</td>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Departures"><span class="en-departures">Same dates as above<span class="guide-note">With English speaking tour guide</span></span></td>
+      <td data-label="Net Rate">1.571</td><td data-label="S.S">400</td>
     </tr>
     <tr class="program" data-category="andean">
-      <td class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td><button class="specific-dep-btn" onclick="openModal('andean-superior')">Specific departures 2026</button></td>
-      <td>1.571</td><td>400</td>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Departures"><button class="specific-dep-btn" onclick="openModal('andean-superior')">Specific departures 2026</button></td>
+      <td data-label="Net Rate">1.571</td><td data-label="S.S">400</td>
     </tr>
 
+    </tbody>
   </table>
+  </div>
 
   <br><br>
 
   <h2>Pre &amp; Post Tour Supplements</h2>
 
-  <table>
+  <div class="table-wrap">
+  <table class="supplements-table">
+    <thead>
     <tr>
       <th>Description</th>
       <th>Service</th>
       <th>LANGUAGE</th>
       <th>Net Rate</th>
     </tr>
+    </thead>
+    <tbody>
     <tr class="alt">
-      <td rowspan="2">Pre Tour Quito – Standard</td>
-      <td rowspan="2">Hotel Ikala + Transfer IN Quito</td>
-      <td class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td>82</td>
-    </tr>
-    <tr class="alt">
-      <td class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td>82</td>
-    </tr>
-    <tr>
-      <td rowspan="2">Pre Tour Quito – Superior</td>
-      <td rowspan="2">Adamas House + Transfer IN Quito</td>
-      <td class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td>108</td>
-    </tr>
-    <tr>
-      <td class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td>108</td>
+      <td data-label="Description" rowspan="2">Pre Tour Quito – Standard</td>
+      <td data-label="Service" rowspan="2">Hotel Ikala + Transfer IN Quito</td>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Net Rate">82</td>
     </tr>
     <tr class="alt">
-      <td rowspan="2">Post Tour Guayaquil – Standard</td>
-      <td rowspan="2">Grand Hotel Guayaquil + Transfer OUT GYE</td>
-      <td class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td>69</td>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Net Rate">82</td>
+    </tr>
+    <tr>
+      <td data-label="Description" rowspan="2">Pre Tour Quito – Superior</td>
+      <td data-label="Service" rowspan="2">Adamas House + Transfer IN Quito</td>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Net Rate">108</td>
+    </tr>
+    <tr>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Net Rate">108</td>
     </tr>
     <tr class="alt">
-      <td class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td>69</td>
+      <td data-label="Description" rowspan="2">Post Tour Guayaquil – Standard</td>
+      <td data-label="Service" rowspan="2">Grand Hotel Guayaquil + Transfer OUT GYE</td>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Net Rate">69</td>
+    </tr>
+    <tr class="alt">
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Net Rate">69</td>
     </tr>
     <tr>
-      <td rowspan="2">Post Tour Guayaquil – Superior</td>
-      <td rowspan="2">Wyndham Santa Ana DLX + Transfer OUT GYE</td>
-      <td class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td>94</td>
+      <td data-label="Description" rowspan="2">Post Tour Guayaquil – Superior</td>
+      <td data-label="Service" rowspan="2">Wyndham Santa Ana DLX + Transfer OUT GYE</td>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Net Rate">94</td>
     </tr>
     <tr>
-      <td class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td>94</td>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Net Rate">94</td>
     </tr>
+    </tbody>
   </table>
+  </div>
 
 </div>
-
 </div>
 
 <!-- ================= MODALS ================= -->
@@ -930,7 +1042,7 @@ h2{
     <button class="modal-close" onclick="closeModal('loop6-firstclass')">✕</button>
     <h3><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"> Galápagos Loop 6D/5N – First Class</h3>
     <p class="modal-subtitle">Specific departures 2026 – With German speaking tour guide</p>
-  <table class="modal-table">
+    <table class="modal-table">
       <tr><th>Departure Date</th></tr>
       <tr><td>Sun, 11 Jan 2026</td></tr>
       <tr><td>Sun, 08 Feb 2026</td></tr>
@@ -954,7 +1066,7 @@ h2{
     <button class="modal-close" onclick="closeModal('loop7-tourist')">✕</button>
     <h3><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"> Galápagos Loop 7D/6N Immersive – Tourist</h3>
     <p class="modal-subtitle">Specific departures 2026 – With German speaking tour guide</p>
-<table class="modal-table">
+    <table class="modal-table">
       <tr><th>Departure Date</th></tr>
       <tr><td>Sat, 10 Jan 2026</td></tr>
       <tr><td>Sat, 07 Feb 2026</td></tr>
@@ -978,7 +1090,7 @@ h2{
     <button class="modal-close" onclick="closeModal('loop7-touristsup')">✕</button>
     <h3><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"> Galápagos Loop 7D/6N Immersive – Tourist Superior</h3>
     <p class="modal-subtitle">Specific departures 2026 – With German speaking tour guide</p>
- <table class="modal-table">
+    <table class="modal-table">
       <tr><th>Departure Date</th></tr>
       <tr><td>Sat, 10 Jan 2026</td></tr>
       <tr><td>Sat, 07 Feb 2026</td></tr>
@@ -1002,7 +1114,7 @@ h2{
     <button class="modal-close" onclick="closeModal('loop7-firstclass')">✕</button>
     <h3><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"> Galápagos Loop 7D/6N Immersive – First Class</h3>
     <p class="modal-subtitle">Specific departures 2026 – With German speaking tour guide</p>
-  <table class="modal-table">
+    <table class="modal-table">
       <tr><th>Departure Date</th></tr>
       <tr><td>Sat, 10 Jan 2026</td></tr>
       <tr><td>Sat, 07 Feb 2026</td></tr>
@@ -1026,7 +1138,7 @@ h2{
     <button class="modal-close" onclick="closeModal('darwin-tourist')">✕</button>
     <h3><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"> Charles Darwin Path 8D/7N – Tourist</h3>
     <p class="modal-subtitle">Specific departures 2026 – With German speaking tour guide</p>
-<table class="modal-table">
+    <table class="modal-table">
       <tr><th>Departure Date</th></tr>
       <tr><td>Fri, 09 Jan 2026</td></tr>
       <tr><td>Fri, 06 Feb 2026</td></tr>
@@ -1050,7 +1162,7 @@ h2{
     <button class="modal-close" onclick="closeModal('darwin-touristsup')">✕</button>
     <h3><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"> Charles Darwin Path 8D/7N – Tourist Superior</h3>
     <p class="modal-subtitle">Specific departures 2026 – With German speaking tour guide</p>
- <table class="modal-table">
+    <table class="modal-table">
       <tr><th>Departure Date</th></tr>
       <tr><td>Fri, 09 Jan 2026</td></tr>
       <tr><td>Fri, 06 Feb 2026</td></tr>
@@ -1074,7 +1186,7 @@ h2{
     <button class="modal-close" onclick="closeModal('darwin-firstclass')">✕</button>
     <h3><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"> Charles Darwin Path 8D/7N – First Class</h3>
     <p class="modal-subtitle">Specific departures 2026 – With German speaking tour guide</p>
- <table class="modal-table">
+    <table class="modal-table">
       <tr><th>Departure Date</th></tr>
       <tr><td>Fri, 09 Jan 2026</td></tr>
       <tr><td>Fri, 06 Feb 2026</td></tr>
@@ -1146,12 +1258,10 @@ function showSection(id){
   document.querySelectorAll('.rate-section').forEach(sec=>sec.style.display='none');
   document.getElementById(id).style.display='block';
 }
-
 function goBack(){
   document.getElementById('mainMenu').style.display='grid';
   document.querySelectorAll('.rate-section').forEach(sec=>sec.style.display='none');
 }
-
 function filterPrograms(select, sectionId){
   const value = select.value;
   const programs = document.getElementById(sectionId).querySelectorAll('.program');
@@ -1163,18 +1273,14 @@ function filterPrograms(select, sectionId){
     }
   });
 }
-
 function openModal(id){
   document.getElementById('modal-'+id).classList.add('active');
   document.body.style.overflow='hidden';
 }
-
 function closeModal(id){
   document.getElementById('modal-'+id).classList.remove('active');
   document.body.style.overflow='';
 }
-
-// Close modal clicking outside
 document.querySelectorAll('.modal-overlay').forEach(overlay=>{
   overlay.addEventListener('click', function(e){
     if(e.target === this){
