@@ -863,6 +863,7 @@ function openModal(program,date,region,fewSpots,promoPrice) {
   goToStep1(); clearRateSelection();
   document.getElementById('modal').classList.add('open');
   document.body.style.overflow='hidden';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 function closeModal() {
