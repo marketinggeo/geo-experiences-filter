@@ -861,9 +861,11 @@ function openModal(program,date,region,fewSpots,promoPrice) {
   document.getElementById('volcanoRates').style.display = region==='volcano'   ? 'block' : 'none';
   if (region==='galapagos') buildLoopRates(promoPrice);
   goToStep1(); clearRateSelection();
+ window.scrollTo({ top: 0, behavior: 'smooth' });
+setTimeout(function() {
   document.getElementById('modal').classList.add('open');
-  document.body.style.overflow='hidden';
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  document.body.style.overflow = 'hidden';
+}, 400);
 }
 
 function closeModal() {
