@@ -516,6 +516,16 @@ body {
               <div class="rate-price-col"><span class="price-type">Single suppl.</span><span class="price-val">$166</span></div>
             </div>
           </div>
+          <div class="rate-card" onclick="selectRate(this,'English guide – Superior: $1,571 per pax / Single supplement: $400')">
+            <div style="display:flex;align-items:center;gap:10px;">
+              <span class="rate-flag"><svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#012169"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="8"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" stroke-width="5"/><path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="12"/><path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="8"/></svg></span>
+              <div><span class="rate-label">English Guide – Superior</span><span class="rate-sub">English-speaking expert guide</span></div>
+            </div>
+            <div class="rate-prices">
+              <div class="rate-price-col"><span class="price-type">Per pax</span><span class="price-val">$1,571</span></div>
+              <div class="rate-price-col"><span class="price-type">Single suppl.</span><span class="price-val">$400</span></div>
+            </div>
+          </div>
           <div class="rate-card" onclick="selectRate(this,'German guide – Standard: $1,395 per pax / Single supplement: $166')">
             <div style="display:flex;align-items:center;gap:10px;">
               <span class="rate-flag"><svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#FFCE00"/><rect width="60" height="26.7" fill="#DD0000"/><rect width="60" height="13.3" fill="#000"/></svg></span>
@@ -850,7 +860,6 @@ function openModal(program,date,region,fewSpots,promoPrice){
   if(region==='galapagos'){
     currentPromo = promoPrice;
     currentLang  = 'en';
-    // Show/hide promo badge on EN tab
     document.getElementById('promoNoticeEN').style.display = promoPrice ? 'inline-block' : 'none';
     document.getElementById('langTabEN').classList.add('active');
     document.getElementById('langTabDE').classList.remove('active');
@@ -861,9 +870,14 @@ function openModal(program,date,region,fewSpots,promoPrice){
   goToStep1();
   clearRateSelection();
 
+  // Scroll parent page to top first, then show modal
+  // Works both standalone and inside Google Sites iframe
+  try { window.parent.postMessage({ type: 'scrollToTop' }, '*'); } catch(e){}
+  try { window.top.scrollTo({ top: 0, behavior: 'smooth' }); } catch(e){}
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+
   const overlay = document.getElementById('modal');
   overlay.classList.add('open');
-  // Scroll modal overlay itself to top so modal-box is visible
   overlay.scrollTop = 0;
 }
 
@@ -919,6 +933,10 @@ function goToStep1(){
 /* INIT */
 updateCounts();
 renderCards('all');
+
+// Listen for scrollToTop message — paste this snippet in a separate
+// Google Sites HTML embed ABOVE this one if needed:
+// <script>window.addEventListener('message',function(e){if(e.data&&e.data.type==='scrollToTop'){window.scrollTo({top:0,behavior:'smooth'});}});</script>
 
 </script>
 </body>
