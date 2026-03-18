@@ -195,7 +195,7 @@ body {
   align-items: flex-start;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  padding: 24px 16px 40px;
+  padding: 16px;
   box-sizing: border-box;
 }
 .modal-overlay.open { display: flex; }
@@ -882,6 +882,10 @@ function openModal(program,date,region,fewSpots,promoPrice){
   overlay.classList.add('open');
   overlay.scrollTop = 0;
   document.body.style.overflow = 'hidden';
+  // Scroll the modal box into view in case the user is far down the page
+  requestAnimationFrame(function(){
+    document.querySelector('.modal-box').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
 }
 
 function closeModal(){
