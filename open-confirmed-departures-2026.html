@@ -7,11 +7,7 @@
 <style>
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-html, body {
-  overflow-x: hidden;
-  width: 100%;
-}
+html, body { overflow-x: hidden; width: 100%; }
 
 body {
   font-family: 'Montserrat', sans-serif;
@@ -22,34 +18,20 @@ body {
 
 /* HEADER */
 .page-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 28px;
-  flex-wrap: wrap;
-  gap: 12px;
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 28px; flex-wrap: wrap; gap: 12px;
 }
 .page-header h1 {
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: #002060;
+  font-size: 13px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; color: #002060;
 }
 .live-badge {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 11px;
-  font-weight: 600;
-  color: #1e7e34;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
+  display: flex; align-items: center; gap: 6px;
+  font-size: 11px; font-weight: 600; color: #2e7d52;
+  letter-spacing: 0.5px; text-transform: uppercase;
 }
 .live-dot {
-  width: 7px; height: 7px;
-  border-radius: 50%;
-  background: #1e7e34;
+  width: 7px; height: 7px; border-radius: 50%; background: #2e7d52;
   animation: pulse-dot 2s ease-in-out infinite;
 }
 @keyframes pulse-dot {
@@ -59,56 +41,31 @@ body {
 
 /* FILTER BAR */
 .filter-bar {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 28px;
-  align-items: center;
+  display: flex; flex-wrap: wrap; gap: 8px;
+  margin-bottom: 28px; align-items: center;
 }
 .filter-label {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: #9199a8;
-  width: 100%;
+  font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+  text-transform: uppercase; color: #9199a8; width: 100%;
 }
 @media(min-width:480px){ .filter-label { width:auto; margin-right:4px; } }
 
 .filter-btn {
   font-family: 'Montserrat', sans-serif;
-  padding: 7px 14px;
-  border-radius: 20px;
-  border: 1.5px solid #d0d5de;
-  background: #ffffff;
-  color: #4a5568;
-  cursor: pointer;
-  font-size: 12px;
-  font-weight: 600;
-  transition: all 0.18s ease;
-  white-space: nowrap;
-  display: flex;
-  align-items: center;
-  gap: 6px;
+  padding: 7px 14px; border-radius: 20px;
+  border: 1.5px solid #d0d5de; background: #fff;
+  color: #4a5568; cursor: pointer; font-size: 12px; font-weight: 600;
+  transition: all 0.18s ease; white-space: nowrap;
+  display: flex; align-items: center; gap: 6px;
 }
 .filter-btn .f-count {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 18px; height: 18px;
-  border-radius: 50%;
-  font-size: 10px;
-  font-weight: 700;
-  background: #e8edf5;
-  color: #4a5568;
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 18px; height: 18px; border-radius: 50%;
+  font-size: 10px; font-weight: 700; background: #e8edf5; color: #4a5568;
   transition: all 0.18s ease;
 }
-.filter-btn.active, .filter-btn:hover {
-  background: #002060; color: #fff; border-color: #002060;
-}
-.filter-btn.active .f-count, .filter-btn:hover .f-count {
-  background: rgba(255,255,255,0.25); color: #fff;
-}
+.filter-btn.active, .filter-btn:hover { background:#002060; color:#fff; border-color:#002060; }
+.filter-btn.active .f-count, .filter-btn:hover .f-count { background:rgba(255,255,255,0.25); color:#fff; }
 .filter-btn.f-urgent { border-color:#9e6300; color:#9e6300; }
 .filter-btn.f-urgent .f-count { background:#fdf3e3; color:#9e6300; }
 .filter-btn.f-urgent.active, .filter-btn.f-urgent:hover { background:#9e6300; border-color:#9e6300; color:#fff; }
@@ -118,219 +75,127 @@ body {
 
 /* SECTION DIVIDER */
 .section-divider {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin: 32px 0 18px;
+  display: flex; align-items: center; gap: 12px; margin: 32px 0 18px;
 }
 .section-divider .section-label {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: #9199a8;
-  white-space: nowrap;
+  font-size: 10px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; color: #9199a8; white-space: nowrap;
 }
-.section-divider::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: #e2e6ed;
-}
+.section-divider::after { content:''; flex:1; height:1px; background:#e2e6ed; }
 
 /* CARDS GRID */
-.cards-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 16px;
-}
+.cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap: 16px; }
 
 /* DEPARTURE CARD */
 .dep-card {
-  background: #ffffff;
-  border-radius: 12px;
-  border: 1px solid #e8ecf2;
-  overflow: hidden;
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
-  display: flex;
-  flex-direction: column;
-  position: relative;
+  background: #fff; border-radius: 12px; border: 1px solid #e8ecf2;
+  overflow: hidden; transition: box-shadow 0.2s ease, transform 0.2s ease;
+  display: flex; flex-direction: column; position: relative;
 }
 .dep-card:not(.is-operated):not(.is-sold):hover {
-  box-shadow: 0 6px 24px rgba(0,32,96,0.09);
-  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(0,32,96,0.09); transform: translateY(-2px);
 }
-.dep-card.is-operated { opacity: 0.58; pointer-events: none; }
-.dep-card.is-sold     { opacity: 0.5;  pointer-events: none; }
+.dep-card.is-operated { opacity:0.58; pointer-events:none; }
+.dep-card.is-sold     { opacity:0.5;  pointer-events:none; }
 
 .card-accent { height: 3px; }
 .dep-card[data-region="galapagos"] .card-accent { background: linear-gradient(90deg,#1a56c4,#4a90d9); }
 .dep-card[data-region="andean"]    .card-accent { background: linear-gradient(90deg,#c45f1a,#d98a4a); }
 .dep-card[data-region="volcano"]   .card-accent { background: linear-gradient(90deg,#5a1a9e,#8a4ac4); }
 
-.card-body {
-  padding: 18px 20px 16px;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-.card-date {
-  font-size: 21px;
-  font-weight: 700;
-  color: #002060;
-  line-height: 1.1;
-  margin-bottom: 4px;
-  letter-spacing: -0.3px;
-}
-.card-year { font-size: 13px; font-weight: 500; color: #9199a8; }
-.card-program { font-size: 13px; font-weight: 600; color: #1a1a2e; margin-top: 10px; margin-bottom: 2px; }
-.card-duration { font-size: 11px; color: #9199a8; font-weight: 500; }
-
+.card-body { padding: 18px 20px 16px; flex:1; display:flex; flex-direction:column; }
+.card-date { font-size:21px; font-weight:700; color:#002060; line-height:1.1; margin-bottom:4px; letter-spacing:-0.3px; }
+.card-year { font-size:13px; font-weight:500; color:#9199a8; }
+.card-program { font-size:13px; font-weight:600; color:#1a1a2e; margin-top:10px; margin-bottom:2px; }
+.card-duration { font-size:11px; color:#9199a8; font-weight:500; }
 .itinerary-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 3px;
-  font-size: 11px;
-  font-weight: 600;
-  color: #1a56c4;
-  text-decoration: none;
-  margin-top: 8px;
+  display:inline-flex; align-items:center; gap:3px;
+  font-size:11px; font-weight:600; color:#1a56c4; text-decoration:none; margin-top:8px;
 }
-.itinerary-link:hover { text-decoration: underline; }
-.itinerary-link::after { content: '→'; }
+.itinerary-link:hover { text-decoration:underline; }
+.itinerary-link::after { content:'→'; }
 
-/* BADGES — muted, refined palette */
-.badges-row { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 12px; }
+/* BADGES */
+.badges-row { display:flex; flex-wrap:wrap; gap:5px; margin-top:12px; }
 .badge {
-  padding: 3px 9px;
-  border-radius: 20px;
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.3px;
-  text-transform: uppercase;
-  display: inline-flex;
-  align-items: center;
-  gap: 3px;
+  padding: 3px 9px; border-radius: 20px; font-size: 10px; font-weight: 600;
+  letter-spacing: 0.3px; text-transform: uppercase;
+  display: inline-flex; align-items: center; gap: 3px;
 }
-
-/* Status badges — subtle, not colorful */
 .badge-open      { background:#eef6f1; color:#2e7d52; border:1px solid #c3dece; }
 .badge-confirmed { background:#eef2fb; color:#1a4fa0; border:1px solid #c3d0ef; }
 .badge-sold      { background:#fdf1f0; color:#a93226; border:1px solid #ecc5c2; }
 .badge-operated  { background:#f2f3f5; color:#6c757d; border:1px solid #dde0e5; }
-
-/* Few spots — amber, single badge replaces almost sold out */
-.badge-few {
-  background: #fdf6ec;
-  color: #9e6300;
-  border: 1px solid #e8d5b0;
-  animation: badge-pulse-amber 2.5s ease-in-out infinite;
-}
+.badge-few       { background:#fdf6ec; color:#9e6300; border:1px solid #e8d5b0; animation:badge-pulse-amber 2.5s ease-in-out infinite; }
+.badge-deal-summer { background:#fdf8ee; color:#7a5800; border:1px solid #e0cfa0; }
+.badge-deal-eoy    { background:#f0f5f0; color:#2e6b3e; border:1px solid #b8d4bc; }
 @keyframes badge-pulse-amber {
   0%,100% { box-shadow:0 0 0 0 rgba(158,99,0,0); }
   50%      { box-shadow:0 0 0 3px rgba(158,99,0,0.1); }
 }
 
-/* Deal badges — understated */
-.badge-deal-summer { background:#fdf8ee; color:#7a5800; border:1px solid #e0cfa0; }
-.badge-deal-eoy    { background:#f0f5f0; color:#2e6b3e; border:1px solid #b8d4bc; }
-
-/* PROMO STRIP — toned down */
+/* PROMO STRIP */
 .promo-strip {
-  background: #fdf8ee;
-  border: 1px solid #e0cfa0;
-  border-radius: 7px;
-  padding: 9px 12px;
-  margin-top: 12px;
-  display: flex;
-  gap: 8px;
-  align-items: flex-start;
+  background:#fdf8ee; border:1px solid #e0cfa0; border-radius:7px;
+  padding:9px 12px; margin-top:12px; display:flex; gap:8px; align-items:flex-start;
 }
 .promo-icon-box {
-  width: 20px; height: 20px; min-width: 20px;
-  border-radius: 50%;
-  background: #e0cfa0; color: #7a5800;
-  font-size: 10px; font-weight: 800;
-  display: flex; align-items: center; justify-content: center;
-  margin-top: 1px;
+  width:20px; height:20px; min-width:20px; border-radius:50%;
+  background:#e0cfa0; color:#7a5800; font-size:10px; font-weight:800;
+  display:flex; align-items:center; justify-content:center; margin-top:1px;
 }
-.promo-text { font-size: 11px; color: #7a5800; font-weight: 500; line-height: 1.5; }
-.promo-text strong {
-  font-weight: 700; display: block; margin-bottom: 2px;
-  font-size: 10px; text-transform: uppercase; letter-spacing: 0.4px;
-}
+.promo-text { font-size:11px; color:#7a5800; font-weight:500; line-height:1.5; }
+.promo-text strong { font-weight:700; display:block; margin-bottom:2px; font-size:10px; text-transform:uppercase; letter-spacing:0.4px; }
 
 /* CARD FOOTER */
 .card-footer {
-  padding: 12px 20px 16px;
-  border-top: 1px solid #f0f2f5;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  margin-top: auto;
-  flex-wrap: wrap;
+  padding:12px 20px 16px; border-top:1px solid #f0f2f5;
+  display:flex; align-items:center; justify-content:space-between;
+  gap:10px; margin-top:auto; flex-wrap:wrap;
 }
-.price-from { display: flex; flex-direction: column; }
-.price-from > span:first-child {
-  font-size: 9px; font-weight: 700; color: #9199a8;
-  text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 2px;
-}
-.price-display { display: flex; align-items: baseline; gap: 5px; flex-wrap: wrap; }
-.price-original {
-  font-size: 12px; font-weight: 600; color: #b03a2e;
-  text-decoration: line-through;
-  text-decoration-color: #b03a2e;
-  text-decoration-thickness: 2px;
-}
-.price-current { font-size: 17px; font-weight: 700; color: #2e7d52; }
-.price-current small { font-size: 10px; font-weight: 500; color: #9199a8; }
-.price-regular { font-size: 17px; font-weight: 700; color: #002060; }
-.price-regular small { font-size: 10px; font-weight: 500; color: #9199a8; }
-.price-promo-label {
-  font-size: 9px; font-weight: 700; letter-spacing: 0.5px;
-  text-transform: uppercase; color: #2e7d52; margin-top: 2px;
-}
+.price-from { display:flex; flex-direction:column; }
+.price-from > span:first-child { font-size:9px; font-weight:700; color:#9199a8; text-transform:uppercase; letter-spacing:0.8px; margin-bottom:2px; }
+.price-display { display:flex; align-items:baseline; gap:5px; flex-wrap:wrap; }
+.price-original { font-size:12px; font-weight:600; color:#b03a2e; text-decoration:line-through; text-decoration-color:#b03a2e; text-decoration-thickness:2px; }
+.price-current  { font-size:17px; font-weight:700; color:#2e7d52; }
+.price-current small { font-size:10px; font-weight:500; color:#9199a8; }
+.price-regular  { font-size:17px; font-weight:700; color:#002060; }
+.price-regular small { font-size:10px; font-weight:500; color:#9199a8; }
+.price-promo-label { font-size:9px; font-weight:700; letter-spacing:0.5px; text-transform:uppercase; color:#2e7d52; margin-top:2px; }
 
 .book-btn {
-  font-family: 'Montserrat', sans-serif;
-  background: #002060; color: #fff;
-  border: none; border-radius: 7px;
-  padding: 10px 20px;
-  font-size: 12px; font-weight: 700;
-  cursor: pointer; letter-spacing: 0.3px;
-  transition: background 0.18s ease, transform 0.12s ease;
-  white-space: nowrap;
+  font-family:'Montserrat',sans-serif; background:#002060; color:#fff;
+  border:none; border-radius:7px; padding:10px 20px;
+  font-size:12px; font-weight:700; cursor:pointer; letter-spacing:0.3px;
+  transition:background 0.18s ease, transform 0.12s ease; white-space:nowrap;
 }
 .book-btn:hover  { background:#003080; transform:scale(1.02); }
 .book-btn:active { transform:scale(0.98); }
 
 .card-overlay-label {
-  position: absolute; top: 12px; right: 12px;
-  background: rgba(0,0,0,0.07); border-radius: 5px;
-  padding: 3px 9px; font-size: 9px; font-weight: 700;
-  letter-spacing: 0.8px; text-transform: uppercase; color: #6c757d;
+  position:absolute; top:12px; right:12px; background:rgba(0,0,0,0.07);
+  border-radius:5px; padding:3px 9px; font-size:9px; font-weight:700;
+  letter-spacing:0.8px; text-transform:uppercase; color:#6c757d;
 }
 
-/* MODAL — fixed to viewport, always visible */
+/* =====================
+   MODAL
+   Fixed to viewport — always visible wherever user is on page
+===================== */
 .modal-overlay {
   display: none;
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(10,20,60,0.5);
-  z-index: 9999;
+  background: rgba(10,20,60,0.52);
+  z-index: 99999;
   overflow-y: auto;
-  padding: 20px 16px;
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
-  align-items: flex-start;
-  justify-content: center;
+  -webkit-overflow-scrolling: touch;
+  padding: 24px 16px 40px;
 }
-.modal-overlay.open { display: flex; }
+.modal-overlay.open { display: block; }
 
 .modal-box {
-  background: #fff;
-  border-radius: 16px;
+  background: #fff; border-radius: 16px;
   width: 100%; max-width: 620px;
   margin: 0 auto;
   overflow: hidden;
@@ -339,170 +204,154 @@ body {
   position: relative;
 }
 @keyframes modal-in {
-  from { opacity:0; transform:translateY(12px) scale(0.98); }
+  from { opacity:0; transform:translateY(10px) scale(0.98); }
   to   { opacity:1; transform:translateY(0) scale(1); }
 }
 
 /* MODAL HEADER */
-.modal-header {
-  background: #002060;
-  padding: 22px 26px 20px;
-  position: relative;
-}
+.modal-header { background:#002060; padding:22px 26px 20px; position:relative; }
 .modal-close {
-  position: absolute; top: 16px; right: 18px;
-  background: rgba(255,255,255,0.15); border: none; color: #fff;
-  width: 28px; height: 28px; border-radius: 50%;
-  font-size: 15px; cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  font-family: 'Montserrat', sans-serif; line-height:1;
-  transition: background 0.15s;
+  position:absolute; top:16px; right:18px;
+  background:rgba(255,255,255,0.15); border:none; color:#fff;
+  width:28px; height:28px; border-radius:50%; font-size:15px; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Montserrat',sans-serif; line-height:1; transition:background 0.15s;
 }
-.modal-close:hover { background: rgba(255,255,255,0.25); }
+.modal-close:hover { background:rgba(255,255,255,0.25); }
 .modal-program-name { font-size:17px; font-weight:700; color:#fff; margin-bottom:4px; padding-right:36px; }
-.modal-departure-date {
-  font-size:12px; font-weight:500; color:rgba(255,255,255,0.65);
-  display:flex; align-items:center; gap:5px;
-}
+.modal-departure-date { font-size:12px; font-weight:500; color:rgba(255,255,255,0.65); display:flex; align-items:center; gap:5px; }
 .modal-departure-date::before { content:'✦'; font-size:8px; opacity:0.5; }
 
 /* Urgency banner */
 .modal-urgency-banner {
-  background: #fdf6ec;
-  border-bottom: 1px solid #e8d5b0;
-  padding: 9px 26px;
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  font-size: 11px;
-  font-weight: 700;
-  color: #9e6300;
+  background:#fdf6ec; border-bottom:1px solid #e8d5b0;
+  padding:9px 26px; display:flex; align-items:center; gap:7px;
+  font-size:11px; font-weight:700; color:#9e6300;
 }
-.urgency-dot {
-  width: 7px; height: 7px; border-radius: 50%;
-  background: #9e6300;
-  animation: pulse-dot 1.5s ease-in-out infinite;
-  flex-shrink: 0;
-}
+.urgency-dot { width:7px; height:7px; border-radius:50%; background:#9e6300; animation:pulse-dot 1.5s ease-in-out infinite; flex-shrink:0; }
 
 /* MODAL STEPS */
 .modal-steps { display:flex; border-bottom:1px solid #eef0f5; background:#f9fafb; }
 .modal-step-tab {
-  flex:1; padding:12px 10px; text-align:center;
-  font-size:10px; font-weight:700; letter-spacing:0.8px; text-transform:uppercase;
-  color:#9199a8; cursor:default; border-bottom:2px solid transparent;
-  transition:all 0.2s; display:flex; align-items:center; justify-content:center; gap:6px;
+  flex:1; padding:12px 10px; font-size:10px; font-weight:700;
+  letter-spacing:0.8px; text-transform:uppercase; color:#9199a8;
+  cursor:default; border-bottom:2px solid transparent; transition:all 0.2s;
+  display:flex; align-items:center; justify-content:center; gap:6px;
 }
 .modal-step-tab .step-num {
-  width:18px; height:18px; border-radius:50%;
-  background:#dde1ea; color:#9199a8;
-  font-size:9px; font-weight:700;
-  display:flex; align-items:center; justify-content:center;
-  transition:all 0.2s;
+  width:18px; height:18px; border-radius:50%; background:#dde1ea; color:#9199a8;
+  font-size:9px; font-weight:700; display:flex; align-items:center; justify-content:center; transition:all 0.2s;
 }
-.modal-step-tab.active        { color:#002060; border-bottom-color:#002060; }
+.modal-step-tab.active { color:#002060; border-bottom-color:#002060; }
 .modal-step-tab.active .step-num { background:#002060; color:#fff; }
-.modal-step-tab.done          { color:#2e7d52; }
+.modal-step-tab.done   { color:#2e7d52; }
 .modal-step-tab.done .step-num   { background:#2e7d52; color:#fff; }
 
 /* MODAL PANELS */
 .modal-panel { display:none; padding:22px 26px 26px; }
 .modal-panel.active { display:block; }
 
-/* RATES — step 1: category selection */
+/* =====================
+   RATE SELECTION — STEP 1
+===================== */
 .rates-section-title {
-  font-size:9px; font-weight:700; letter-spacing:1.5px;
-  text-transform:uppercase; color:#9199a8; margin-bottom:12px;
-}
-
-/* Category cards */
-.category-grid { display:grid; grid-template-columns:1fr; gap:8px; margin-bottom:16px; }
-
-.cat-card {
-  border: 1.5px solid #e8ecf2;
-  border-radius: 9px;
-  padding: 13px 16px;
-  cursor: pointer;
-  transition: all 0.15s ease;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: relative;
-  gap: 12px;
-}
-.cat-card:hover    { border-color:#1a56c4; background:#f4f7fd; }
-.cat-card.selected { border-color:#002060; background:#f0f4ff; box-shadow:0 0 0 2px rgba(0,32,96,0.07); }
-
-.cat-card .cat-name { font-size:13px; font-weight:600; color:#1a1a2e; display:block; margin-bottom:3px; }
-.cat-card .cat-sub  { font-size:10px; font-weight:500; color:#9199a8; }
-.cat-card .cat-from {
-  text-align:right; flex-shrink:0;
-}
-.cat-card .cat-from-label { font-size:9px; font-weight:600; color:#9199a8; text-transform:uppercase; letter-spacing:0.5px; display:block; margin-bottom:2px; }
-.cat-card .cat-from-price { font-size:15px; font-weight:700; color:#002060; white-space:nowrap; }
-.cat-card .cat-from-price.has-promo { color:#2e7d52; }
-.cat-card .cat-promo-orig { font-size:11px; font-weight:600; color:#b03a2e; text-decoration:line-through; text-decoration-color:#b03a2e; text-decoration-thickness:2px; display:block; line-height:1; margin-bottom:1px; }
-
-.best-badge {
-  position:absolute; top:-7px; right:12px;
-  background:#2e7d52; color:#fff;
-  font-size:8px; font-weight:700; letter-spacing:0.8px;
-  padding:2px 7px; border-radius:10px; text-transform:uppercase;
-}
-
-/* Occupancy selection — appears after category picked */
-.occupancy-section {
-  display: none;
-  border-top: 1px solid #eef0f5;
-  padding-top: 16px;
-  margin-top: 4px;
-  animation: fade-in 0.18s ease;
-}
-.occupancy-section.visible { display: block; }
-@keyframes fade-in {
-  from { opacity:0; transform:translateY(4px); }
-  to   { opacity:1; transform:translateY(0); }
-}
-.occupancy-title {
   font-size:9px; font-weight:700; letter-spacing:1.5px;
   text-transform:uppercase; color:#9199a8; margin-bottom:10px;
 }
-.occupancy-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; }
 
-.occ-card {
-  border: 1.5px solid #e8ecf2;
-  border-radius: 8px;
-  padding: 11px 10px;
-  cursor: pointer;
-  transition: all 0.15s;
-  text-align: center;
+/* Language tabs for Galápagos Loop */
+.lang-tabs {
+  display: flex; gap: 8px; margin-bottom: 16px;
 }
-.occ-card:hover    { border-color:#1a56c4; background:#f4f7fd; }
-.occ-card.selected { border-color:#002060; background:#f0f4ff; box-shadow:0 0 0 2px rgba(0,32,96,0.07); }
-.occ-card .occ-type { font-size:10px; font-weight:700; color:#9199a8; text-transform:uppercase; letter-spacing:0.5px; display:block; margin-bottom:4px; }
-.occ-card .occ-price { font-size:16px; font-weight:700; color:#002060; display:block; }
-.occ-card .occ-price.promo-price { color:#2e7d52; }
-.occ-card .occ-orig { font-size:10px; font-weight:600; color:#b03a2e; text-decoration:line-through; text-decoration-color:#b03a2e; text-decoration-thickness:2px; display:block; margin-bottom:1px; }
+.lang-tab {
+  font-family:'Montserrat',sans-serif;
+  display: flex; align-items: center; gap: 6px;
+  padding: 7px 14px; border-radius: 8px;
+  border: 1.5px solid #e0e4ed; background: #fff;
+  font-size: 12px; font-weight: 600; color: #4a5568;
+  cursor: pointer; transition: all 0.15s;
+}
+.lang-tab .flag { display:inline-flex; align-items:center; width:22px; height:15px; border-radius:2px; overflow:hidden; flex-shrink:0; }
+.lang-tab .flag svg { width:22px; height:15px; display:block; }
+.lang-tab:hover { border-color:#1a56c4; color:#1a56c4; background:#f4f7fd; }
+.lang-tab.active { border-color:#002060; background:#002060; color:#fff; }
+.lang-tab .promo-notice {
+  font-size: 9px; font-weight: 700; letter-spacing: 0.5px;
+  text-transform: uppercase; color: #2e7d52;
+  background: #eef6f1; border-radius: 4px; padding: 2px 5px;
+  margin-left: 2px;
+}
+.lang-tab.active .promo-notice { background: rgba(255,255,255,0.2); color: #fff; }
+
+.promo-only-notice {
+  font-size: 10px; font-weight: 600; color: #9e6300;
+  background: #fdf6ec; border: 1px solid #e8d5b0;
+  border-radius: 6px; padding: 6px 10px; margin-bottom: 12px;
+  display: none;
+}
+.promo-only-notice.visible { display: block; }
+
+/* Category + occupancy table */
+.rate-table-wrap { overflow-x: auto; }
+.rate-table {
+  width: 100%; border-collapse: collapse; font-size: 12px;
+}
+.rate-table thead tr { background: #f4f6fb; }
+.rate-table th {
+  padding: 9px 12px; font-size: 9px; font-weight: 700;
+  letter-spacing: 0.8px; text-transform: uppercase; color: #9199a8;
+  text-align: left; border-bottom: 1px solid #e8ecf2;
+}
+.rate-table th.center { text-align: center; }
+.rate-table td {
+  padding: 10px 12px; border-bottom: 1px solid #f0f2f5;
+  vertical-align: middle;
+}
+.rate-table tbody tr:last-child td { border-bottom: none; }
+.rate-table tbody tr:hover { background: #f8f9fd; }
+
+.cat-cell-name { font-size:13px; font-weight:600; color:#1a1a2e; display:block; }
+.cat-cell-sub  { font-size:10px; font-weight:500; color:#9199a8; display:block; margin-top:1px; }
+
+/* Occupancy radio buttons */
+.occ-options { display:flex; gap:6px; justify-content:center; }
+.occ-btn {
+  font-family:'Montserrat',sans-serif;
+  min-width: 68px; padding: 7px 8px; border-radius: 7px;
+  border: 1.5px solid #e0e4ed; background: #fff;
+  cursor: pointer; transition: all 0.15s; text-align: center;
+}
+.occ-btn:hover { border-color:#1a56c4; background:#f4f7fd; }
+.occ-btn.selected { border-color:#002060; background:#f0f4ff; box-shadow:0 0 0 2px rgba(0,32,96,0.07); }
+.occ-btn .occ-label { font-size:9px; font-weight:700; letter-spacing:0.5px; text-transform:uppercase; color:#9199a8; display:block; margin-bottom:3px; }
+.occ-btn.selected .occ-label { color:#002060; }
+.occ-btn .occ-price { font-size:13px; font-weight:700; color:#002060; display:block; }
+.occ-btn.selected .occ-price { color:#002060; }
+.occ-btn .occ-price-promo { display:flex; flex-direction:column; align-items:center; gap:0px; }
+.occ-btn .occ-price-promo .p-orig { font-size:10px; font-weight:600; color:#b03a2e; text-decoration:line-through; text-decoration-color:#b03a2e; text-decoration-thickness:2px; line-height:1.2; }
+.occ-btn .occ-price-promo .p-curr { font-size:13px; font-weight:700; color:#2e7d52; line-height:1.2; }
+
+.best-tag {
+  display:inline-block; background:#2e7d52; color:#fff;
+  font-size:8px; font-weight:700; letter-spacing:0.6px; text-transform:uppercase;
+  padding:2px 6px; border-radius:4px; margin-left:6px; vertical-align:middle;
+}
 
 .rates-note { font-size:10px; color:#9199a8; margin-top:12px; line-height:1.5; }
 
-/* Andean / Volcano rate cards — kept as single selection */
+/* Andean / Volcano simple rate cards */
 .rates-grid { display:grid; grid-template-columns:1fr; gap:8px; }
 .rate-card {
-  border: 1.5px solid #e8ecf2;
-  border-radius: 9px;
-  padding: 13px 16px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  cursor: pointer;
-  transition: all 0.15s ease;
-  gap: 10px;
+  border:1.5px solid #e8ecf2; border-radius:9px; padding:13px 16px;
+  display:flex; align-items:center; justify-content:space-between;
+  cursor:pointer; transition:all 0.15s ease; gap:10px;
 }
 .rate-card:hover    { border-color:#1a56c4; background:#f4f7fd; }
 .rate-card.selected { border-color:#002060; background:#f0f4ff; box-shadow:0 0 0 2px rgba(0,32,96,0.07); }
 .rate-card .rate-label { font-size:13px; font-weight:600; color:#1a1a2e; display:block; margin-bottom:3px; }
 .rate-card .rate-sub   { font-size:10px; font-weight:500; color:#9199a8; }
+.rate-flag { display:inline-flex; align-items:center; width:22px; height:15px; border-radius:2px; overflow:hidden; flex-shrink:0; }
+.rate-flag svg { width:22px; height:15px; display:block; }
 .rate-prices { display:flex; gap:16px; align-items:flex-end; flex-shrink:0; }
 .rate-price-col { display:flex; flex-direction:column; align-items:center; min-width:52px; }
 .rate-price-col .price-type { font-size:9px; font-weight:700; letter-spacing:0.5px; text-transform:uppercase; color:#9199a8; margin-bottom:2px; white-space:nowrap; }
@@ -511,60 +360,45 @@ body {
 /* MODAL NAV */
 .modal-nav { display:flex; justify-content:flex-end; margin-top:20px; gap:10px; }
 .btn-secondary {
-  font-family:'Montserrat',sans-serif;
-  background:transparent; border:1.5px solid #d0d5de; color:#4a5568;
-  border-radius:7px; padding:9px 18px; font-size:12px; font-weight:600;
-  cursor:pointer; transition:all 0.15s;
+  font-family:'Montserrat',sans-serif; background:transparent;
+  border:1.5px solid #d0d5de; color:#4a5568; border-radius:7px;
+  padding:9px 18px; font-size:12px; font-weight:600; cursor:pointer; transition:all 0.15s;
 }
 .btn-secondary:hover { border-color:#002060; color:#002060; }
 .btn-primary {
-  font-family:'Montserrat',sans-serif;
-  background:#002060; border:none; color:#fff;
+  font-family:'Montserrat',sans-serif; background:#002060; border:none; color:#fff;
   border-radius:7px; padding:9px 22px; font-size:12px; font-weight:700;
-  cursor:pointer; transition:all 0.15s;
-  display:flex; align-items:center; gap:5px;
+  cursor:pointer; transition:all 0.15s; display:flex; align-items:center; gap:5px;
 }
 .btn-primary:hover { background:#003080; }
 .btn-primary::after { content:'→'; }
 
 /* CONTACT FORM */
 .form-row { margin-bottom:11px; }
-.form-row label {
-  display:block; font-size:9px; font-weight:700;
-  letter-spacing:1px; text-transform:uppercase; color:#9199a8; margin-bottom:4px;
-}
+.form-row label { display:block; font-size:9px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:#9199a8; margin-bottom:4px; }
 .form-row input, .form-row textarea {
-  font-family:'Montserrat',sans-serif;
-  width:100%; padding:9px 13px;
-  border:1.5px solid #dde1ea; border-radius:7px;
-  font-size:12px; color:#1a1a2e; background:#fff;
-  transition:border-color 0.15s; outline:none;
+  font-family:'Montserrat',sans-serif; width:100%; padding:9px 13px;
+  border:1.5px solid #dde1ea; border-radius:7px; font-size:12px;
+  color:#1a1a2e; background:#fff; transition:border-color 0.15s; outline:none;
 }
-.form-row input:focus, .form-row textarea:focus {
-  border-color:#002060; box-shadow:0 0 0 3px rgba(0,32,96,0.07);
-}
+.form-row input:focus, .form-row textarea:focus { border-color:#002060; box-shadow:0 0 0 3px rgba(0,32,96,0.07); }
 .form-row textarea { resize:vertical; min-height:80px; }
 .form-grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
 
 .selected-rate-summary {
-  background:#f0f4ff; border:1px solid #c5d3f0;
-  border-radius:7px; padding:10px 14px;
-  margin-bottom:16px; font-size:11px; color:#002060; font-weight:500;
-  display:flex; align-items:flex-start; gap:8px; line-height:1.4;
+  background:#f0f4ff; border:1px solid #c5d3f0; border-radius:7px;
+  padding:10px 14px; margin-bottom:16px; font-size:11px; color:#002060;
+  font-weight:500; display:flex; align-items:flex-start; gap:8px; line-height:1.4;
 }
 .selected-rate-summary::before {
   content:'✓'; width:16px; height:16px; min-width:16px;
-  background:#002060; color:#fff; border-radius:50%;
-  font-size:9px; font-weight:700;
-  display:flex; align-items:center; justify-content:center;
-  margin-top:1px;
+  background:#002060; color:#fff; border-radius:50%; font-size:9px; font-weight:700;
+  display:flex; align-items:center; justify-content:center; margin-top:1px;
 }
 .submit-btn {
-  font-family:'Montserrat',sans-serif; width:100%;
-  background:#002060; color:#fff; border:none; border-radius:7px;
-  padding:12px; font-size:13px; font-weight:700;
-  cursor:pointer; letter-spacing:0.3px; margin-top:4px;
-  transition:background 0.15s;
+  font-family:'Montserrat',sans-serif; width:100%; background:#002060; color:#fff;
+  border:none; border-radius:7px; padding:12px; font-size:13px; font-weight:700;
+  cursor:pointer; letter-spacing:0.3px; margin-top:4px; transition:background 0.15s;
 }
 .submit-btn:hover { background:#003080; }
 .form-note { font-size:10px; color:#9199a8; text-align:center; margin-top:10px; line-height:1.5; }
@@ -574,20 +408,18 @@ body {
 .empty-state p { font-size:13px; font-weight:500; margin-top:8px; }
 
 /* MOBILE */
-@media (max-width:600px) {
+@media(max-width:600px){
   body { padding:18px 12px 48px; }
   .cards-grid { grid-template-columns:1fr; }
   .form-grid-2 { grid-template-columns:1fr; }
   .modal-panel { padding:18px 16px 22px; }
   .modal-header { padding:18px 44px 16px 18px; }
-  .modal-urgency-banner { padding:9px 16px; }
-  .card-date { font-size:19px; }
   .card-footer { flex-direction:column; align-items:flex-start; }
   .book-btn { width:100%; text-align:center; padding:12px; }
-  .occupancy-grid { grid-template-columns:repeat(3,1fr); gap:6px; }
-  .rate-prices { gap:10px; }
+  .occ-options { gap:4px; }
+  .occ-btn { min-width:58px; padding:6px 4px; }
+  .lang-tabs { flex-wrap:wrap; }
 }
-
 </style>
 </head>
 <body>
@@ -611,7 +443,9 @@ body {
 <div id="cardsContainer"></div>
 <div class="empty-state" id="emptyState"><p>No departures match the selected filter.</p></div>
 
-<!-- MODAL -->
+<!-- =====================
+     MODAL
+===================== -->
 <div id="modal" class="modal-overlay" onclick="handleOverlayClick(event)">
   <div class="modal-box">
 
@@ -631,16 +465,39 @@ body {
       <div class="modal-step-tab" id="tab2"><span class="step-num">2</span> Send Request</div>
     </div>
 
-    <!-- PANEL 1: RATE SELECTION -->
+    <!-- PANEL 1 -->
     <div class="modal-panel active" id="panel1">
 
-      <!-- GALÁPAGOS LOOP: category → occupancy flow -->
+      <!-- GALÁPAGOS LOOP -->
       <div id="loopRates" style="display:none;">
-        <div class="rates-section-title">Select accommodation category</div>
-        <div class="category-grid" id="loopCategoryGrid"></div>
-        <div class="occupancy-section" id="loopOccupancy">
-          <div class="occupancy-title">Select room occupancy</div>
-          <div class="occupancy-grid" id="loopOccupancyGrid"></div>
+        <div class="rates-section-title">Select guide language</div>
+        <div class="lang-tabs">
+          <button class="lang-tab active" id="langTabEN" onclick="switchLang('en')">
+            <span class="flag"><svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#012169"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="8"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" stroke-width="5"/><path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="12"/><path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="8"/></svg></span>
+            English guide
+            <span class="promo-notice" id="promoNoticeEN" style="display:none;">Promo available</span>
+          </button>
+          <button class="lang-tab" id="langTabDE" onclick="switchLang('de')">
+            <span class="flag"><svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#FFCE00"/><rect width="60" height="26.7" fill="#DD0000"/><rect width="60" height="13.3" fill="#000"/></svg></span>
+            German guide
+          </button>
+        </div>
+        <div class="promo-only-notice" id="promoOnlyNotice">
+          Promotional rate applies to English guide departures only.
+        </div>
+        <div class="rates-section-title" style="margin-top:4px;">Select category and room occupancy</div>
+        <div class="rate-table-wrap">
+          <table class="rate-table" id="loopRateTable">
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th class="center">Single</th>
+                <th class="center">Double</th>
+                <th class="center">Triple</th>
+              </tr>
+            </thead>
+            <tbody id="loopRateBody"></tbody>
+          </table>
         </div>
         <p class="rates-note">Rates in USD net per passenger. All categories include program services as per itinerary.</p>
       </div>
@@ -649,15 +506,31 @@ body {
       <div id="andeanRates" style="display:none;">
         <div class="rates-section-title">Select guide language and category</div>
         <div class="rates-grid">
-          <div class="rate-card" onclick="selectRate(this,'English Guide – Standard: $1,395 per passenger / Single supplement: $166')">
-            <div><span class="rate-label">English Guide – Standard</span><span class="rate-sub">English-speaking expert guide</span></div>
+          <div class="rate-card" onclick="selectRate(this,'English guide – Standard: $1,395 per pax / Single supplement: $166')">
+            <div style="display:flex;align-items:center;gap:10px;">
+              <span class="rate-flag"><svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#012169"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="8"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" stroke-width="5"/><path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="12"/><path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="8"/></svg></span>
+              <div><span class="rate-label">English Guide – Standard</span><span class="rate-sub">English-speaking expert guide</span></div>
+            </div>
             <div class="rate-prices">
               <div class="rate-price-col"><span class="price-type">Per pax</span><span class="price-val">$1,395</span></div>
               <div class="rate-price-col"><span class="price-type">Single suppl.</span><span class="price-val">$166</span></div>
             </div>
           </div>
-          <div class="rate-card" onclick="selectRate(this,'German Guide – Standard: $1,571 per passenger / Single supplement: $400')">
-            <div><span class="rate-label">German Guide – Standard</span><span class="rate-sub">German-speaking expert guide</span></div>
+          <div class="rate-card" onclick="selectRate(this,'German guide – Standard: $1,395 per pax / Single supplement: $166')">
+            <div style="display:flex;align-items:center;gap:10px;">
+              <span class="rate-flag"><svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#FFCE00"/><rect width="60" height="26.7" fill="#DD0000"/><rect width="60" height="13.3" fill="#000"/></svg></span>
+              <div><span class="rate-label">German Guide – Standard</span><span class="rate-sub">German-speaking expert guide</span></div>
+            </div>
+            <div class="rate-prices">
+              <div class="rate-price-col"><span class="price-type">Per pax</span><span class="price-val">$1,395</span></div>
+              <div class="rate-price-col"><span class="price-type">Single suppl.</span><span class="price-val">$166</span></div>
+            </div>
+          </div>
+          <div class="rate-card" onclick="selectRate(this,'German guide – Superior: $1,571 per pax / Single supplement: $400')">
+            <div style="display:flex;align-items:center;gap:10px;">
+              <span class="rate-flag"><svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#FFCE00"/><rect width="60" height="26.7" fill="#DD0000"/><rect width="60" height="13.3" fill="#000"/></svg></span>
+              <div><span class="rate-label">German Guide – Superior</span><span class="rate-sub">German-speaking expert guide</span></div>
+            </div>
             <div class="rate-prices">
               <div class="rate-price-col"><span class="price-type">Per pax</span><span class="price-val">$1,571</span></div>
               <div class="rate-price-col"><span class="price-type">Single suppl.</span><span class="price-val">$400</span></div>
@@ -670,23 +543,26 @@ body {
       <!-- VOLCANO AVENUE -->
       <div id="volcanoRates" style="display:none;">
         <div class="rates-section-title">Select accommodation category</div>
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:12px;font-size:11px;color:#4a5568;font-weight:500;">
+          <span class="rate-flag"><svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#012169"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="8"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" stroke-width="5"/><path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="12"/><path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="8"/></svg></span> English / Spanish guide
+        </div>
         <div class="rates-grid">
-          <div class="rate-card" onclick="selectRate(this,'Tourist – English/Spanish: $807 per passenger / Single supplement: $114')">
-            <div><span class="rate-label">Tourist</span><span class="rate-sub">English / Spanish guide</span></div>
+          <div class="rate-card" onclick="selectRate(this,'Tourist – English/Spanish guide: $807 per pax / Single supplement: $114')">
+            <div><span class="rate-label">Tourist</span><span class="rate-sub">Standard accommodation</span></div>
             <div class="rate-prices">
               <div class="rate-price-col"><span class="price-type">Per pax</span><span class="price-val">$807</span></div>
               <div class="rate-price-col"><span class="price-type">Single suppl.</span><span class="price-val">$114</span></div>
             </div>
           </div>
-          <div class="rate-card" onclick="selectRate(this,'Tourist Superior – English/Spanish: $968 per passenger / Single supplement: $177')">
-            <div><span class="rate-label">Tourist Superior</span><span class="rate-sub">English / Spanish guide</span></div>
+          <div class="rate-card" onclick="selectRate(this,'Tourist Superior – English/Spanish guide: $968 per pax / Single supplement: $177')">
+            <div><span class="rate-label">Tourist Superior</span><span class="rate-sub">Enhanced comfort category</span></div>
             <div class="rate-prices">
               <div class="rate-price-col"><span class="price-type">Per pax</span><span class="price-val">$968</span></div>
               <div class="rate-price-col"><span class="price-type">Single suppl.</span><span class="price-val">$177</span></div>
             </div>
           </div>
-          <div class="rate-card" onclick="selectRate(this,'First Class – English/Spanish: $1,217 per passenger / Single supplement: $462')">
-            <div><span class="rate-label">First Class</span><span class="rate-sub">English / Spanish guide</span></div>
+          <div class="rate-card" onclick="selectRate(this,'First Class – English/Spanish guide: $1,217 per pax / Single supplement: $462')">
+            <div><span class="rate-label">First Class</span><span class="rate-sub">Premium category</span></div>
             <div class="rate-prices">
               <div class="rate-price-col"><span class="price-type">Per pax</span><span class="price-val">$1,217</span></div>
               <div class="rate-price-col"><span class="price-type">Single suppl.</span><span class="price-val">$462</span></div>
@@ -701,7 +577,7 @@ body {
       </div>
     </div>
 
-    <!-- PANEL 2: CONTACT FORM -->
+    <!-- PANEL 2 -->
     <div class="modal-panel" id="panel2">
       <div class="selected-rate-summary" id="rateSummary"></div>
       <form action="https://formspree.io/f/xaqdeevb" method="POST">
@@ -736,20 +612,20 @@ body {
 ===================== */
 const departures = [
   // GALÁPAGOS LOOP
-  { region:'galapagos', date:'04 Jan',       year:'2026', fullDate:'04 Jan 2026',       program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['operated'],         promo:false, bookable:false, fewSpots:false, dealType:null,    promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:null },
-  { region:'galapagos', date:'25–30 Jan',    year:'2026', fullDate:'25–30 Jan 2026',    program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['operated'],         promo:true,  bookable:false, fewSpots:false, dealType:null,    promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:null },
-  { region:'galapagos', date:'15–20 Feb',    year:'2026', fullDate:'15–20 Feb 2026',    program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['operated','sold'],  promo:false, bookable:false, fewSpots:false, dealType:null,    promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:null },
-  { region:'galapagos', date:'01–06 Mar',    year:'2026', fullDate:'01–06 Mar 2026',    program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['operated'],         promo:true,  bookable:false, fewSpots:false, dealType:null,    promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:null },
-  { region:'galapagos', date:'10–15 May',    year:'2026', fullDate:'10–15 May 2026',    program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:true,  bookable:true,  fewSpots:false, dealType:'summer', promoPrice:true,  itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:'$1,999' } },
-  { region:'galapagos', date:'07–12 Jun',    year:'2026', fullDate:'07–12 Jun 2026',    program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:true,  dealType:'summer', promoPrice:true,  itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:'$1,999' } },
-  { region:'galapagos', date:'21–26 Jun',    year:'2026', fullDate:'21–26 Jun 2026',    program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:false, dealType:null,    promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:null } },
-  { region:'galapagos', date:'12–17 Jul',    year:'2026', fullDate:'12–17 Jul 2026',    program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:true,  dealType:'summer', promoPrice:true,  itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:'$1,999' } },
-  { region:'galapagos', date:'02–07 Aug',    year:'2026', fullDate:'02–07 Aug 2026',    program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:false, dealType:null,    promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:null } },
-  { region:'galapagos', date:'13–18 Sep',    year:'2026', fullDate:'13–18 Sep 2026',    program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:false, dealType:null,    promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:null } },
-  { region:'galapagos', date:'27 Sep–02 Oct',year:'2026', fullDate:'27 Sep–02 Oct 2026',program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:false, dealType:null,    promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:null } },
-  { region:'galapagos', date:'18–23 Oct',    year:'2026', fullDate:'18–23 Oct 2026',    program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:false, dealType:'eoy',   promoPrice:true,  itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:'$1,999' } },
-  { region:'galapagos', date:'08–13 Nov',    year:'2026', fullDate:'08–13 Nov 2026',    program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:false, dealType:'eoy',   promoPrice:true,  itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:'$1,999' } },
-  { region:'galapagos', date:'13–18 Dec',    year:'2026', fullDate:'13–18 Dec 2026',    program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:false, dealType:'eoy',   promoPrice:true,  itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:'$1,999' } },
+  { region:'galapagos', date:'04 Jan',        year:'2026', fullDate:'04 Jan 2026',        program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['operated'],         promo:false, bookable:false, fewSpots:false, dealType:null,     promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:null },
+  { region:'galapagos', date:'25–30 Jan',     year:'2026', fullDate:'25–30 Jan 2026',     program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['operated'],         promo:true,  bookable:false, fewSpots:false, dealType:null,     promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:null },
+  { region:'galapagos', date:'15–20 Feb',     year:'2026', fullDate:'15–20 Feb 2026',     program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['operated','sold'],  promo:false, bookable:false, fewSpots:false, dealType:null,     promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:null },
+  { region:'galapagos', date:'01–06 Mar',     year:'2026', fullDate:'01–06 Mar 2026',     program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['operated'],         promo:true,  bookable:false, fewSpots:false, dealType:null,     promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:null },
+  { region:'galapagos', date:'10–15 May',     year:'2026', fullDate:'10–15 May 2026',     program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:true,  bookable:true,  fewSpots:false, dealType:'summer', promoPrice:true,  itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:'$1,999' } },
+  { region:'galapagos', date:'07–12 Jun',     year:'2026', fullDate:'07–12 Jun 2026',     program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:true,  dealType:'summer', promoPrice:true,  itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:'$1,999' } },
+  { region:'galapagos', date:'21–26 Jun',     year:'2026', fullDate:'21–26 Jun 2026',     program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:false, dealType:null,     promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:null } },
+  { region:'galapagos', date:'12–17 Jul',     year:'2026', fullDate:'12–17 Jul 2026',     program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:true,  dealType:'summer', promoPrice:true,  itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:'$1,999' } },
+  { region:'galapagos', date:'02–07 Aug',     year:'2026', fullDate:'02–07 Aug 2026',     program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:false, dealType:null,     promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:null } },
+  { region:'galapagos', date:'13–18 Sep',     year:'2026', fullDate:'13–18 Sep 2026',     program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:false, dealType:null,     promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:null } },
+  { region:'galapagos', date:'27 Sep–02 Oct', year:'2026', fullDate:'27 Sep–02 Oct 2026', program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:false, dealType:null,     promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:null } },
+  { region:'galapagos', date:'18–23 Oct',     year:'2026', fullDate:'18–23 Oct 2026',     program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:false, dealType:'eoy',    promoPrice:true,  itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:'$1,999' } },
+  { region:'galapagos', date:'08–13 Nov',     year:'2026', fullDate:'08–13 Nov 2026',     program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:false, dealType:'eoy',    promoPrice:true,  itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:'$1,999' } },
+  { region:'galapagos', date:'13–18 Dec',     year:'2026', fullDate:'13–18 Dec 2026',     program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:false, dealType:'eoy',    promoPrice:true,  itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:'$1,999' } },
   // ANDEAN TREASURES
   { region:'andean', date:'04 Apr', year:'2026', fullDate:'04 Apr 2026', program:'Andean Treasures', duration:'8 Days / 7 Nights', status:['open','confirmed'], promo:false, bookable:true, fewSpots:true,  dealType:null, promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/volcano-avenue/andean-treasures?authuser=0', priceFrom:{ regular:'$1,395', promo:null } },
   { region:'andean', date:'07 Jun', year:'2026', fullDate:'07 Jun 2026', program:'Andean Treasures', duration:'8 Days / 7 Nights', status:['open','confirmed'], promo:false, bookable:true, fewSpots:false, dealType:null, promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/volcano-avenue/andean-treasures?authuser=0', priceFrom:{ regular:'$1,395', promo:null } },
@@ -761,21 +637,19 @@ const departures = [
   { region:'volcano', date:'23 Jul', year:'2026', fullDate:'23 Jul 2026', program:'Volcano Avenue 6D/5N', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:false, bookable:true, fewSpots:false, dealType:null, promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/volcano-avenue/shared-volcano-avenue-6d-5n?authuser=0', priceFrom:{ regular:'$807', promo:null } }
 ];
 
-/* Galápagos Loop rate data */
-const loopCategories = [
-  {
-    id:'tourist', name:'Tourist', sub:'Standard accommodation',
-    single:2491, double:2420, triple:2399, bestOffer:true
-  },
-  {
-    id:'tourist-sup', name:'Tourist Superior', sub:'Enhanced comfort category',
-    single:2757, double:2477, triple:2440, bestOffer:false
-  },
-  {
-    id:'first', name:'First Class', sub:'Premium category',
-    single:3349, double:2803, triple:2696, bestOffer:false
-  }
-];
+/* Galápagos Loop rates — EN & DE */
+const loopRates = {
+  en: [
+    { id:'tourist',    name:'Tourist',          sub:'Standard accommodation',   single:2491, double:2420, triple:2399, best:true  },
+    { id:'tourist-sup',name:'Tourist Superior', sub:'Enhanced comfort category',single:2757, double:2477, triple:2440, best:false },
+    { id:'first',      name:'First Class',      sub:'Premium category',         single:3349, double:2803, triple:2696, best:false }
+  ],
+  de: [
+    { id:'tourist',    name:'Tourist',          sub:'Standard accommodation',   single:2641, double:2570, triple:2549, best:false },
+    { id:'tourist-sup',name:'Tourist Superior', sub:'Enhanced comfort category',single:2907, double:2627, triple:2590, best:false },
+    { id:'first',      name:'First Class',      sub:'Premium category',         single:3499, double:2953, triple:2846, best:false }
+  ]
+};
 
 /* =====================
    HELPERS
@@ -783,82 +657,79 @@ const loopCategories = [
 const regionOrder  = ['galapagos','andean','volcano'];
 const regionLabels = { galapagos:'Galápagos', andean:'Andean Treasures', volcano:'Volcano Avenue' };
 
-function badgeHTML(s) {
-  const m = {
-    open:     ['badge-open',     'Open'],
-    confirmed:['badge-confirmed','Confirmed'],
-    sold:     ['badge-sold',     'Sold Out'],
-    operated: ['badge-operated', 'Operated']
-  };
-  return m[s] ? `<span class="badge ${m[s][0]}">${m[s][1]}</span>` : '';
+function fmt(n){ return '$'+n.toLocaleString('en-US'); }
+
+function badgeHTML(s){
+  const m={ open:['badge-open','Open'], confirmed:['badge-confirmed','Confirmed'], sold:['badge-sold','Sold Out'], operated:['badge-operated','Operated'] };
+  return m[s]?`<span class="badge ${m[s][0]}">${m[s][1]}</span>`:'';
 }
-function dealBadge(t) {
-  if (t==='summer') return `<span class="badge badge-deal-summer">☀ Summer Deals</span>`;
-  if (t==='eoy')    return `<span class="badge badge-deal-eoy">✦ End of Year Deals</span>`;
+function dealBadge(t){
+  if(t==='summer') return `<span class="badge badge-deal-summer">☀ Summer Deals</span>`;
+  if(t==='eoy')    return `<span class="badge badge-deal-eoy">✦ End of Year Deals</span>`;
   return '';
 }
-function fewBadge() { return `<span class="badge badge-few">⚑ Few Spots Available</span>`; }
+function fewBadge(){ return `<span class="badge badge-few">⚑ Few Spots Available</span>`; }
 
-function priceFooter(dep) {
-  if (!dep.bookable) return '';
-  let priceBlock = '';
-  if (dep.priceFrom && dep.priceFrom.promo) {
-    priceBlock = `<div class="price-from"><span>From</span><div class="price-display"><span class="price-original">${dep.priceFrom.regular}</span><span class="price-current">${dep.priceFrom.promo} <small>/ pax</small></span></div><span class="price-promo-label">Promotional rate</span></div>`;
-  } else if (dep.priceFrom) {
-    priceBlock = `<div class="price-from"><span>From</span><div class="price-display"><span class="price-regular">${dep.priceFrom.regular} <small>/ pax</small></span></div></div>`;
+function priceFooter(dep){
+  if(!dep.bookable) return '';
+  let pb='';
+  if(dep.priceFrom && dep.priceFrom.promo){
+    pb=`<div class="price-from"><span>From</span><div class="price-display"><span class="price-original">${dep.priceFrom.regular}</span><span class="price-current">${dep.priceFrom.promo} <small>/ pax</small></span></div><span class="price-promo-label">Promotional rate</span></div>`;
+  } else if(dep.priceFrom){
+    pb=`<div class="price-from"><span>From</span><div class="price-display"><span class="price-regular">${dep.priceFrom.regular} <small>/ pax</small></span></div></div>`;
   }
-  return `<div class="card-footer">${priceBlock}<button class="book-btn" onclick="openModal('${dep.program} – ${dep.duration}','${dep.fullDate}','${dep.region}',${dep.fewSpots},${dep.promoPrice})">Book Now</button></div>`;
+  return `<div class="card-footer">${pb}<button class="book-btn" onclick="openModal('${dep.program} – ${dep.duration}','${dep.fullDate}','${dep.region}',${dep.fewSpots},${dep.promoPrice})">Book Now</button></div>`;
 }
 
-function promoStrip(dep) {
-  if (!dep.promo) return '';
-  const isMay = dep.fullDate.includes('May');
-  const msg = isMay
-    ? 'For all new confirmations: PNG entrance fee or dinner at Lava Lounge. Groups of 4+ receive both benefits. PNG fee included for all bookings on this departure.'
-    : 'For all new confirmations: PNG entrance fee or dinner at Lava Lounge. Groups of 4+ receive both benefits.';
+function promoStrip(dep){
+  if(!dep.promo) return '';
+  const isMay=dep.fullDate.includes('May');
+  const msg=isMay
+    ?'For all new confirmations: PNG entrance fee or dinner at Lava Lounge. Groups of 4+ receive both benefits. PNG fee included for all bookings on this departure.'
+    :'For all new confirmations: PNG entrance fee or dinner at Lava Lounge. Groups of 4+ receive both benefits.';
   return `<div class="promo-strip"><div class="promo-icon-box">%</div><div class="promo-text"><strong>Special Condition</strong>${msg}</div></div>`;
 }
 
 /* =====================
    RENDER CARDS
 ===================== */
-function renderCards(filter) {
-  const container = document.getElementById('cardsContainer');
-  container.innerHTML = '';
-  const filtered = departures.filter(d => {
-    if (filter==='all')       return true;
-    if (filter==='galapagos') return d.region==='galapagos';
-    if (filter==='andean')    return d.region==='andean';
-    if (filter==='volcano')   return d.region==='volcano';
-    if (filter==='promo')     return d.promo || d.dealType;
-    if (filter==='few')       return d.fewSpots;
-    if (filter==='sold')      return d.status.includes('sold');
+function renderCards(filter){
+  const container=document.getElementById('cardsContainer');
+  container.innerHTML='';
+  const filtered=departures.filter(d=>{
+    if(filter==='all')       return true;
+    if(filter==='galapagos') return d.region==='galapagos';
+    if(filter==='andean')    return d.region==='andean';
+    if(filter==='volcano')   return d.region==='volcano';
+    if(filter==='promo')     return d.promo||d.dealType;
+    if(filter==='few')       return d.fewSpots;
+    if(filter==='sold')      return d.status.includes('sold');
     return true;
   });
-  document.getElementById('emptyState').style.display = filtered.length===0 ? 'block' : 'none';
-  const groups = {}; regionOrder.forEach(r=>{ groups[r]=[]; });
-  filtered.forEach(d => groups[d.region].push(d));
-  const showDiv = ['all','promo','few','sold'].includes(filter);
-  regionOrder.forEach(region => {
-    if (!groups[region].length) return;
-    if (showDiv) {
-      const dv = document.createElement('div');
+  document.getElementById('emptyState').style.display=filtered.length===0?'block':'none';
+  const groups={}; regionOrder.forEach(r=>{groups[r]=[];});
+  filtered.forEach(d=>groups[d.region].push(d));
+  const showDiv=['all','promo','few','sold'].includes(filter);
+  regionOrder.forEach(region=>{
+    if(!groups[region].length) return;
+    if(showDiv){
+      const dv=document.createElement('div');
       dv.className='section-divider';
       dv.innerHTML=`<span class="section-label">${regionLabels[region]}</span>`;
       container.appendChild(dv);
     }
-    const grid = document.createElement('div');
+    const grid=document.createElement('div');
     grid.className='cards-grid';
-    groups[region].forEach(dep => {
+    groups[region].forEach(dep=>{
       const isSold=dep.status.includes('sold'), isOp=dep.status.includes('operated');
       let cls='dep-card';
-      if (isSold) cls+=' is-sold'; else if (isOp) cls+=' is-operated';
+      if(isSold) cls+=' is-sold'; else if(isOp) cls+=' is-operated';
       let overlay='';
-      if (isSold) overlay=`<div class="card-overlay-label">Sold Out</div>`;
-      else if (isOp) overlay=`<div class="card-overlay-label">Operated</div>`;
-      let badges = dep.status.map(badgeHTML).join('');
-      if (dep.dealType)  badges += dealBadge(dep.dealType);
-      if (dep.fewSpots)  badges += fewBadge();
+      if(isSold) overlay=`<div class="card-overlay-label">Sold Out</div>`;
+      else if(isOp) overlay=`<div class="card-overlay-label">Operated</div>`;
+      let badges=dep.status.map(badgeHTML).join('');
+      if(dep.dealType) badges+=dealBadge(dep.dealType);
+      if(dep.fewSpots) badges+=fewBadge();
       const card=document.createElement('div');
       card.className=cls; card.dataset.region=dep.region;
       card.innerHTML=`<div class="card-accent"></div>${overlay}<div class="card-body"><div class="card-date">${dep.date} <span class="card-year">${dep.year}</span></div><div class="card-program">${dep.program}</div><div class="card-duration">${dep.duration}</div><a href="${dep.itinerary}" target="_blank" class="itinerary-link">View itinerary</a><div class="badges-row">${badges}</div>${promoStrip(dep)}</div>${priceFooter(dep)}`;
@@ -866,14 +737,13 @@ function renderCards(filter) {
     });
     container.appendChild(grid);
   });
-  notifyHeight();
 }
 
 /* =====================
    COUNTS
 ===================== */
-function updateCounts() {
-  const c = {
+function updateCounts(){
+  const c={
     all:       departures.length,
     galapagos: departures.filter(d=>d.region==='galapagos').length,
     andean:    departures.filter(d=>d.region==='andean').length,
@@ -888,94 +758,85 @@ function updateCounts() {
 /* =====================
    FILTER
 ===================== */
-function applyFilter(type,btn) {
+function applyFilter(type,btn){
   document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
   renderCards(type);
 }
 
 /* =====================
-   NOTIFY HEIGHT (for Google Sites iframe auto-resize)
+   MODAL STATE
 ===================== */
-function notifyHeight() {
-  const h = document.body.scrollHeight;
-  try { window.parent.postMessage({ type:'resize', height:h }, '*'); } catch(e){}
-  // Also resize via Google Sites iFrame API if available
-  try { window.frameElement && (window.frameElement.style.height = h+'px'); } catch(e){}
-}
-window.addEventListener('load', notifyHeight);
-window.addEventListener('resize', notifyHeight);
+let selectedRateText='';
+let currentLang='en';
+let currentPromo=false;
 
 /* =====================
-   MODAL
+   LOOP RATE TABLE
 ===================== */
-let selectedRateText = '';
-let selectedCategory = null;
-
-function buildLoopRates(hasPromo) {
-  const grid = document.getElementById('loopCategoryGrid');
-  grid.innerHTML = '';
-  loopCategories.forEach(cat => {
-    const fromPrice = hasPromo && cat.id==='tourist' ? cat.double : cat.double;
-    const isPromo   = hasPromo && cat.id==='tourist';
-    const priceHTML = isPromo
-      ? `<span class="cat-promo-orig">$${cat.double.toLocaleString()}</span><span class="cat-from-price has-promo">$1,999</span>`
-      : `<span class="cat-from-price">$${cat.double.toLocaleString()}</span>`;
-    const best = cat.bestOffer && hasPromo ? '<div class="best-badge">Best offer</div>' : '';
-    const el = document.createElement('div');
-    el.className = 'cat-card';
-    el.dataset.catId = cat.id;
-    el.innerHTML = `${best}<div><span class="cat-name">${cat.name}</span><span class="cat-sub">${cat.sub}</span></div><div class="cat-from"><span class="cat-from-label">Double / pax</span>${priceHTML}</div>`;
-    el.onclick = () => selectCategory(el, cat, hasPromo);
-    grid.appendChild(el);
-  });
-  document.getElementById('loopOccupancy').classList.remove('visible');
-}
-
-function selectCategory(el, cat, hasPromo) {
-  document.querySelectorAll('.cat-card').forEach(c=>c.classList.remove('selected'));
-  el.classList.add('selected');
-  selectedCategory = cat;
-  selectedRateText = '';
-  const btn = document.getElementById('btnNext');
-  btn.disabled = true; btn.style.opacity='0.4';
-  buildOccupancy(cat, hasPromo);
-  document.getElementById('loopOccupancy').classList.add('visible');
-  document.querySelectorAll('.occ-card').forEach(c=>c.classList.remove('selected'));
-}
-
-function buildOccupancy(cat, hasPromo) {
-  const grid = document.getElementById('loopOccupancyGrid');
-  const isPromoTourist = hasPromo && cat.id==='tourist';
-  const occupancies = [
-    { type:'Single', price: cat.single, promoPrice: null },
-    { type:'Double', price: cat.double, promoPrice: isPromoTourist ? 1999 : null },
-    { type:'Triple', price: cat.triple, promoPrice: null }
-  ];
-  grid.innerHTML = '';
-  occupancies.forEach(occ => {
-    const hasOccPromo = occ.promoPrice !== null;
-    const priceHTML = hasOccPromo
-      ? `<span class="occ-orig">$${occ.price.toLocaleString()}</span><span class="occ-price promo-price">$${occ.promoPrice.toLocaleString()}</span>`
-      : `<span class="occ-price">$${occ.price.toLocaleString()}</span>`;
-    const rateStr = hasOccPromo
-      ? `${cat.name} – ${occ.type}: $${occ.promoPrice.toLocaleString()} per pax (promotional rate, regular $${occ.price.toLocaleString()})`
-      : `${cat.name} – ${occ.type}: $${occ.price.toLocaleString()} per pax`;
-    const el = document.createElement('div');
-    el.className = 'occ-card';
-    el.innerHTML = `<span class="occ-type">${occ.type}</span>${priceHTML}`;
-    el.onclick = () => {
-      document.querySelectorAll('.occ-card').forEach(c=>c.classList.remove('selected'));
-      el.classList.add('selected');
-      selectedRateText = rateStr;
-      const btn = document.getElementById('btnNext');
-      btn.disabled=false; btn.style.opacity='1';
-    };
-    grid.appendChild(el);
+function buildLoopTable(lang, hasPromo){
+  const cats = loopRates[lang];
+  const body = document.getElementById('loopRateBody');
+  body.innerHTML='';
+  cats.forEach(cat=>{
+    const occupancies=[
+      { key:'single', label:'Single', price:cat.single, promoPrice: (hasPromo && lang==='en' && cat.id==='tourist') ? null : null },
+      { key:'double', label:'Double', price:cat.double, promoPrice: (hasPromo && lang==='en' && cat.id==='tourist') ? 1999 : null },
+      { key:'triple', label:'Triple', price:cat.triple, promoPrice: null }
+    ];
+    const tr=document.createElement('tr');
+    // Category cell
+    const tdCat=document.createElement('td');
+    tdCat.innerHTML=`<span class="cat-cell-name">${cat.name}${cat.best&&hasPromo&&lang==='en'?'<span class="best-tag">Best offer</span>':''}</span><span class="cat-cell-sub">${cat.sub}</span>`;
+    tr.appendChild(tdCat);
+    // Occupancy cells
+    occupancies.forEach(occ=>{
+      const td=document.createElement('td');
+      td.style.textAlign='center';
+      const hasOccPromo = occ.promoPrice !== null;
+      const priceHTML = hasOccPromo
+        ? `<div class="occ-price-promo"><span class="p-orig">${fmt(occ.price)}</span><span class="p-curr">${fmt(occ.promoPrice)}</span></div>`
+        : `<span class="occ-price">${fmt(occ.price)}</span>`;
+      const rateStr = hasOccPromo
+        ? `${cat.name} – ${occ.label} (EN English guide): ${fmt(occ.promoPrice)} per pax (promotional, regular ${fmt(occ.price)})`
+        : `${cat.name} – ${occ.label} (${lang==='en'?'EN English':'DE German'} guide): ${fmt(occ.price)} per pax`;
+      const btn=document.createElement('button');
+      btn.className='occ-btn';
+      btn.innerHTML=`<span class="occ-label">${occ.label}</span>${priceHTML}`;
+      btn.onclick=()=>selectOccupancy(btn, rateStr);
+      td.appendChild(btn);
+      tr.appendChild(td);
+    });
+    body.appendChild(tr);
   });
 }
 
-function openModal(program,date,region,fewSpots,promoPrice) {
+function selectOccupancy(btn, rateStr){
+  document.querySelectorAll('.occ-btn').forEach(b=>b.classList.remove('selected'));
+  btn.classList.add('selected');
+  selectedRateText=rateStr;
+  const next=document.getElementById('btnNext');
+  next.disabled=false; next.style.opacity='1';
+}
+
+function switchLang(lang){
+  currentLang=lang;
+  document.getElementById('langTabEN').classList.toggle('active', lang==='en');
+  document.getElementById('langTabDE').classList.toggle('active', lang==='de');
+  // Show promo-only notice when DE is selected and this departure has promo
+  const notice=document.getElementById('promoOnlyNotice');
+  notice.classList.toggle('visible', lang==='de' && currentPromo);
+  // Clear selection
+  selectedRateText='';
+  const next=document.getElementById('btnNext');
+  next.disabled=true; next.style.opacity='0.4';
+  buildLoopTable(lang, currentPromo);
+}
+
+/* =====================
+   OPEN / CLOSE MODAL
+===================== */
+function openModal(program,date,region,fewSpots,promoPrice){
   document.getElementById('mProgramName').textContent   = program;
   document.getElementById('mDepartureDate').textContent = date;
   document.getElementById('formProgram').value   = program;
@@ -985,31 +846,57 @@ function openModal(program,date,region,fewSpots,promoPrice) {
   document.getElementById('loopRates').style.display    = region==='galapagos' ? 'block' : 'none';
   document.getElementById('andeanRates').style.display  = region==='andean'    ? 'block' : 'none';
   document.getElementById('volcanoRates').style.display = region==='volcano'   ? 'block' : 'none';
-  if (region==='galapagos') buildLoopRates(promoPrice);
+
+  if(region==='galapagos'){
+    currentPromo = promoPrice;
+    currentLang  = 'en';
+    // Show/hide promo badge on EN tab
+    document.getElementById('promoNoticeEN').style.display = promoPrice ? 'inline-block' : 'none';
+    document.getElementById('langTabEN').classList.add('active');
+    document.getElementById('langTabDE').classList.remove('active');
+    document.getElementById('promoOnlyNotice').classList.remove('visible');
+    buildLoopTable('en', promoPrice);
+  }
+
   goToStep1();
   clearRateSelection();
-  document.getElementById('modal').classList.add('open');
+
+  const overlay = document.getElementById('modal');
+  overlay.classList.add('open');
+  // Scroll modal overlay itself to top so modal-box is visible
+  overlay.scrollTop = 0;
 }
 
-function closeModal() {
+function closeModal(){
   document.getElementById('modal').classList.remove('open');
 }
-function handleOverlayClick(e) {
-  if (e.target===document.getElementById('modal')) closeModal();
+function handleOverlayClick(e){
+  if(e.target===document.getElementById('modal')) closeModal();
 }
 
-function selectRate(el,rateText) {
+/* =====================
+   RATE SELECTION (Andean / Volcano)
+===================== */
+function selectRate(el,rateText){
   document.querySelectorAll('.rate-card').forEach(c=>c.classList.remove('selected'));
-  el.classList.add('selected'); selectedRateText=rateText;
-  const btn=document.getElementById('btnNext'); btn.disabled=false; btn.style.opacity='1';
+  el.classList.add('selected');
+  selectedRateText=rateText;
+  const btn=document.getElementById('btnNext');
+  btn.disabled=false; btn.style.opacity='1';
 }
-function clearRateSelection() {
-  document.querySelectorAll('.rate-card,.cat-card,.occ-card').forEach(c=>c.classList.remove('selected'));
-  selectedRateText=''; selectedCategory=null;
-  const btn=document.getElementById('btnNext'); btn.disabled=true; btn.style.opacity='0.4';
+
+function clearRateSelection(){
+  document.querySelectorAll('.rate-card,.occ-btn').forEach(c=>c.classList.remove('selected'));
+  selectedRateText='';
+  const btn=document.getElementById('btnNext');
+  btn.disabled=true; btn.style.opacity='0.4';
 }
-function goToStep2() {
-  if (!selectedRateText) return;
+
+/* =====================
+   STEP NAVIGATION
+===================== */
+function goToStep2(){
+  if(!selectedRateText) return;
   document.getElementById('formRate').value=selectedRateText;
   document.getElementById('rateSummary').textContent='Selected: '+selectedRateText;
   document.getElementById('panel1').classList.remove('active');
@@ -1017,13 +904,16 @@ function goToStep2() {
   document.getElementById('tab1').classList.remove('active');
   document.getElementById('tab1').classList.add('done');
   document.getElementById('tab2').classList.add('active');
+  // Scroll modal to top so form is visible
+  document.getElementById('modal').scrollTop=0;
 }
-function goToStep1() {
+function goToStep1(){
   document.getElementById('panel2').classList.remove('active');
   document.getElementById('panel1').classList.add('active');
   document.getElementById('tab2').classList.remove('active');
   document.getElementById('tab1').classList.remove('done');
   document.getElementById('tab1').classList.add('active');
+  document.getElementById('modal').scrollTop=0;
 }
 
 /* INIT */
