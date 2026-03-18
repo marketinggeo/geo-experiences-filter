@@ -14,6 +14,7 @@ body {
   background: #f5f6f8;
   color: #1a1a2e;
   padding: 32px 24px 60px;
+  position: relative;
 }
 
 /* HEADER */
@@ -179,18 +180,19 @@ body {
 }
 
 /* =====================
-   MODAL
-   Fixed to viewport — always visible wherever user is on page
+   MODAL — absolute positioned, always visible at current scroll
 ===================== */
 .modal-overlay {
   display: none;
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+  min-height: 100%;
   background: rgba(10,20,60,0.52);
   z-index: 99999;
+  padding: 24px 16px 40px;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  padding: 24px 16px 40px;
 }
 .modal-overlay.open { display: block; }
 
@@ -499,7 +501,7 @@ body {
             <tbody id="loopRateBody"></tbody>
           </table>
         </div>
-        <p class="rates-note">Rates in USD net per passenger. All categories include program services as per itinerary.</p>
+        <p class="rates-note">Rates: Per person and net rates in USD Dollars. All categories include program services as per itinerary.</p>
       </div>
 
       <!-- ANDEAN TREASURES -->
@@ -509,7 +511,7 @@ body {
           <div class="rate-card" onclick="selectRate(this,'English guide – Standard: $1,395 per pax / Single supplement: $166')">
             <div style="display:flex;align-items:center;gap:10px;">
               <span class="rate-flag"><svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#012169"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="8"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" stroke-width="5"/><path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="12"/><path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="8"/></svg></span>
-              <div><span class="rate-label">English Guide – Standard</span><span class="rate-sub">English-speaking expert guide</span></div>
+              <div><span class="rate-label">English Guide – Standard</span><span class="rate-sub">English-speaking guide</span></div>
             </div>
             <div class="rate-prices">
               <div class="rate-price-col"><span class="price-type">Per pax</span><span class="price-val">$1,395</span></div>
@@ -519,7 +521,7 @@ body {
           <div class="rate-card" onclick="selectRate(this,'English guide – Superior: $1,571 per pax / Single supplement: $400')">
             <div style="display:flex;align-items:center;gap:10px;">
               <span class="rate-flag"><svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#012169"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="8"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" stroke-width="5"/><path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="12"/><path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="8"/></svg></span>
-              <div><span class="rate-label">English Guide – Superior</span><span class="rate-sub">English-speaking expert guide</span></div>
+              <div><span class="rate-label">English Guide – Superior</span><span class="rate-sub">English-speaking guide</span></div>
             </div>
             <div class="rate-prices">
               <div class="rate-price-col"><span class="price-type">Per pax</span><span class="price-val">$1,571</span></div>
@@ -529,7 +531,7 @@ body {
           <div class="rate-card" onclick="selectRate(this,'German guide – Standard: $1,395 per pax / Single supplement: $166')">
             <div style="display:flex;align-items:center;gap:10px;">
               <span class="rate-flag"><svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#FFCE00"/><rect width="60" height="26.7" fill="#DD0000"/><rect width="60" height="13.3" fill="#000"/></svg></span>
-              <div><span class="rate-label">German Guide – Standard</span><span class="rate-sub">German-speaking expert guide</span></div>
+              <div><span class="rate-label">German Guide – Standard</span><span class="rate-sub">German-speaking guide</span></div>
             </div>
             <div class="rate-prices">
               <div class="rate-price-col"><span class="price-type">Per pax</span><span class="price-val">$1,395</span></div>
@@ -539,7 +541,7 @@ body {
           <div class="rate-card" onclick="selectRate(this,'German guide – Superior: $1,571 per pax / Single supplement: $400')">
             <div style="display:flex;align-items:center;gap:10px;">
               <span class="rate-flag"><svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#FFCE00"/><rect width="60" height="26.7" fill="#DD0000"/><rect width="60" height="13.3" fill="#000"/></svg></span>
-              <div><span class="rate-label">German Guide – Superior</span><span class="rate-sub">German-speaking expert guide</span></div>
+              <div><span class="rate-label">German Guide – Superior</span><span class="rate-sub">German-speaking guide</span></div>
             </div>
             <div class="rate-prices">
               <div class="rate-price-col"><span class="price-type">Per pax</span><span class="price-val">$1,571</span></div>
@@ -547,7 +549,7 @@ body {
             </div>
           </div>
         </div>
-        <p class="rates-note">Rates in USD net per passenger.</p>
+        <p class="rates-note">Rates: Per person and net rates in USD Dollars.</p>
       </div>
 
       <!-- VOLCANO AVENUE -->
@@ -579,7 +581,7 @@ body {
             </div>
           </div>
         </div>
-        <p class="rates-note">Rates in USD net per passenger.</p>
+        <p class="rates-note">Rates: Per person and net rates in USD Dollars.</p>
       </div>
 
       <div class="modal-nav">
@@ -870,19 +872,19 @@ function openModal(program,date,region,fewSpots,promoPrice){
   goToStep1();
   clearRateSelection();
 
-  // Scroll parent page to top first, then show modal
-  // Works both standalone and inside Google Sites iframe
-  try { window.parent.postMessage({ type: 'scrollToTop' }, '*'); } catch(e){}
-  try { window.top.scrollTo({ top: 0, behavior: 'smooth' }); } catch(e){}
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-
+  // Position overlay at current scroll so modal is always visible
   const overlay = document.getElementById('modal');
+  const scrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
+  overlay.style.top = scrollY + 'px';
+  overlay.style.height = window.innerHeight + 'px';
   overlay.classList.add('open');
-  overlay.scrollTop = 0;
+  // Prevent body scroll while modal open
+  document.body.style.overflow = 'hidden';
 }
 
 function closeModal(){
   document.getElementById('modal').classList.remove('open');
+  document.body.style.overflow = '';
 }
 function handleOverlayClick(e){
   if(e.target===document.getElementById('modal')) closeModal();
