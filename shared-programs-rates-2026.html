@@ -37,11 +37,15 @@ body{font-family:'Montserrat',sans-serif;background:#f4f4f4;color:#1a1a2e;}
   padding:3px 10px;font-size:10px;font-weight:600;letter-spacing:0.3px;
 }
 .menu-card .card-arrow{
-  display:inline-flex;align-items:center;gap:5px;
-  font-size:12px;font-weight:700;color:#002060;margin-top:6px;
-  letter-spacing:0.2px;
+  display:inline-flex;align-items:center;gap:6px;
+  background:#002060;color:#fff;
+  padding:10px 18px;border-radius:5px;
+  font-size:12px;font-weight:700;margin-top:8px;
+  letter-spacing:0.3px;transition:background 0.15s;
+  align-self:flex-start;
 }
-.menu-card .card-arrow::after{content:'→';font-size:14px;}
+.menu-card .card-arrow::after{content:'→';font-size:13px;}
+.menu-card:hover .card-arrow{background:#1a3d8f;}
 
 /* ---- SECTION ---- */
 .rate-section{display:none;margin-top:8px;}
@@ -326,6 +330,12 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
     </tr>
 
     <!-- ===== EXTENSION ===== -->
+    <!-- English-only note row -->
+    <tr class="program" data-category="extension" style="background:#fdf8ee;">
+      <td colspan="10" style="padding:10px 14px;font-size:11px;color:#7a5800;font-style:italic;border-bottom:1px solid #e0cfa0;">
+        &#9432;&nbsp; Extension programs are available with English-speaking guide only.
+      </td>
+    </tr>
     <!-- Tourist EN -->
     <tr class="program alt" data-category="extension">
       <td data-label="Code" rowspan="2">SG-04 (Ext.)</td>
@@ -337,11 +347,7 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
       <td data-label="Departures"><span class="guide-note" style="font-style:normal;color:#333;">Every Friday after Loop</span><span class="guide-note">English-speaking guide</span></td>
       <td data-label="SGL">877</td><td data-label="DBL">852</td><td data-label="TPL">844</td>
     </tr>
-    <tr class="program alt" data-category="extension">
-      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td data-label="Departures"><span class="guide-note" style="font-style:normal;color:#333;">Friday after each German Loop</span><span class="guide-note">German-speaking guide — specific dates only</span></td>
-      <td data-label="SGL">877</td><td data-label="DBL">852</td><td data-label="TPL">844</td>
-    </tr>
+
 
     <!-- Tourist Superior EN -->
     <tr class="program" data-category="extension">
@@ -354,11 +360,7 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
       <td data-label="Departures"><span class="guide-note" style="font-style:normal;color:#333;">Every Friday after Loop</span><span class="guide-note">English-speaking guide</span></td>
       <td data-label="SGL">985</td><td data-label="DBL">869</td><td data-label="TPL">849</td>
     </tr>
-    <tr class="program" data-category="extension">
-      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td data-label="Departures"><span class="guide-note" style="font-style:normal;color:#333;">Friday after each German Loop</span><span class="guide-note">German-speaking guide — specific dates only</span></td>
-      <td data-label="SGL">985</td><td data-label="DBL">869</td><td data-label="TPL">849</td>
-    </tr>
+
 
     <!-- First Class EN -->
     <tr class="program alt" data-category="extension">
@@ -371,11 +373,7 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
       <td data-label="Departures"><span class="guide-note" style="font-style:normal;color:#333;">Every Friday after Loop</span><span class="guide-note">English-speaking guide</span></td>
       <td data-label="SGL">1.341</td><td data-label="DBL">1.077</td><td data-label="TPL">753</td>
     </tr>
-    <tr class="program alt" data-category="extension">
-      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td data-label="Departures"><span class="guide-note" style="font-style:normal;color:#333;">Friday after each German Loop</span><span class="guide-note">German-speaking guide — specific dates only</span></td>
-      <td data-label="SGL">1.341</td><td data-label="DBL">1.077</td><td data-label="TPL">753</td>
-    </tr>
+
 
     <!-- ===== DARWIN ===== -->
     <!-- Tourist EN -->
