@@ -180,30 +180,34 @@ body {
 }
 
 /* =====================
-   MODAL — absolute positioned, always visible at current scroll
+   MODAL
+   Overlay is absolute, positioned at current scroll offset.
+   The box grows naturally — no clipping, no fixed height.
+   Page scroll is locked while modal is open.
 ===================== */
 .modal-overlay {
   display: none;
   position: absolute;
   left: 0;
   right: 0;
-  min-height: 100%;
+  top: 0;
   background: rgba(10,20,60,0.52);
   z-index: 99999;
-  padding: 24px 16px 40px;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
+  padding: 24px 16px 60px;
+  box-sizing: border-box;
 }
 .modal-overlay.open { display: block; }
 
 .modal-box {
-  background: #fff; border-radius: 16px;
-  width: 100%; max-width: 620px;
+  background: #fff;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 620px;
   margin: 0 auto;
-  overflow: hidden;
   box-shadow: 0 20px 60px rgba(0,32,96,0.18);
   animation: modal-in 0.2s ease;
   position: relative;
+  overflow: visible;
 }
 @keyframes modal-in {
   from { opacity:0; transform:translateY(10px) scale(0.98); }
@@ -211,7 +215,7 @@ body {
 }
 
 /* MODAL HEADER */
-.modal-header { background:#002060; padding:22px 26px 20px; position:relative; }
+.modal-header { background:#002060; padding:22px 26px 20px; position:relative; border-radius:16px 16px 0 0; overflow:hidden; }
 .modal-close {
   position:absolute; top:16px; right:18px;
   background:rgba(255,255,255,0.15); border:none; color:#fff;
@@ -874,16 +878,22 @@ function openModal(program,date,region,fewSpots,promoPrice){
 
   const overlay = document.getElementById('modal');
   const scrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
-  // Position overlay at current scroll position, tall enough to cover full page
+  // Anchor overlay at current scroll, extend to cover rest of page
   overlay.style.top    = scrollY + 'px';
-  overlay.style.height = Math.max(window.innerHeight, document.body.scrollHeight - scrollY) + 'px';
+  overlay.style.minHeight = (document.body.scrollHeight - scrollY + 100) + 'px';
   overlay.classList.add('open');
-  overlay.scrollTop = 0;
+  // Lock page scroll — user scrolls within the overlay/modal area naturally
+  document.documentElement.style.overflow = 'hidden';
   document.body.style.overflow = 'hidden';
+  // Scroll page to show overlay top
+  window.scrollTo({ top: scrollY, behavior: 'instant' });
 }
 
 function closeModal(){
-  document.getElementById('modal').classList.remove('open');
+  const overlay = document.getElementById('modal');
+  overlay.classList.remove('open');
+  overlay.style.minHeight = '';
+  document.documentElement.style.overflow = '';
   document.body.style.overflow = '';
 }
 function handleOverlayClick(e){
@@ -920,8 +930,9 @@ function goToStep2(){
   document.getElementById('tab1').classList.remove('active');
   document.getElementById('tab1').classList.add('done');
   document.getElementById('tab2').classList.add('active');
-  // Scroll modal to top so form is visible
-  document.getElementById('modal').scrollTop=0;
+  // Scroll window to top of overlay so form header is visible
+  const overlayTop = parseInt(document.getElementById('modal').style.top||'0',10);
+  window.scrollTo({ top: overlayTop, behavior: 'smooth' });
 }
 function goToStep1(){
   document.getElementById('panel2').classList.remove('active');
@@ -929,16 +940,21 @@ function goToStep1(){
   document.getElementById('tab2').classList.remove('active');
   document.getElementById('tab1').classList.remove('done');
   document.getElementById('tab1').classList.add('active');
-  document.getElementById('modal').scrollTop=0;
+  const overlayTop = parseInt(document.getElementById('modal').style.top||'0',10);
+  window.scrollTo({ top: overlayTop, behavior: 'smooth' });
 }
 
 /* INIT */
 updateCounts();
 renderCards('all');
 
-// Listen for scrollToTop message — paste this snippet in a separate
-// Google Sites HTML embed ABOVE this one if needed:
-// <script>window.addEventListener('message',function(e){if(e.data&&e.data.type==='scrollToTop'){window.scrollTo({top:0,behavior:'smooth'});}});</script>
+// Recalculate overlay height on resize (orientation change on mobile)
+window.addEventListener('resize', function(){
+  const overlay = document.getElementById('modal');
+  if(!overlay.classList.contains('open')) return;
+  const scrollY = parseInt(overlay.style.top||'0', 10);
+  overlay.style.minHeight = (document.body.scrollHeight - scrollY + 100) + 'px';
+});
 
 </script>
 </body>
