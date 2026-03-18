@@ -8,12 +8,16 @@
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
 body {
   font-family: 'Montserrat', sans-serif;
   background: #f5f6f8;
   color: #1a1a2e;
   padding: 32px 24px 60px;
-  min-height: 100vh;
 }
 
 /* HEADER */
@@ -46,9 +50,9 @@ body {
   width: 7px; height: 7px;
   border-radius: 50%;
   background: #1e7e34;
-  animation: pulse 2s ease-in-out infinite;
+  animation: pulse-dot 2s ease-in-out infinite;
 }
-@keyframes pulse {
+@keyframes pulse-dot {
   0%,100% { opacity:1; transform:scale(1); }
   50%      { opacity:0.5; transform:scale(0.8); }
 }
@@ -67,10 +71,9 @@ body {
   letter-spacing: 1.5px;
   text-transform: uppercase;
   color: #9199a8;
-  margin-right: 4px;
   width: 100%;
 }
-@media(min-width:480px){ .filter-label { width:auto; } }
+@media(min-width:480px){ .filter-label { width:auto; margin-right:4px; } }
 
 .filter-btn {
   font-family: 'Montserrat', sans-serif;
@@ -106,12 +109,12 @@ body {
 .filter-btn.active .f-count, .filter-btn:hover .f-count {
   background: rgba(255,255,255,0.25); color: #fff;
 }
-.filter-btn.f-urgent { border-color:#b26a00; color:#b26a00; }
-.filter-btn.f-urgent .f-count { background:#fff3cd; color:#b26a00; }
-.filter-btn.f-urgent.active, .filter-btn.f-urgent:hover { background:#b26a00; border-color:#b26a00; color:#fff; }
-.filter-btn.f-sold { border-color:#c0392b; color:#c0392b; }
-.filter-btn.f-sold .f-count { background:#fde8e8; color:#c0392b; }
-.filter-btn.f-sold.active, .filter-btn.f-sold:hover { background:#c0392b; border-color:#c0392b; color:#fff; }
+.filter-btn.f-urgent { border-color:#9e6300; color:#9e6300; }
+.filter-btn.f-urgent .f-count { background:#fdf3e3; color:#9e6300; }
+.filter-btn.f-urgent.active, .filter-btn.f-urgent:hover { background:#9e6300; border-color:#9e6300; color:#fff; }
+.filter-btn.f-sold { border-color:#b03a2e; color:#b03a2e; }
+.filter-btn.f-sold .f-count { background:#fde8e6; color:#b03a2e; }
+.filter-btn.f-sold.active, .filter-btn.f-sold:hover { background:#b03a2e; border-color:#b03a2e; color:#fff; }
 
 /* SECTION DIVIDER */
 .section-divider {
@@ -138,14 +141,14 @@ body {
 /* CARDS GRID */
 .cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 16px;
 }
 
 /* DEPARTURE CARD */
 .dep-card {
   background: #ffffff;
-  border-radius: 14px;
+  border-radius: 12px;
   border: 1px solid #e8ecf2;
   overflow: hidden;
   transition: box-shadow 0.2s ease, transform 0.2s ease;
@@ -154,25 +157,25 @@ body {
   position: relative;
 }
 .dep-card:not(.is-operated):not(.is-sold):hover {
-  box-shadow: 0 8px 28px rgba(0,32,96,0.1);
+  box-shadow: 0 6px 24px rgba(0,32,96,0.09);
   transform: translateY(-2px);
 }
-.dep-card.is-operated { opacity: 0.62; pointer-events: none; }
-.dep-card.is-sold     { opacity: 0.55; pointer-events: none; }
+.dep-card.is-operated { opacity: 0.58; pointer-events: none; }
+.dep-card.is-sold     { opacity: 0.5;  pointer-events: none; }
 
-.card-accent { height: 4px; }
-.dep-card[data-region="galapagos"] .card-accent { background: linear-gradient(90deg,#0066cc,#00aaff); }
-.dep-card[data-region="andean"]    .card-accent { background: linear-gradient(90deg,#e85d00,#f5a623); }
-.dep-card[data-region="volcano"]   .card-accent { background: linear-gradient(90deg,#6a0dad,#a855f7); }
+.card-accent { height: 3px; }
+.dep-card[data-region="galapagos"] .card-accent { background: linear-gradient(90deg,#1a56c4,#4a90d9); }
+.dep-card[data-region="andean"]    .card-accent { background: linear-gradient(90deg,#c45f1a,#d98a4a); }
+.dep-card[data-region="volcano"]   .card-accent { background: linear-gradient(90deg,#5a1a9e,#8a4ac4); }
 
 .card-body {
-  padding: 20px 22px 18px;
+  padding: 18px 20px 16px;
   flex: 1;
   display: flex;
   flex-direction: column;
 }
 .card-date {
-  font-size: 22px;
+  font-size: 21px;
   font-weight: 700;
   color: #002060;
   line-height: 1.1;
@@ -180,78 +183,86 @@ body {
   letter-spacing: -0.3px;
 }
 .card-year { font-size: 13px; font-weight: 500; color: #9199a8; }
-.card-program { font-size: 14px; font-weight: 600; color: #1a1a2e; margin-top: 10px; margin-bottom: 2px; }
-.card-duration { font-size: 12px; color: #9199a8; font-weight: 500; }
+.card-program { font-size: 13px; font-weight: 600; color: #1a1a2e; margin-top: 10px; margin-bottom: 2px; }
+.card-duration { font-size: 11px; color: #9199a8; font-weight: 500; }
 
 .itinerary-link {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 3px;
   font-size: 11px;
   font-weight: 600;
-  color: #0066cc;
+  color: #1a56c4;
   text-decoration: none;
   margin-top: 8px;
 }
 .itinerary-link:hover { text-decoration: underline; }
 .itinerary-link::after { content: '→'; }
 
-/* BADGES */
-.badges-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+/* BADGES — muted, refined palette */
+.badges-row { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 12px; }
 .badge {
-  padding: 4px 10px;
+  padding: 3px 9px;
   border-radius: 20px;
   font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
   text-transform: uppercase;
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 3px;
 }
-.badge-open      { background:#e6f4ea; color:#1e7e34; }
-.badge-confirmed { background:#e0eaff; color:#003b91; }
-.badge-almost    { background:#fff3cd; color:#b26a00; animation: badge-pulse-amber 2.5s ease-in-out infinite; }
-.badge-sold      { background:#fde8e8; color:#c0392b; }
-.badge-operated  { background:#f0f2f5; color:#6c757d; }
-.badge-few       { background:#fff0f0; color:#c0392b; border:1px solid #f5c6cb; animation: badge-pulse-red 2s ease-in-out infinite; }
-.badge-deal-summer { background:#fff8e1; color:#b26a00; border:1px solid #ffe082; }
-.badge-deal-eoy    { background:#e8f5e9; color:#1e7e34; border:1px solid #a5d6a7; }
 
+/* Status badges — subtle, not colorful */
+.badge-open      { background:#eef6f1; color:#2e7d52; border:1px solid #c3dece; }
+.badge-confirmed { background:#eef2fb; color:#1a4fa0; border:1px solid #c3d0ef; }
+.badge-sold      { background:#fdf1f0; color:#a93226; border:1px solid #ecc5c2; }
+.badge-operated  { background:#f2f3f5; color:#6c757d; border:1px solid #dde0e5; }
+
+/* Few spots — amber, single badge replaces almost sold out */
+.badge-few {
+  background: #fdf6ec;
+  color: #9e6300;
+  border: 1px solid #e8d5b0;
+  animation: badge-pulse-amber 2.5s ease-in-out infinite;
+}
 @keyframes badge-pulse-amber {
-  0%,100% { box-shadow:0 0 0 0 rgba(178,106,0,0); }
-  50%      { box-shadow:0 0 0 4px rgba(178,106,0,0.12); }
-}
-@keyframes badge-pulse-red {
-  0%,100% { box-shadow:0 0 0 0 rgba(192,57,43,0); }
-  50%      { box-shadow:0 0 0 4px rgba(192,57,43,0.12); }
+  0%,100% { box-shadow:0 0 0 0 rgba(158,99,0,0); }
+  50%      { box-shadow:0 0 0 3px rgba(158,99,0,0.1); }
 }
 
-/* PROMO STRIP */
+/* Deal badges — understated */
+.badge-deal-summer { background:#fdf8ee; color:#7a5800; border:1px solid #e0cfa0; }
+.badge-deal-eoy    { background:#f0f5f0; color:#2e6b3e; border:1px solid #b8d4bc; }
+
+/* PROMO STRIP — toned down */
 .promo-strip {
-  background: linear-gradient(135deg,#fff8ee,#fff4e1);
-  border: 1px solid #f5c842;
-  border-radius: 8px;
-  padding: 10px 14px;
-  margin-top: 14px;
+  background: #fdf8ee;
+  border: 1px solid #e0cfa0;
+  border-radius: 7px;
+  padding: 9px 12px;
+  margin-top: 12px;
   display: flex;
   gap: 8px;
   align-items: flex-start;
 }
 .promo-icon-box {
-  width: 22px; height: 22px; min-width: 22px;
+  width: 20px; height: 20px; min-width: 20px;
   border-radius: 50%;
-  background: #f5c842; color: #7a5200;
-  font-size: 11px; font-weight: 800;
+  background: #e0cfa0; color: #7a5800;
+  font-size: 10px; font-weight: 800;
   display: flex; align-items: center; justify-content: center;
   margin-top: 1px;
 }
-.promo-text { font-size: 11px; color: #7a5200; font-weight: 500; line-height: 1.5; }
-.promo-text strong { font-weight: 700; display: block; margin-bottom: 2px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.4px; }
+.promo-text { font-size: 11px; color: #7a5800; font-weight: 500; line-height: 1.5; }
+.promo-text strong {
+  font-weight: 700; display: block; margin-bottom: 2px;
+  font-size: 10px; text-transform: uppercase; letter-spacing: 0.4px;
+}
 
 /* CARD FOOTER */
 .card-footer {
-  padding: 14px 22px 18px;
+  padding: 12px 20px 16px;
   border-top: 1px solid #f0f2f5;
   display: flex;
   align-items: center;
@@ -262,31 +273,31 @@ body {
 }
 .price-from { display: flex; flex-direction: column; }
 .price-from > span:first-child {
-  font-size: 10px; font-weight: 600; color: #9199a8;
+  font-size: 9px; font-weight: 700; color: #9199a8;
   text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 2px;
 }
-.price-display { display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; }
+.price-display { display: flex; align-items: baseline; gap: 5px; flex-wrap: wrap; }
 .price-original {
-  font-size: 13px; font-weight: 600; color: #c0392b;
+  font-size: 12px; font-weight: 600; color: #b03a2e;
   text-decoration: line-through;
-  text-decoration-color: #c0392b;
+  text-decoration-color: #b03a2e;
   text-decoration-thickness: 2px;
 }
-.price-current { font-size: 18px; font-weight: 700; color: #1e7e34; }
-.price-current small { font-size: 11px; font-weight: 500; color: #9199a8; }
-.price-regular { font-size: 18px; font-weight: 700; color: #002060; }
-.price-regular small { font-size: 11px; font-weight: 500; color: #9199a8; }
+.price-current { font-size: 17px; font-weight: 700; color: #2e7d52; }
+.price-current small { font-size: 10px; font-weight: 500; color: #9199a8; }
+.price-regular { font-size: 17px; font-weight: 700; color: #002060; }
+.price-regular small { font-size: 10px; font-weight: 500; color: #9199a8; }
 .price-promo-label {
-  font-size: 9px; font-weight: 700; letter-spacing: 0.6px;
-  text-transform: uppercase; color: #1e7e34; margin-top: 2px;
+  font-size: 9px; font-weight: 700; letter-spacing: 0.5px;
+  text-transform: uppercase; color: #2e7d52; margin-top: 2px;
 }
 
 .book-btn {
   font-family: 'Montserrat', sans-serif;
   background: #002060; color: #fff;
-  border: none; border-radius: 8px;
-  padding: 11px 22px;
-  font-size: 13px; font-weight: 700;
+  border: none; border-radius: 7px;
+  padding: 10px 20px;
+  font-size: 12px; font-weight: 700;
   cursor: pointer; letter-spacing: 0.3px;
   transition: background 0.18s ease, transform 0.12s ease;
   white-space: nowrap;
@@ -295,255 +306,297 @@ body {
 .book-btn:active { transform:scale(0.98); }
 
 .card-overlay-label {
-  position: absolute; top: 14px; right: 14px;
-  background: rgba(0,0,0,0.08); border-radius: 6px;
-  padding: 4px 10px; font-size: 10px; font-weight: 700;
+  position: absolute; top: 12px; right: 12px;
+  background: rgba(0,0,0,0.07); border-radius: 5px;
+  padding: 3px 9px; font-size: 9px; font-weight: 700;
   letter-spacing: 0.8px; text-transform: uppercase; color: #6c757d;
 }
 
-/* MODAL OVERLAY */
+/* MODAL — fixed to viewport, always visible */
 .modal-overlay {
   display: none;
-  position: fixed; inset: 0;
-  background: rgba(10,20,60,0.55);
-  z-index: 900;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(10,20,60,0.5);
+  z-index: 9999;
   overflow-y: auto;
-  padding: 24px 16px;
+  padding: 20px 16px;
   backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  align-items: flex-start;
+  justify-content: center;
 }
-.modal-overlay.open { display: flex; align-items: flex-start; justify-content: center; }
+.modal-overlay.open { display: flex; }
 
 .modal-box {
   background: #fff;
-  border-radius: 18px;
-  width: 100%; max-width: 640px;
-  margin: 20px auto;
+  border-radius: 16px;
+  width: 100%; max-width: 620px;
+  margin: 0 auto;
   overflow: hidden;
-  box-shadow: 0 24px 80px rgba(0,32,96,0.2);
-  animation: modal-in 0.22s ease;
+  box-shadow: 0 20px 60px rgba(0,32,96,0.18);
+  animation: modal-in 0.2s ease;
+  position: relative;
 }
 @keyframes modal-in {
-  from { opacity:0; transform:translateY(16px) scale(0.98); }
+  from { opacity:0; transform:translateY(12px) scale(0.98); }
   to   { opacity:1; transform:translateY(0) scale(1); }
 }
 
 /* MODAL HEADER */
 .modal-header {
   background: #002060;
-  padding: 24px 28px 22px;
+  padding: 22px 26px 20px;
   position: relative;
 }
 .modal-close {
-  position: absolute; top: 18px; right: 20px;
+  position: absolute; top: 16px; right: 18px;
   background: rgba(255,255,255,0.15); border: none; color: #fff;
-  width: 30px; height: 30px; border-radius: 50%;
-  font-size: 16px; cursor: pointer;
+  width: 28px; height: 28px; border-radius: 50%;
+  font-size: 15px; cursor: pointer;
   display: flex; align-items: center; justify-content: center;
   font-family: 'Montserrat', sans-serif; line-height:1;
   transition: background 0.15s;
 }
 .modal-close:hover { background: rgba(255,255,255,0.25); }
-.modal-program-name { font-size:18px; font-weight:700; color:#fff; margin-bottom:4px; }
+.modal-program-name { font-size:17px; font-weight:700; color:#fff; margin-bottom:4px; padding-right:36px; }
 .modal-departure-date {
-  font-size:13px; font-weight:500; color:rgba(255,255,255,0.7);
-  display:flex; align-items:center; gap:6px;
+  font-size:12px; font-weight:500; color:rgba(255,255,255,0.65);
+  display:flex; align-items:center; gap:5px;
 }
-.modal-departure-date::before { content:'✦'; font-size:9px; opacity:0.6; }
+.modal-departure-date::before { content:'✦'; font-size:8px; opacity:0.5; }
 
 /* Urgency banner */
 .modal-urgency-banner {
-  background: #fff0f0;
-  border-bottom: 1px solid #f5c6cb;
-  padding: 10px 28px;
+  background: #fdf6ec;
+  border-bottom: 1px solid #e8d5b0;
+  padding: 9px 26px;
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 12px;
+  gap: 7px;
+  font-size: 11px;
   font-weight: 700;
-  color: #c0392b;
-  letter-spacing: 0.3px;
+  color: #9e6300;
 }
 .urgency-dot {
-  width: 8px; height: 8px; border-radius: 50%;
-  background: #c0392b;
-  animation: pulse 1.5s ease-in-out infinite;
+  width: 7px; height: 7px; border-radius: 50%;
+  background: #9e6300;
+  animation: pulse-dot 1.5s ease-in-out infinite;
   flex-shrink: 0;
 }
 
 /* MODAL STEPS */
 .modal-steps { display:flex; border-bottom:1px solid #eef0f5; background:#f9fafb; }
 .modal-step-tab {
-  flex:1; padding:14px 10px; text-align:center;
-  font-size:11px; font-weight:700; letter-spacing:0.8px; text-transform:uppercase;
-  color:#9199a8; cursor:default; border-bottom:3px solid transparent;
+  flex:1; padding:12px 10px; text-align:center;
+  font-size:10px; font-weight:700; letter-spacing:0.8px; text-transform:uppercase;
+  color:#9199a8; cursor:default; border-bottom:2px solid transparent;
   transition:all 0.2s; display:flex; align-items:center; justify-content:center; gap:6px;
 }
 .modal-step-tab .step-num {
-  width:20px; height:20px; border-radius:50%;
+  width:18px; height:18px; border-radius:50%;
   background:#dde1ea; color:#9199a8;
-  font-size:10px; font-weight:700;
+  font-size:9px; font-weight:700;
   display:flex; align-items:center; justify-content:center;
   transition:all 0.2s;
 }
 .modal-step-tab.active        { color:#002060; border-bottom-color:#002060; }
 .modal-step-tab.active .step-num { background:#002060; color:#fff; }
-.modal-step-tab.done          { color:#1e7e34; }
-.modal-step-tab.done .step-num   { background:#1e7e34; color:#fff; }
+.modal-step-tab.done          { color:#2e7d52; }
+.modal-step-tab.done .step-num   { background:#2e7d52; color:#fff; }
 
 /* MODAL PANELS */
-.modal-panel { display:none; padding:26px 28px 28px; }
+.modal-panel { display:none; padding:22px 26px 26px; }
 .modal-panel.active { display:block; }
 
-/* RATES */
+/* RATES — step 1: category selection */
 .rates-section-title {
-  font-size:10px; font-weight:700; letter-spacing:1.5px;
-  text-transform:uppercase; color:#9199a8; margin-bottom:14px;
+  font-size:9px; font-weight:700; letter-spacing:1.5px;
+  text-transform:uppercase; color:#9199a8; margin-bottom:12px;
 }
-.rates-grid { display:grid; grid-template-columns:1fr; gap:10px; }
 
+/* Category cards */
+.category-grid { display:grid; grid-template-columns:1fr; gap:8px; margin-bottom:16px; }
+
+.cat-card {
+  border: 1.5px solid #e8ecf2;
+  border-radius: 9px;
+  padding: 13px 16px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  gap: 12px;
+}
+.cat-card:hover    { border-color:#1a56c4; background:#f4f7fd; }
+.cat-card.selected { border-color:#002060; background:#f0f4ff; box-shadow:0 0 0 2px rgba(0,32,96,0.07); }
+
+.cat-card .cat-name { font-size:13px; font-weight:600; color:#1a1a2e; display:block; margin-bottom:3px; }
+.cat-card .cat-sub  { font-size:10px; font-weight:500; color:#9199a8; }
+.cat-card .cat-from {
+  text-align:right; flex-shrink:0;
+}
+.cat-card .cat-from-label { font-size:9px; font-weight:600; color:#9199a8; text-transform:uppercase; letter-spacing:0.5px; display:block; margin-bottom:2px; }
+.cat-card .cat-from-price { font-size:15px; font-weight:700; color:#002060; white-space:nowrap; }
+.cat-card .cat-from-price.has-promo { color:#2e7d52; }
+.cat-card .cat-promo-orig { font-size:11px; font-weight:600; color:#b03a2e; text-decoration:line-through; text-decoration-color:#b03a2e; text-decoration-thickness:2px; display:block; line-height:1; margin-bottom:1px; }
+
+.best-badge {
+  position:absolute; top:-7px; right:12px;
+  background:#2e7d52; color:#fff;
+  font-size:8px; font-weight:700; letter-spacing:0.8px;
+  padding:2px 7px; border-radius:10px; text-transform:uppercase;
+}
+
+/* Occupancy selection — appears after category picked */
+.occupancy-section {
+  display: none;
+  border-top: 1px solid #eef0f5;
+  padding-top: 16px;
+  margin-top: 4px;
+  animation: fade-in 0.18s ease;
+}
+.occupancy-section.visible { display: block; }
+@keyframes fade-in {
+  from { opacity:0; transform:translateY(4px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+.occupancy-title {
+  font-size:9px; font-weight:700; letter-spacing:1.5px;
+  text-transform:uppercase; color:#9199a8; margin-bottom:10px;
+}
+.occupancy-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; }
+
+.occ-card {
+  border: 1.5px solid #e8ecf2;
+  border-radius: 8px;
+  padding: 11px 10px;
+  cursor: pointer;
+  transition: all 0.15s;
+  text-align: center;
+}
+.occ-card:hover    { border-color:#1a56c4; background:#f4f7fd; }
+.occ-card.selected { border-color:#002060; background:#f0f4ff; box-shadow:0 0 0 2px rgba(0,32,96,0.07); }
+.occ-card .occ-type { font-size:10px; font-weight:700; color:#9199a8; text-transform:uppercase; letter-spacing:0.5px; display:block; margin-bottom:4px; }
+.occ-card .occ-price { font-size:16px; font-weight:700; color:#002060; display:block; }
+.occ-card .occ-price.promo-price { color:#2e7d52; }
+.occ-card .occ-orig { font-size:10px; font-weight:600; color:#b03a2e; text-decoration:line-through; text-decoration-color:#b03a2e; text-decoration-thickness:2px; display:block; margin-bottom:1px; }
+
+.rates-note { font-size:10px; color:#9199a8; margin-top:12px; line-height:1.5; }
+
+/* Andean / Volcano rate cards — kept as single selection */
+.rates-grid { display:grid; grid-template-columns:1fr; gap:8px; }
 .rate-card {
   border: 1.5px solid #e8ecf2;
-  border-radius: 10px;
-  padding: 14px 16px;
+  border-radius: 9px;
+  padding: 13px 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
   transition: all 0.15s ease;
-  position: relative;
   gap: 10px;
 }
-.rate-card:hover    { border-color:#002060; background:#f0f4ff; }
-.rate-card.selected { border-color:#002060; background:#f0f4ff; box-shadow:0 0 0 3px rgba(0,32,96,0.08); }
-.rate-card .rate-label { font-size:13px; font-weight:600; color:#1a1a2e; display:block; margin-bottom:4px; }
-.rate-card .rate-sub   { font-size:11px; font-weight:500; color:#9199a8; }
-
-.rate-prices {
-  display: flex;
-  gap: 10px;
-  align-items: flex-end;
-  flex-shrink: 0;
-}
+.rate-card:hover    { border-color:#1a56c4; background:#f4f7fd; }
+.rate-card.selected { border-color:#002060; background:#f0f4ff; box-shadow:0 0 0 2px rgba(0,32,96,0.07); }
+.rate-card .rate-label { font-size:13px; font-weight:600; color:#1a1a2e; display:block; margin-bottom:3px; }
+.rate-card .rate-sub   { font-size:10px; font-weight:500; color:#9199a8; }
+.rate-prices { display:flex; gap:16px; align-items:flex-end; flex-shrink:0; }
 .rate-price-col { display:flex; flex-direction:column; align-items:center; min-width:52px; }
-.rate-price-col .price-type {
-  font-size:9px; font-weight:700; letter-spacing:0.8px;
-  text-transform:uppercase; color:#9199a8; margin-bottom:2px; white-space:nowrap;
-}
-.rate-price-col .price-val { font-size:14px; font-weight:700; color:#002060; white-space:nowrap; }
-
-/* Promo price stack inside rate card */
-.price-val-promo { display:flex; flex-direction:column; align-items:center; gap:1px; }
-.price-val-promo .p-orig {
-  font-size:11px; font-weight:600; color:#c0392b;
-  text-decoration:line-through;
-  text-decoration-color:#c0392b;
-  text-decoration-thickness:2px;
-  line-height:1;
-}
-.price-val-promo .p-curr { font-size:14px; font-weight:700; color:#1e7e34; line-height:1.2; }
-
-.best-badge {
-  position:absolute; top:-8px; right:14px;
-  background:#1e7e34; color:#fff;
-  font-size:9px; font-weight:700; letter-spacing:0.8px;
-  padding:2px 8px; border-radius:10px; text-transform:uppercase;
-}
-
-.rates-note { font-size:11px; color:#9199a8; margin-top:12px; line-height:1.5; }
+.rate-price-col .price-type { font-size:9px; font-weight:700; letter-spacing:0.5px; text-transform:uppercase; color:#9199a8; margin-bottom:2px; white-space:nowrap; }
+.rate-price-col .price-val  { font-size:14px; font-weight:700; color:#002060; }
 
 /* MODAL NAV */
-.modal-nav { display:flex; justify-content:flex-end; margin-top:22px; gap:10px; }
+.modal-nav { display:flex; justify-content:flex-end; margin-top:20px; gap:10px; }
 .btn-secondary {
   font-family:'Montserrat',sans-serif;
   background:transparent; border:1.5px solid #d0d5de; color:#4a5568;
-  border-radius:8px; padding:10px 20px; font-size:13px; font-weight:600;
+  border-radius:7px; padding:9px 18px; font-size:12px; font-weight:600;
   cursor:pointer; transition:all 0.15s;
 }
 .btn-secondary:hover { border-color:#002060; color:#002060; }
 .btn-primary {
   font-family:'Montserrat',sans-serif;
   background:#002060; border:none; color:#fff;
-  border-radius:8px; padding:10px 24px; font-size:13px; font-weight:700;
+  border-radius:7px; padding:9px 22px; font-size:12px; font-weight:700;
   cursor:pointer; transition:all 0.15s;
-  display:flex; align-items:center; gap:6px;
+  display:flex; align-items:center; gap:5px;
 }
 .btn-primary:hover { background:#003080; }
 .btn-primary::after { content:'→'; }
 
 /* CONTACT FORM */
-.form-row { margin-bottom:12px; }
+.form-row { margin-bottom:11px; }
 .form-row label {
-  display:block; font-size:10px; font-weight:700;
-  letter-spacing:1px; text-transform:uppercase; color:#9199a8; margin-bottom:5px;
+  display:block; font-size:9px; font-weight:700;
+  letter-spacing:1px; text-transform:uppercase; color:#9199a8; margin-bottom:4px;
 }
 .form-row input, .form-row textarea {
   font-family:'Montserrat',sans-serif;
-  width:100%; padding:10px 14px;
-  border:1.5px solid #dde1ea; border-radius:8px;
-  font-size:13px; color:#1a1a2e; background:#fff;
+  width:100%; padding:9px 13px;
+  border:1.5px solid #dde1ea; border-radius:7px;
+  font-size:12px; color:#1a1a2e; background:#fff;
   transition:border-color 0.15s; outline:none;
 }
 .form-row input:focus, .form-row textarea:focus {
-  border-color:#002060; box-shadow:0 0 0 3px rgba(0,32,96,0.08);
+  border-color:#002060; box-shadow:0 0 0 3px rgba(0,32,96,0.07);
 }
-.form-row textarea { resize:vertical; min-height:90px; }
-.form-grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.form-row textarea { resize:vertical; min-height:80px; }
+.form-grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
 
 .selected-rate-summary {
   background:#f0f4ff; border:1px solid #c5d3f0;
-  border-radius:8px; padding:12px 16px;
-  margin-bottom:18px; font-size:12px; color:#002060; font-weight:500;
-  display:flex; align-items:center; gap:8px;
+  border-radius:7px; padding:10px 14px;
+  margin-bottom:16px; font-size:11px; color:#002060; font-weight:500;
+  display:flex; align-items:flex-start; gap:8px; line-height:1.4;
 }
 .selected-rate-summary::before {
-  content:'✓'; width:18px; height:18px;
+  content:'✓'; width:16px; height:16px; min-width:16px;
   background:#002060; color:#fff; border-radius:50%;
-  font-size:10px; font-weight:700;
-  display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  font-size:9px; font-weight:700;
+  display:flex; align-items:center; justify-content:center;
+  margin-top:1px;
 }
 .submit-btn {
   font-family:'Montserrat',sans-serif; width:100%;
-  background:#002060; color:#fff; border:none; border-radius:8px;
-  padding:13px; font-size:14px; font-weight:700;
-  cursor:pointer; letter-spacing:0.3px; margin-top:6px;
+  background:#002060; color:#fff; border:none; border-radius:7px;
+  padding:12px; font-size:13px; font-weight:700;
+  cursor:pointer; letter-spacing:0.3px; margin-top:4px;
   transition:background 0.15s;
 }
 .submit-btn:hover { background:#003080; }
-.form-note { font-size:11px; color:#9199a8; text-align:center; margin-top:12px; line-height:1.5; }
+.form-note { font-size:10px; color:#9199a8; text-align:center; margin-top:10px; line-height:1.5; }
 
 /* EMPTY STATE */
 .empty-state { display:none; text-align:center; padding:60px 20px; color:#9199a8; }
-.empty-state p { font-size:14px; font-weight:500; margin-top:8px; }
+.empty-state p { font-size:13px; font-weight:500; margin-top:8px; }
 
 /* MOBILE */
-@media (max-width:640px) {
-  body { padding:20px 14px 48px; }
+@media (max-width:600px) {
+  body { padding:18px 12px 48px; }
   .cards-grid { grid-template-columns:1fr; }
   .form-grid-2 { grid-template-columns:1fr; }
-  .rate-prices { gap:6px; }
-  .rate-price-col { min-width:44px; }
-  .modal-panel { padding:20px 18px 24px; }
-  .modal-header { padding:20px 48px 18px 20px; }
-  .modal-urgency-banner { padding:10px 18px; }
-  .page-header h1 { font-size:11px; }
+  .modal-panel { padding:18px 16px 22px; }
+  .modal-header { padding:18px 44px 16px 18px; }
+  .modal-urgency-banner { padding:9px 16px; }
   .card-date { font-size:19px; }
-  .rate-card { flex-direction:column; align-items:flex-start; gap:12px; }
-  .rate-prices { width:100%; justify-content:flex-start; }
   .card-footer { flex-direction:column; align-items:flex-start; }
-  .book-btn { width:100%; text-align:center; padding:13px; }
+  .book-btn { width:100%; text-align:center; padding:12px; }
+  .occupancy-grid { grid-template-columns:repeat(3,1fr); gap:6px; }
+  .rate-prices { gap:10px; }
 }
 
 </style>
 </head>
 <body>
 
-<!-- PAGE HEADER -->
 <div class="page-header">
   <h1>Departures &amp; Availability — 2026</h1>
   <div class="live-badge"><div class="live-dot"></div>Live Availability</div>
 </div>
 
-<!-- FILTER BAR -->
 <div class="filter-bar">
   <span class="filter-label">Filter by program</span>
   <button class="filter-btn active"   onclick="applyFilter('all',this)">All <span class="f-count" id="cnt-all">0</span></button>
@@ -551,11 +604,10 @@ body {
   <button class="filter-btn"          onclick="applyFilter('andean',this)">Andean Treasures <span class="f-count" id="cnt-andean">0</span></button>
   <button class="filter-btn"          onclick="applyFilter('volcano',this)">Volcano Avenue <span class="f-count" id="cnt-volcano">0</span></button>
   <button class="filter-btn"          onclick="applyFilter('promo',this)">Special Condition <span class="f-count" id="cnt-promo">0</span></button>
-  <button class="filter-btn f-urgent" onclick="applyFilter('almost',this)">Almost Sold Out <span class="f-count" id="cnt-almost">0</span></button>
+  <button class="filter-btn f-urgent" onclick="applyFilter('few',this)">Few Spots Available <span class="f-count" id="cnt-few">0</span></button>
   <button class="filter-btn f-sold"   onclick="applyFilter('sold',this)">Sold Out <span class="f-count" id="cnt-sold">0</span></button>
 </div>
 
-<!-- CARDS CONTAINER -->
 <div id="cardsContainer"></div>
 <div class="empty-state" id="emptyState"><p>No departures match the selected filter.</p></div>
 
@@ -579,63 +631,77 @@ body {
       <div class="modal-step-tab" id="tab2"><span class="step-num">2</span> Send Request</div>
     </div>
 
-    <!-- PANEL 1 -->
+    <!-- PANEL 1: RATE SELECTION -->
     <div class="modal-panel active" id="panel1">
-      <div class="rates-section-title">Available rates — per person (USD)</div>
 
-      <div id="loopRates"    style="display:none;"></div>
-      <div id="andeanRates"  style="display:none;">
+      <!-- GALÁPAGOS LOOP: category → occupancy flow -->
+      <div id="loopRates" style="display:none;">
+        <div class="rates-section-title">Select accommodation category</div>
+        <div class="category-grid" id="loopCategoryGrid"></div>
+        <div class="occupancy-section" id="loopOccupancy">
+          <div class="occupancy-title">Select room occupancy</div>
+          <div class="occupancy-grid" id="loopOccupancyGrid"></div>
+        </div>
+        <p class="rates-note">Rates in USD net per passenger. All categories include program services as per itinerary.</p>
+      </div>
+
+      <!-- ANDEAN TREASURES -->
+      <div id="andeanRates" style="display:none;">
+        <div class="rates-section-title">Select guide language and category</div>
         <div class="rates-grid">
-          <div class="rate-card" onclick="selectRate(this,'English Guide – Standard: $1,395 pp / Single supplement: $166')">
+          <div class="rate-card" onclick="selectRate(this,'English Guide – Standard: $1,395 per passenger / Single supplement: $166')">
             <div><span class="rate-label">English Guide – Standard</span><span class="rate-sub">English-speaking expert guide</span></div>
             <div class="rate-prices">
-              <div class="rate-price-col"><span class="price-type">Per person</span><span class="price-val">$1,395</span></div>
+              <div class="rate-price-col"><span class="price-type">Per pax</span><span class="price-val">$1,395</span></div>
               <div class="rate-price-col"><span class="price-type">Single suppl.</span><span class="price-val">$166</span></div>
             </div>
           </div>
-          <div class="rate-card" onclick="selectRate(this,'German Guide – Standard: $1,571 pp / Single supplement: $400')">
+          <div class="rate-card" onclick="selectRate(this,'German Guide – Standard: $1,571 per passenger / Single supplement: $400')">
             <div><span class="rate-label">German Guide – Standard</span><span class="rate-sub">German-speaking expert guide</span></div>
             <div class="rate-prices">
-              <div class="rate-price-col"><span class="price-type">Per person</span><span class="price-val">$1,571</span></div>
+              <div class="rate-price-col"><span class="price-type">Per pax</span><span class="price-val">$1,571</span></div>
               <div class="rate-price-col"><span class="price-type">Single suppl.</span><span class="price-val">$400</span></div>
             </div>
           </div>
         </div>
-        <p class="rates-note">All rates in USD per person. Commission applicable per agency agreement.</p>
+        <p class="rates-note">Rates in USD net per passenger.</p>
       </div>
+
+      <!-- VOLCANO AVENUE -->
       <div id="volcanoRates" style="display:none;">
+        <div class="rates-section-title">Select accommodation category</div>
         <div class="rates-grid">
-          <div class="rate-card" onclick="selectRate(this,'Tourist – English/Spanish: $807 pp / Single supplement: $114')">
+          <div class="rate-card" onclick="selectRate(this,'Tourist – English/Spanish: $807 per passenger / Single supplement: $114')">
             <div><span class="rate-label">Tourist</span><span class="rate-sub">English / Spanish guide</span></div>
             <div class="rate-prices">
-              <div class="rate-price-col"><span class="price-type">Per person</span><span class="price-val">$807</span></div>
+              <div class="rate-price-col"><span class="price-type">Per pax</span><span class="price-val">$807</span></div>
               <div class="rate-price-col"><span class="price-type">Single suppl.</span><span class="price-val">$114</span></div>
             </div>
           </div>
-          <div class="rate-card" onclick="selectRate(this,'Tourist Superior – English/Spanish: $968 pp / Single supplement: $177')">
+          <div class="rate-card" onclick="selectRate(this,'Tourist Superior – English/Spanish: $968 per passenger / Single supplement: $177')">
             <div><span class="rate-label">Tourist Superior</span><span class="rate-sub">English / Spanish guide</span></div>
             <div class="rate-prices">
-              <div class="rate-price-col"><span class="price-type">Per person</span><span class="price-val">$968</span></div>
+              <div class="rate-price-col"><span class="price-type">Per pax</span><span class="price-val">$968</span></div>
               <div class="rate-price-col"><span class="price-type">Single suppl.</span><span class="price-val">$177</span></div>
             </div>
           </div>
-          <div class="rate-card" onclick="selectRate(this,'First Class – English/Spanish: $1,217 pp / Single supplement: $462')">
+          <div class="rate-card" onclick="selectRate(this,'First Class – English/Spanish: $1,217 per passenger / Single supplement: $462')">
             <div><span class="rate-label">First Class</span><span class="rate-sub">English / Spanish guide</span></div>
             <div class="rate-prices">
-              <div class="rate-price-col"><span class="price-type">Per person</span><span class="price-val">$1,217</span></div>
+              <div class="rate-price-col"><span class="price-type">Per pax</span><span class="price-val">$1,217</span></div>
               <div class="rate-price-col"><span class="price-type">Single suppl.</span><span class="price-val">$462</span></div>
             </div>
           </div>
         </div>
-        <p class="rates-note">All rates in USD per person. Commission applicable per agency agreement.</p>
+        <p class="rates-note">Rates in USD net per passenger.</p>
       </div>
 
       <div class="modal-nav">
-        <button class="btn-primary" onclick="goToStep2()" id="btnNext" disabled style="opacity:0.45">Continue</button>
+        <button class="btn-primary" onclick="goToStep2()" id="btnNext" disabled style="opacity:0.4">Continue</button>
       </div>
     </div>
 
-    <!-- PANEL 2 -->
+    <!-- PANEL 2: CONTACT FORM -->
     <div class="modal-panel" id="panel2">
       <div class="selected-rate-summary" id="rateSummary"></div>
       <form action="https://formspree.io/f/xaqdeevb" method="POST">
@@ -655,7 +721,7 @@ body {
         <button type="submit" class="submit-btn">Send Booking Request</button>
       </form>
       <p class="form-note">Our team will review your request and get back to you as soon as possible.</p>
-      <div class="modal-nav" style="justify-content:flex-start;margin-top:14px;">
+      <div class="modal-nav" style="justify-content:flex-start;margin-top:12px;">
         <button class="btn-secondary" onclick="goToStep1()">← Back to rates</button>
       </div>
     </div>
@@ -670,31 +736,45 @@ body {
 ===================== */
 const departures = [
   // GALÁPAGOS LOOP
-  { region:'galapagos', date:'04 Jan',      year:'2026', fullDate:'04 Jan 2026',      program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['operated'],          promo:false, bookable:false, fewSpots:false, dealType:null,    promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:null },
-  { region:'galapagos', date:'25–30 Jan',   year:'2026', fullDate:'25–30 Jan 2026',   program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['operated'],          promo:true,  bookable:false, fewSpots:false, dealType:null,    promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:null },
-  { region:'galapagos', date:'15–20 Feb',   year:'2026', fullDate:'15–20 Feb 2026',   program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['operated','sold'],   promo:false, bookable:false, fewSpots:false, dealType:null,    promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:null },
-  { region:'galapagos', date:'01–06 Mar',   year:'2026', fullDate:'01–06 Mar 2026',   program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['operated'],          promo:true,  bookable:false, fewSpots:false, dealType:null,    promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:null },
-  { region:'galapagos', date:'10–15 May',   year:'2026', fullDate:'10–15 May 2026',   program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'],  promo:true,  bookable:true,  fewSpots:false, dealType:'summer', promoPrice:true,  itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:'$1,999' } },
-  { region:'galapagos', date:'07–12 Jun',   year:'2026', fullDate:'07–12 Jun 2026',   program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'],  promo:false, bookable:true,  fewSpots:true,  dealType:'summer', promoPrice:true,  itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:'$1,999' } },
-  { region:'galapagos', date:'21–26 Jun',   year:'2026', fullDate:'21–26 Jun 2026',   program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'],  promo:false, bookable:true,  fewSpots:false, dealType:null,    promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:null } },
-  { region:'galapagos', date:'12–17 Jul',   year:'2026', fullDate:'12–17 Jul 2026',   program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'],  promo:false, bookable:true,  fewSpots:true,  dealType:'summer', promoPrice:true,  itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:'$1,999' } },
-  { region:'galapagos', date:'02–07 Aug',   year:'2026', fullDate:'02–07 Aug 2026',   program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'],  promo:false, bookable:true,  fewSpots:false, dealType:null,    promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:null } },
-  { region:'galapagos', date:'13–18 Sep',   year:'2026', fullDate:'13–18 Sep 2026',   program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'],  promo:false, bookable:true,  fewSpots:false, dealType:null,    promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:null } },
-  { region:'galapagos', date:'27 Sep–02 Oct',year:'2026',fullDate:'27 Sep–02 Oct 2026',program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'],  promo:false, bookable:true,  fewSpots:false, dealType:null,    promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:null } },
-  { region:'galapagos', date:'18–23 Oct',   year:'2026', fullDate:'18–23 Oct 2026',   program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'],  promo:false, bookable:true,  fewSpots:false, dealType:'eoy',   promoPrice:true,  itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:'$1,999' } },
-  { region:'galapagos', date:'08–13 Nov',   year:'2026', fullDate:'08–13 Nov 2026',   program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'],  promo:false, bookable:true,  fewSpots:false, dealType:'eoy',   promoPrice:true,  itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:'$1,999' } },
-  { region:'galapagos', date:'13–18 Dec',   year:'2026', fullDate:'13–18 Dec 2026',   program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'],  promo:false, bookable:true,  fewSpots:false, dealType:'eoy',   promoPrice:true,  itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:'$1,999' } },
-
+  { region:'galapagos', date:'04 Jan',       year:'2026', fullDate:'04 Jan 2026',       program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['operated'],         promo:false, bookable:false, fewSpots:false, dealType:null,    promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:null },
+  { region:'galapagos', date:'25–30 Jan',    year:'2026', fullDate:'25–30 Jan 2026',    program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['operated'],         promo:true,  bookable:false, fewSpots:false, dealType:null,    promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:null },
+  { region:'galapagos', date:'15–20 Feb',    year:'2026', fullDate:'15–20 Feb 2026',    program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['operated','sold'],  promo:false, bookable:false, fewSpots:false, dealType:null,    promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:null },
+  { region:'galapagos', date:'01–06 Mar',    year:'2026', fullDate:'01–06 Mar 2026',    program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['operated'],         promo:true,  bookable:false, fewSpots:false, dealType:null,    promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:null },
+  { region:'galapagos', date:'10–15 May',    year:'2026', fullDate:'10–15 May 2026',    program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:true,  bookable:true,  fewSpots:false, dealType:'summer', promoPrice:true,  itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:'$1,999' } },
+  { region:'galapagos', date:'07–12 Jun',    year:'2026', fullDate:'07–12 Jun 2026',    program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:true,  dealType:'summer', promoPrice:true,  itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:'$1,999' } },
+  { region:'galapagos', date:'21–26 Jun',    year:'2026', fullDate:'21–26 Jun 2026',    program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:false, dealType:null,    promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:null } },
+  { region:'galapagos', date:'12–17 Jul',    year:'2026', fullDate:'12–17 Jul 2026',    program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:true,  dealType:'summer', promoPrice:true,  itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:'$1,999' } },
+  { region:'galapagos', date:'02–07 Aug',    year:'2026', fullDate:'02–07 Aug 2026',    program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:false, dealType:null,    promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:null } },
+  { region:'galapagos', date:'13–18 Sep',    year:'2026', fullDate:'13–18 Sep 2026',    program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:false, dealType:null,    promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:null } },
+  { region:'galapagos', date:'27 Sep–02 Oct',year:'2026', fullDate:'27 Sep–02 Oct 2026',program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:false, dealType:null,    promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:null } },
+  { region:'galapagos', date:'18–23 Oct',    year:'2026', fullDate:'18–23 Oct 2026',    program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:false, dealType:'eoy',   promoPrice:true,  itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:'$1,999' } },
+  { region:'galapagos', date:'08–13 Nov',    year:'2026', fullDate:'08–13 Nov 2026',    program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:false, dealType:'eoy',   promoPrice:true,  itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:'$1,999' } },
+  { region:'galapagos', date:'13–18 Dec',    year:'2026', fullDate:'13–18 Dec 2026',    program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:false, dealType:'eoy',   promoPrice:true,  itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:'$1,999' } },
   // ANDEAN TREASURES
-  { region:'andean', date:'04 Apr', year:'2026', fullDate:'04 Apr 2026', program:'Andean Treasures', duration:'8 Days / 7 Nights', status:['open','confirmed'],  promo:false, bookable:true,  fewSpots:true,  dealType:null, promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/volcano-avenue/andean-treasures?authuser=0', priceFrom:{ regular:'$1,395', promo:null } },
-  { region:'andean', date:'07 Jun', year:'2026', fullDate:'07 Jun 2026', program:'Andean Treasures', duration:'8 Days / 7 Nights', status:['open','confirmed'],  promo:false, bookable:true,  fewSpots:false, dealType:null, promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/volcano-avenue/andean-treasures?authuser=0', priceFrom:{ regular:'$1,395', promo:null } },
-  { region:'andean', date:'05 Jul', year:'2026', fullDate:'05 Jul 2026', program:'Andean Treasures', duration:'8 Days / 7 Nights', status:['open','confirmed'],  promo:false, bookable:true,  fewSpots:false, dealType:null, promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/volcano-avenue/andean-treasures?authuser=0', priceFrom:{ regular:'$1,395', promo:null } },
-  { region:'andean', date:'02 Aug', year:'2026', fullDate:'02 Aug 2026', program:'Andean Treasures', duration:'8 Days / 7 Nights', status:['almost','confirmed'], promo:false, bookable:true,  fewSpots:false, dealType:null, promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/volcano-avenue/andean-treasures?authuser=0', priceFrom:{ regular:'$1,395', promo:null } },
-  { region:'andean', date:'06 Sep', year:'2026', fullDate:'06 Sep 2026', program:'Andean Treasures', duration:'8 Days / 7 Nights', status:['open','confirmed'],  promo:false, bookable:true,  fewSpots:false, dealType:null, promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/volcano-avenue/andean-treasures?authuser=0', priceFrom:{ regular:'$1,395', promo:null } },
-  { region:'andean', date:'04 Oct', year:'2026', fullDate:'04 Oct 2026', program:'Andean Treasures', duration:'8 Days / 7 Nights', status:['open','confirmed'],  promo:false, bookable:true,  fewSpots:false, dealType:null, promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/volcano-avenue/andean-treasures?authuser=0', priceFrom:{ regular:'$1,395', promo:null } },
-
-  // VOLCANO AVENUE 6D/5N
+  { region:'andean', date:'04 Apr', year:'2026', fullDate:'04 Apr 2026', program:'Andean Treasures', duration:'8 Days / 7 Nights', status:['open','confirmed'], promo:false, bookable:true, fewSpots:true,  dealType:null, promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/volcano-avenue/andean-treasures?authuser=0', priceFrom:{ regular:'$1,395', promo:null } },
+  { region:'andean', date:'07 Jun', year:'2026', fullDate:'07 Jun 2026', program:'Andean Treasures', duration:'8 Days / 7 Nights', status:['open','confirmed'], promo:false, bookable:true, fewSpots:false, dealType:null, promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/volcano-avenue/andean-treasures?authuser=0', priceFrom:{ regular:'$1,395', promo:null } },
+  { region:'andean', date:'05 Jul', year:'2026', fullDate:'05 Jul 2026', program:'Andean Treasures', duration:'8 Days / 7 Nights', status:['open','confirmed'], promo:false, bookable:true, fewSpots:false, dealType:null, promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/volcano-avenue/andean-treasures?authuser=0', priceFrom:{ regular:'$1,395', promo:null } },
+  { region:'andean', date:'02 Aug', year:'2026', fullDate:'02 Aug 2026', program:'Andean Treasures', duration:'8 Days / 7 Nights', status:['open','confirmed'], promo:false, bookable:true, fewSpots:true,  dealType:null, promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/volcano-avenue/andean-treasures?authuser=0', priceFrom:{ regular:'$1,395', promo:null } },
+  { region:'andean', date:'06 Sep', year:'2026', fullDate:'06 Sep 2026', program:'Andean Treasures', duration:'8 Days / 7 Nights', status:['open','confirmed'], promo:false, bookable:true, fewSpots:false, dealType:null, promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/volcano-avenue/andean-treasures?authuser=0', priceFrom:{ regular:'$1,395', promo:null } },
+  { region:'andean', date:'04 Oct', year:'2026', fullDate:'04 Oct 2026', program:'Andean Treasures', duration:'8 Days / 7 Nights', status:['open','confirmed'], promo:false, bookable:true, fewSpots:false, dealType:null, promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/volcano-avenue/andean-treasures?authuser=0', priceFrom:{ regular:'$1,395', promo:null } },
+  // VOLCANO AVENUE
   { region:'volcano', date:'23 Jul', year:'2026', fullDate:'23 Jul 2026', program:'Volcano Avenue 6D/5N', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:false, bookable:true, fewSpots:false, dealType:null, promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/volcano-avenue/shared-volcano-avenue-6d-5n?authuser=0', priceFrom:{ regular:'$807', promo:null } }
+];
+
+/* Galápagos Loop rate data */
+const loopCategories = [
+  {
+    id:'tourist', name:'Tourist', sub:'Standard accommodation',
+    single:2491, double:2420, triple:2399, bestOffer:true
+  },
+  {
+    id:'tourist-sup', name:'Tourist Superior', sub:'Enhanced comfort category',
+    single:2757, double:2477, triple:2440, bestOffer:false
+  },
+  {
+    id:'first', name:'First Class', sub:'Premium category',
+    single:3349, double:2803, triple:2696, bestOffer:false
+  }
 ];
 
 /* =====================
@@ -704,7 +784,12 @@ const regionOrder  = ['galapagos','andean','volcano'];
 const regionLabels = { galapagos:'Galápagos', andean:'Andean Treasures', volcano:'Volcano Avenue' };
 
 function badgeHTML(s) {
-  const m = { open:['badge-open','Open'], confirmed:['badge-confirmed','Confirmed'], almost:['badge-almost','⚠ Almost Sold Out'], sold:['badge-sold','Sold Out'], operated:['badge-operated','Operated'] };
+  const m = {
+    open:     ['badge-open',     'Open'],
+    confirmed:['badge-confirmed','Confirmed'],
+    sold:     ['badge-sold',     'Sold Out'],
+    operated: ['badge-operated', 'Operated']
+  };
   return m[s] ? `<span class="badge ${m[s][0]}">${m[s][1]}</span>` : '';
 }
 function dealBadge(t) {
@@ -718,9 +803,9 @@ function priceFooter(dep) {
   if (!dep.bookable) return '';
   let priceBlock = '';
   if (dep.priceFrom && dep.priceFrom.promo) {
-    priceBlock = `<div class="price-from"><span>From</span><div class="price-display"><span class="price-original">${dep.priceFrom.regular}</span><span class="price-current">${dep.priceFrom.promo} <small>/ person</small></span></div><span class="price-promo-label">Promotional price</span></div>`;
+    priceBlock = `<div class="price-from"><span>From</span><div class="price-display"><span class="price-original">${dep.priceFrom.regular}</span><span class="price-current">${dep.priceFrom.promo} <small>/ pax</small></span></div><span class="price-promo-label">Promotional rate</span></div>`;
   } else if (dep.priceFrom) {
-    priceBlock = `<div class="price-from"><span>From</span><div class="price-display"><span class="price-regular">${dep.priceFrom.regular} <small>/ person</small></span></div></div>`;
+    priceBlock = `<div class="price-from"><span>From</span><div class="price-display"><span class="price-regular">${dep.priceFrom.regular} <small>/ pax</small></span></div></div>`;
   }
   return `<div class="card-footer">${priceBlock}<button class="book-btn" onclick="openModal('${dep.program} – ${dep.duration}','${dep.fullDate}','${dep.region}',${dep.fewSpots},${dep.promoPrice})">Book Now</button></div>`;
 }
@@ -735,7 +820,7 @@ function promoStrip(dep) {
 }
 
 /* =====================
-   RENDER
+   RENDER CARDS
 ===================== */
 function renderCards(filter) {
   const container = document.getElementById('cardsContainer');
@@ -746,14 +831,14 @@ function renderCards(filter) {
     if (filter==='andean')    return d.region==='andean';
     if (filter==='volcano')   return d.region==='volcano';
     if (filter==='promo')     return d.promo || d.dealType;
-    if (filter==='almost')    return d.status.includes('almost');
+    if (filter==='few')       return d.fewSpots;
     if (filter==='sold')      return d.status.includes('sold');
     return true;
   });
   document.getElementById('emptyState').style.display = filtered.length===0 ? 'block' : 'none';
   const groups = {}; regionOrder.forEach(r=>{ groups[r]=[]; });
   filtered.forEach(d => groups[d.region].push(d));
-  const showDiv = ['all','promo','almost','sold'].includes(filter);
+  const showDiv = ['all','promo','few','sold'].includes(filter);
   regionOrder.forEach(region => {
     if (!groups[region].length) return;
     if (showDiv) {
@@ -772,8 +857,8 @@ function renderCards(filter) {
       if (isSold) overlay=`<div class="card-overlay-label">Sold Out</div>`;
       else if (isOp) overlay=`<div class="card-overlay-label">Operated</div>`;
       let badges = dep.status.map(badgeHTML).join('');
-      if (dep.dealType) badges += dealBadge(dep.dealType);
-      if (dep.fewSpots) badges += fewBadge();
+      if (dep.dealType)  badges += dealBadge(dep.dealType);
+      if (dep.fewSpots)  badges += fewBadge();
       const card=document.createElement('div');
       card.className=cls; card.dataset.region=dep.region;
       card.innerHTML=`<div class="card-accent"></div>${overlay}<div class="card-body"><div class="card-date">${dep.date} <span class="card-year">${dep.year}</span></div><div class="card-program">${dep.program}</div><div class="card-duration">${dep.duration}</div><a href="${dep.itinerary}" target="_blank" class="itinerary-link">View itinerary</a><div class="badges-row">${badges}</div>${promoStrip(dep)}</div>${priceFooter(dep)}`;
@@ -781,6 +866,7 @@ function renderCards(filter) {
     });
     container.appendChild(grid);
   });
+  notifyHeight();
 }
 
 /* =====================
@@ -793,7 +879,7 @@ function updateCounts() {
     andean:    departures.filter(d=>d.region==='andean').length,
     volcano:   departures.filter(d=>d.region==='volcano').length,
     promo:     departures.filter(d=>d.promo||d.dealType).length,
-    almost:    departures.filter(d=>d.status.includes('almost')).length,
+    few:       departures.filter(d=>d.fewSpots).length,
     sold:      departures.filter(d=>d.status.includes('sold')).length
   };
   Object.keys(c).forEach(k=>{ const el=document.getElementById('cnt-'+k); if(el) el.textContent=c[k]; });
@@ -809,70 +895,108 @@ function applyFilter(type,btn) {
 }
 
 /* =====================
+   NOTIFY HEIGHT (for Google Sites iframe auto-resize)
+===================== */
+function notifyHeight() {
+  const h = document.body.scrollHeight;
+  try { window.parent.postMessage({ type:'resize', height:h }, '*'); } catch(e){}
+  // Also resize via Google Sites iFrame API if available
+  try { window.frameElement && (window.frameElement.style.height = h+'px'); } catch(e){}
+}
+window.addEventListener('load', notifyHeight);
+window.addEventListener('resize', notifyHeight);
+
+/* =====================
    MODAL
 ===================== */
-let selectedRateText='';
+let selectedRateText = '';
+let selectedCategory = null;
 
 function buildLoopRates(hasPromo) {
-  const doubleCell = hasPromo
-    ? `<div class="rate-price-col"><span class="price-type">Double</span><div class="price-val-promo"><span class="p-orig">$2,420</span><span class="p-curr">$1,999</span></div></div>`
-    : `<div class="rate-price-col"><span class="price-type">Double</span><span class="price-val">$2,420</span></div>`;
+  const grid = document.getElementById('loopCategoryGrid');
+  grid.innerHTML = '';
+  loopCategories.forEach(cat => {
+    const fromPrice = hasPromo && cat.id==='tourist' ? cat.double : cat.double;
+    const isPromo   = hasPromo && cat.id==='tourist';
+    const priceHTML = isPromo
+      ? `<span class="cat-promo-orig">$${cat.double.toLocaleString()}</span><span class="cat-from-price has-promo">$1,999</span>`
+      : `<span class="cat-from-price">$${cat.double.toLocaleString()}</span>`;
+    const best = cat.bestOffer && hasPromo ? '<div class="best-badge">Best offer</div>' : '';
+    const el = document.createElement('div');
+    el.className = 'cat-card';
+    el.dataset.catId = cat.id;
+    el.innerHTML = `${best}<div><span class="cat-name">${cat.name}</span><span class="cat-sub">${cat.sub}</span></div><div class="cat-from"><span class="cat-from-label">Double / pax</span>${priceHTML}</div>`;
+    el.onclick = () => selectCategory(el, cat, hasPromo);
+    grid.appendChild(el);
+  });
+  document.getElementById('loopOccupancy').classList.remove('visible');
+}
 
-  document.getElementById('loopRates').innerHTML = `
-    <div class="rates-grid">
-      <div class="rate-card" onclick="selectRate(this,'Tourist – Single: $2,491 / Double: ${hasPromo?'$1,999 (promo)':'$2,420'} / Triple: $2,399')">
-        ${hasPromo?'<div class="best-badge">Best offer</div>':''}
-        <div><span class="rate-label">Tourist</span><span class="rate-sub">Standard accommodation</span></div>
-        <div class="rate-prices">
-          <div class="rate-price-col"><span class="price-type">Single</span><span class="price-val">$2,491</span></div>
-          ${doubleCell}
-          <div class="rate-price-col"><span class="price-type">Triple</span><span class="price-val">$2,399</span></div>
-        </div>
-      </div>
-      <div class="rate-card" onclick="selectRate(this,'Tourist Superior – Single: $2,757 / Double: $2,477 / Triple: $2,440')">
-        <div><span class="rate-label">Tourist Superior</span><span class="rate-sub">Enhanced comfort category</span></div>
-        <div class="rate-prices">
-          <div class="rate-price-col"><span class="price-type">Single</span><span class="price-val">$2,757</span></div>
-          <div class="rate-price-col"><span class="price-type">Double</span><span class="price-val">$2,477</span></div>
-          <div class="rate-price-col"><span class="price-type">Triple</span><span class="price-val">$2,440</span></div>
-        </div>
-      </div>
-      <div class="rate-card" onclick="selectRate(this,'First Class – Single: $3,349 / Double: $2,803 / Triple: $2,696')">
-        <div><span class="rate-label">First Class</span><span class="rate-sub">Premium category</span></div>
-        <div class="rate-prices">
-          <div class="rate-price-col"><span class="price-type">Single</span><span class="price-val">$3,349</span></div>
-          <div class="rate-price-col"><span class="price-type">Double</span><span class="price-val">$2,803</span></div>
-          <div class="rate-price-col"><span class="price-type">Triple</span><span class="price-val">$2,696</span></div>
-        </div>
-      </div>
-    </div>
-    <p class="rates-note">All rates in USD per person. Commission applicable per agency agreement. Rates include program services as per itinerary.</p>`;
+function selectCategory(el, cat, hasPromo) {
+  document.querySelectorAll('.cat-card').forEach(c=>c.classList.remove('selected'));
+  el.classList.add('selected');
+  selectedCategory = cat;
+  selectedRateText = '';
+  const btn = document.getElementById('btnNext');
+  btn.disabled = true; btn.style.opacity='0.4';
+  buildOccupancy(cat, hasPromo);
+  document.getElementById('loopOccupancy').classList.add('visible');
+  document.querySelectorAll('.occ-card').forEach(c=>c.classList.remove('selected'));
+}
+
+function buildOccupancy(cat, hasPromo) {
+  const grid = document.getElementById('loopOccupancyGrid');
+  const isPromoTourist = hasPromo && cat.id==='tourist';
+  const occupancies = [
+    { type:'Single', price: cat.single, promoPrice: null },
+    { type:'Double', price: cat.double, promoPrice: isPromoTourist ? 1999 : null },
+    { type:'Triple', price: cat.triple, promoPrice: null }
+  ];
+  grid.innerHTML = '';
+  occupancies.forEach(occ => {
+    const hasOccPromo = occ.promoPrice !== null;
+    const priceHTML = hasOccPromo
+      ? `<span class="occ-orig">$${occ.price.toLocaleString()}</span><span class="occ-price promo-price">$${occ.promoPrice.toLocaleString()}</span>`
+      : `<span class="occ-price">$${occ.price.toLocaleString()}</span>`;
+    const rateStr = hasOccPromo
+      ? `${cat.name} – ${occ.type}: $${occ.promoPrice.toLocaleString()} per pax (promotional rate, regular $${occ.price.toLocaleString()})`
+      : `${cat.name} – ${occ.type}: $${occ.price.toLocaleString()} per pax`;
+    const el = document.createElement('div');
+    el.className = 'occ-card';
+    el.innerHTML = `<span class="occ-type">${occ.type}</span>${priceHTML}`;
+    el.onclick = () => {
+      document.querySelectorAll('.occ-card').forEach(c=>c.classList.remove('selected'));
+      el.classList.add('selected');
+      selectedRateText = rateStr;
+      const btn = document.getElementById('btnNext');
+      btn.disabled=false; btn.style.opacity='1';
+    };
+    grid.appendChild(el);
+  });
 }
 
 function openModal(program,date,region,fewSpots,promoPrice) {
-  document.getElementById('mProgramName').textContent  = program;
+  document.getElementById('mProgramName').textContent   = program;
   document.getElementById('mDepartureDate').textContent = date;
-  document.getElementById('formProgram').value  = program;
+  document.getElementById('formProgram').value   = program;
   document.getElementById('formDeparture').value = date;
-  document.getElementById('formMessage').value  = 'I would like to book: '+program+' – '+date;
+  document.getElementById('formMessage').value   = 'I would like to request a booking for: '+program+' – '+date;
   document.getElementById('modalUrgencyBanner').style.display = fewSpots ? 'flex' : 'none';
   document.getElementById('loopRates').style.display    = region==='galapagos' ? 'block' : 'none';
   document.getElementById('andeanRates').style.display  = region==='andean'    ? 'block' : 'none';
   document.getElementById('volcanoRates').style.display = region==='volcano'   ? 'block' : 'none';
   if (region==='galapagos') buildLoopRates(promoPrice);
-  goToStep1(); clearRateSelection();
- window.scrollTo({ top: 0, behavior: 'smooth' });
-setTimeout(function() {
+  goToStep1();
+  clearRateSelection();
   document.getElementById('modal').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}, 400);
 }
 
 function closeModal() {
   document.getElementById('modal').classList.remove('open');
-  document.body.style.overflow='';
 }
-function handleOverlayClick(e) { if(e.target===document.getElementById('modal')) closeModal(); }
+function handleOverlayClick(e) {
+  if (e.target===document.getElementById('modal')) closeModal();
+}
 
 function selectRate(el,rateText) {
   document.querySelectorAll('.rate-card').forEach(c=>c.classList.remove('selected'));
@@ -880,9 +1004,9 @@ function selectRate(el,rateText) {
   const btn=document.getElementById('btnNext'); btn.disabled=false; btn.style.opacity='1';
 }
 function clearRateSelection() {
-  document.querySelectorAll('.rate-card').forEach(c=>c.classList.remove('selected'));
-  selectedRateText='';
-  const btn=document.getElementById('btnNext'); btn.disabled=true; btn.style.opacity='0.45';
+  document.querySelectorAll('.rate-card,.cat-card,.occ-card').forEach(c=>c.classList.remove('selected'));
+  selectedRateText=''; selectedCategory=null;
+  const btn=document.getElementById('btnNext'); btn.disabled=true; btn.style.opacity='0.4';
 }
 function goToStep2() {
   if (!selectedRateText) return;
