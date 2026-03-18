@@ -872,13 +872,13 @@ function openModal(program,date,region,fewSpots,promoPrice){
   goToStep1();
   clearRateSelection();
 
-  // Position overlay at current scroll so modal is always visible
   const overlay = document.getElementById('modal');
   const scrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
-  overlay.style.top = scrollY + 'px';
-  overlay.style.height = window.innerHeight + 'px';
+  // Position overlay at current scroll position, tall enough to cover full page
+  overlay.style.top    = scrollY + 'px';
+  overlay.style.height = Math.max(window.innerHeight, document.body.scrollHeight - scrollY) + 'px';
   overlay.classList.add('open');
-  // Prevent body scroll while modal open
+  overlay.scrollTop = 0;
   document.body.style.overflow = 'hidden';
 }
 
