@@ -998,9 +998,6 @@ function openModal(program,date,region,fewSpots,promoPrice){
   overlay.classList.add('open');
   overlay.scrollTop = 0;
   document.body.style.overflow = 'hidden';
-  requestAnimationFrame(function(){
-    document.querySelector('.modal-box').scrollIntoView({ behavior: 'smooth', block: 'center' });
-  });
 }
 
 function closeModal(){
@@ -1087,6 +1084,9 @@ document.addEventListener('click', function(e){
   const few     = btn.getAttribute('data-few') === 'true';
   const promo   = btn.getAttribute('data-promo') === 'true';
   openModal(program, date, region, few, promo);
+  requestAnimationFrame(function(){
+    document.querySelector('#modal .modal-box').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
 });
 
 
