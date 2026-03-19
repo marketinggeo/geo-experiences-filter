@@ -991,13 +991,13 @@ function openModal(program,date,region,fewSpots,promoPrice){
   goToStep1();
   clearRateSelection();
 
-  document.documentElement.scrollTop = 0;
-  document.body.scrollTop = 0;
-  try { window.parent.scrollTo({ top: window.frameElement.getBoundingClientRect().top + window.parent.pageYOffset - 10, behavior: 'smooth' }); } catch(e){}
   const overlay = document.getElementById('modal');
   overlay.classList.add('open');
   overlay.scrollTop = 0;
   document.body.style.overflow = 'hidden';
+  requestAnimationFrame(function(){
+    document.querySelector('.modal-box').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
 }
 
 function closeModal(){
