@@ -991,7 +991,6 @@ function openModal(program,date,region,fewSpots,promoPrice){
   goToStep1();
   clearRateSelection();
 
-  // Scroll iframe to top so position:fixed modal is always visible in viewport
   document.documentElement.scrollTop = 0;
   document.body.scrollTop = 0;
   try { window.parent.scrollTo({ top: window.frameElement.getBoundingClientRect().top + window.parent.pageYOffset - 10, behavior: 'smooth' }); } catch(e){}
@@ -1055,30 +1054,13 @@ function goToStep1(){
 
 
 function openRequestModal(){
-  const m=document.getElementById('reqModal');
-  m.classList.add('open');
-  m.scrollTop=0;
-  document.body.style.overflow='hidden';
-  requestAnimationFrame(function(){
-    document.querySelector('.req-modal-box').scrollIntoView({behavior:'smooth',block:'center'});
-  });
-}
-function closeRequestModal(){
-  document.getElementById('reqModal').classList.remove('open');
-  document.body.style.overflow='';
-}
-function handleReqOverlayClick(e){
-  if(e.target===document.getElementById('reqModal')) closeRequestModal();
-}
-
-function openRequestModal(){
+  document.documentElement.scrollTop = 0;
+  document.body.scrollTop = 0;
+  try { window.parent.scrollTo({ top: window.frameElement.getBoundingClientRect().top + window.parent.pageYOffset - 10, behavior: 'smooth' }); } catch(e){}
   const overlay = document.getElementById('requestModal');
   overlay.classList.add('open');
   overlay.scrollTop = 0;
   document.body.style.overflow = 'hidden';
-  requestAnimationFrame(function(){
-    document.querySelector('#requestModal .modal-box').scrollIntoView({ behavior:'smooth', block:'center' });
-  });
 }
 function closeRequestModal(){
   document.getElementById('requestModal').classList.remove('open');
@@ -1094,56 +1076,6 @@ renderCards('all');
 
 
 </script>
-
-<!-- REQUEST DATE MODAL -->
-<div id="reqModal" class="req-modal-overlay" onclick="handleReqOverlayClick(event)">
-  <div class="req-modal-box">
-    <div class="req-modal-header">
-      <button class="req-modal-close" onclick="closeRequestModal()">&#10005;</button>
-      <div class="req-modal-title">Request a Specific Departure</div>
-      <div class="req-modal-sub">Our team will get back to you with availability details.</div>
-    </div>
-    <div class="req-modal-body">
-      <form action="https://formspree.io/f/xaqdeevb" method="POST">
-        <input type="hidden" name="request_type" value="Departure Date Request">
-        <div class="form-grid-2">
-          <div class="form-row"><label>Full Name *</label><input type="text" name="name" required placeholder="Your full name"></div>
-          <div class="form-row"><label>Company *</label><input type="text" name="company" required placeholder="Agency / company name"></div>
-        </div>
-        <div class="form-grid-2">
-          <div class="form-row"><label>Email *</label><input type="email" name="email" required placeholder="your@email.com"></div>
-          <div class="form-row"><label>Phone</label><input type="text" name="phone" placeholder="+1 000 000 0000"></div>
-        </div>
-        <div class="form-row">
-          <label>Program *</label>
-          <select name="program" required style="font-family:'Montserrat',sans-serif;width:100%;padding:9px 13px;border:1.5px solid #dde1ea;border-radius:7px;font-size:12px;color:#1a1a2e;background:#fff;outline:none;box-sizing:border-box;">
-            <option value="" disabled selected>Select a program</option>
-            <option>Galápagos Loop 6D/5N</option>
-            <option>Galápagos Loop 7D/6N – Immersive</option>
-            <option>Charles Darwin Path 8D/7N</option>
-            <option>Galápagos 360 6D/5N</option>
-            <option>Andean Treasures 8D/7N</option>
-            <option>Volcano Avenue 6D/5N</option>
-            <option>Volcano Avenue 5D/4N</option>
-            <option>Volcano Avenue 3D/2N</option>
-            <option>Volcano Avenue 2D/1N</option>
-            <option>Shared Daily Tours – Quito</option>
-          </select>
-        </div>
-        <div class="form-row">
-          <label>Requested Departure Date *</label>
-          <input type="text" name="requested_date" required placeholder="e.g. 15 Mar 2026">
-        </div>
-        <div class="form-row">
-          <label>Message</label>
-          <textarea name="message" rows="3" placeholder="Any additional details..." style="font-family:'Montserrat',sans-serif;width:100%;padding:9px 13px;border:1.5px solid #dde1ea;border-radius:7px;font-size:12px;color:#1a1a2e;resize:vertical;min-height:80px;outline:none;box-sizing:border-box;"></textarea>
-        </div>
-        <button type="submit" class="submit-btn">Send Request</button>
-      </form>
-      <p class="form-note">Our team will review your request and get back to you as soon as possible.</p>
-    </div>
-  </div>
-</div>
 
 </body>
 </html>
