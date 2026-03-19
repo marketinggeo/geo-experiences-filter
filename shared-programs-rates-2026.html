@@ -9,73 +9,28 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'Montserrat',sans-serif;background:#f4f4f4;color:#1a1a2e;}
 .container{max-width:1500px;margin:40px auto;padding:0 24px;}
-
-/* ---- MENU CARDS ---- */
 .card-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:8px;}
-.menu-card{
-  background:#fff;border:1px solid #dde1ea;border-radius:10px;
-  padding:32px 36px;cursor:pointer;
-  transition:box-shadow 0.2s ease,transform 0.15s ease,border-color 0.2s;
-  display:flex;flex-direction:column;gap:10px;
-  position:relative;overflow:hidden;
-}
-.menu-card::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:4px;
-  background:linear-gradient(90deg,#002060,#1a56c4);
-}
-.menu-card:hover{
-  box-shadow:0 8px 28px rgba(0,32,96,0.12);
-  transform:translateY(-2px);border-color:#b0bcd4;
-}
+.menu-card{background:#fff;border:1px solid #dde1ea;border-radius:10px;padding:32px 36px;cursor:pointer;transition:box-shadow 0.2s ease,transform 0.15s ease,border-color 0.2s;display:flex;flex-direction:column;gap:10px;position:relative;overflow:hidden;}
+.menu-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#002060,#1a56c4);}
+.menu-card:hover{box-shadow:0 8px 28px rgba(0,32,96,0.12);transform:translateY(-2px);border-color:#b0bcd4;}
 .menu-card h2{font-size:17px;font-weight:700;color:#002060;margin:0;}
 .menu-card .card-desc{font-size:12px;color:#6b7a99;font-weight:500;line-height:1.5;}
-.menu-card .card-programs{
-  display:flex;flex-wrap:wrap;gap:6px;margin-top:4px;
-}
-.menu-card .prog-pill{
-  background:#eef2fb;color:#1a4fa0;border-radius:20px;
-  padding:3px 10px;font-size:10px;font-weight:600;letter-spacing:0.3px;
-}
-.menu-card .card-arrow{
-  display:inline-flex;align-items:center;gap:6px;
-  background:#002060;color:#fff;
-  padding:10px 18px;border-radius:5px;
-  font-size:12px;font-weight:700;margin-top:8px;
-  letter-spacing:0.3px;transition:background 0.15s;
-  align-self:flex-start;
-}
+.menu-card .card-programs{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px;}
+.menu-card .prog-pill{background:#eef2fb;color:#1a4fa0;border-radius:20px;padding:3px 10px;font-size:10px;font-weight:600;letter-spacing:0.3px;}
+.menu-card .card-arrow{display:inline-flex;align-items:center;gap:6px;background:#002060;color:#fff;padding:10px 18px;border-radius:5px;font-size:12px;font-weight:700;margin-top:8px;letter-spacing:0.3px;transition:background 0.15s;align-self:flex-start;}
 .menu-card .card-arrow::after{content:'→';font-size:13px;}
 .menu-card:hover .card-arrow{background:#1a3d8f;}
-
-/* ---- SECTION ---- */
 .rate-section{display:none;margin-top:8px;}
-.back-btn{
-  display:inline-flex;align-items:center;gap:5px;
-  margin-bottom:24px;font-size:12px;font-weight:600;
-  cursor:pointer;color:#002060;letter-spacing:0.2px;
-}
+.back-btn{display:inline-flex;align-items:center;gap:5px;margin-bottom:24px;font-size:12px;font-weight:600;cursor:pointer;color:#002060;letter-spacing:0.2px;}
 .back-btn::before{content:'←';}
 .section-title{font-size:20px;font-weight:700;color:#002060;margin-bottom:20px;}
-
-/* ---- FILTER ---- */
 .filter-bar{margin-bottom:24px;}
-.filter-bar select{
-  padding:9px 14px;font-family:'Montserrat',sans-serif;
-  font-size:12px;border:1.5px solid #d0d5de;border-radius:6px;
-  width:100%;max-width:320px;color:#1a1a2e;background:#fff;outline:none;
-  cursor:pointer;
-}
+.filter-bar select{padding:9px 14px;font-family:'Montserrat',sans-serif;font-size:12px;border:1.5px solid #d0d5de;border-radius:6px;width:100%;max-width:320px;color:#1a1a2e;background:#fff;outline:none;cursor:pointer;}
 .filter-bar select:focus{border-color:#002060;}
-
-/* ---- TABLE ---- */
 .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:8px;border:1px solid #dde1ea;}
 table{width:100%;border-collapse:collapse;font-size:12.5px;}
 thead tr{background:#002060;}
-th{
-  padding:12px 14px;color:#fff;font-size:10px;font-weight:700;
-  letter-spacing:0.8px;text-transform:uppercase;text-align:left;
-  border-right:1px solid rgba(255,255,255,0.1);
-}
+th{padding:12px 14px;color:#fff;font-size:10px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;text-align:left;border-right:1px solid rgba(255,255,255,0.1);}
 th:last-child{border-right:none;}
 td{padding:11px 14px;border-bottom:1px solid #eef0f5;border-right:1px solid #eef0f5;vertical-align:middle;}
 td:last-child{border-right:none;}
@@ -84,49 +39,21 @@ tbody tr.alt td{background:#f8fafc;}
 tbody tr:hover td{background:#f0f4ff;}
 .hidden{display:none!important;}
 h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
-
-/* ---- LANG CELL ---- */
 .lang-cell{text-align:center;vertical-align:middle;white-space:nowrap;min-width:54px;}
 .lang-flags{display:inline-flex;align-items:center;gap:4px;}
-
-/* ---- BUTTONS ---- */
-.specific-dep-btn{
-  display:inline-block;background:#002060;color:#fff;
-  padding:6px 11px;font-size:11px;font-family:'Montserrat',sans-serif;
-  font-weight:600;cursor:pointer;border:none;border-radius:4px;
-  white-space:nowrap;letter-spacing:0.3px;transition:background 0.15s;
-}
+.specific-dep-btn{display:inline-block;background:#002060;color:#fff;padding:6px 11px;font-size:11px;font-family:'Montserrat',sans-serif;font-weight:600;cursor:pointer;border:none;border-radius:4px;white-space:nowrap;letter-spacing:0.3px;transition:background 0.15s;}
 .specific-dep-btn:hover{background:#003399;}
-
-/* ---- GUIDE NOTE ---- */
 .guide-note{display:block;color:#888;font-style:italic;margin-top:3px;font-size:10.5px;}
-
-/* ---- MODAL ---- */
-.modal-overlay{
-  display:none;position:fixed;top:0;left:0;
-  width:100%;height:100%;background:rgba(0,0,0,0.55);
-  z-index:1000;justify-content:center;align-items:center;
-}
+.modal-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.55);z-index:1000;justify-content:center;align-items:center;}
 .modal-overlay.active{display:flex;}
-.modal-box{
-  background:#fff;padding:36px;max-width:560px;width:90%;
-  max-height:82vh;overflow-y:auto;position:relative;
-  border-top:5px solid #002060;border-radius:4px;
-  box-shadow:0 20px 60px rgba(0,32,96,0.2);
-}
+.modal-box{background:#fff;padding:36px;max-width:560px;width:90%;max-height:82vh;overflow-y:auto;position:relative;border-top:5px solid #002060;border-radius:4px;box-shadow:0 20px 60px rgba(0,32,96,0.2);}
 .modal-box h3{color:#002060;margin:0 0 4px;font-size:15px;}
 .modal-subtitle{font-size:11px;color:#777;margin-bottom:18px;font-style:italic;}
-.modal-close{
-  position:absolute;top:14px;right:16px;font-size:18px;
-  cursor:pointer;color:#002060;font-weight:700;background:none;border:none;
-  font-family:'Montserrat',sans-serif;
-}
+.modal-close{position:absolute;top:14px;right:16px;font-size:18px;cursor:pointer;color:#002060;font-weight:700;background:none;border:none;font-family:'Montserrat',sans-serif;}
 .modal-table{width:100%;border-collapse:collapse;font-size:12px;margin-top:8px;}
 .modal-table th{background:#002060;color:#fff;padding:8px 12px;border:1px solid #dde1ea;text-align:left;}
 .modal-table td{padding:8px 12px;border:1px solid #dde1ea;}
 .modal-table tr:nth-child(even) td{background:#f0f6fb;}
-
-/* ---- MOBILE ---- */
 @media(max-width:768px){
   .card-grid{grid-template-columns:1fr;}
   .menu-card{padding:22px 20px;}
@@ -135,42 +62,34 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
   tr.program{background:#fff;border:1px solid #dde1ea;border-radius:6px;margin-bottom:10px;padding:0;}
   tr.program.alt td{background:#f8fafc;}
   tr.program.hidden{display:none!important;}
-  td{
-    border:none;border-bottom:1px solid #eef0f5;
-    padding:9px 14px 9px 46%;position:relative;
-    min-height:34px;font-size:11.5px;
-  }
+  td{border:none;border-bottom:1px solid #eef0f5;padding:9px 14px 9px 46%;position:relative;min-height:34px;font-size:11.5px;}
   td:last-child{border-bottom:none;}
-  td::before{
-    content:attr(data-label);position:absolute;
-    left:14px;top:9px;width:38%;font-weight:700;
-    color:#002060;font-size:10px;text-transform:uppercase;line-height:1.4;
-  }
+  td::before{content:attr(data-label);position:absolute;left:14px;top:9px;width:38%;font-weight:700;color:#002060;font-size:10px;text-transform:uppercase;line-height:1.4;}
   td.lang-cell{padding-left:42%;text-align:left;}
   .supplements-table tr{background:#fff;border:1px solid #dde1ea;border-radius:6px;margin-bottom:10px;}
   .filter-bar select{max-width:100%;}
   .modal-box{padding:22px;}
+  .specific-dep-btn{font-size:10px;padding:5px 9px;}
 }
 </style>
 </head>
 <body>
 <div class="container">
 
-<!-- ======================== MENU ======================== -->
+<!-- MENU -->
 <div id="mainMenu" class="card-grid">
-
   <div class="menu-card" onclick="showSection('galapagos')">
     <h2>Galápagos Rates 2026</h2>
     <p class="card-desc">Net rates per person in USD. Programs available with English and German-speaking guides.</p>
     <div class="card-programs">
       <span class="prog-pill">Galápagos Loop 6D/5N</span>
       <span class="prog-pill">Galápagos Loop 7D/6N</span>
+      <span class="prog-pill">Galápagos 360 6D/5N</span>
       <span class="prog-pill">Extension 3D/2N</span>
       <span class="prog-pill">Charles Darwin Path 8D/7N</span>
     </div>
     <span class="card-arrow">View Galápagos rates</span>
   </div>
-
   <div class="menu-card" onclick="showSection('mainland')">
     <h2>Mainland Rates 2026</h2>
     <p class="card-desc">Net rates per person in USD. Programs available with English, Spanish and German-speaking guides.</p>
@@ -184,36 +103,36 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
     </div>
     <span class="card-arrow">View Mainland rates</span>
   </div>
-
 </div>
 
 <div style="margin:20px 0;">
   <a href="https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/open-departures-promotions?authuser=0" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#002060;color:#fff;padding:11px 20px;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600;text-decoration:none;border-radius:4px;letter-spacing:0.3px;">
-    View open departures &amp; current promotions →
+    View open departures &amp; current promotions ⟶
   </a>
   <span style="display:block;margin-top:6px;font-size:11px;color:#777;font-family:'Montserrat',sans-serif;">Check real-time availability, confirmed departures and active promotions.</span>
 </div>
+
 <!-- ======================== GALÁPAGOS ======================== -->
 <div id="galapagos" class="rate-section">
   <div class="back-btn" onclick="goBack()"> Back</div>
   <div class="section-title">Galápagos Rates 2026</div>
-
   <div class="filter-bar">
     <select onchange="filterPrograms(this,'galapagos')">
       <option value="all">All Programs</option>
       <option value="loop6">Galápagos Loop 6D/5N</option>
       <option value="loop7">Galápagos Loop 7D/6N – Immersive</option>
+      <option value="galapagos360">Galápagos 360 6D/5N</option>
       <option value="extension">Extension 3D/2N</option>
       <option value="darwin">Charles Darwin Path 8D/7N</option>
     </select>
   </div>
 
   <div style="margin:20px 0;">
-  <a href="https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/open-departures-promotions?authuser=0" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#002060;color:#fff;padding:11px 20px;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600;text-decoration:none;border-radius:4px;letter-spacing:0.3px;">
-    View open departures &amp; current promotions →
-  </a>
-  <span style="display:block;margin-top:6px;font-size:11px;color:#777;font-family:'Montserrat',sans-serif;">Check real-time availability, confirmed departures and active promotions.</span>
-</div>
+    <a href="https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/open-departures-promotions?authuser=0" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#002060;color:#fff;padding:11px 20px;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600;text-decoration:none;border-radius:4px;letter-spacing:0.3px;">
+      View open departures &amp; current promotions ⟶
+    </a>
+    <span style="display:block;margin-top:6px;font-size:11px;color:#777;font-family:'Montserrat',sans-serif;">Check real-time availability, confirmed departures and active promotions.</span>
+  </div>
 
   <div class="table-wrap">
   <table>
@@ -225,7 +144,6 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
     <tbody>
 
     <!-- ===== LOOP 6D ===== -->
-    <!-- Tourist EN -->
     <tr class="program alt" data-category="loop6">
       <td data-label="Code" rowspan="2">SG-04-A</td>
       <td data-label="Program" rowspan="2">The Galápagos Loop 6D/5N</td>
@@ -236,14 +154,11 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
       <td data-label="Departures"><span class="guide-note" style="font-style:normal;color:#333;">Every Sunday</span><span class="guide-note">English-speaking guide</span></td>
       <td data-label="SGL">2.491</td><td data-label="DBL">2.420</td><td data-label="TPL">2.399</td>
     </tr>
-    <!-- Tourist DE -->
     <tr class="program alt" data-category="loop6">
       <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
       <td data-label="Departures"><button class="specific-dep-btn" onclick="openModal('loop6-tourist')">Specific departures 2026</button></td>
       <td data-label="SGL">2.641</td><td data-label="DBL">2.570</td><td data-label="TPL">2.549</td>
     </tr>
-
-    <!-- Tourist Superior EN -->
     <tr class="program" data-category="loop6">
       <td data-label="Code" rowspan="2">SG-04-A</td>
       <td data-label="Program" rowspan="2">The Galápagos Loop 6D/5N</td>
@@ -254,14 +169,11 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
       <td data-label="Departures"><span class="guide-note" style="font-style:normal;color:#333;">Every Sunday</span><span class="guide-note">English-speaking guide</span></td>
       <td data-label="SGL">2.757</td><td data-label="DBL">2.477</td><td data-label="TPL">2.440</td>
     </tr>
-    <!-- Tourist Superior DE -->
     <tr class="program" data-category="loop6">
       <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
       <td data-label="Departures"><button class="specific-dep-btn" onclick="openModal('loop6-touristsup')">Specific departures 2026</button></td>
       <td data-label="SGL">2.907</td><td data-label="DBL">2.627</td><td data-label="TPL">2.590</td>
     </tr>
-
-    <!-- First Class EN -->
     <tr class="program alt" data-category="loop6">
       <td data-label="Code" rowspan="2">SG-04-A</td>
       <td data-label="Program" rowspan="2">The Galápagos Loop 6D/5N</td>
@@ -272,7 +184,6 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
       <td data-label="Departures"><span class="guide-note" style="font-style:normal;color:#333;">Every Sunday</span><span class="guide-note">English-speaking guide</span></td>
       <td data-label="SGL">3.349</td><td data-label="DBL">2.803</td><td data-label="TPL">2.696</td>
     </tr>
-    <!-- First Class DE -->
     <tr class="program alt" data-category="loop6">
       <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
       <td data-label="Departures"><button class="specific-dep-btn" onclick="openModal('loop6-firstclass')">Specific departures 2026</button></td>
@@ -280,7 +191,6 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
     </tr>
 
     <!-- ===== LOOP 7D ===== -->
-    <!-- Tourist EN -->
     <tr class="program" data-category="loop7">
       <td data-label="Code" rowspan="2">SG-04-B</td>
       <td data-label="Program" rowspan="2">The Galápagos Loop 7D/6N – Immersive</td>
@@ -291,14 +201,11 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
       <td data-label="Departures"><span class="guide-note" style="font-style:normal;color:#333;">Every Saturday</span><span class="guide-note">English-speaking guide</span></td>
       <td data-label="SGL">2.877</td><td data-label="DBL">2.794</td><td data-label="TPL">2.764</td>
     </tr>
-    <!-- Tourist DE -->
     <tr class="program" data-category="loop7">
       <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
       <td data-label="Departures"><button class="specific-dep-btn" onclick="openModal('loop7-tourist')">Specific departures 2026</button></td>
       <td data-label="SGL">3.050</td><td data-label="DBL">2.967</td><td data-label="TPL">2.937</td>
     </tr>
-
-    <!-- Tourist Superior EN -->
     <tr class="program alt" data-category="loop7">
       <td data-label="Code" rowspan="2">SG-04-B</td>
       <td data-label="Program" rowspan="2">The Galápagos Loop 7D/6N – Immersive</td>
@@ -309,14 +216,11 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
       <td data-label="Departures"><span class="guide-note" style="font-style:normal;color:#333;">Every Saturday</span><span class="guide-note">English-speaking guide</span></td>
       <td data-label="SGL">3.143</td><td data-label="DBL">2.851</td><td data-label="TPL">2.805</td>
     </tr>
-    <!-- Tourist Superior DE -->
     <tr class="program alt" data-category="loop7">
       <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
       <td data-label="Departures"><button class="specific-dep-btn" onclick="openModal('loop7-touristsup')">Specific departures 2026</button></td>
       <td data-label="SGL">3.316</td><td data-label="DBL">3.024</td><td data-label="TPL">2.978</td>
     </tr>
-
-    <!-- First Class EN -->
     <tr class="program" data-category="loop7">
       <td data-label="Code" rowspan="2">SG-04-B</td>
       <td data-label="Program" rowspan="2">The Galápagos Loop 7D/6N – Immersive</td>
@@ -327,22 +231,50 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
       <td data-label="Departures"><span class="guide-note" style="font-style:normal;color:#333;">Every Saturday</span><span class="guide-note">English-speaking guide</span></td>
       <td data-label="SGL">3.735</td><td data-label="DBL">3.177</td><td data-label="TPL">3.061</td>
     </tr>
-    <!-- First Class DE -->
     <tr class="program" data-category="loop7">
       <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
       <td data-label="Departures"><button class="specific-dep-btn" onclick="openModal('loop7-firstclass')">Specific departures 2026</button></td>
       <td data-label="SGL">3.908</td><td data-label="DBL">3.350</td><td data-label="TPL">3.234</td>
     </tr>
 
+    <!-- ===== GALÁPAGOS 360 ===== -->
+    <tr class="program alt" data-category="galapagos360">
+      <td data-label="Code">SG-04-C</td>
+      <td data-label="Program">Galápagos 360 6D/5N<br><span style="font-size:10.5px;color:#888;">Days: Sunday to Friday · Local guides</span></td>
+      <td data-label="Islands">Santa Cruz<br>Floreana<br>Isabela</td>
+      <td data-label="Category">Tourist</td>
+      <td data-label="Accommodation">DEJA VU<br>AGUA MARINA<br>CALLY</td>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/es.png" alt="Spanish" title="Spanish" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Departures"><span class="guide-note" style="font-style:normal;color:#333;">Every Sunday</span><span class="guide-note">Spanish-speaking guide</span></td>
+      <td data-label="SGL">2.282</td><td data-label="DBL">2.212</td><td data-label="TPL">2.185</td>
+    </tr>
+    <tr class="program" data-category="galapagos360">
+      <td data-label="Code">SG-04-C</td>
+      <td data-label="Program">Galápagos 360 6D/5N</td>
+      <td data-label="Islands">Santa Cruz<br>Floreana<br>Isabela</td>
+      <td data-label="Category">Tourist Superior</td>
+      <td data-label="Accommodation">VILLA LAGUNA<br>AGUA MARINA (Santa María)<br>VOLCANO</td>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/es.png" alt="Spanish" title="Spanish" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Departures"><span class="guide-note" style="font-style:normal;color:#333;">Every Sunday</span><span class="guide-note">Spanish-speaking guide</span></td>
+      <td data-label="SGL">2.494</td><td data-label="DBL">2.260</td><td data-label="TPL">2.224</td>
+    </tr>
+    <tr class="program alt" data-category="galapagos360">
+      <td data-label="Code">SG-04-C</td>
+      <td data-label="Program">Galápagos 360 6D/5N</td>
+      <td data-label="Islands">Santa Cruz<br>Floreana<br>Isabela</td>
+      <td data-label="Category">First Class</td>
+      <td data-label="Accommodation">IKALA SUITE<br>AGUA MARINA<br>CASA MARITA OCEAN FRONT</td>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/es.png" alt="Spanish" title="Spanish" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Departures"><span class="guide-note" style="font-style:normal;color:#333;">Every Sunday</span><span class="guide-note">Spanish-speaking guide</span></td>
+      <td data-label="SGL">2.908</td><td data-label="DBL">2.482</td><td data-label="TPL">2.391</td>
+    </tr>
+
     <!-- ===== EXTENSION ===== -->
-    <!-- English-only note -->
     <tr class="program" data-category="extension" style="background:#fdf8ee;">
       <td colspan="10" style="padding:10px 14px;font-size:11px;color:#7a5800;font-style:italic;border-bottom:1px solid #e0cfa0;">
         &#9432;&nbsp; Extension programs are available with English-speaking guide only.
       </td>
     </tr>
-
-    <!-- Tourist -->
     <tr class="program alt" data-category="extension">
       <td data-label="Code">SG-04 (Ext.)</td>
       <td data-label="Program">Extension Post Galápagos Loop 3D/2N</td>
@@ -353,8 +285,6 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
       <td data-label="Departures"><span class="guide-note" style="font-style:normal;color:#333;">Every Friday after Loop</span><span class="guide-note">English-speaking guide</span></td>
       <td data-label="SGL">877</td><td data-label="DBL">852</td><td data-label="TPL">844</td>
     </tr>
-
-    <!-- Tourist Superior -->
     <tr class="program" data-category="extension">
       <td data-label="Code">SG-04 (Ext.)</td>
       <td data-label="Program">Extension Post Galápagos Loop 3D/2N</td>
@@ -365,8 +295,6 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
       <td data-label="Departures"><span class="guide-note" style="font-style:normal;color:#333;">Every Friday after Loop</span><span class="guide-note">English-speaking guide</span></td>
       <td data-label="SGL">985</td><td data-label="DBL">869</td><td data-label="TPL">849</td>
     </tr>
-
-    <!-- First Class -->
     <tr class="program alt" data-category="extension">
       <td data-label="Code">SG-04 (Ext.)</td>
       <td data-label="Program">Extension Post Galápagos Loop 3D/2N</td>
@@ -379,7 +307,6 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
     </tr>
 
     <!-- ===== DARWIN ===== -->
-    <!-- Tourist EN -->
     <tr class="program" data-category="darwin">
       <td data-label="Code" rowspan="2">SG-05</td>
       <td data-label="Program" rowspan="2">Charles Darwin Path 8D/7N</td>
@@ -390,14 +317,11 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
       <td data-label="Departures"><span class="guide-note" style="font-style:normal;color:#333;">Every Friday</span><span class="guide-note">English-speaking guide</span></td>
       <td data-label="SGL">3.146</td><td data-label="DBL">3.053</td><td data-label="TPL">3.022</td>
     </tr>
-    <!-- Tourist DE -->
     <tr class="program" data-category="darwin">
       <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
       <td data-label="Departures"><button class="specific-dep-btn" onclick="openModal('darwin-tourist')">Specific departures 2026</button></td>
       <td data-label="SGL">3.296</td><td data-label="DBL">3.203</td><td data-label="TPL">3.172</td>
     </tr>
-
-    <!-- Tourist Superior EN -->
     <tr class="program alt" data-category="darwin">
       <td data-label="Code" rowspan="2">SG-05</td>
       <td data-label="Program" rowspan="2">Charles Darwin Path 8D/7N</td>
@@ -408,14 +332,11 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
       <td data-label="Departures"><span class="guide-note" style="font-style:normal;color:#333;">Every Friday</span><span class="guide-note">English-speaking guide</span></td>
       <td data-label="SGL">3.518</td><td data-label="DBL">3.180</td><td data-label="TPL">3.117</td>
     </tr>
-    <!-- Tourist Superior DE -->
     <tr class="program alt" data-category="darwin">
       <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
       <td data-label="Departures"><button class="specific-dep-btn" onclick="openModal('darwin-touristsup')">Specific departures 2026</button></td>
       <td data-label="SGL">3.668</td><td data-label="DBL">3.330</td><td data-label="TPL">3.267</td>
     </tr>
-
-    <!-- First Class EN -->
     <tr class="program" data-category="darwin">
       <td data-label="Code" rowspan="2">SG-05</td>
       <td data-label="Program" rowspan="2">Charles Darwin Path 8D/7N</td>
@@ -426,7 +347,6 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
       <td data-label="Departures"><span class="guide-note" style="font-style:normal;color:#333;">Every Friday</span><span class="guide-note">English-speaking guide</span></td>
       <td data-label="SGL">4.334</td><td data-label="DBL">3.602</td><td data-label="TPL">3.439</td>
     </tr>
-    <!-- First Class DE -->
     <tr class="program" data-category="darwin">
       <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
       <td data-label="Departures"><button class="specific-dep-btn" onclick="openModal('darwin-firstclass')">Specific departures 2026</button></td>
@@ -460,18 +380,17 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
   </div>
 
   <div style="margin:28px 0 10px;">
-  <a href="https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/open-departures-promotions?authuser=0" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#002060;color:#fff;padding:11px 20px;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600;text-decoration:none;border-radius:4px;letter-spacing:0.3px;">
-    View open departures &amp; current promotions →
-  </a>
-  <span style="display:block;margin-top:6px;font-size:11px;color:#777;font-family:'Montserrat',sans-serif;">Check real-time availability, confirmed departures and active promotions.</span>
-</div>
+    <a href="https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/open-departures-promotions?authuser=0" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#002060;color:#fff;padding:11px 20px;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600;text-decoration:none;border-radius:4px;letter-spacing:0.3px;">
+      View open departures &amp; current promotions ⟶
+    </a>
+    <span style="display:block;margin-top:6px;font-size:11px;color:#777;font-family:'Montserrat',sans-serif;">Check real-time availability, confirmed departures and active promotions.</span>
+  </div>
 </div>
 
 <!-- ======================== MAINLAND ======================== -->
 <div id="mainland" class="rate-section">
   <div class="back-btn" onclick="goBack()"> Back</div>
   <div class="section-title">Mainland Rates 2026</div>
-
   <div class="filter-bar">
     <select onchange="filterPrograms(this,'mainland')">
       <option value="all">All Programs</option>
@@ -485,11 +404,11 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
   </div>
 
   <div style="margin:20px 0;">
-  <a href="https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/open-departures-promotions?authuser=0" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#002060;color:#fff;padding:11px 20px;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600;text-decoration:none;border-radius:4px;letter-spacing:0.3px;">
-    View open departures &amp; current promotions →
-  </a>
-  <span style="display:block;margin-top:6px;font-size:11px;color:#777;font-family:'Montserrat',sans-serif;">Check real-time availability, confirmed departures and active promotions.</span>
-</div>
+    <a href="https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/open-departures-promotions?authuser=0" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#002060;color:#fff;padding:11px 20px;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600;text-decoration:none;border-radius:4px;letter-spacing:0.3px;">
+      View open departures &amp; current promotions ⟶
+    </a>
+    <span style="display:block;margin-top:6px;font-size:11px;color:#777;font-family:'Montserrat',sans-serif;">Check real-time availability, confirmed departures and active promotions.</span>
+  </div>
 
   <div class="table-wrap">
   <table>
@@ -500,10 +419,9 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
     </tr></thead>
     <tbody>
 
-    <!-- ===== DAILY TOURS ===== -->
+    <!-- DAILY TOURS -->
     <tr class="program alt" data-category="daily">
-      <td data-label="Code">GR-SM-01</td>
-      <td data-label="Program">Walking Quito City Tour (Half Day)</td>
+      <td data-label="Code">GR-SM-01</td><td data-label="Program">Walking Quito City Tour (Half Day)</td>
       <td data-label="Entrances">No</td><td data-label="Category">–</td>
       <td data-label="City">Quito</td><td data-label="Hotels">–</td>
       <td data-label="Language" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Spanish" title="Spanish" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
@@ -511,8 +429,7 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
       <td data-label="Net Rate">24</td><td data-label="S.S">–</td>
     </tr>
     <tr class="program" data-category="daily">
-      <td data-label="Code">GR-SM-02</td>
-      <td data-label="Program">Quito City Tour &amp; Middle of the World</td>
+      <td data-label="Code">GR-SM-02</td><td data-label="Program">Quito City Tour &amp; Middle of the World</td>
       <td data-label="Entrances">No</td><td data-label="Category">–</td>
       <td data-label="City">Quito</td><td data-label="Hotels">–</td>
       <td data-label="Language" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Spanish" title="Spanish" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
@@ -520,8 +437,7 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
       <td data-label="Net Rate">60</td><td data-label="S.S">–</td>
     </tr>
     <tr class="program alt" data-category="daily">
-      <td data-label="Code">GR-SM-03</td>
-      <td data-label="Program">Otavalo Indigenous Market</td>
+      <td data-label="Code">GR-SM-03</td><td data-label="Program">Otavalo Indigenous Market</td>
       <td data-label="Entrances">No</td><td data-label="Category">–</td>
       <td data-label="City">Otavalo</td><td data-label="Hotels">–</td>
       <td data-label="Language" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Spanish" title="Spanish" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
@@ -529,8 +445,7 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
       <td data-label="Net Rate">75</td><td data-label="S.S">–</td>
     </tr>
     <tr class="program" data-category="daily">
-      <td data-label="Code">GR-SM-04</td>
-      <td data-label="Program">Cotopaxi National Park</td>
+      <td data-label="Code">GR-SM-04</td><td data-label="Program">Cotopaxi National Park</td>
       <td data-label="Entrances">No</td><td data-label="Category">–</td>
       <td data-label="City">Cotopaxi</td><td data-label="Hotels">–</td>
       <td data-label="Language" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Spanish" title="Spanish" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
@@ -538,152 +453,123 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
       <td data-label="Net Rate">75</td><td data-label="S.S">–</td>
     </tr>
 
+    <!-- VOLCANO 2D -->
     <tr class="program alt" data-category="volcano2d">
-      <td data-label="Code">GR-SM-05</td>
-      <td data-label="Program">Volcano Avenue 2D/1N (English - Spanish)</td>
-      <td data-label="Entrances">No</td>
-      <td data-label="Category">Tourist</td>
+      <td data-label="Code">GR-SM-05</td><td data-label="Program">Volcano Avenue 2D/1N (English - Spanish)</td>
+      <td data-label="Entrances">No</td><td data-label="Category">Tourist</td>
       <td data-label="City / Route">Quito – Cotopaxi – Baños – Riobamba – Quito</td>
       <td data-label="Hotels">La Floresta</td>
       <td data-label="Language" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Spanish" title="Spanish" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
       <td data-label="Departures"><span class="guide-note" style="font-style:normal;color:#333;">Every Thursday</span></td>
-      <td data-label="Net Rate">251</td>
-      <td data-label="S.S">18</td>
+      <td data-label="Net Rate">251</td><td data-label="S.S">18</td>
     </tr>
-    <tr class="program " data-category="volcano2d">
-      <td data-label="Code">GR-SM-05</td>
-      <td data-label="Program">Volcano Avenue 2D/1N (English - Spanish)</td>
-      <td data-label="Entrances">No</td>
-      <td data-label="Category">Tourist Superior</td>
+    <tr class="program" data-category="volcano2d">
+      <td data-label="Code">GR-SM-05</td><td data-label="Program">Volcano Avenue 2D/1N (English - Spanish)</td>
+      <td data-label="Entrances">No</td><td data-label="Category">Tourist Superior</td>
       <td data-label="City / Route">Quito – Cotopaxi – Baños – Riobamba – Quito</td>
       <td data-label="Hotels">Hotel Sangay (Std Room)</td>
       <td data-label="Language" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Spanish" title="Spanish" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
       <td data-label="Departures"><span class="guide-note" style="font-style:normal;color:#333;">Every Thursday</span></td>
-      <td data-label="Net Rate">298</td>
-      <td data-label="S.S">40</td>
+      <td data-label="Net Rate">298</td><td data-label="S.S">40</td>
     </tr>
     <tr class="program alt" data-category="volcano2d">
-      <td data-label="Code">GR-SM-05</td>
-      <td data-label="Program">Volcano Avenue 2D/1N (English - Spanish)</td>
-      <td data-label="Entrances">No</td>
-      <td data-label="Category">First Class</td>
+      <td data-label="Code">GR-SM-05</td><td data-label="Program">Volcano Avenue 2D/1N (English - Spanish)</td>
+      <td data-label="Entrances">No</td><td data-label="Category">First Class</td>
       <td data-label="City / Route">Quito – Cotopaxi – Baños – Riobamba – Quito</td>
       <td data-label="Hotels">Samari Spa</td>
       <td data-label="Language" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Spanish" title="Spanish" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
       <td data-label="Departures"><span class="guide-note" style="font-style:normal;color:#333;">Every Thursday</span></td>
-      <td data-label="Net Rate">335</td>
-      <td data-label="S.S">122</td>
+      <td data-label="Net Rate">335</td><td data-label="S.S">122</td>
     </tr>
+
+    <!-- VOLCANO 3D -->
     <tr class="program alt" data-category="volcano3d">
-      <td data-label="Code">GR-SM-06</td>
-      <td data-label="Program">Volcano Avenue 3D/2N (English - Spanish)</td>
-      <td data-label="Entrances">No</td>
-      <td data-label="Category">Tourist</td>
+      <td data-label="Code">GR-SM-06</td><td data-label="Program">Volcano Avenue 3D/2N (English - Spanish)</td>
+      <td data-label="Entrances">No</td><td data-label="Category">Tourist</td>
       <td data-label="City / Route">Quito – Cotopaxi – Baños – Riobamba – Nariz del Diablo – Cuenca</td>
       <td data-label="Hotels">La Floresta / Casa Real</td>
       <td data-label="Language" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Spanish" title="Spanish" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
       <td data-label="Departures"><span class="guide-note" style="font-style:normal;color:#333;">Every Thursday</span></td>
-      <td data-label="Net Rate">470</td>
-      <td data-label="S.S">44</td>
+      <td data-label="Net Rate">470</td><td data-label="S.S">44</td>
     </tr>
-    <tr class="program " data-category="volcano3d">
-      <td data-label="Code">GR-SM-06</td>
-      <td data-label="Program">Volcano Avenue 3D/2N (English - Spanish)</td>
-      <td data-label="Entrances">No</td>
-      <td data-label="Category">Tourist Superior</td>
+    <tr class="program" data-category="volcano3d">
+      <td data-label="Code">GR-SM-06</td><td data-label="Program">Volcano Avenue 3D/2N (English - Spanish)</td>
+      <td data-label="Entrances">No</td><td data-label="Category">Tourist Superior</td>
       <td data-label="City / Route">Quito – Cotopaxi – Baños – Riobamba – Nariz del Diablo – Cuenca</td>
       <td data-label="Hotels">Hotel Sangay / Hacienda Abraspungo</td>
       <td data-label="Language" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Spanish" title="Spanish" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
       <td data-label="Departures"><span class="guide-note" style="font-style:normal;color:#333;">Every Thursday</span></td>
-      <td data-label="Net Rate">543</td>
-      <td data-label="S.S">66</td>
+      <td data-label="Net Rate">543</td><td data-label="S.S">66</td>
     </tr>
     <tr class="program alt" data-category="volcano3d">
-      <td data-label="Code">GR-SM-06</td>
-      <td data-label="Program">Volcano Avenue 3D/2N (English - Spanish)</td>
-      <td data-label="Entrances">No</td>
-      <td data-label="Category">First Class</td>
+      <td data-label="Code">GR-SM-06</td><td data-label="Program">Volcano Avenue 3D/2N (English - Spanish)</td>
+      <td data-label="Entrances">No</td><td data-label="Category">First Class</td>
       <td data-label="City / Route">Quito – Cotopaxi – Baños – Riobamba – Nariz del Diablo – Cuenca</td>
       <td data-label="Hotels">Samari Spa / Hacienda Abraspungo</td>
       <td data-label="Language" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Spanish" title="Spanish" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
       <td data-label="Departures"><span class="guide-note" style="font-style:normal;color:#333;">Every Thursday</span></td>
-      <td data-label="Net Rate">601</td>
-      <td data-label="S.S">265</td>
+      <td data-label="Net Rate">601</td><td data-label="S.S">265</td>
     </tr>
+
+    <!-- VOLCANO 5D -->
     <tr class="program alt" data-category="volcano5d">
-      <td data-label="Code">GR-SM-07</td>
-      <td data-label="Program">Volcano Avenue 5D/4N (English - Spanish)</td>
-      <td data-label="Entrances">No</td>
-      <td data-label="Category">Tourist</td>
+      <td data-label="Code">GR-SM-07</td><td data-label="Program">Volcano Avenue 5D/4N (English - Spanish)</td>
+      <td data-label="Entrances">No</td><td data-label="Category">Tourist</td>
       <td data-label="City / Route">Quito – Cotopaxi – Baños – Riobamba – Nariz del Diablo – Cuenca – Guayaquil</td>
       <td data-label="Hotels">la Floresta / Casa Real / Los Balcones</td>
       <td data-label="Language" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Spanish" title="Spanish" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
       <td data-label="Departures"><span class="guide-note" style="font-style:normal;color:#333;">Every Thursday</span></td>
-      <td data-label="Net Rate">738</td>
-      <td data-label="S.S">82</td>
+      <td data-label="Net Rate">738</td><td data-label="S.S">82</td>
     </tr>
-    <tr class="program " data-category="volcano5d">
-      <td data-label="Code">GR-SM-07</td>
-      <td data-label="Program">Volcano Avenue 5D/4N (English - Spanish)</td>
-      <td data-label="Entrances">No</td>
-      <td data-label="Category">Tourist Superior</td>
+    <tr class="program" data-category="volcano5d">
+      <td data-label="Code">GR-SM-07</td><td data-label="Program">Volcano Avenue 5D/4N (English - Spanish)</td>
+      <td data-label="Entrances">No</td><td data-label="Category">Tourist Superior</td>
       <td data-label="City / Route">Quito – Cotopaxi – Baños – Riobamba – Nariz del Diablo – Cuenca – Guayaquil</td>
       <td data-label="Hotels">Hotel Sangay / Hacienda Abraspungo / San Juan</td>
       <td data-label="Language" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Spanish" title="Spanish" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
       <td data-label="Departures"><span class="guide-note" style="font-style:normal;color:#333;">Every Thursday</span></td>
-      <td data-label="Net Rate">885</td>
-      <td data-label="S.S">124</td>
+      <td data-label="Net Rate">885</td><td data-label="S.S">124</td>
     </tr>
     <tr class="program alt" data-category="volcano5d">
-      <td data-label="Code">GR-SM-07</td>
-      <td data-label="Program">Volcano Avenue 5D/4N (English - Spanish)</td>
-      <td data-label="Entrances">No</td>
-      <td data-label="Category">First Class</td>
+      <td data-label="Code">GR-SM-07</td><td data-label="Program">Volcano Avenue 5D/4N (English - Spanish)</td>
+      <td data-label="Entrances">No</td><td data-label="Category">First Class</td>
       <td data-label="City / Route">Quito – Cotopaxi – Baños – Riobamba – Nariz del Diablo – Cuenca – Guayaquil</td>
       <td data-label="Hotels">Samari Spa / Hacienda Abraspungo (Suite) / Cruz del Vado</td>
       <td data-label="Language" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Spanish" title="Spanish" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
       <td data-label="Departures"><span class="guide-note" style="font-style:normal;color:#333;">Every Thursday</span></td>
-      <td data-label="Net Rate">1.067</td>
-      <td data-label="S.S">391</td>
+      <td data-label="Net Rate">1.067</td><td data-label="S.S">391</td>
     </tr>
+
+    <!-- VOLCANO 6D -->
     <tr class="program alt" data-category="volcano6d">
-      <td data-label="Code">GR-SM-08</td>
-      <td data-label="Program">Volcano Avenue 6D/5N (English - Spanish)</td>
-      <td data-label="Entrances">No</td>
-      <td data-label="Category">Tourist</td>
+      <td data-label="Code">GR-SM-08</td><td data-label="Program">Volcano Avenue 6D/5N (English - Spanish)</td>
+      <td data-label="Entrances">No</td><td data-label="Category">Tourist</td>
       <td data-label="City / Route">Quito – Cotopaxi – Baños – Riobamba – Nariz del Diablo – Cuenca – Guayaquil (transfer out)</td>
       <td data-label="Hotels">la Floresta / Casa Real / Los Balcones / Grand Hotel GYE</td>
       <td data-label="Language" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Spanish" title="Spanish" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
       <td data-label="Departures"><span class="guide-note" style="font-style:normal;color:#333;">Every Thursday</span></td>
-      <td data-label="Net Rate">807</td>
-      <td data-label="S.S">114</td>
+      <td data-label="Net Rate">807</td><td data-label="S.S">114</td>
     </tr>
-    <tr class="program " data-category="volcano6d">
-      <td data-label="Code">GR-SM-08</td>
-      <td data-label="Program">Volcano Avenue 6D/5N (English - Spanish)</td>
-      <td data-label="Entrances">No</td>
-      <td data-label="Category">Tourist Superior</td>
+    <tr class="program" data-category="volcano6d">
+      <td data-label="Code">GR-SM-08</td><td data-label="Program">Volcano Avenue 6D/5N (English - Spanish)</td>
+      <td data-label="Entrances">No</td><td data-label="Category">Tourist Superior</td>
       <td data-label="City / Route">Quito – Cotopaxi – Baños – Riobamba – Nariz del Diablo – Cuenca – Guayaquil (transfer out)</td>
       <td data-label="Hotels">Hotel Sangay / Hacienda Abraspungo / San Juan / Tryp by Wyndham</td>
       <td data-label="Language" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Spanish" title="Spanish" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
       <td data-label="Departures"><span class="guide-note" style="font-style:normal;color:#333;">Every Thursday</span></td>
-      <td data-label="Net Rate">968</td>
-      <td data-label="S.S">177</td>
+      <td data-label="Net Rate">968</td><td data-label="S.S">177</td>
     </tr>
     <tr class="program alt" data-category="volcano6d">
-      <td data-label="Code">GR-SM-08</td>
-      <td data-label="Program">Volcano Avenue 6D/5N (English - Spanish)</td>
-      <td data-label="Entrances">No</td>
-      <td data-label="Category">First Class</td>
+      <td data-label="Code">GR-SM-08</td><td data-label="Program">Volcano Avenue 6D/5N (English - Spanish)</td>
+      <td data-label="Entrances">No</td><td data-label="Category">First Class</td>
       <td data-label="City / Route">Quito – Cotopaxi – Baños – Riobamba – Nariz del Diablo – Cuenca – Guayaquil (transfer out)</td>
       <td data-label="Hotels">Samari Spa / Hacienda Abraspungo / Cruz del Vado / Wyndham Santa Ana</td>
       <td data-label="Language" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Spanish" title="Spanish" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
       <td data-label="Departures"><span class="guide-note" style="font-style:normal;color:#333;">Every Thursday</span></td>
-      <td data-label="Net Rate">1.217</td>
-      <td data-label="S.S">462</td>
+      <td data-label="Net Rate">1.217</td><td data-label="S.S">462</td>
     </tr>
-    <!-- ===== ANDEAN TREASURES ===== -->
-    <!-- Standard EN -->
+
+    <!-- ANDEAN TREASURES -->
     <tr class="program alt" data-category="andean">
       <td data-label="Code" rowspan="2">GR-SM-11</td>
       <td data-label="Program" rowspan="2">Andean Treasures 8D/7N</td>
@@ -700,8 +586,6 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
       <td data-label="Departures"><button class="specific-dep-btn" onclick="openModal('andean-standard')">Specific departures 2026</button></td>
       <td data-label="Net Rate">1.395</td><td data-label="S.S">166</td>
     </tr>
-
-    <!-- Superior EN -->
     <tr class="program" data-category="andean">
       <td data-label="Code" rowspan="2">GR-SM-11</td>
       <td data-label="Program" rowspan="2">Andean Treasures 8D/7N</td>
@@ -760,22 +644,21 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
   </div>
 
   <div style="margin:28px 0 10px;">
-  <a href="https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/open-departures-promotions?authuser=0" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#002060;color:#fff;padding:11px 20px;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600;text-decoration:none;border-radius:4px;letter-spacing:0.3px;">
-    View open departures &amp; current promotions →
-  </a>
-  <span style="display:block;margin-top:6px;font-size:11px;color:#777;font-family:'Montserrat',sans-serif;">Check real-time availability, confirmed departures and active promotions.</span>
+    <a href="https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/open-departures-promotions?authuser=0" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#002060;color:#fff;padding:11px 20px;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600;text-decoration:none;border-radius:4px;letter-spacing:0.3px;">
+      View open departures &amp; current promotions ⟶
+    </a>
+    <span style="display:block;margin-top:6px;font-size:11px;color:#777;font-family:'Montserrat',sans-serif;">Check real-time availability, confirmed departures and active promotions.</span>
+  </div>
+</div>
 </div>
 
-</div><!-- /mainland -->
-</div><!-- /container -->
-
+<!-- ======================== MODALS ======================== -->
 <div class="modal-overlay" id="modal-loop6-tourist">
   <div class="modal-box">
     <button class="modal-close" onclick="closeModal('loop6-tourist')">✕</button>
-    <h3><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"> Galápagos Loop 6D/5N – Tourist</h3>
+    <h3><img src="https://flagcdn.com/h20/de.png" alt="German" style="height:20px;border-radius:2px;vertical-align:middle;"> Galápagos Loop 6D/5N – Tourist</h3>
     <p class="modal-subtitle">Specific departures 2026 – German-speaking guide</p>
-    <table class="modal-table">
-      <tr><th>Departure Date</th></tr>
+    <table class="modal-table"><tr><th>Departure Date</th></tr>
       <tr><td>Sun, 11 Jan 2026</td></tr><tr><td>Sun, 08 Feb 2026</td></tr><tr><td>Sun, 15 Mar 2026</td></tr><tr><td>Sun, 12 Apr 2026</td></tr><tr><td>Sun, 10 May 2026</td></tr><tr><td>Sun, 14 Jun 2026</td></tr><tr><td>Sun, 12 Jul 2026</td></tr><tr><td>Sun, 09 Aug 2026</td></tr><tr><td>Sun, 13 Sep 2026</td></tr><tr><td>Sun, 11 Oct 2026</td></tr><tr><td>Sun, 15 Nov 2026</td></tr><tr><td>Sun, 13 Dec 2026</td></tr>
     </table>
   </div>
@@ -783,10 +666,9 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
 <div class="modal-overlay" id="modal-loop6-touristsup">
   <div class="modal-box">
     <button class="modal-close" onclick="closeModal('loop6-touristsup')">✕</button>
-    <h3><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"> Galápagos Loop 6D/5N – Tourist Superior</h3>
+    <h3><img src="https://flagcdn.com/h20/de.png" alt="German" style="height:20px;border-radius:2px;vertical-align:middle;"> Galápagos Loop 6D/5N – Tourist Superior</h3>
     <p class="modal-subtitle">Specific departures 2026 – German-speaking guide</p>
-    <table class="modal-table">
-      <tr><th>Departure Date</th></tr>
+    <table class="modal-table"><tr><th>Departure Date</th></tr>
       <tr><td>Sun, 11 Jan 2026</td></tr><tr><td>Sun, 08 Feb 2026</td></tr><tr><td>Sun, 15 Mar 2026</td></tr><tr><td>Sun, 12 Apr 2026</td></tr><tr><td>Sun, 10 May 2026</td></tr><tr><td>Sun, 14 Jun 2026</td></tr><tr><td>Sun, 12 Jul 2026</td></tr><tr><td>Sun, 09 Aug 2026</td></tr><tr><td>Sun, 13 Sep 2026</td></tr><tr><td>Sun, 11 Oct 2026</td></tr><tr><td>Sun, 15 Nov 2026</td></tr><tr><td>Sun, 13 Dec 2026</td></tr>
     </table>
   </div>
@@ -794,10 +676,9 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
 <div class="modal-overlay" id="modal-loop6-firstclass">
   <div class="modal-box">
     <button class="modal-close" onclick="closeModal('loop6-firstclass')">✕</button>
-    <h3><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"> Galápagos Loop 6D/5N – First Class</h3>
+    <h3><img src="https://flagcdn.com/h20/de.png" alt="German" style="height:20px;border-radius:2px;vertical-align:middle;"> Galápagos Loop 6D/5N – First Class</h3>
     <p class="modal-subtitle">Specific departures 2026 – German-speaking guide</p>
-    <table class="modal-table">
-      <tr><th>Departure Date</th></tr>
+    <table class="modal-table"><tr><th>Departure Date</th></tr>
       <tr><td>Sun, 11 Jan 2026</td></tr><tr><td>Sun, 08 Feb 2026</td></tr><tr><td>Sun, 15 Mar 2026</td></tr><tr><td>Sun, 12 Apr 2026</td></tr><tr><td>Sun, 10 May 2026</td></tr><tr><td>Sun, 14 Jun 2026</td></tr><tr><td>Sun, 12 Jul 2026</td></tr><tr><td>Sun, 09 Aug 2026</td></tr><tr><td>Sun, 13 Sep 2026</td></tr><tr><td>Sun, 11 Oct 2026</td></tr><tr><td>Sun, 15 Nov 2026</td></tr><tr><td>Sun, 13 Dec 2026</td></tr>
     </table>
   </div>
@@ -805,10 +686,9 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
 <div class="modal-overlay" id="modal-loop7-tourist">
   <div class="modal-box">
     <button class="modal-close" onclick="closeModal('loop7-tourist')">✕</button>
-    <h3><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"> Galápagos Loop 7D/6N Immersive – Tourist</h3>
+    <h3><img src="https://flagcdn.com/h20/de.png" alt="German" style="height:20px;border-radius:2px;vertical-align:middle;"> Galápagos Loop 7D/6N Immersive – Tourist</h3>
     <p class="modal-subtitle">Specific departures 2026 – German-speaking guide</p>
-    <table class="modal-table">
-      <tr><th>Departure Date</th></tr>
+    <table class="modal-table"><tr><th>Departure Date</th></tr>
       <tr><td>Sat, 10 Jan 2026</td></tr><tr><td>Sat, 07 Feb 2026</td></tr><tr><td>Sat, 14 Mar 2026</td></tr><tr><td>Sat, 11 Apr 2026</td></tr><tr><td>Sat, 09 May 2026</td></tr><tr><td>Sat, 13 Jun 2026</td></tr><tr><td>Sat, 11 Jul 2026</td></tr><tr><td>Sat, 08 Aug 2026</td></tr><tr><td>Sat, 12 Sep 2026</td></tr><tr><td>Sat, 10 Oct 2026</td></tr><tr><td>Sat, 14 Nov 2026</td></tr><tr><td>Sat, 12 Dec 2026</td></tr>
     </table>
   </div>
@@ -816,10 +696,9 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
 <div class="modal-overlay" id="modal-loop7-touristsup">
   <div class="modal-box">
     <button class="modal-close" onclick="closeModal('loop7-touristsup')">✕</button>
-    <h3><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"> Galápagos Loop 7D/6N Immersive – Tourist Superior</h3>
+    <h3><img src="https://flagcdn.com/h20/de.png" alt="German" style="height:20px;border-radius:2px;vertical-align:middle;"> Galápagos Loop 7D/6N Immersive – Tourist Superior</h3>
     <p class="modal-subtitle">Specific departures 2026 – German-speaking guide</p>
-    <table class="modal-table">
-      <tr><th>Departure Date</th></tr>
+    <table class="modal-table"><tr><th>Departure Date</th></tr>
       <tr><td>Sat, 10 Jan 2026</td></tr><tr><td>Sat, 07 Feb 2026</td></tr><tr><td>Sat, 14 Mar 2026</td></tr><tr><td>Sat, 11 Apr 2026</td></tr><tr><td>Sat, 09 May 2026</td></tr><tr><td>Sat, 13 Jun 2026</td></tr><tr><td>Sat, 11 Jul 2026</td></tr><tr><td>Sat, 08 Aug 2026</td></tr><tr><td>Sat, 12 Sep 2026</td></tr><tr><td>Sat, 10 Oct 2026</td></tr><tr><td>Sat, 14 Nov 2026</td></tr><tr><td>Sat, 12 Dec 2026</td></tr>
     </table>
   </div>
@@ -827,10 +706,9 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
 <div class="modal-overlay" id="modal-loop7-firstclass">
   <div class="modal-box">
     <button class="modal-close" onclick="closeModal('loop7-firstclass')">✕</button>
-    <h3><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"> Galápagos Loop 7D/6N Immersive – First Class</h3>
+    <h3><img src="https://flagcdn.com/h20/de.png" alt="German" style="height:20px;border-radius:2px;vertical-align:middle;"> Galápagos Loop 7D/6N Immersive – First Class</h3>
     <p class="modal-subtitle">Specific departures 2026 – German-speaking guide</p>
-    <table class="modal-table">
-      <tr><th>Departure Date</th></tr>
+    <table class="modal-table"><tr><th>Departure Date</th></tr>
       <tr><td>Sat, 10 Jan 2026</td></tr><tr><td>Sat, 07 Feb 2026</td></tr><tr><td>Sat, 14 Mar 2026</td></tr><tr><td>Sat, 11 Apr 2026</td></tr><tr><td>Sat, 09 May 2026</td></tr><tr><td>Sat, 13 Jun 2026</td></tr><tr><td>Sat, 11 Jul 2026</td></tr><tr><td>Sat, 08 Aug 2026</td></tr><tr><td>Sat, 12 Sep 2026</td></tr><tr><td>Sat, 10 Oct 2026</td></tr><tr><td>Sat, 14 Nov 2026</td></tr><tr><td>Sat, 12 Dec 2026</td></tr>
     </table>
   </div>
@@ -838,10 +716,9 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
 <div class="modal-overlay" id="modal-darwin-tourist">
   <div class="modal-box">
     <button class="modal-close" onclick="closeModal('darwin-tourist')">✕</button>
-    <h3><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"> Charles Darwin Path 8D/7N – Tourist</h3>
+    <h3><img src="https://flagcdn.com/h20/de.png" alt="German" style="height:20px;border-radius:2px;vertical-align:middle;"> Charles Darwin Path 8D/7N – Tourist</h3>
     <p class="modal-subtitle">Specific departures 2026 – German-speaking guide</p>
-    <table class="modal-table">
-      <tr><th>Departure Date</th></tr>
+    <table class="modal-table"><tr><th>Departure Date</th></tr>
       <tr><td>Fri, 09 Jan 2026</td></tr><tr><td>Fri, 06 Feb 2026</td></tr><tr><td>Fri, 13 Mar 2026</td></tr><tr><td>Fri, 10 Apr 2026</td></tr><tr><td>Fri, 08 May 2026</td></tr><tr><td>Fri, 12 Jun 2026</td></tr><tr><td>Fri, 10 Jul 2026</td></tr><tr><td>Fri, 07 Aug 2026</td></tr><tr><td>Fri, 11 Sep 2026</td></tr><tr><td>Fri, 09 Oct 2026</td></tr><tr><td>Fri, 13 Nov 2026</td></tr><tr><td>Fri, 11 Dec 2026</td></tr>
     </table>
   </div>
@@ -849,10 +726,9 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
 <div class="modal-overlay" id="modal-darwin-touristsup">
   <div class="modal-box">
     <button class="modal-close" onclick="closeModal('darwin-touristsup')">✕</button>
-    <h3><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"> Charles Darwin Path 8D/7N – Tourist Superior</h3>
+    <h3><img src="https://flagcdn.com/h20/de.png" alt="German" style="height:20px;border-radius:2px;vertical-align:middle;"> Charles Darwin Path 8D/7N – Tourist Superior</h3>
     <p class="modal-subtitle">Specific departures 2026 – German-speaking guide</p>
-    <table class="modal-table">
-      <tr><th>Departure Date</th></tr>
+    <table class="modal-table"><tr><th>Departure Date</th></tr>
       <tr><td>Fri, 09 Jan 2026</td></tr><tr><td>Fri, 06 Feb 2026</td></tr><tr><td>Fri, 13 Mar 2026</td></tr><tr><td>Fri, 10 Apr 2026</td></tr><tr><td>Fri, 08 May 2026</td></tr><tr><td>Fri, 12 Jun 2026</td></tr><tr><td>Fri, 10 Jul 2026</td></tr><tr><td>Fri, 07 Aug 2026</td></tr><tr><td>Fri, 11 Sep 2026</td></tr><tr><td>Fri, 09 Oct 2026</td></tr><tr><td>Fri, 13 Nov 2026</td></tr><tr><td>Fri, 11 Dec 2026</td></tr>
     </table>
   </div>
@@ -860,10 +736,9 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
 <div class="modal-overlay" id="modal-darwin-firstclass">
   <div class="modal-box">
     <button class="modal-close" onclick="closeModal('darwin-firstclass')">✕</button>
-    <h3><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"> Charles Darwin Path 8D/7N – First Class</h3>
+    <h3><img src="https://flagcdn.com/h20/de.png" alt="German" style="height:20px;border-radius:2px;vertical-align:middle;"> Charles Darwin Path 8D/7N – First Class</h3>
     <p class="modal-subtitle">Specific departures 2026 – German-speaking guide</p>
-    <table class="modal-table">
-      <tr><th>Departure Date</th></tr>
+    <table class="modal-table"><tr><th>Departure Date</th></tr>
       <tr><td>Fri, 09 Jan 2026</td></tr><tr><td>Fri, 06 Feb 2026</td></tr><tr><td>Fri, 13 Mar 2026</td></tr><tr><td>Fri, 10 Apr 2026</td></tr><tr><td>Fri, 08 May 2026</td></tr><tr><td>Fri, 12 Jun 2026</td></tr><tr><td>Fri, 10 Jul 2026</td></tr><tr><td>Fri, 07 Aug 2026</td></tr><tr><td>Fri, 11 Sep 2026</td></tr><tr><td>Fri, 09 Oct 2026</td></tr><tr><td>Fri, 13 Nov 2026</td></tr><tr><td>Fri, 11 Dec 2026</td></tr>
     </table>
   </div>
@@ -871,10 +746,9 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
 <div class="modal-overlay" id="modal-andean-standard">
   <div class="modal-box">
     <button class="modal-close" onclick="closeModal('andean-standard')">✕</button>
-    <h3><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"> Andean Treasures 8D/7N – Standard</h3>
+    <h3><img src="https://flagcdn.com/h20/de.png" alt="German" style="height:20px;border-radius:2px;vertical-align:middle;"> Andean Treasures 8D/7N – Standard</h3>
     <p class="modal-subtitle">Specific departures 2026 – German-speaking guide</p>
-    <table class="modal-table">
-      <tr><th>Departure Date</th></tr>
+    <table class="modal-table"><tr><th>Departure Date</th></tr>
       <tr><td>Sun, 04 Jan 2026</td></tr><tr><td>Sun, 01 Feb 2026</td></tr><tr><td>Sun, 08 Mar 2026</td></tr><tr><td>Sun, 05 Apr 2026</td></tr><tr><td>Sun, 03 May 2026</td></tr><tr><td>Sun, 07 Jun 2026</td></tr><tr><td>Sun, 05 Jul 2026</td></tr><tr><td>Sun, 02 Aug 2026</td></tr><tr><td>Sun, 06 Sep 2026</td></tr><tr><td>Sun, 04 Oct 2026</td></tr><tr><td>Sun, 08 Nov 2026</td></tr><tr><td>Sun, 06 Dec 2026</td></tr>
     </table>
   </div>
@@ -882,14 +756,14 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
 <div class="modal-overlay" id="modal-andean-superior">
   <div class="modal-box">
     <button class="modal-close" onclick="closeModal('andean-superior')">✕</button>
-    <h3><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"> Andean Treasures 8D/7N – Superior</h3>
+    <h3><img src="https://flagcdn.com/h20/de.png" alt="German" style="height:20px;border-radius:2px;vertical-align:middle;"> Andean Treasures 8D/7N – Superior</h3>
     <p class="modal-subtitle">Specific departures 2026 – German-speaking guide</p>
-    <table class="modal-table">
-      <tr><th>Departure Date</th></tr>
+    <table class="modal-table"><tr><th>Departure Date</th></tr>
       <tr><td>Sun, 04 Jan 2026</td></tr><tr><td>Sun, 01 Feb 2026</td></tr><tr><td>Sun, 08 Mar 2026</td></tr><tr><td>Sun, 05 Apr 2026</td></tr><tr><td>Sun, 03 May 2026</td></tr><tr><td>Sun, 07 Jun 2026</td></tr><tr><td>Sun, 05 Jul 2026</td></tr><tr><td>Sun, 02 Aug 2026</td></tr><tr><td>Sun, 06 Sep 2026</td></tr><tr><td>Sun, 04 Oct 2026</td></tr><tr><td>Sun, 08 Nov 2026</td></tr><tr><td>Sun, 06 Dec 2026</td></tr>
     </table>
   </div>
 </div>
+
 <script>
 function showSection(id){
   document.getElementById('mainMenu').style.display='none';
@@ -918,7 +792,7 @@ function closeModal(id){
 }
 document.querySelectorAll('.modal-overlay').forEach(o=>{
   o.addEventListener('click',function(e){
-    if(e.target===this){ this.classList.remove('active'); document.body.style.overflow=''; }
+    if(e.target===this){this.classList.remove('active');document.body.style.overflow='';}
   });
 });
 </script>
