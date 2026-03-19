@@ -807,7 +807,7 @@ function priceFooter(dep){
   } else if(dep.priceFrom){
     pb=`<div class="price-from"><span>From</span><div class="price-display"><span class="price-regular">${dep.priceFrom.regular} <small>/ pax</small></span></div></div>`;
   }
-  return `<div class="card-footer">${pb}<button class="book-btn" onclick="openModal('${dep.program} – ${dep.duration}','${dep.fullDate}','${dep.region}',${dep.fewSpots},${dep.promoPrice})">Book Now</button></div>`;
+  return `<div class="card-footer">${pb}<button class="book-btn" data-program="${dep.program} – ${dep.duration}" data-date="${dep.fullDate}" data-region="${dep.region}" data-few="${dep.fewSpots}" data-promo="${dep.promoPrice}">Book Now</button></div>`;
 }
 
 function promoStrip(dep){
@@ -1073,6 +1073,18 @@ function handleRequestOverlayClick(e){
 /* INIT */
 updateCounts();
 renderCards('all');
+
+/* Event delegation for dynamically generated Book Now buttons */
+document.addEventListener('click', function(e){
+  const btn = e.target.closest('.book-btn');
+  if(!btn) return;
+  const program = btn.getAttribute('data-program');
+  const date    = btn.getAttribute('data-date');
+  const region  = btn.getAttribute('data-region');
+  const few     = btn.getAttribute('data-few') === 'true';
+  const promo   = btn.getAttribute('data-promo') === 'true';
+  openModal(program, date, region, few, promo);
+});
 
 
 </script>
