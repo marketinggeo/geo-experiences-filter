@@ -338,6 +338,10 @@ body {
 .occ-btn .occ-price-promo { display:flex; flex-direction:column; align-items:center; gap:0px; }
 .occ-btn .occ-price-promo .p-orig { font-size:10px; font-weight:600; color:#b03a2e; text-decoration:line-through; text-decoration-color:#b03a2e; text-decoration-thickness:2px; line-height:1.2; }
 .occ-btn .occ-price-promo .p-curr { font-size:13px; font-weight:700; color:#2e7d52; line-height:1.2; }
+.occ-btn .occ-price-promo .p-orig-grey { font-size:10px; font-weight:500; color:#b0b8c6; text-decoration:line-through; text-decoration-color:#b0b8c6; text-decoration-thickness:1.5px; line-height:1.2; }
+.occ-btn .occ-price-promo .p-curr-grey { font-size:13px; font-weight:600; color:#6b7a99; line-height:1.2; }
+.occ-btn .occ-price-promo .p-orig-grey { font-size:10px; font-weight:600; color:#9199a8; text-decoration:line-through; text-decoration-color:#9199a8; text-decoration-thickness:2px; line-height:1.2; }
+.occ-btn .occ-price-promo .p-curr-grey { font-size:13px; font-weight:700; color:#4a5568; line-height:1.2; }
 
 .best-tag {
   display:inline-block; background:#2e7d52; color:#fff;
@@ -415,6 +419,58 @@ body {
 .empty-state { display:none; text-align:center; padding:60px 20px; color:#9199a8; }
 .empty-state p { font-size:13px; font-weight:500; margin-top:8px; }
 
+/* DATE REQUEST NOTE */
+.date-request-note {
+  background: #f0f4ff;
+  border: 1px solid #c5d3f0;
+  border-radius: 8px;
+  padding: 12px 18px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.date-request-note p {
+  font-size: 12px;
+  color: #1a4fa0;
+  font-weight: 500;
+  line-height: 1.5;
+  margin: 0;
+  flex: 1;
+}
+.date-request-btn {
+  font-family: 'Montserrat', sans-serif;
+  background: #002060;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  letter-spacing: 0.3px;
+  transition: background 0.15s;
+  flex-shrink: 0;
+}
+.date-request-btn:hover { background: #003080; }
+.request-note { background:#f0f4ff; border:1px solid #c5d3f0; border-radius:10px; padding:14px 18px; margin:0 0 20px; display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap; }
+.request-note-text { font-size:11px; color:#002060; font-weight:500; line-height:1.5; flex:1; }
+.request-note-text strong { font-weight:700; display:block; margin-bottom:2px; font-size:11px; }
+.request-date-btn { font-family:'Montserrat',sans-serif; background:#002060; color:#fff; border:none; border-radius:7px; padding:8px 16px; font-size:11px; font-weight:700; cursor:pointer; white-space:nowrap; transition:background 0.15s; flex-shrink:0; }
+.request-date-btn:hover { background:#003080; }
+.req-modal-overlay { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(10,20,60,0.55); z-index:99999; justify-content:center; align-items:flex-start; overflow-y:auto; padding:24px 16px 40px; box-sizing:border-box; }
+.req-modal-overlay.open { display:flex; }
+.req-modal-box { background:#fff; border-radius:16px; width:100%; max-width:540px; margin:auto; overflow:hidden; box-shadow:0 20px 60px rgba(0,32,96,0.18); animation:modal-in 0.2s ease; position:relative; }
+.req-modal-header { background:#002060; padding:20px 26px 18px; position:relative; }
+.req-modal-title { font-size:16px; font-weight:700; color:#fff; margin-bottom:3px; padding-right:36px; }
+.req-modal-sub { font-size:11px; color:rgba(255,255,255,0.65); }
+.req-modal-close { position:absolute; top:16px; right:18px; background:rgba(255,255,255,0.15); border:none; color:#fff; width:28px; height:28px; border-radius:50%; font-size:15px; cursor:pointer; display:flex; align-items:center; justify-content:center; font-family:'Montserrat',sans-serif; transition:background 0.15s; }
+.req-modal-close:hover { background:rgba(255,255,255,0.25); }
+.req-modal-body { padding:22px 26px 26px; }
+
 /* MOBILE */
 @media(max-width:600px){
   body { padding:18px 12px 48px; }
@@ -448,12 +504,67 @@ body {
   <button class="filter-btn f-sold"   onclick="applyFilter('sold',this)">Sold Out <span class="f-count" id="cnt-sold">0</span></button>
 </div>
 
+<div class="request-note">
+  <div class="request-note-text">
+    <strong>Can't find the date you're looking for?</strong>
+    This section shows all confirmed open departures for Geo Boutique's 2026 shared programs. If the specific date you need is not listed, our sales team can help — contact us and we'll let you know if it can be opened on request.
+  </div>
+  <button class="request-date-btn" onclick="openRequestModal()">Request a Date</button>
+</div>
+
 <div id="cardsContainer"></div>
 <div class="empty-state" id="emptyState"><p>No departures match the selected filter.</p></div>
 
 <!-- =====================
      MODAL
 ===================== -->
+<!-- REQUEST DATE MODAL -->
+<div id="requestModal" class="modal-overlay" onclick="handleRequestOverlayClick(event)">
+  <div class="modal-box">
+    <div class="modal-header">
+      <button class="modal-close" onclick="closeRequestModal()">✕</button>
+      <div class="modal-program-name">Request a Specific Departure Date</div>
+      <div class="modal-departure-date">Can&#39;t find the date you need? Let us know.</div>
+    </div>
+    <div class="modal-panel active" style="display:block;">
+      <form action="https://formspree.io/f/xaqdeevb" method="POST">
+        <input type="hidden" name="request_type" value="Specific Date Request">
+        <div class="form-row">
+          <label>Program *</label>
+          <select name="program" required style="font-family:'Montserrat',sans-serif;width:100%;padding:9px 13px;border:1.5px solid #dde1ea;border-radius:7px;font-size:12px;color:#1a1a2e;background:#fff;outline:none;">
+            <option value="">Select a program</option>
+            <option>Galápagos Loop – 6 Days / 5 Nights</option>
+            <option>Galápagos Loop Immersive – 7 Days / 6 Nights</option>
+            <option>Galápagos 360 – 6 Days / 5 Nights</option>
+            <option>Andean Treasures – 8 Days / 7 Nights</option>
+            <option>Volcano Avenue 6D/5N</option>
+            <option>Volcano Avenue 5D/4N</option>
+            <option>Volcano Avenue 3D/2N</option>
+            <option>Volcano Avenue 2D/1N</option>
+            <option>Shared Daily Tours – Quito</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label>Requested departure date *</label>
+          <input type="text" name="requested_date" required placeholder="e.g. 15 Aug 2026">
+        </div>
+        <div class="form-grid-2">
+          <div class="form-row"><label>Full Name *</label><input type="text" name="name" required placeholder="Your full name"></div>
+          <div class="form-row"><label>Company *</label><input type="text" name="company" required placeholder="Agency / company name"></div>
+        </div>
+        <div class="form-grid-2">
+          <div class="form-row"><label>Email *</label><input type="email" name="email" required placeholder="your@email.com"></div>
+          <div class="form-row"><label>Phone</label><input type="text" name="phone" placeholder="+1 000 000 0000"></div>
+        </div>
+        <div class="form-row"><label>Message</label><textarea name="message" rows="3" placeholder="Any additional details about the group or dates..."></textarea></div>
+        <button type="submit" class="submit-btn">Send Request</button>
+      </form>
+      <p class="form-note">Our sales team will review your request and get back to you as soon as possible.</p>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL -->
 <div id="modal" class="modal-overlay" onclick="handleOverlayClick(event)">
   <div class="modal-box">
 
@@ -634,13 +745,13 @@ const departures = [
   { region:'galapagos', date:'25–30 Jan',     year:'2026', fullDate:'25–30 Jan 2026',     program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['operated'],         promo:true,  bookable:false, fewSpots:false, dealType:null,     promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:null },
   { region:'galapagos', date:'15–20 Feb',     year:'2026', fullDate:'15–20 Feb 2026',     program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['operated','sold'],  promo:false, bookable:false, fewSpots:false, dealType:null,     promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:null },
   { region:'galapagos', date:'01–06 Mar',     year:'2026', fullDate:'01–06 Mar 2026',     program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['operated'],         promo:true,  bookable:false, fewSpots:false, dealType:null,     promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:null },
-  { region:'galapagos', date:'10–15 May',     year:'2026', fullDate:'10–15 May 2026',     program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:true,  bookable:true,  fewSpots:false, dealType:'summer', promoPrice:true,  itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:'$1,999' } },
+  { region:'galapagos', date:'10–15 May',     year:'2026', fullDate:'10–15 May 2026',     program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:false, dealType:'summer', promoPrice:true,  itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:'$1,999' } },
   { region:'galapagos', date:'07–12 Jun',     year:'2026', fullDate:'07–12 Jun 2026',     program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:true,  dealType:'summer', promoPrice:true,  itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:'$1,999' } },
-  { region:'galapagos', date:'21–26 Jun',     year:'2026', fullDate:'21–26 Jun 2026',     program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:false, dealType:null,     promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:null } },
+  { region:'galapagos', date:'21–26 Jun',     year:'2026', fullDate:'21–26 Jun 2026',     program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:true,  bookable:true,  fewSpots:false, dealType:null,     promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:null } },
   { region:'galapagos', date:'12–17 Jul',     year:'2026', fullDate:'12–17 Jul 2026',     program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:true,  dealType:'summer', promoPrice:true,  itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:'$1,999' } },
-  { region:'galapagos', date:'02–07 Aug',     year:'2026', fullDate:'02–07 Aug 2026',     program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:false, dealType:null,     promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:null } },
-  { region:'galapagos', date:'13–18 Sep',     year:'2026', fullDate:'13–18 Sep 2026',     program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:false, dealType:null,     promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:null } },
-  { region:'galapagos', date:'27 Sep–02 Oct', year:'2026', fullDate:'27 Sep–02 Oct 2026', program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:false, dealType:null,     promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:null } },
+  { region:'galapagos', date:'02–07 Aug',     year:'2026', fullDate:'02–07 Aug 2026',     program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:true,  bookable:true,  fewSpots:false, dealType:null,     promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:null } },
+  { region:'galapagos', date:'13–18 Sep',     year:'2026', fullDate:'13–18 Sep 2026',     program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:true,  bookable:true,  fewSpots:false, dealType:null,     promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:null } },
+  { region:'galapagos', date:'27 Sep–02 Oct', year:'2026', fullDate:'27 Sep–02 Oct 2026', program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:true,  bookable:true,  fewSpots:false, dealType:null,     promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:null } },
   { region:'galapagos', date:'18–23 Oct',     year:'2026', fullDate:'18–23 Oct 2026',     program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:false, dealType:'eoy',    promoPrice:true,  itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:'$1,999' } },
   { region:'galapagos', date:'08–13 Nov',     year:'2026', fullDate:'08–13 Nov 2026',     program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:false, dealType:'eoy',    promoPrice:true,  itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:'$1,999' } },
   { region:'galapagos', date:'13–18 Dec',     year:'2026', fullDate:'13–18 Dec 2026',     program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:false, dealType:'eoy',    promoPrice:true,  itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:'$1,999' } },
@@ -658,9 +769,9 @@ const departures = [
 /* Galápagos Loop rates — EN & DE */
 const loopRates = {
   en: [
-    { id:'tourist',    name:'Tourist',          sub:'Standard accommodation',   single:2491, double:2420, triple:2399, best:true  },
-    { id:'tourist-sup',name:'Tourist Superior', sub:'Enhanced comfort category',single:2757, double:2477, triple:2440, best:false },
-    { id:'first',      name:'First Class',      sub:'Premium category',         single:3349, double:2803, triple:2696, best:false }
+    { id:'tourist',    name:'Tourist',          sub:'Standard accommodation',   single:2491, double:2420, triple:2399, best:true,  promoSingle:2070, promoDouble:1999, promoTriple:1978 },
+    { id:'tourist-sup',name:'Tourist Superior', sub:'Enhanced comfort category',single:2757, double:2477, triple:2440, best:false, promoSingle:2336, promoDouble:2056, promoTriple:2019 },
+    { id:'first',      name:'First Class',      sub:'Premium category',         single:3349, double:2803, triple:2696, best:false, promoSingle:2928, promoDouble:2382, promoTriple:2275 }
   ],
   de: [
     { id:'tourist',    name:'Tourist',          sub:'Standard accommodation',   single:2641, double:2570, triple:2549, best:false },
@@ -701,10 +812,7 @@ function priceFooter(dep){
 
 function promoStrip(dep){
   if(!dep.promo) return '';
-  const isMay=dep.fullDate.includes('May');
-  const msg=isMay
-    ?'For all new confirmations: PNG entrance fee or dinner at Lava Lounge. Groups of 4+ receive both benefits. PNG fee included for all bookings on this departure.'
-    :'For all new confirmations: PNG entrance fee or dinner at Lava Lounge. Groups of 4+ receive both benefits.';
+  const msg='For all new confirmations on this departure: Galápagos National Park entrance fee (PNG) or dinner at Lava Lounge in Puerto Ayora.';
   return `<div class="promo-strip"><div class="promo-icon-box">%</div><div class="promo-text"><strong>Special Condition</strong>${msg}</div></div>`;
 }
 
@@ -797,10 +905,11 @@ function buildLoopTable(lang, hasPromo){
   const body = document.getElementById('loopRateBody');
   body.innerHTML='';
   cats.forEach(cat=>{
+    const isPromoCat = hasPromo && lang==='en' && cat.promoDouble !== undefined;
     const occupancies=[
-      { key:'single', label:'Single', price:cat.single, promoPrice: (hasPromo && lang==='en' && cat.id==='tourist') ? null : null },
-      { key:'double', label:'Double', price:cat.double, promoPrice: (hasPromo && lang==='en' && cat.id==='tourist') ? 1999 : null },
-      { key:'triple', label:'Triple', price:cat.triple, promoPrice: null }
+      { key:'single', label:'Single', price:cat.single, promoPrice: (hasPromo && lang==='en' && cat.promoSingle) ? cat.promoSingle : null, isBestPromo: false },
+      { key:'double', label:'Double', price:cat.double, promoPrice: (hasPromo && lang==='en' && cat.promoDouble) ? cat.promoDouble : null, isBestPromo: cat.id==='tourist' },
+      { key:'triple', label:'Triple', price:cat.triple, promoPrice: (hasPromo && lang==='en' && cat.promoTriple) ? cat.promoTriple : null, isBestPromo: false }
     ];
     const tr=document.createElement('tr');
     // Category cell
@@ -812,8 +921,12 @@ function buildLoopTable(lang, hasPromo){
       const td=document.createElement('td');
       td.style.textAlign='center';
       const hasOccPromo = occ.promoPrice !== null;
+      // isBestPromo = Tourist Double: red strikethrough + green price
+      // other promo: grey strikethrough + neutral price
       const priceHTML = hasOccPromo
-        ? `<div class="occ-price-promo"><span class="p-orig">${fmt(occ.price)}</span><span class="p-curr">${fmt(occ.promoPrice)}</span></div>`
+        ? occ.isBestPromo
+          ? `<div class="occ-price-promo"><span class="p-orig">${fmt(occ.price)}</span><span class="p-curr">${fmt(occ.promoPrice)}</span></div>`
+          : `<div class="occ-price-promo"><span class="p-orig-grey">${fmt(occ.price)}</span><span class="p-curr-grey">${fmt(occ.promoPrice)}</span></div>`
         : `<span class="occ-price">${fmt(occ.price)}</span>`;
       const rateStr = hasOccPromo
         ? `${cat.name} – ${occ.label} (EN English guide): ${fmt(occ.promoPrice)} per pax (promotional, regular ${fmt(occ.price)})`
@@ -940,11 +1053,97 @@ function goToStep1(){
   document.getElementById('modal').scrollTop = 0;
 }
 
+
+function openRequestModal(){
+  const m=document.getElementById('reqModal');
+  m.classList.add('open');
+  m.scrollTop=0;
+  document.body.style.overflow='hidden';
+  requestAnimationFrame(function(){
+    document.querySelector('.req-modal-box').scrollIntoView({behavior:'smooth',block:'center'});
+  });
+}
+function closeRequestModal(){
+  document.getElementById('reqModal').classList.remove('open');
+  document.body.style.overflow='';
+}
+function handleReqOverlayClick(e){
+  if(e.target===document.getElementById('reqModal')) closeRequestModal();
+}
+
+function openRequestModal(){
+  const overlay = document.getElementById('requestModal');
+  overlay.classList.add('open');
+  overlay.scrollTop = 0;
+  document.body.style.overflow = 'hidden';
+  requestAnimationFrame(function(){
+    document.querySelector('#requestModal .modal-box').scrollIntoView({ behavior:'smooth', block:'center' });
+  });
+}
+function closeRequestModal(){
+  document.getElementById('requestModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function handleRequestOverlayClick(e){
+  if(e.target === document.getElementById('requestModal')) closeRequestModal();
+}
+
 /* INIT */
 updateCounts();
 renderCards('all');
 
 
 </script>
+
+<!-- REQUEST DATE MODAL -->
+<div id="reqModal" class="req-modal-overlay" onclick="handleReqOverlayClick(event)">
+  <div class="req-modal-box">
+    <div class="req-modal-header">
+      <button class="req-modal-close" onclick="closeRequestModal()">&#10005;</button>
+      <div class="req-modal-title">Request a Specific Departure</div>
+      <div class="req-modal-sub">Our team will get back to you with availability details.</div>
+    </div>
+    <div class="req-modal-body">
+      <form action="https://formspree.io/f/xaqdeevb" method="POST">
+        <input type="hidden" name="request_type" value="Departure Date Request">
+        <div class="form-grid-2">
+          <div class="form-row"><label>Full Name *</label><input type="text" name="name" required placeholder="Your full name"></div>
+          <div class="form-row"><label>Company *</label><input type="text" name="company" required placeholder="Agency / company name"></div>
+        </div>
+        <div class="form-grid-2">
+          <div class="form-row"><label>Email *</label><input type="email" name="email" required placeholder="your@email.com"></div>
+          <div class="form-row"><label>Phone</label><input type="text" name="phone" placeholder="+1 000 000 0000"></div>
+        </div>
+        <div class="form-row">
+          <label>Program *</label>
+          <select name="program" required style="font-family:'Montserrat',sans-serif;width:100%;padding:9px 13px;border:1.5px solid #dde1ea;border-radius:7px;font-size:12px;color:#1a1a2e;background:#fff;outline:none;box-sizing:border-box;">
+            <option value="" disabled selected>Select a program</option>
+            <option>Galápagos Loop 6D/5N</option>
+            <option>Galápagos Loop 7D/6N – Immersive</option>
+            <option>Charles Darwin Path 8D/7N</option>
+            <option>Galápagos 360 6D/5N</option>
+            <option>Andean Treasures 8D/7N</option>
+            <option>Volcano Avenue 6D/5N</option>
+            <option>Volcano Avenue 5D/4N</option>
+            <option>Volcano Avenue 3D/2N</option>
+            <option>Volcano Avenue 2D/1N</option>
+            <option>Shared Daily Tours – Quito</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label>Requested Departure Date *</label>
+          <input type="text" name="requested_date" required placeholder="e.g. 15 Mar 2026">
+        </div>
+        <div class="form-row">
+          <label>Message</label>
+          <textarea name="message" rows="3" placeholder="Any additional details..." style="font-family:'Montserrat',sans-serif;width:100%;padding:9px 13px;border:1.5px solid #dde1ea;border-radius:7px;font-size:12px;color:#1a1a2e;resize:vertical;min-height:80px;outline:none;box-sizing:border-box;"></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Send Request</button>
+      </form>
+      <p class="form-note">Our team will review your request and get back to you as soon as possible.</p>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
