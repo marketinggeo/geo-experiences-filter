@@ -75,6 +75,11 @@ body {
 .filter-btn.f-sold { border-color:#b03a2e; color:#b03a2e; }
 .filter-btn.f-sold .f-count { background:#fde8e6; color:#b03a2e; }
 .filter-btn.f-sold.active, .filter-btn.f-sold:hover { background:#b03a2e; border-color:#b03a2e; color:#fff; }
+/* [SOLO] Solo Traveler filter button */
+.filter-btn.f-solo { border-color:#00897B; color:#00897B; }
+.filter-btn.f-solo .f-count { background:#e0f2f1; color:#00897B; }
+.filter-btn.f-solo.active, .filter-btn.f-solo:hover { background:#00897B; border-color:#00897B; color:#fff; }
+.filter-btn.f-solo.active .f-count, .filter-btn.f-solo:hover .f-count { background:rgba(255,255,255,0.25); color:#fff; }
 
 /* SECTION DIVIDER */
 .section-divider {
@@ -105,6 +110,8 @@ body {
 .dep-card[data-region="galapagos"] .card-accent { background: linear-gradient(90deg,#1a56c4,#4a90d9); }
 .dep-card[data-region="andean"]    .card-accent { background: linear-gradient(90deg,#c45f1a,#d98a4a); }
 .dep-card[data-region="volcano"]   .card-accent { background: linear-gradient(90deg,#5a1a9e,#8a4ac4); }
+/* [SOLO] Teal accent for solo traveler cards */
+.dep-card[data-region="solo"]      .card-accent { background: linear-gradient(90deg,#00897B,#00bfa5); }
 
 .card-body { padding: 18px 20px 16px; flex:1; display:flex; flex-direction:column; }
 .card-date { font-size:21px; font-weight:700; color:#002060; line-height:1.1; margin-bottom:4px; letter-spacing:-0.3px; }
@@ -117,6 +124,18 @@ body {
 }
 .itinerary-link:hover { text-decoration:underline; }
 .itinerary-link::after { content:'→'; }
+/* [SOLO] Teal itinerary link for solo cards */
+.dep-card[data-region="solo"] .itinerary-link { color:#00897B; }
+
+/* [SOLO] Departure detail note */
+.card-dep-detail {
+  font-size:10.5px; color:#555; font-style:italic;
+  margin-top:8px; line-height:1.5;
+  padding: 6px 10px;
+  background:#f4fafa;
+  border-left: 2px solid #00897B;
+  border-radius: 0 4px 4px 0;
+}
 
 /* BADGES */
 .badges-row { display:flex; flex-wrap:wrap; gap:5px; margin-top:12px; }
@@ -132,6 +151,8 @@ body {
 .badge-few       { background:#fdf6ec; color:#9e6300; border:1px solid #e8d5b0; animation:badge-pulse-amber 2.5s ease-in-out infinite; }
 .badge-deal-summer { background:#fdf8ee; color:#7a5800; border:1px solid #e0cfa0; }
 .badge-deal-eoy    { background:#f0f5f0; color:#2e6b3e; border:1px solid #b8d4bc; }
+/* [SOLO] New Program badge */
+.badge-new { background:linear-gradient(135deg,#00897B,#00bfa5); color:#fff; border:none; box-shadow:0 2px 6px rgba(0,137,123,0.3); }
 @keyframes badge-pulse-amber {
   0%,100% { box-shadow:0 0 0 0 rgba(158,99,0,0); }
   50%      { box-shadow:0 0 0 3px rgba(158,99,0,0.1); }
@@ -502,6 +523,7 @@ body {
   <button class="filter-btn"          onclick="applyFilter('galapagos',this)">Galápagos <span class="f-count" id="cnt-galapagos">0</span></button>
   <button class="filter-btn"          onclick="applyFilter('andean',this)">Andean Treasures <span class="f-count" id="cnt-andean">0</span></button>
   <button class="filter-btn"          onclick="applyFilter('volcano',this)">Volcano Avenue <span class="f-count" id="cnt-volcano">0</span></button>
+  <button class="filter-btn f-solo"   onclick="applyFilter('solo',this)">Solo Traveler <span class="f-count" id="cnt-solo">0</span></button>
   <button class="filter-btn"          onclick="applyFilter('promo',this)">Special Condition <span class="f-count" id="cnt-promo">0</span></button>
   <button class="filter-btn f-urgent" onclick="applyFilter('few',this)">Few Spots Available <span class="f-count" id="cnt-few">0</span></button>
   <button class="filter-btn f-sold"   onclick="applyFilter('sold',this)">Sold Out <span class="f-count" id="cnt-sold">0</span></button>
@@ -545,6 +567,7 @@ body {
             <option>Volcano Avenue 3D/2N</option>
             <option>Volcano Avenue 2D/1N</option>
             <option>Shared Daily Tours – Quito</option>
+            <option>Galápagos Solo – Santa Cruz 4D/3N</option>
           </select>
         </div>
         <div class="form-row">
@@ -704,6 +727,38 @@ body {
         <p class="rates-note">Rates: Per person and net rates in USD Dollars.</p>
       </div>
 
+      <!-- [SOLO] GALÁPAGOS SOLO TRAVELER -->
+      <div id="soloRates" style="display:none;">
+        <div class="rates-section-title">Select accommodation category</div>
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:12px;font-size:11px;color:#4a5568;font-weight:500;">
+          <span class="rate-flag"><svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#012169"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="8"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" stroke-width="5"/><path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="12"/><path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="8"/></svg></span> English guide · DBL same-sex sharing basis
+        </div>
+        <div class="rates-grid">
+          <div class="rate-card" onclick="selectRate(this,'Tourist – DBL same-sex sharing: $1,027 per pax / Single supplement: $72')">
+            <div><span class="rate-label">Tourist</span><span class="rate-sub">Standard accommodation</span></div>
+            <div class="rate-prices">
+              <div class="rate-price-col"><span class="price-type">DBL per pax</span><span class="price-val">$1,027</span></div>
+              <div class="rate-price-col"><span class="price-type">Single suppl.</span><span class="price-val">$72</span></div>
+            </div>
+          </div>
+          <div class="rate-card" onclick="selectRate(this,'Tourist Superior – DBL same-sex sharing: $1,096 per pax / Single supplement: $135')">
+            <div><span class="rate-label">Tourist Superior</span><span class="rate-sub">Enhanced comfort category</span></div>
+            <div class="rate-prices">
+              <div class="rate-price-col"><span class="price-type">DBL per pax</span><span class="price-val">$1,096</span></div>
+              <div class="rate-price-col"><span class="price-type">Single suppl.</span><span class="price-val">$135</span></div>
+            </div>
+          </div>
+          <div class="rate-card" onclick="selectRate(this,'First Class – DBL same-sex sharing: $1,264 per pax / Single supplement: $318')">
+            <div><span class="rate-label">First Class</span><span class="rate-sub">Premium category</span></div>
+            <div class="rate-prices">
+              <div class="rate-price-col"><span class="price-type">DBL per pax</span><span class="price-val">$1,264</span></div>
+              <div class="rate-price-col"><span class="price-type">Single suppl.</span><span class="price-val">$318</span></div>
+            </div>
+          </div>
+        </div>
+        <p class="rates-note">Rates: Per person and net rates in USD Dollars. DBL occupancy on same-sex sharing basis. Single supplement applies if no same-sex roommate is available.</p>
+      </div>
+
       <div class="modal-nav">
         <button class="btn-primary" onclick="goToStep2()" id="btnNext" disabled style="opacity:0.4">Continue</button>
       </div>
@@ -766,7 +821,14 @@ const departures = [
   { region:'andean', date:'06 Sep', year:'2026', fullDate:'06 Sep 2026', program:'Andean Treasures', duration:'8 Days / 7 Nights', status:['open','confirmed'], promo:false, bookable:true, fewSpots:false, dealType:null, promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/volcano-avenue/andean-treasures?authuser=0', priceFrom:{ regular:'$1,395', promo:null } },
   { region:'andean', date:'04 Oct', year:'2026', fullDate:'04 Oct 2026', program:'Andean Treasures', duration:'8 Days / 7 Nights', status:['open','confirmed'], promo:false, bookable:true, fewSpots:false, dealType:null, promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/volcano-avenue/andean-treasures?authuser=0', priceFrom:{ regular:'$1,395', promo:null } },
   // VOLCANO AVENUE
-  { region:'volcano', date:'23 Jul', year:'2026', fullDate:'23 Jul 2026', program:'Volcano Avenue 6D/5N', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:false, bookable:true, fewSpots:false, dealType:null, promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/volcano-avenue/shared-volcano-avenue-6d-5n?authuser=0', priceFrom:{ regular:'$807', promo:null } }
+  { region:'volcano', date:'23 Jul', year:'2026', fullDate:'23 Jul 2026', program:'Volcano Avenue 6D/5N', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:false, bookable:true, fewSpots:false, dealType:null, promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/volcano-avenue/shared-volcano-avenue-6d-5n?authuser=0', priceFrom:{ regular:'$807', promo:null } },
+  // [SOLO] GALÁPAGOS SOLO TRAVELER
+  { region:'solo', date:'12 Apr', year:'2026', fullDate:'12 Apr 2026', program:'Galápagos Solo – Santa Cruz', duration:'4 Days / 3 Nights', status:['open','confirmed'], promo:false, bookable:true, fewSpots:false, dealType:null, promoPrice:false, depDetail:'Available following the Andean Treasures program in SIB (open)', itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-solo-traveler-santa-cruz?authuser=0', priceFrom:{ regular:'$1,027', promo:null } },
+  { region:'solo', date:'10 May', year:'2026', fullDate:'10 May 2026', program:'Galápagos Solo – Santa Cruz', duration:'4 Days / 3 Nights', status:['open','confirmed'], promo:false, bookable:true, fewSpots:false, dealType:null, promoPrice:false, depDetail:'Loop program running the same date in SIB (open)', itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-solo-traveler-santa-cruz?authuser=0', priceFrom:{ regular:'$1,027', promo:null } },
+  { region:'solo', date:'14 Jun', year:'2026', fullDate:'14 Jun 2026', program:'Galápagos Solo – Santa Cruz', duration:'4 Days / 3 Nights', status:['open','confirmed'], promo:false, bookable:true, fewSpots:false, dealType:null, promoPrice:false, depDetail:'Available following the Andean Treasures program in SIB (open)', itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-solo-traveler-santa-cruz?authuser=0', priceFrom:{ regular:'$1,027', promo:null } },
+  { region:'solo', date:'29 Jul', year:'2026', fullDate:'29 Jul 2026', program:'Galápagos Solo – Santa Cruz', duration:'4 Days / 3 Nights', status:['open','confirmed'], promo:false, bookable:true, fewSpots:false, dealType:null, promoPrice:false, depDetail:'Available following the Volcano Avenue program in SIB (open)', itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-solo-traveler-santa-cruz?authuser=0', priceFrom:{ regular:'$1,027', promo:null } },
+  { region:'solo', date:'09 Aug', year:'2026', fullDate:'09 Aug 2026', program:'Galápagos Solo – Santa Cruz', duration:'4 Days / 3 Nights', status:['open'],            promo:false, bookable:true, fewSpots:false, dealType:null, promoPrice:false, depDetail:'Available following the Andean Treasures program in SIB (potential)', itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-solo-traveler-santa-cruz?authuser=0', priceFrom:{ regular:'$1,027', promo:null } },
+  { region:'solo', date:'11 Oct', year:'2026', fullDate:'11 Oct 2026', program:'Galápagos Solo – Santa Cruz', duration:'4 Days / 3 Nights', status:['open','confirmed'], promo:false, bookable:true, fewSpots:false, dealType:null, promoPrice:false, depDetail:'Available following the Andean Treasures program in SIB (open)', itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-solo-traveler-santa-cruz?authuser=0', priceFrom:{ regular:'$1,027', promo:null } }
 ];
 
 /* Galápagos Loop rates — EN & DE */
@@ -786,8 +848,8 @@ const loopRates = {
 /* =====================
    HELPERS
 ===================== */
-const regionOrder  = ['galapagos','andean','volcano'];
-const regionLabels = { galapagos:'Galápagos', andean:'Andean Treasures', volcano:'Volcano Avenue' };
+const regionOrder  = ['galapagos','andean','volcano','solo'];
+const regionLabels = { galapagos:'Galápagos', andean:'Andean Treasures', volcano:'Volcano Avenue', solo:'Galápagos Solo Traveler' };
 
 function fmt(n){ return '$'+n.toLocaleString('en-US'); }
 
@@ -801,6 +863,8 @@ function dealBadge(t){
   return '';
 }
 function fewBadge(){ return `<span class="badge badge-few">⚑ Few Spots Available</span>`; }
+/* [SOLO] New Program badge */
+function newBadge(){ return `<span class="badge badge-new">✦ New Program</span>`; }
 
 function priceFooter(dep){
   if(!dep.bookable) return '';
@@ -830,6 +894,7 @@ function renderCards(filter){
     if(filter==='galapagos') return d.region==='galapagos';
     if(filter==='andean')    return d.region==='andean';
     if(filter==='volcano')   return d.region==='volcano';
+    if(filter==='solo')      return d.region==='solo';
     if(filter==='promo')     return d.promo||d.dealType;
     if(filter==='few')       return d.fewSpots;
     if(filter==='sold')      return d.status.includes('sold');
@@ -859,9 +924,14 @@ function renderCards(filter){
       let badges=dep.status.map(badgeHTML).join('');
       if(dep.dealType) badges+=dealBadge(dep.dealType);
       if(dep.fewSpots) badges+=fewBadge();
+      if(dep.region==='solo') badges+=newBadge();
+      /* [SOLO] departure detail note */
+      const depDetailHTML = dep.depDetail
+        ? `<div class="card-dep-detail">${dep.depDetail}</div>`
+        : '';
       const card=document.createElement('div');
       card.className=cls; card.dataset.region=dep.region;
-      card.innerHTML=`<div class="card-accent"></div>${overlay}<div class="card-body"><div class="card-date">${dep.date} <span class="card-year">${dep.year}</span></div><div class="card-program">${dep.program}</div><div class="card-duration">${dep.duration}</div><a href="${dep.itinerary}" target="_blank" class="itinerary-link">View itinerary</a><div class="badges-row">${badges}</div>${promoStrip(dep)}</div>${priceFooter(dep)}`;
+      card.innerHTML=`<div class="card-accent"></div>${overlay}<div class="card-body"><div class="card-date">${dep.date} <span class="card-year">${dep.year}</span></div><div class="card-program">${dep.program}</div><div class="card-duration">${dep.duration}</div><a href="${dep.itinerary}" target="_blank" class="itinerary-link">View itinerary</a>${depDetailHTML}<div class="badges-row">${badges}</div>${promoStrip(dep)}</div>${priceFooter(dep)}`;
       grid.appendChild(card);
     });
     container.appendChild(grid);
@@ -877,6 +947,7 @@ function updateCounts(){
     galapagos: departures.filter(d=>d.region==='galapagos').length,
     andean:    departures.filter(d=>d.region==='andean').length,
     volcano:   departures.filter(d=>d.region==='volcano').length,
+    solo:      departures.filter(d=>d.region==='solo').length,
     promo:     departures.filter(d=>d.promo||d.dealType).length,
     few:       departures.filter(d=>d.fewSpots).length,
     sold:      departures.filter(d=>d.status.includes('sold')).length
@@ -915,17 +986,13 @@ function buildLoopTable(lang, hasPromo){
       { key:'triple', label:'Triple', price:cat.triple, promoPrice: (hasPromo && lang==='en' && cat.promoTriple) ? cat.promoTriple : null, isBestPromo: false }
     ];
     const tr=document.createElement('tr');
-    // Category cell
     const tdCat=document.createElement('td');
     tdCat.innerHTML=`<span class="cat-cell-name">${cat.name}${cat.best&&hasPromo&&lang==='en'?'<span class="best-tag">Best offer</span>':''}</span><span class="cat-cell-sub">${cat.sub}</span>`;
     tr.appendChild(tdCat);
-    // Occupancy cells
     occupancies.forEach(occ=>{
       const td=document.createElement('td');
       td.style.textAlign='center';
       const hasOccPromo = occ.promoPrice !== null;
-      // isBestPromo = Tourist Double: red strikethrough + green price
-      // other promo: grey strikethrough + neutral price
       const priceHTML = hasOccPromo
         ? occ.isBestPromo
           ? `<div class="occ-price-promo"><span class="p-orig">${fmt(occ.price)}</span><span class="p-curr">${fmt(occ.promoPrice)}</span></div>`
@@ -957,10 +1024,8 @@ function switchLang(lang){
   currentLang=lang;
   document.getElementById('langTabEN').classList.toggle('active', lang==='en');
   document.getElementById('langTabDE').classList.toggle('active', lang==='de');
-  // Show promo-only notice when DE is selected and this departure has promo
   const notice=document.getElementById('promoOnlyNotice');
   notice.classList.toggle('visible', lang==='de' && currentPromo);
-  // Clear selection
   selectedRateText='';
   const next=document.getElementById('btnNext');
   next.disabled=true; next.style.opacity='0.4';
@@ -980,6 +1045,7 @@ function openModal(program,date,region,fewSpots,promoPrice){
   document.getElementById('loopRates').style.display    = region==='galapagos' ? 'block' : 'none';
   document.getElementById('andeanRates').style.display  = region==='andean'    ? 'block' : 'none';
   document.getElementById('volcanoRates').style.display = region==='volcano'   ? 'block' : 'none';
+  document.getElementById('soloRates').style.display    = region==='solo'      ? 'block' : 'none';
 
   if(region==='galapagos'){
     currentPromo = promoPrice;
@@ -1012,7 +1078,7 @@ function handleOverlayClick(e){
 }
 
 /* =====================
-   RATE SELECTION (Andean / Volcano)
+   RATE SELECTION (Andean / Volcano / Solo)
 ===================== */
 function selectRate(el,rateText){
   document.querySelectorAll('.rate-card').forEach(c=>c.classList.remove('selected'));
@@ -1052,7 +1118,6 @@ function goToStep1(){
   document.getElementById('modal').scrollTop = 0;
 }
 
-
 function openRequestModal(){
   const overlay = document.getElementById('requestModal');
   overlay.classList.add('open');
@@ -1088,7 +1153,6 @@ document.addEventListener('click', function(e){
     document.querySelector('#modal .modal-box').scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 });
-
 
 </script>
 
