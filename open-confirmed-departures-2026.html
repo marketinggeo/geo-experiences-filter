@@ -241,9 +241,9 @@ body {
   z-index: 99999;
   justify-content: center;
   align-items: flex-start;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  overscroll-behavior: contain; /* M11 — iOS scroll containment */
+  /* Overlay itself does NOT scroll or capture pointer events */
+  overflow: hidden;
+  pointer-events: none;
   padding: 16px;
   box-sizing: border-box;
 }
@@ -257,7 +257,10 @@ body {
   margin: auto;
   box-shadow: 0 20px 60px rgba(0,32,96,0.18);
   animation: modal-in 0.2s ease;
-  overflow: hidden;
+  /* Modal box captures pointer events and scrolls internally */
+  pointer-events: auto;
+  overflow-y: auto;
+  max-height: calc(100vh - 32px);
   position: relative;
 }
 @keyframes modal-in {
@@ -531,9 +534,9 @@ body {
 .request-date-btn:hover { background:#003080; }
 
 /* REQUEST DATE MODAL */
-.req-modal-overlay { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(10,20,60,0.55); z-index:99999; justify-content:center; align-items:flex-start; overflow-y:auto; overscroll-behavior:contain; padding:24px 16px 40px; box-sizing:border-box; }
+.req-modal-overlay { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(10,20,60,0.55); z-index:99999; justify-content:center; align-items:flex-start; overflow:hidden; pointer-events:none; padding:24px 16px 40px; box-sizing:border-box; }
 .req-modal-overlay.open { display:flex; }
-.req-modal-box { background:#fff; border-radius:16px; width:100%; max-width:540px; margin:auto; overflow:hidden; box-shadow:0 20px 60px rgba(0,32,96,0.18); animation:modal-in 0.2s ease; position:relative; }
+.req-modal-box { background:#fff; border-radius:16px; width:100%; max-width:540px; margin:auto; overflow-y:auto; max-height:calc(100vh - 64px); box-shadow:0 20px 60px rgba(0,32,96,0.18); animation:modal-in 0.2s ease; position:relative; pointer-events:auto; }
 .req-modal-header { background:#002060; padding:20px 26px 18px; position:relative; }
 .req-modal-title { font-size:16px; font-weight:700; color:#fff; margin-bottom:3px; padding-right:36px; }
 .req-modal-sub { font-size:11px; color:rgba(255,255,255,0.65); }
@@ -590,8 +593,8 @@ body {
 <div class="empty-state" id="emptyState"><p>No departures match the selected filter.</p></div>
 
 <!-- REQUEST DATE MODAL -->
-<div id="requestModal" class="req-modal-overlay" onclick="handleRequestOverlayClick(event)">
-  <div class="req-modal-box">
+<div id="requestModal" class="req-modal-overlay">
+  <div class="req-modal-box" onclick="event.stopPropagation()">
     <div class="req-modal-header">
       <button class="req-modal-close" onclick="closeRequestModal()">✕</button>
       <div class="req-modal-title">Request a Specific Departure Date</div>
@@ -639,8 +642,8 @@ body {
 </div>
 
 <!-- BOOKING MODAL -->
-<div id="modal" class="modal-overlay" onclick="handleOverlayClick(event)">
-  <div class="modal-box">
+<div id="modal" class="modal-overlay">
+  <div class="modal-box" onclick="event.stopPropagation()">
 
     <div class="modal-header">
       <button class="modal-close" onclick="closeModal()">✕</button>
@@ -1299,9 +1302,8 @@ function closeModal(){
   formMessageDirty = false;
 }
 
-function handleOverlayClick(e){
-  if(e.target===document.getElementById('modal')) closeModal();
-}
+function handleOverlayClick(e){ /* no-op: overlay has pointer-events:none */ }
+function handleRequestOverlayClick(e){ /* no-op: overlay has pointer-events:none */ }
 
 /* =====================
    STEP NAVIGATION
@@ -1344,9 +1346,6 @@ function openRequestModal(){
 }
 function closeRequestModal(){
   document.getElementById('requestModal').classList.remove('open');
-}
-function handleRequestOverlayClick(e){
-  if(e.target === document.getElementById('requestModal')) closeRequestModal();
 }
 
 /* INIT */
