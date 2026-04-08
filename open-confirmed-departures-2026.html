@@ -1289,14 +1289,12 @@ function openModal(program, date, region, subRegion, fewSpots, promoPrice){
   const overlay = document.getElementById('modal');
   overlay.classList.add('open');
   overlay.scrollTop = 0;
-  document.body.style.overflow = 'hidden';
 }
 
 function closeModal(){
   const overlay = document.getElementById('modal');
   overlay.classList.remove('open');
   overlay.scrollTop = 0;
-  document.body.style.overflow = '';
   /* Reset dirty flag when modal is fully closed */
   formMessageDirty = false;
 }
@@ -1340,14 +1338,12 @@ function openRequestModal(){
   const overlay = document.getElementById('requestModal');
   overlay.classList.add('open');
   overlay.scrollTop = 0;
-  document.body.style.overflow = 'hidden';
   requestAnimationFrame(function(){
     document.querySelector('#requestModal .req-modal-box').scrollIntoView({ behavior: 'smooth', block: 'center' });
   });
 }
 function closeRequestModal(){
   document.getElementById('requestModal').classList.remove('open');
-  document.body.style.overflow = '';
 }
 function handleRequestOverlayClick(e){
   if(e.target === document.getElementById('requestModal')) closeRequestModal();
