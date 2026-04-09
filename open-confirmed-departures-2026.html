@@ -729,6 +729,47 @@ body {
   </div>
 </div>
 
+<!-- GROUP PRICING MODAL -->
+<div id="groupModal" class="req-modal-overlay" onclick="if(event.target===this)closeGroupModal()" style="display:none;opacity:0;pointer-events:none;">
+  <div class="req-modal-box" onclick="event.stopPropagation()">
+    <div class="req-modal-header">
+      <button class="req-modal-close" onclick="closeGroupModal()">✕</button>
+      <div class="req-modal-title">Group Pricing — Galápagos Loop</div>
+      <div class="req-modal-sub">Special rates available for 6 or more passengers on the same departure.</div>
+    </div>
+    <div class="req-modal-body">
+      <form action="https://formspree.io/f/xaqdeevb" method="POST">
+        <input type="hidden" name="request_type" value="Group Pricing Inquiry – Galápagos Loop">
+        <input type="hidden" name="program" value="Galápagos Loop – 6 Days / 5 Nights">
+        <div class="form-row">
+          <label>Departure date *</label>
+          <select name="departure_date" id="groupModalDates" required style="font-family:'Montserrat',sans-serif;padding:10px 12px;border:1.5px solid #d0d5de;border-radius:7px;font-size:13px;color:#1a1a2e;background:#fff;width:100%;">
+            <option value="" disabled selected>Select a departure</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label>Number of passengers *</label>
+          <input type="number" name="num_passengers" min="6" required placeholder="Minimum 6 passengers" style="font-family:'Montserrat',sans-serif;padding:10px 12px;border:1.5px solid #d0d5de;border-radius:7px;font-size:13px;width:100%;">
+        </div>
+        <div class="form-grid-2">
+          <div class="form-row"><label>Full Name *</label><input type="text" name="name" required placeholder="Your full name"></div>
+          <div class="form-row"><label>Company *</label><input type="text" name="company" required placeholder="Agency / company name"></div>
+        </div>
+        <div class="form-grid-2">
+          <div class="form-row"><label>Email *</label><input type="email" name="email" required placeholder="your@email.com"></div>
+          <div class="form-row"><label>Phone</label><input type="text" name="phone" placeholder="+1 000 000 0000"></div>
+        </div>
+        <div class="form-row">
+          <label>Message</label>
+          <textarea name="message" id="groupModalMessage" rows="3"></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Send Group Pricing Request</button>
+      </form>
+      <p class="form-note">Our team will review your group inquiry and get back to you within 24 business hours with exclusive pricing options.</p>
+    </div>
+  </div>
+</div>
+
 <!-- BOOKING MODAL -->
 <div id="modal" class="modal-overlay" onclick="handleOverlayClick(event)">
   <div class="modal-box" onclick="event.stopPropagation()">
@@ -786,7 +827,7 @@ body {
         <p class="rates-note">Rates: Per person and net rates in USD Dollars. All categories include program services as per itinerary.</p>
         <div class="group-promo-note" style="margin-top:12px;margin-bottom:0;">
           <div class="gpn-text"><strong>✦ Travelling with 6 or more passengers?</strong>Special group rates available for the same departure — contact us for your options.</div>
-          <a class="gpn-btn" href="https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/contact-us" target="_blank">Ask about group rates →</a>
+          <button class="gpn-btn" onclick="openGroupModal()">Ask about group rates →</button>
         </div>
       </div>
 
@@ -824,7 +865,7 @@ body {
         <p class="rates-note">Rates: Per person and net rates in USD Dollars. All categories include program services as per itinerary.</p>
         <div class="group-promo-note" style="margin-top:12px;margin-bottom:0;">
           <div class="gpn-text"><strong>✦ Travelling with 6 or more passengers?</strong>Special group rates available for the same departure — contact us for your options.</div>
-          <a class="gpn-btn" href="https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/contact-us" target="_blank">Ask about group rates →</a>
+          <button class="gpn-btn" onclick="openGroupModal()">Ask about group rates →</button>
         </div>
         <div class="modal-rates-divider"><span class="divider-label">This departure is also available as Solo Traveler — bookable from 1 passenger</span></div>
         <div class="solo-block-in-modal">
@@ -962,7 +1003,7 @@ body {
         </div>
         <div class="group-promo-note" id="groupPromoForm" style="display:none;">
           <div class="gpn-text"><strong>✦ Travelling with 6 or more passengers?</strong>Ask us about special group rates for the Galápagos Loop — we have exclusive pricing for groups on the same departure.</div>
-          <a class="gpn-btn" href="https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/contact-us" target="_blank">Ask about group rates →</a>
+          <button class="gpn-btn" onclick="openGroupModal()">Ask about group rates →</button>
         </div>
         <div class="form-row"><label>Message</label><textarea name="message" id="formMessage" rows="3"></textarea></div>
         <button type="submit" class="submit-btn">Send Booking Request</button>
@@ -987,17 +1028,17 @@ const departures = [
   { region:'galapagos', subRegion:'galapagos', date:'25–30 Jan',     year:'2026', fullDate:'25–30 Jan 2026',     program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['operated'],         promo:true,  bookable:false, fewSpots:false, dealType:null,     promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:null },
   { region:'galapagos', subRegion:'galapagos', date:'15–20 Feb',     year:'2026', fullDate:'15–20 Feb 2026',     program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['operated','sold'],  promo:false, bookable:false, fewSpots:false, dealType:null,     promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:null },
   { region:'galapagos', subRegion:'galapagos', date:'01–06 Mar',     year:'2026', fullDate:'01–06 Mar 2026',     program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['operated'],         promo:true,  bookable:false, fewSpots:false, dealType:null,     promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:null },
-  { region:'galapagos', subRegion:'galapagos', date:'10–15 May',     year:'2026', fullDate:'10–15 May 2026',     program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:false, dealType:'summer', promoPrice:true,  hasSolo:true, soloPromo:true,  itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:'$1,999' } },
+  { region:'galapagos', subRegion:'galapagos', date:'10–15 May',     year:'2026', fullDate:'10–15 May 2026',     program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:false, dealType:'summer', promoPrice:true,  hasSolo:true, soloPromo:true, soloHasDEGuide:true, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:'$1,999' } },
   { region:'galapagos', subRegion:'galapagos', date:'07–12 Jun',     year:'2026', fullDate:'07–12 Jun 2026',     program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:true,  dealType:'summer', promoPrice:true,  itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:'$1,999' } },
   { region:'galapagos', subRegion:'galapagos', date:'21–26 Jun',     year:'2026', fullDate:'21–26 Jun 2026',     program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:true,  bookable:true,  fewSpots:false, dealType:null,     promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:null } },
   { region:'galapagos', subRegion:'galapagos', date:'12–17 Jul',     year:'2026', fullDate:'12–17 Jul 2026',     program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:true,  dealType:'summer', promoPrice:true,  itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:'$1,999' } },
   { region:'galapagos', subRegion:'galapagos', date:'02–07 Aug',     year:'2026', fullDate:'02–07 Aug 2026',     program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:true,  bookable:true,  fewSpots:false, dealType:null,  promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:null } },
-  { region:'galapagos', subRegion:'galapagos', date:'09–14 Aug',     year:'2026', fullDate:'09–14 Aug 2026',     program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:false, dealType:null,  promoPrice:false, hasSolo:true, soloPromo:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:null } },
+  { region:'galapagos', subRegion:'galapagos', date:'09–14 Aug',     year:'2026', fullDate:'09–14 Aug 2026',     program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:false, dealType:null,  promoPrice:false, hasSolo:true, soloPromo:false, soloHasDEGuide:true, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:null } },
   { region:'galapagos', subRegion:'galapagos', date:'13–18 Sep',     year:'2026', fullDate:'13–18 Sep 2026',     program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:true,  bookable:true,  fewSpots:false, dealType:null,     promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:null } },
   { region:'galapagos', subRegion:'galapagos', date:'27 Sep–02 Oct', year:'2026', fullDate:'27 Sep–02 Oct 2026', program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:true,  bookable:true,  fewSpots:false, dealType:null,     promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:null } },
   { region:'galapagos', subRegion:'galapagos', date:'18–23 Oct',     year:'2026', fullDate:'18–23 Oct 2026',     program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:false, dealType:'eoy',    promoPrice:true,  itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:'$1,999' } },
   { region:'galapagos', subRegion:'galapagos', date:'08–13 Nov',     year:'2026', fullDate:'08–13 Nov 2026',     program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:false, dealType:'eoy',  promoPrice:true,  itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:'$1,999' } },
-  { region:'galapagos', subRegion:'galapagos', date:'15–20 Nov',     year:'2026', fullDate:'15–20 Nov 2026',     program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:false, dealType:null,  promoPrice:false, hasSolo:true, soloPromo:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:null } },
+  { region:'galapagos', subRegion:'galapagos', date:'15–20 Nov',     year:'2026', fullDate:'15–20 Nov 2026',     program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:false, dealType:null,  promoPrice:false, hasSolo:true, soloPromo:false, soloHasDEGuide:true, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:null } },
   { region:'galapagos', subRegion:'galapagos', date:'13–18 Dec',     year:'2026', fullDate:'13–18 Dec 2026',     program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:false, dealType:'eoy',    promoPrice:true,  itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:'$1,999' } },
   // ANDEAN TREASURES — M1: 04 Apr now operated
   { region:'andean', subRegion:'andean', date:'04 Apr', year:'2026', fullDate:'04 Apr 2026', program:'Andean Treasures', duration:'8 Days / 7 Nights', status:['operated'], promo:false, bookable:false, fewSpots:false, dealType:null, promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/volcano-avenue/andean-treasures?authuser=0', priceFrom:null },
@@ -1190,7 +1231,7 @@ function renderCards(filter){
     if(subRegion === 'galapagos'){
       const gpn = document.createElement('div');
       gpn.className = 'group-promo-note';
-      gpn.innerHTML = `<div class="gpn-text"><strong>✦ Special rates for groups of 6 or more</strong>Travelling with 6+ passengers on the same departure? Ask us about our exclusive group pricing for the Galápagos Loop.</div><a class="gpn-btn" href="https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/contact-us" target="_blank">Ask about group rates →</a>`;
+      gpn.innerHTML = `<div class="gpn-text"><strong>✦ Special rates for groups of 6 or more</strong>Travelling with 6+ passengers on the same departure? Ask us about our exclusive group pricing for the Galápagos Loop.</div><button class="gpn-btn" onclick="openGroupModal()">Ask about group rates →</button>`;
       block.appendChild(gpn);
     }
 
@@ -1739,6 +1780,39 @@ function goToStep1(){
 document.getElementById('formMessage').addEventListener('input', function(){
   formMessageDirty = true;
 });
+
+/* =====================
+   GROUP PRICING MODAL
+===================== */
+function openGroupModal(){
+  /* Populate date dropdown with open Loop departures */
+  const sel = document.getElementById('groupModalDates');
+  sel.innerHTML = '<option value="" disabled selected>Select a departure</option>';
+  departures
+    .filter(d => d.subRegion==='galapagos' && d.status.includes('open') && d.bookable)
+    .forEach(d => {
+      const opt = document.createElement('option');
+      opt.value = d.fullDate;
+      opt.textContent = d.fullDate;
+      sel.appendChild(opt);
+    });
+  /* Pre-fill message */
+  document.getElementById('groupModalMessage').value =
+    'I have more than 6 passengers interested in the Galápagos Loop and would like to receive information about group pricing for a specific departure.';
+  /* Show modal */
+  const overlay = document.getElementById('groupModal');
+  overlay.style.display = 'flex';
+  overlay.style.opacity = '1';
+  overlay.style.pointerEvents = 'auto';
+  document.body.style.overflow = 'hidden';
+}
+function closeGroupModal(){
+  const overlay = document.getElementById('groupModal');
+  overlay.style.display = 'none';
+  overlay.style.opacity = '0';
+  overlay.style.pointerEvents = 'none';
+  document.body.style.overflow = '';
+}
 
 /* =====================
    REQUEST DATE MODAL
