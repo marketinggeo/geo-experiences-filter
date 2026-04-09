@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -92,7 +92,7 @@ body {
 .section-block.region-solo-loop      { background: #dce8ff; border: 1px solid #a8c0e8; }
 .section-block.region-solo-at        { background: #fdf0e0; border: 1px solid #e8cc98; }
 
-/* SECTION DIVIDER — als Blockheader */
+/* SECTION DIVIDER — as block header */
 .section-divider {
   display: flex; align-items: center; gap: 12px; margin-bottom: 16px;
 }
@@ -108,38 +108,24 @@ body {
 .section-block.region-solo-at        .section-divider::after { background: #d4a870; }
 .section-divider::after { content:''; flex:1; height:1px; }
 
-/* SOLO TRAVELER — Hinweisbox (EN-Reiseleiter) */
-.solo-guide-notice {
-  display: flex; align-items: center; gap: 10px;
-  background: #f0f4ff; border: 1px solid #c5d3f0; border-radius: 8px;
-  padding: 10px 14px; margin-bottom: 16px;
-  font-size: 11px; color: #1a4fa0; font-weight: 500; line-height: 1.5;
+/* SOLO AVAILABLE RIBBON — top-right corner of hasSolo cards */
+.solo-available-ribbon {
+  position: absolute;
+  top: 14px; right: 0;
+  background: linear-gradient(135deg, #00897B, #00bfa5);
+  color: #fff;
+  font-size: 9px; font-weight: 700; letter-spacing: 0.6px;
+  text-transform: uppercase;
+  padding: 5px 12px 5px 10px;
+  border-radius: 4px 0 0 4px;
+  box-shadow: -2px 2px 6px rgba(0,137,123,0.25);
+  line-height: 1.3;
+  text-align: right;
+  z-index: 2;
+  max-width: 160px;
 }
-.solo-guide-notice .flag-inline {
-  display: inline-flex; align-items: center; width: 22px; height: 15px;
-  border-radius: 2px; overflow: hidden; flex-shrink: 0;
-}
-.solo-guide-notice .flag-inline svg { width: 22px; height: 15px; display: block; }
 
-/* SOLO AVAILABLE BANNER — auf Loop/AT-Karten mit Solo Traveler-Version */
-.solo-available-banner {
-  display: flex; align-items: center; gap: 8px;
-  background: linear-gradient(135deg, #e8f5f3, #f0faf9);
-  border: 1.5px solid #00897B;
-  border-radius: 7px;
-  padding: 8px 12px;
-  margin-top: 10px;
-}
-.solo-available-banner .solo-av-icon {
-  width: 22px; height: 22px; min-width: 22px; border-radius: 50%;
-  background: #00897B; color: #fff;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 11px; font-weight: 800; flex-shrink: 0;
-}
-.solo-available-banner .solo-av-text { font-size: 11px; font-weight: 600; color: #00695C; line-height: 1.4; }
-.solo-available-banner .solo-av-text span { font-weight: 700; display: block; font-size: 10px; text-transform: uppercase; letter-spacing: 0.4px; margin-bottom: 1px; }
-
-/* DUAL MODAL — Trenner zwischen Loop- und Solo-Tarifen */
+/* DUAL RATES — section divider between regular rates and Solo Traveler rates */
 .modal-rates-divider {
   display: flex; align-items: center; gap: 10px;
   margin: 20px 0 16px;
@@ -152,7 +138,7 @@ body {
   padding: 0 4px;
 }
 
-/* Solo Traveler Tarifblock im Dual-Modal */
+/* Solo Traveler rates block inside dual modal */
 .solo-block-in-modal {
   background: #e8f5f3;
   border: 1.5px solid #00897B;
@@ -178,6 +164,15 @@ body {
   font-size: 10px; color: #00897B; font-weight: 500; margin-left: auto;
 }
 
+/* Guide note on card */
+.card-guide-note {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 10px; font-weight: 600; color: #1a4fa0;
+  background: #eef2fb; border: 1px solid #c3d0ef;
+  border-radius: 5px; padding: 3px 8px; margin-top: 8px;
+  width: fit-content;
+}
+
 /* CARDS GRID */
 .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap: 16px; }
 
@@ -194,12 +189,12 @@ body {
 .dep-card.is-sold     { opacity:0.5;  pointer-events:none; }
 
 .card-accent { height: 3px; }
-.dep-card[data-region="galapagos"]  .card-accent { background: linear-gradient(90deg,#1a56c4,#4a90d9); }
-.dep-card[data-region="andean"]     .card-accent { background: linear-gradient(90deg,#c45f1a,#d98a4a); }
-.dep-card[data-region="volcano"]    .card-accent { background: linear-gradient(90deg,#5a1a9e,#8a4ac4); }
-.dep-card[data-region="solo"]       .card-accent { background: linear-gradient(90deg,#00897B,#00bfa5); }
-.dep-card[data-region="solo-loop"]  .card-accent { background: linear-gradient(90deg,#1a56c4,#00897B); }
-.dep-card[data-region="solo-at"]    .card-accent { background: linear-gradient(90deg,#c45f1a,#00897B); }
+.dep-card[data-region="galapagos"]     .card-accent { background: linear-gradient(90deg,#1a56c4,#4a90d9); }
+.dep-card[data-region="andean"]        .card-accent { background: linear-gradient(90deg,#c45f1a,#d98a4a); }
+.dep-card[data-region="volcano"]       .card-accent { background: linear-gradient(90deg,#5a1a9e,#8a4ac4); }
+.dep-card[data-region="solo"]          .card-accent { background: linear-gradient(90deg,#00897B,#00bfa5); }
+.dep-card[data-region="solo-loop"]     .card-accent { background: linear-gradient(90deg,#1a56c4,#00897B); }
+.dep-card[data-region="solo-at"]       .card-accent { background: linear-gradient(90deg,#c45f1a,#00897B); }
 
 .card-body { padding: 18px 20px 16px; flex:1; display:flex; flex-direction:column; }
 .card-date { font-size:21px; font-weight:700; color:#002060; line-height:1.1; margin-bottom:4px; letter-spacing:-0.3px; }
@@ -216,7 +211,7 @@ body {
 .dep-card[data-region="solo-loop"] .itinerary-link { color:#00897B; }
 .dep-card[data-region="solo-at"]   .itinerary-link { color:#00897B; }
 
-/* Abfahrtsdetail-Hinweis */
+/* Departure detail note */
 .card-dep-detail {
   font-size:10.5px; color:#555; font-style:italic;
   margin-top:8px; line-height:1.5;
@@ -225,20 +220,6 @@ body {
   border-left: 2px solid #00897B;
   border-radius: 0 4px 4px 0;
 }
-
-/* Reiseleiter-Hinweis auf der Karte (EN-only) */
-.card-guide-note {
-  display: inline-flex; align-items: center; gap: 5px;
-  font-size: 10px; font-weight: 600; color: #1a4fa0;
-  background: #eef2fb; border: 1px solid #c3d0ef;
-  border-radius: 5px; padding: 3px 8px; margin-top: 8px;
-  width: fit-content;
-}
-.card-guide-note .flag-xs {
-  display: inline-flex; align-items: center;
-  width: 16px; height: 11px; border-radius: 1px; overflow: hidden; flex-shrink: 0;
-}
-.card-guide-note .flag-xs svg { width: 16px; height: 11px; display: block; }
 
 /* BADGES */
 .badges-row { display:flex; flex-wrap:wrap; gap:5px; margin-top:12px; }
@@ -289,7 +270,7 @@ body {
 .price-regular small { font-size:10px; font-weight:500; color:#9199a8; }
 .price-promo-label { font-size:9px; font-weight:700; letter-spacing:0.5px; text-transform:uppercase; color:#2e7d52; margin-top:2px; }
 
-/* Jetzt anfragen (ehem. Jetzt buchen) */
+/* M2 — Request Now button (was Book Now) */
 .book-btn {
   font-family:'Montserrat',sans-serif; background:#002060; color:#fff;
   border:none; border-radius:7px; padding:10px 20px;
@@ -307,6 +288,9 @@ body {
 
 /* =====================
    MODAL
+   Overlay is absolute, positioned at current scroll offset.
+   The box grows naturally — no clipping, no fixed height.
+   Page scroll is locked while modal is open.
 ===================== */
 .modal-overlay {
   display: none;
@@ -340,6 +324,7 @@ body {
   to   { opacity:1; transform:translateY(0) scale(1); }
 }
 
+/* MODAL HEADER */
 .modal-header { background:#002060; padding:22px 26px 20px; position:relative; }
 .modal-close {
   position:absolute; top:16px; right:18px;
@@ -353,6 +338,7 @@ body {
 .modal-departure-date { font-size:12px; font-weight:500; color:rgba(255,255,255,0.65); display:flex; align-items:center; gap:5px; }
 .modal-departure-date::before { content:'✦'; font-size:8px; opacity:0.5; }
 
+/* Urgency banner */
 .modal-urgency-banner {
   background:#fdf6ec; border-bottom:1px solid #e8d5b0;
   padding:9px 26px; display:flex; align-items:center; gap:7px;
@@ -360,6 +346,7 @@ body {
 }
 .urgency-dot { width:7px; height:7px; border-radius:50%; background:#9e6300; animation:pulse-dot 1.5s ease-in-out infinite; flex-shrink:0; }
 
+/* MODAL STEPS */
 .modal-steps { display:flex; border-bottom:1px solid #eef0f5; background:#f9fafb; }
 .modal-step-tab {
   flex:1; padding:12px 10px; font-size:10px; font-weight:700;
@@ -374,18 +361,24 @@ body {
 .modal-step-tab.active { color:#002060; border-bottom-color:#002060; }
 .modal-step-tab.active .step-num { background:#002060; color:#fff; }
 .modal-step-tab.done   { color:#2e7d52; }
-.modal-step-tab.done .step-num { background:#2e7d52; color:#fff; }
+.modal-step-tab.done .step-num   { background:#2e7d52; color:#fff; }
 
+/* MODAL PANELS */
 .modal-panel { display:none; padding:22px 26px 26px; }
 .modal-panel.active { display:block; }
 
-/* TARIFAUSWAHL */
+/* =====================
+   RATE SELECTION — STEP 1
+===================== */
 .rates-section-title {
   font-size:9px; font-weight:700; letter-spacing:1.5px;
   text-transform:uppercase; color:#9199a8; margin-bottom:10px;
 }
 
-.lang-tabs { display: flex; gap: 8px; margin-bottom: 16px; }
+/* Language tabs for Galápagos Loop */
+.lang-tabs {
+  display: flex; gap: 8px; margin-bottom: 16px;
+}
 .lang-tab {
   font-family:'Montserrat',sans-serif;
   display: flex; align-items: center; gap: 6px;
@@ -401,7 +394,8 @@ body {
 .lang-tab .promo-notice {
   font-size: 9px; font-weight: 700; letter-spacing: 0.5px;
   text-transform: uppercase; color: #2e7d52;
-  background: #eef6f1; border-radius: 4px; padding: 2px 5px; margin-left: 2px;
+  background: #eef6f1; border-radius: 4px; padding: 2px 5px;
+  margin-left: 2px;
 }
 .lang-tab.active .promo-notice { background: rgba(255,255,255,0.2); color: #fff; }
 
@@ -413,8 +407,11 @@ body {
 }
 .promo-only-notice.visible { display: block; }
 
+/* Category + occupancy table */
 .rate-table-wrap { overflow-x: auto; }
-.rate-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.rate-table {
+  width: 100%; border-collapse: collapse; font-size: 12px;
+}
 .rate-table thead tr { background: #f4f6fb; }
 .rate-table th {
   padding: 9px 12px; font-size: 9px; font-weight: 700;
@@ -422,13 +419,18 @@ body {
   text-align: left; border-bottom: 1px solid #e8ecf2;
 }
 .rate-table th.center { text-align: center; }
-.rate-table td { padding: 10px 12px; border-bottom: 1px solid #f0f2f5; vertical-align: middle; }
+.rate-table td {
+  padding: 10px 12px; border-bottom: 1px solid #f0f2f5;
+  vertical-align: middle;
+}
 .rate-table tbody tr:last-child td { border-bottom: none; }
 .rate-table tbody tr:hover { background: #f8f9fd; }
 
 .cat-cell-name { font-size:13px; font-weight:600; color:#1a1a2e; display:block; }
 .cat-cell-sub  { font-size:10px; font-weight:500; color:#9199a8; display:block; margin-top:1px; }
 
+/* Occupancy radio buttons */
+.occ-options { display:flex; gap:6px; justify-content:center; }
 .occ-btn {
   font-family:'Montserrat',sans-serif;
   min-width: 68px; padding: 7px 8px; border-radius: 7px;
@@ -440,7 +442,8 @@ body {
 .occ-btn .occ-label { font-size:9px; font-weight:700; letter-spacing:0.5px; text-transform:uppercase; color:#9199a8; display:block; margin-bottom:3px; }
 .occ-btn.selected .occ-label { color:#002060; }
 .occ-btn .occ-price { font-size:13px; font-weight:700; color:#002060; display:block; }
-.occ-btn .occ-price-promo { display:flex; flex-direction:column; align-items:center; }
+.occ-btn.selected .occ-price { color:#002060; }
+.occ-btn .occ-price-promo { display:flex; flex-direction:column; align-items:center; gap:0px; }
 .occ-btn .occ-price-promo .p-orig { font-size:10px; font-weight:600; color:#b03a2e; text-decoration:line-through; text-decoration-color:#b03a2e; text-decoration-thickness:2px; line-height:1.2; }
 .occ-btn .occ-price-promo .p-curr { font-size:13px; font-weight:700; color:#2e7d52; line-height:1.2; }
 .occ-btn .occ-price-promo .p-orig-grey { font-size:10px; font-weight:600; color:#9199a8; text-decoration:line-through; text-decoration-color:#9199a8; text-decoration-thickness:2px; line-height:1.2; }
@@ -454,19 +457,29 @@ body {
 
 .rates-note { font-size:10px; color:#9199a8; margin-top:12px; line-height:1.5; }
 
-/* Andean / Volcano / Solo: EZ + DZ Belegungspillen */
+/* =====================
+   M4 — Andean / Volcano / Solo: Single + Double occupancy cards
+   Two selectable buttons: Single accommodation | Double accommodation
+===================== */
 .rates-grid { display:grid; grid-template-columns:1fr; gap:8px; }
+
+/* M4 — new occupancy-pair card layout */
 .rate-card {
   border:1.5px solid #e8ecf2; border-radius:9px; padding:13px 16px;
   display:flex; align-items:center; justify-content:space-between;
-  cursor:default; transition:all 0.15s ease; gap:10px;
+  cursor:pointer; transition:all 0.15s ease; gap:10px;
 }
+.rate-card:hover    { border-color:#1a56c4; background:#f4f7fd; }
+.rate-card.selected { border-color:#002060; background:#f0f4ff; box-shadow:0 0 0 2px rgba(0,32,96,0.07); }
 .rate-card .rate-label { font-size:13px; font-weight:600; color:#1a1a2e; display:block; margin-bottom:3px; }
 .rate-card .rate-sub   { font-size:10px; font-weight:500; color:#9199a8; }
 .rate-flag { display:inline-flex; align-items:center; width:22px; height:15px; border-radius:2px; overflow:hidden; flex-shrink:0; }
 .rate-flag svg { width:22px; height:15px; display:block; }
 
-.occ-pair { display: flex; gap: 8px; flex-shrink: 0; }
+/* M4 — occupancy pair: two selectable buttons inside each rate card row */
+.occ-pair {
+  display: flex; gap: 8px; flex-shrink: 0;
+}
 .occ-pill {
   font-family: 'Montserrat', sans-serif;
   display: flex; flex-direction: column; align-items: center;
@@ -480,7 +493,7 @@ body {
 .occ-pill.selected .pill-label { color: #002060; }
 .occ-pill .pill-price { font-size: 13px; font-weight: 700; color: #002060; display: block; }
 
-/* Solo-Tarife: EZ-Preis */
+/* Solo rates grid — single column, single price */
 .solo-rates-grid { display: grid; grid-template-columns: 1fr; gap: 8px; }
 .solo-rate-card {
   border: 1.5px solid #e8ecf2; border-radius: 9px; padding: 13px 16px;
@@ -495,7 +508,7 @@ body {
 .solo-price-col .price-type { font-size: 9px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; color: #9199a8; margin-bottom: 2px; white-space: nowrap; }
 .solo-price-col .price-val  { font-size: 14px; font-weight: 700; color: #002060; }
 
-/* Solo Loop Tarifliste */
+/* Solo Loop rates — single price table (single accom only) */
 .solo-loop-rate-table { width: 100%; border-collapse: collapse; font-size: 12px; }
 .solo-loop-rate-table thead tr { background: #f4f6fb; }
 .solo-loop-rate-table th {
@@ -504,17 +517,20 @@ body {
   text-align: left; border-bottom: 1px solid #e8ecf2;
 }
 .solo-loop-rate-table th.center { text-align: center; }
-.solo-loop-rate-table td { padding: 10px 12px; border-bottom: 1px solid #f0f2f5; vertical-align: middle; }
+.solo-loop-rate-table td {
+  padding: 10px 12px; border-bottom: 1px solid #f0f2f5; vertical-align: middle;
+}
 .solo-loop-rate-table tbody tr:last-child td { border-bottom: none; }
 .solo-loop-rate-table tbody tr:hover { background: #f8f9fd; }
 
 /* MODAL NAV */
 .modal-nav { display:flex; justify-content:flex-end; margin-top:20px; gap:10px; align-items: center; }
 
-/* Hinweistext wenn Weiter-Button deaktiviert */
+/* M9 — hint text when Continue is disabled */
 .select-hint {
   font-size: 10px; color: #9199a8; font-style: italic;
-  margin-right: auto; transition: opacity 0.2s;
+  margin-right: auto;
+  transition: opacity 0.2s;
 }
 .select-hint.hidden { opacity: 0; pointer-events: none; }
 
@@ -532,7 +548,7 @@ body {
 .btn-primary:hover { background:#003080; }
 .btn-primary::after { content:'→'; }
 
-/* KONTAKTFORMULAR */
+/* CONTACT FORM */
 .form-row { margin-bottom:11px; }
 .form-row label { display:block; font-size:9px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:#9199a8; margin-bottom:4px; }
 .form-row input, .form-row textarea, .form-row select {
@@ -562,15 +578,18 @@ body {
 .submit-btn:hover { background:#003080; }
 .form-note { font-size:10px; color:#9199a8; text-align:center; margin-top:10px; line-height:1.5; }
 
+/* EMPTY STATE */
 .empty-state { display:none; text-align:center; padding:60px 20px; color:#9199a8; }
 .empty-state p { font-size:13px; font-weight:500; margin-top:8px; }
 
+/* DATE REQUEST NOTE */
 .request-note { background:#f0f4ff; border:1px solid #c5d3f0; border-radius:10px; padding:14px 18px; margin:0 0 20px; display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap; }
 .request-note-text { font-size:11px; color:#002060; font-weight:500; line-height:1.5; flex:1; }
 .request-note-text strong { font-weight:700; display:block; margin-bottom:2px; font-size:11px; }
 .request-date-btn { font-family:'Montserrat',sans-serif; background:#002060; color:#fff; border:none; border-radius:7px; padding:8px 16px; font-size:11px; font-weight:700; cursor:pointer; white-space:nowrap; transition:background 0.15s; flex-shrink:0; }
 .request-date-btn:hover { background:#003080; }
 
+/* REQUEST DATE MODAL */
 .req-modal-overlay { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(10,20,60,0.55); z-index:99999; justify-content:center; align-items:flex-start; overflow-y:auto; -webkit-overflow-scrolling:touch; padding:24px 16px 40px; box-sizing:border-box; }
 .req-modal-overlay.open { display:flex; }
 .req-modal-box { background:#fff; border-radius:16px; width:100%; max-width:540px; margin:auto; overflow:hidden; box-shadow:0 20px 60px rgba(0,32,96,0.18); animation:modal-in 0.2s ease; position:relative; }
@@ -581,6 +600,7 @@ body {
 .req-modal-close:hover { background:rgba(255,255,255,0.25); }
 .req-modal-body { padding:22px 26px 26px; }
 
+/* MOBILE */
 @media(max-width:600px){
   body { padding:18px 12px 48px; }
   .cards-grid { grid-template-columns:1fr; }
@@ -589,6 +609,7 @@ body {
   .modal-header { padding:18px 44px 16px 18px; }
   .card-footer { flex-direction:column; align-items:flex-start; }
   .book-btn { width:100%; text-align:center; padding:12px; }
+  .occ-options { gap:4px; }
   .occ-btn { min-width:58px; padding:6px 4px; }
   .lang-tabs { flex-wrap:wrap; }
   .occ-pair { gap: 5px; }
@@ -600,85 +621,85 @@ body {
 <body>
 
 <div class="page-header">
-  <h1>Abfahrten &amp; Verfügbarkeit — 2026</h1>
-  <div class="live-badge"><div class="live-dot"></div>Aktuelle Verfügbarkeit</div>
+  <h1>Departures &amp; Availability — 2026</h1>
+  <div class="live-badge"><div class="live-dot"></div>Live Availability</div>
 </div>
 
 <div class="filter-bar">
-  <span class="filter-label">Nach Programm filtern</span>
-  <button class="filter-btn active"   onclick="applyFilter('all',this)">Alle <span class="f-count" id="cnt-all">0</span></button>
-  <button class="filter-btn"          onclick="applyFilter('galapagos',this)">Galapagos Loop <span class="f-count" id="cnt-galapagos">0</span></button>
+  <span class="filter-label">Filter by program</span>
+  <button class="filter-btn active"   onclick="applyFilter('all',this)">All <span class="f-count" id="cnt-all">0</span></button>
+  <button class="filter-btn"          onclick="applyFilter('galapagos',this)">Galápagos Loop <span class="f-count" id="cnt-galapagos">0</span></button>
   <button class="filter-btn"          onclick="applyFilter('andean',this)">Andean Treasures <span class="f-count" id="cnt-andean">0</span></button>
-  <button class="filter-btn"          onclick="applyFilter('volcano',this)">Strasse der Vulkane <span class="f-count" id="cnt-volcano">0</span></button>
+  <button class="filter-btn"          onclick="applyFilter('volcano',this)">Volcano Avenue <span class="f-count" id="cnt-volcano">0</span></button>
   <button class="filter-btn f-solo"   onclick="applyFilter('solo',this)">Solo Traveler <span class="f-count" id="cnt-solo">0</span></button>
-  <button class="filter-btn"          onclick="applyFilter('promo',this)">Sonderkonditionen <span class="f-count" id="cnt-promo">0</span></button>
-  <button class="filter-btn f-urgent" onclick="applyFilter('few',this)">Wenige Plätze <span class="f-count" id="cnt-few">0</span></button>
-  <button class="filter-btn f-sold"   onclick="applyFilter('sold',this)">Ausverkauft <span class="f-count" id="cnt-sold">0</span></button>
+  <button class="filter-btn"          onclick="applyFilter('promo',this)">Special Condition <span class="f-count" id="cnt-promo">0</span></button>
+  <button class="filter-btn f-urgent" onclick="applyFilter('few',this)">Few Spots Available <span class="f-count" id="cnt-few">0</span></button>
+  <button class="filter-btn f-sold"   onclick="applyFilter('sold',this)">Sold Out <span class="f-count" id="cnt-sold">0</span></button>
 </div>
 
 <div class="request-note">
   <div class="request-note-text">
-    <strong>Sie finden Ihr gewünschtes Datum nicht?</strong>
-    Dieser Bereich zeigt alle bestätigten offenen Abfahrten der Zubucher-Programme 2026 von Geo Boutique. Sollte das gewünschte Datum nicht aufgeführt sein, kann unser Verkaufsteam weiterhelfen — kontaktieren Sie uns und wir prüfen, ob eine Abfahrt auf Anfrage eröffnet werden kann.
+    <strong>Can't find the date you're looking for?</strong>
+    This section shows all confirmed open departures for Geo Boutique's 2026 shared programs. If the specific date you need is not listed, our sales team can help — contact us and we'll let you know if it can be opened on request.
   </div>
-  <button class="request-date-btn" onclick="openRequestModal()">Datum anfragen</button>
+  <button class="request-date-btn" onclick="openRequestModal()">Request a Date</button>
 </div>
 
 <div id="cardsContainer"></div>
-<div class="empty-state" id="emptyState"><p>Keine Abfahrten entsprechen dem gewählten Filter.</p></div>
+<div class="empty-state" id="emptyState"><p>No departures match the selected filter.</p></div>
 
-<!-- DATUM ANFRAGEN MODAL -->
+<!-- REQUEST DATE MODAL -->
 <div id="requestModal" class="req-modal-overlay" onclick="handleRequestOverlayClick(event)">
-  <div class="req-modal-box">
+  <div class="req-modal-box" onclick="event.stopPropagation()">
     <div class="req-modal-header">
       <button class="req-modal-close" onclick="closeRequestModal()">✕</button>
-      <div class="req-modal-title">Bestimmtes Abfahrtsdatum anfragen</div>
-      <div class="req-modal-sub">Sie finden Ihr gewünschtes Datum nicht? Teilen Sie es uns mit.</div>
+      <div class="req-modal-title">Request a Specific Departure Date</div>
+      <div class="req-modal-sub">Can't find the date you need? Let us know.</div>
     </div>
     <div class="req-modal-body">
-      <form action="https://formspree.io/f/xbdzbwyg" method="POST">
+      <form action="https://formspree.io/f/xaqdeevb" method="POST">
         <input type="hidden" name="request_type" value="Specific Date Request">
         <div class="form-row">
-          <label>Programm *</label>
+          <label>Program *</label>
           <select name="program" required>
-            <option value="">Programm auswählen</option>
-            <option>Galapagos Loop – 6 Tage / 5 Nächte</option>
-            <option>Galapagos Loop – Ein immersives Erlebnis – 7 Tage / 6 Nächte</option>
-            <option>Charles Darwin Path – 8 Tage / 7 Nächte</option>
-            <option>Andean Treasures – 8 Tage / 7 Nächte</option>
-            <option>Strasse der Vulkane 6T/5N</option>
-            <option>Strasse der Vulkane 5T/4N</option>
-            <option>Strasse der Vulkane 3T/2N</option>
-            <option>Strasse der Vulkane 2T/1N</option>
-            <option>Zubucher-Tagesausflüge ab Quito</option>
-            <option>Galapagos Solo – Santa Cruz 4T/3N</option>
-            <option>Galapagos Loop – Solo Traveler 6T/5N</option>
-            <option>Andean Treasures – Solo Traveler 8T/7N</option>
+            <option value="">Select a program</option>
+            <option>Galápagos Loop – 6 Days / 5 Nights</option>
+            <option>Galápagos Loop Immersive – 7 Days / 6 Nights</option>
+            <option>Galápagos 360 – 6 Days / 5 Nights</option>
+            <option>Andean Treasures – 8 Days / 7 Nights</option>
+            <option>Volcano Avenue 6D/5N</option>
+            <option>Volcano Avenue 5D/4N</option>
+            <option>Volcano Avenue 3D/2N</option>
+            <option>Volcano Avenue 2D/1N</option>
+            <option>Shared Daily Tours – Quito</option>
+            <option>Galápagos Solo – Santa Cruz 4D/3N</option>
+            <option>Galápagos Loop – Solo Traveler 6D/5N</option>
+            <option>Andean Treasures – Solo Traveler 8D/7N</option>
           </select>
         </div>
         <div class="form-row">
-          <label>Gewünschtes Abfahrtsdatum *</label>
-          <input type="text" name="requested_date" required placeholder="z. B. 15. Aug 2026">
+          <label>Requested departure date *</label>
+          <input type="text" name="requested_date" required placeholder="e.g. 15 Aug 2026">
         </div>
         <div class="form-grid-2">
-          <div class="form-row"><label>Vollständiger Name *</label><input type="text" name="name" required placeholder="Ihr vollständiger Name"></div>
-          <div class="form-row"><label>Unternehmen *</label><input type="text" name="company" required placeholder="Agentur / Firmenname"></div>
+          <div class="form-row"><label>Full Name *</label><input type="text" name="name" required placeholder="Your full name"></div>
+          <div class="form-row"><label>Company *</label><input type="text" name="company" required placeholder="Agency / company name"></div>
         </div>
         <div class="form-grid-2">
-          <div class="form-row"><label>E-Mail *</label><input type="email" name="email" required placeholder="ihre@email.com"></div>
-          <div class="form-row"><label>Telefon</label><input type="text" name="phone" placeholder="+49 000 000 0000"></div>
+          <div class="form-row"><label>Email *</label><input type="email" name="email" required placeholder="your@email.com"></div>
+          <div class="form-row"><label>Phone</label><input type="text" name="phone" placeholder="+1 000 000 0000"></div>
         </div>
-        <div class="form-row"><label>Nachricht</label><textarea name="message" rows="3" placeholder="Zusätzliche Angaben zur Gruppe oder zu den Terminen..."></textarea></div>
-        <button type="submit" class="submit-btn">Anfrage senden</button>
+        <div class="form-row"><label>Message</label><textarea name="message" rows="3" placeholder="Any additional details about the group or dates..."></textarea></div>
+        <button type="submit" class="submit-btn">Send Request</button>
       </form>
-      <p class="form-note">Unser Verkaufsteam wird Ihre Anfrage prüfen und sich so schnell wie möglich bei Ihnen melden.</p>
+      <p class="form-note">Our sales team will review your request and get back to you as soon as possible.</p>
     </div>
   </div>
 </div>
 
-<!-- BUCHUNGSANFRAGE MODAL -->
+<!-- BOOKING MODAL -->
 <div id="modal" class="modal-overlay" onclick="handleOverlayClick(event)">
-  <div class="modal-box">
+  <div class="modal-box" onclick="event.stopPropagation()">
 
     <div class="modal-header">
       <button class="modal-close" onclick="closeModal()">✕</button>
@@ -688,251 +709,236 @@ body {
 
     <div class="modal-urgency-banner" id="modalUrgencyBanner" style="display:none;">
       <div class="urgency-dot"></div>
-      Begrenzte Verfügbarkeit — nur noch wenige Plätze für diese Abfahrt.
+      Limited availability — few spots remaining for this departure.
     </div>
 
     <div class="modal-steps">
-      <div class="modal-step-tab active" id="tab1"><span class="step-num">1</span> Tarif wählen</div>
-      <div class="modal-step-tab" id="tab2"><span class="step-num">2</span> Anfrage senden</div>
+      <div class="modal-step-tab active" id="tab1"><span class="step-num">1</span> Select Rate</div>
+      <div class="modal-step-tab" id="tab2"><span class="step-num">2</span> Send Request</div>
     </div>
 
     <!-- PANEL 1 -->
     <div class="modal-panel active" id="panel1">
 
-      <!-- GALÁPAGOS LOOP — DE zuerst, dann EN -->
+      <!-- GALÁPAGOS LOOP (regular) -->
       <div id="loopRates" style="display:none;">
-        <div class="rates-section-title">Sprache des Reiseleiters wählen</div>
+        <div class="rates-section-title">Select guide language</div>
         <div class="lang-tabs">
-          <button class="lang-tab active" id="langTabDE" onclick="switchLang('de')">
-            <span class="flag"><svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#FFCE00"/><rect width="60" height="26.7" fill="#DD0000"/><rect width="60" height="13.3" fill="#000"/></svg></span>
-            Deutschsprachiger Reiseleiter
-          </button>
-          <button class="lang-tab" id="langTabEN" onclick="switchLang('en')">
+          <button class="lang-tab active" id="langTabEN" onclick="switchLang('en')">
             <span class="flag"><svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#012169"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="8"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" stroke-width="5"/><path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="12"/><path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="8"/></svg></span>
-            Englischsprachiger Reiseleiter
-            <span class="promo-notice" id="promoNoticeEN" style="display:none;">Aktion verfügbar</span>
+            English guide
+            <span class="promo-notice" id="promoNoticeEN" style="display:none;">Promo available</span>
+          </button>
+          <button class="lang-tab" id="langTabDE" onclick="switchLang('de')">
+            <span class="flag"><svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#FFCE00"/><rect width="60" height="26.7" fill="#DD0000"/><rect width="60" height="13.3" fill="#000"/></svg></span>
+            German guide
           </button>
         </div>
         <div class="promo-only-notice" id="promoOnlyNotice">
-          Aktionspreis gilt nur für Abfahrten mit englischsprachigem Reiseleiter.
+          Promotional rate applies to English guide departures only.
         </div>
-        <div class="rates-section-title" style="margin-top:4px;">Kategorie und Zimmerbelegung wählen</div>
+        <div class="rates-section-title" style="margin-top:4px;">Select category and room occupancy</div>
         <div class="rate-table-wrap">
           <table class="rate-table" id="loopRateTable">
             <thead>
               <tr>
-                <th>Kategorie</th>
-                <th class="center">EZ</th>
-                <th class="center">DZ</th>
-                <th class="center">DRZ</th>
+                <th>Category</th>
+                <th class="center">Single</th>
+                <th class="center">Double</th>
+                <th class="center">Triple</th>
               </tr>
             </thead>
             <tbody id="loopRateBody"></tbody>
           </table>
         </div>
-        <p class="rates-note">Preise: Pro Person, Nettopreise in US-Dollar. Alle Kategorien beinhalten Programmleistungen gemäß Reiseverlauf.</p>
+        <p class="rates-note">Rates: Per person and net rates in USD Dollars. All categories include program services as per itinerary.</p>
       </div>
 
-      <!-- GALÁPAGOS LOOP + SOLO TRAVELER — Dual-Modal -->
+      <!-- GALÁPAGOS LOOP + SOLO TRAVELER — dual modal -->
       <div id="loopSoloRates" style="display:none;">
-        <div class="rates-section-title">Sprache des Reiseleiters wählen</div>
+        <div class="rates-section-title">Select guide language</div>
         <div class="lang-tabs">
-          <button class="lang-tab active" id="langTabDEDual" onclick="switchLangDual('de')">
-            <span class="flag"><svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#FFCE00"/><rect width="60" height="26.7" fill="#DD0000"/><rect width="60" height="13.3" fill="#000"/></svg></span>
-            Deutschsprachiger Reiseleiter
-          </button>
-          <button class="lang-tab" id="langTabENDual" onclick="switchLangDual('en')">
+          <button class="lang-tab active" id="langTabENDual" onclick="switchLangDual('en')">
             <span class="flag"><svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#012169"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="8"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" stroke-width="5"/><path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="12"/><path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="8"/></svg></span>
-            Englischsprachiger Reiseleiter
-            <span class="promo-notice" id="promoNoticeENDual" style="display:none;">Aktion verfügbar</span>
+            English guide
+            <span class="promo-notice" id="promoNoticeENDual" style="display:none;">Promo available</span>
+          </button>
+          <button class="lang-tab" id="langTabDEDual" onclick="switchLangDual('de')">
+            <span class="flag"><svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#FFCE00"/><rect width="60" height="26.7" fill="#DD0000"/><rect width="60" height="13.3" fill="#000"/></svg></span>
+            German guide
           </button>
         </div>
         <div class="promo-only-notice" id="promoOnlyNoticeDual">
-          Aktionspreis gilt nur für Abfahrten mit englischsprachigem Reiseleiter.
+          Promotional rate applies to English guide departures only.
         </div>
-        <div class="rates-section-title" style="margin-top:4px;">Kategorie und Zimmerbelegung wählen</div>
+        <div class="rates-section-title" style="margin-top:4px;">Select category and room occupancy</div>
         <div class="rate-table-wrap">
           <table class="rate-table" id="loopDualRateTable">
             <thead>
               <tr>
-                <th>Kategorie</th>
-                <th class="center">EZ</th>
-                <th class="center">DZ</th>
-                <th class="center">DRZ</th>
+                <th>Category</th>
+                <th class="center">Single</th>
+                <th class="center">Double</th>
+                <th class="center">Triple</th>
               </tr>
             </thead>
             <tbody id="loopDualRateBody"></tbody>
           </table>
         </div>
-        <p class="rates-note">Preise: Pro Person, Nettopreise in US-Dollar. Alle Kategorien beinhalten Programmleistungen gemäß Reiseverlauf.</p>
-        <div class="modal-rates-divider"><span class="divider-label">Auch buchbar als Solo Traveler</span></div>
+        <p class="rates-note">Rates: Per person and net rates in USD Dollars. All categories include program services as per itinerary.</p>
+        <div class="modal-rates-divider"><span class="divider-label">This departure is also available as Solo Traveler — bookable from 1 passenger</span></div>
         <div class="solo-block-in-modal">
           <div class="solo-block-header">
             <div class="solo-block-icon">1</div>
-            <span class="solo-block-title">Galapagos Loop – Solo Traveler</span>
-            <span class="solo-block-sub" id="soloLoopDualSub">Buchbar ab 1 Person</span>
+            <span class="solo-block-title">Galápagos Loop – Solo Traveler</span>
+            <span class="solo-block-sub" id="soloLoopDualSub">English guide · From 1 passenger</span>
           </div>
           <div class="rate-table-wrap">
             <table class="solo-loop-rate-table" id="soloLoopDualTable">
               <thead>
                 <tr>
-                  <th>Kategorie</th>
-                  <th class="center">EZ</th>
+                  <th>Category</th>
+                  <th class="center">Single accom.</th>
                 </tr>
               </thead>
               <tbody id="soloLoopDualBody"></tbody>
             </table>
           </div>
         </div>
-        <p class="rates-note" style="margin-top:8px;">Solo Traveler-Preise: Pro Person, Nettopreise in US-Dollar. Buchbar ab 1 Person.</p>
+        <p class="rates-note" style="margin-top:8px;">Solo Traveler rates: Per person and net rates in USD Dollars. Bookable from 1 passenger.</p>
       </div>
-
-      <!-- ANDEAN TREASURES — EZ + DZ Belegungspillen -->
       <div id="andeanRates" style="display:none;">
-        <div class="rates-section-title">Sprache, Kategorie und Zimmerbelegung wählen</div>
+        <div class="rates-section-title">Select guide language, category and room occupancy</div>
         <div class="rates-grid" id="andeanRatesGrid"></div>
-        <p class="rates-note">Preise: Pro Person, Nettopreise in US-Dollar.</p>
+        <p class="rates-note">Rates: Per person and net rates in USD Dollars.</p>
       </div>
 
-      <!-- ANDEAN TREASURES + SOLO TRAVELER — Dual-Modal -->
+      <!-- ANDEAN TREASURES + SOLO TRAVELER — dual modal -->
       <div id="andeanSoloRates" style="display:none;">
-        <div class="rates-section-title">Sprache, Kategorie und Zimmerbelegung wählen</div>
+        <div class="rates-section-title">Select guide language, category and room occupancy</div>
         <div class="rates-grid" id="andeanSoloRatesGrid"></div>
-        <p class="rates-note">Preise: Pro Person, Nettopreise in US-Dollar.</p>
-        <div class="modal-rates-divider"><span class="divider-label">Auch buchbar als Solo Traveler</span></div>
+        <p class="rates-note">Rates: Per person and net rates in USD Dollars.</p>
+        <div class="modal-rates-divider"><span class="divider-label">This departure is also available as Solo Traveler — bookable from 1 passenger</span></div>
         <div class="solo-block-in-modal">
           <div class="solo-block-header">
             <div class="solo-block-icon">1</div>
             <span class="solo-block-title">Andean Treasures – Solo Traveler</span>
-            <span class="solo-block-sub">Englisch · Buchbar ab 1 Person</span>
+            <span class="solo-block-sub">English guide · From 1 passenger</span>
           </div>
-          <div class="solo-rates-grid">
-            <div class="solo-rate-card" onclick="selectSoloRate(this,'[Solo Traveler] Standard – EZ: $1.561 pro Person')">
-              <div><span class="rate-label">Standard</span><span class="rate-sub">Standardunterkunft</span></div>
-              <div class="solo-price-col"><span class="price-type">EZ</span><span class="price-val">$1.561</span></div>
+          <div class="solo-rates-grid" id="andeanSoloInnerGrid">
+            <div class="solo-rate-card" onclick="selectSoloRate(this,'[Solo Traveler] Standard – Single accommodation: $1,561 per pax')">
+              <div><span class="rate-label">Standard</span><span class="rate-sub">Standard accommodation</span></div>
+              <div class="solo-price-col"><span class="price-type">Single accom.</span><span class="price-val">$1,561</span></div>
             </div>
-            <div class="solo-rate-card" onclick="selectSoloRate(this,'[Solo Traveler] Superior – EZ: $1.971 pro Person')">
-              <div><span class="rate-label">Superior</span><span class="rate-sub">Gehobene Komfortkategorie</span></div>
-              <div class="solo-price-col"><span class="price-type">EZ</span><span class="price-val">$1.971</span></div>
+            <div class="solo-rate-card" onclick="selectSoloRate(this,'[Solo Traveler] Superior – Single accommodation: $1,971 per pax')">
+              <div><span class="rate-label">Superior</span><span class="rate-sub">Enhanced comfort category</span></div>
+              <div class="solo-price-col"><span class="price-type">Single accom.</span><span class="price-val">$1,971</span></div>
             </div>
           </div>
         </div>
-        <p class="rates-note" style="margin-top:8px;">Solo Traveler-Preise: Pro Person, Nettopreise in US-Dollar.</p>
+        <p class="rates-note" style="margin-top:8px;">Solo Traveler rates: Per person and net rates in USD Dollars.</p>
       </div>
 
-      <!-- STRASSE DER VULKANE — EZ + DZ Belegungspillen -->
+      <!-- VOLCANO AVENUE — M4: Single + Double occupancy pills -->
       <div id="volcanoRates" style="display:none;">
-        <div class="rates-section-title">Unterkunftskategorie und Zimmerbelegung wählen</div>
+        <div class="rates-section-title">Select accommodation category and room occupancy</div>
         <div style="display:flex;align-items:center;gap:6px;margin-bottom:12px;font-size:11px;color:#4a5568;font-weight:500;">
-          <span class="rate-flag"><svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#012169"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="8"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" stroke-width="5"/><path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="12"/><path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="8"/></svg></span> Englisch- / spanischsprachiger Reiseleiter
+          <span class="rate-flag"><svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#012169"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="8"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" stroke-width="5"/><path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="12"/><path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="8"/></svg></span> English / Spanish guide
         </div>
         <div class="rates-grid" id="volcanoRatesGrid"></div>
-        <p class="rates-note">Preise: Pro Person, Nettopreise in US-Dollar.</p>
+        <p class="rates-note">Rates: Per person and net rates in USD Dollars.</p>
       </div>
 
-      <!-- SOLO – SANTA CRUZ: EZ-Preis kombiniert -->
+      <!-- SOLO TRAVELER — Santa Cruz: single accommodation price only -->
       <div id="soloRates" style="display:none;">
-        <div class="rates-section-title">Unterkunftskategorie wählen</div>
+        <div class="rates-section-title">Select accommodation category</div>
         <div style="display:flex;align-items:center;gap:6px;margin-bottom:12px;font-size:11px;color:#4a5568;font-weight:500;">
-          <span class="rate-flag"><svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#012169"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="8"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" stroke-width="5"/><path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="12"/><path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="8"/></svg></span> Englischsprachiger Reiseleiter
+          <span class="rate-flag"><svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#012169"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="8"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" stroke-width="5"/><path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="12"/><path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="8"/></svg></span> English guide
         </div>
         <div class="solo-rates-grid">
-          <div class="solo-rate-card" onclick="selectSoloRate(this,'Tourist – Einzelzimmer: $1.099 pro Person')">
-            <div><span class="rate-label">Tourist</span><span class="rate-sub">Standardunterkunft</span></div>
-            <div class="solo-price-col"><span class="price-type">EZ</span><span class="price-val">$1.099</span></div>
+          <div class="solo-rate-card" onclick="selectSoloRate(this,'Tourist – Single accommodation: $1,099 per pax')">
+            <div><span class="rate-label">Tourist</span><span class="rate-sub">Standard accommodation</span></div>
+            <div class="solo-price-col"><span class="price-type">Single accom.</span><span class="price-val">$1,099</span></div>
           </div>
-          <div class="solo-rate-card" onclick="selectSoloRate(this,'Tourist Superior – Einzelzimmer: $1.231 pro Person')">
-            <div><span class="rate-label">Tourist Superior</span><span class="rate-sub">Gehobene Komfortkategorie</span></div>
-            <div class="solo-price-col"><span class="price-type">EZ</span><span class="price-val">$1.231</span></div>
+          <div class="solo-rate-card" onclick="selectSoloRate(this,'Tourist Superior – Single accommodation: $1,231 per pax')">
+            <div><span class="rate-label">Tourist Superior</span><span class="rate-sub">Enhanced comfort category</span></div>
+            <div class="solo-price-col"><span class="price-type">Single accom.</span><span class="price-val">$1,231</span></div>
           </div>
-          <div class="solo-rate-card" onclick="selectSoloRate(this,'First Class – Einzelzimmer: $1.582 pro Person')">
-            <div><span class="rate-label">First Class</span><span class="rate-sub">Premiumkategorie</span></div>
-            <div class="solo-price-col"><span class="price-type">EZ</span><span class="price-val">$1.582</span></div>
+          <div class="solo-rate-card" onclick="selectSoloRate(this,'First Class – Single accommodation: $1,582 per pax')">
+            <div><span class="rate-label">First Class</span><span class="rate-sub">Premium category</span></div>
+            <div class="solo-price-col"><span class="price-type">Single accom.</span><span class="price-val">$1,582</span></div>
           </div>
         </div>
-        <p class="rates-note">Preise: Pro Person, Nettopreise in US-Dollar.</p>
+        <p class="rates-note">Rates: Per person and net rates in USD Dollars.</p>
       </div>
 
-      <!-- SOLO LOOP: EZ-Tarifliste — EN + DE für Aug/Nov -->
+      <!-- SOLO TRAVELER — Loop: single accommodation only, EN guide, promo where applicable -->
       <div id="soloLoopRates" style="display:none;">
-        <div class="rates-section-title">Unterkunftskategorie wählen</div>
+        <div class="rates-section-title">Select accommodation category</div>
         <div style="display:flex;align-items:center;gap:6px;margin-bottom:12px;font-size:11px;color:#4a5568;font-weight:500;">
-          <span class="rate-flag" id="soloLoopFlagDE" style="display:none;"><svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#FFCE00"/><rect width="60" height="26.7" fill="#DD0000"/><rect width="60" height="13.3" fill="#000"/></svg></span>
-          <span class="rate-flag" id="soloLoopFlagEN"><svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#012169"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="8"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" stroke-width="5"/><path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="12"/><path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="8"/></svg></span>
-          <span id="soloLoopGuideLabel">Englischsprachiger Reiseleiter</span>
-        </div>
-        <!-- Sprachauswahl nur für Aug/Nov -->
-        <div class="lang-tabs" id="soloLoopLangTabs" style="display:none;">
-          <button class="lang-tab active" id="soloLoopTabDE" onclick="switchSoloLoopLang('de')">
-            <span class="flag"><svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#FFCE00"/><rect width="60" height="26.7" fill="#DD0000"/><rect width="60" height="13.3" fill="#000"/></svg></span>
-            Deutschsprachiger Reiseleiter
-          </button>
-          <button class="lang-tab" id="soloLoopTabEN" onclick="switchSoloLoopLang('en')">
-            <span class="flag"><svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#012169"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="8"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" stroke-width="5"/><path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="12"/><path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="8"/></svg></span>
-            Englischsprachiger Reiseleiter
-          </button>
+          <span class="rate-flag"><svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#012169"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="8"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" stroke-width="5"/><path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="12"/><path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="8"/></svg></span> English guide
         </div>
         <div class="rate-table-wrap">
           <table class="solo-loop-rate-table" id="soloLoopRateTable">
             <thead>
               <tr>
-                <th>Kategorie</th>
-                <th class="center">EZ</th>
+                <th>Category</th>
+                <th class="center">Single accom.</th>
               </tr>
             </thead>
             <tbody id="soloLoopRateBody"></tbody>
           </table>
         </div>
-        <p class="rates-note">Preise: Pro Person, Nettopreise in US-Dollar. Buchbar ab 1 Person.</p>
+        <p class="rates-note">Rates: Per person and net rates in USD Dollars. Bookable from 1 passenger.</p>
       </div>
 
-      <!-- SOLO AT: EZ-Tarife, EN-Reiseleiter -->
+      <!-- SOLO TRAVELER — Andean Treasures: single accommodation only -->
       <div id="soloATRates" style="display:none;">
-        <div class="rates-section-title">Unterkunftskategorie wählen</div>
+        <div class="rates-section-title">Select accommodation category</div>
         <div style="display:flex;align-items:center;gap:6px;margin-bottom:12px;font-size:11px;color:#4a5568;font-weight:500;">
-          <span class="rate-flag"><svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#012169"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="8"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" stroke-width="5"/><path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="12"/><path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="8"/></svg></span> Englischsprachiger Reiseleiter
+          <span class="rate-flag"><svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#012169"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="8"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" stroke-width="5"/><path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="12"/><path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="8"/></svg></span> English guide
         </div>
         <div class="solo-rates-grid">
-          <div class="solo-rate-card" onclick="selectSoloRate(this,'Standard – Einzelzimmer: $1.561 pro Person')">
-            <div><span class="rate-label">Standard</span><span class="rate-sub">Standardunterkunft</span></div>
-            <div class="solo-price-col"><span class="price-type">EZ</span><span class="price-val">$1.561</span></div>
+          <div class="solo-rate-card" onclick="selectSoloRate(this,'Standard – Single accommodation: $1,561 per pax')">
+            <div><span class="rate-label">Standard</span><span class="rate-sub">Standard accommodation</span></div>
+            <div class="solo-price-col"><span class="price-type">Single accom.</span><span class="price-val">$1,561</span></div>
           </div>
-          <div class="solo-rate-card" onclick="selectSoloRate(this,'Superior – Einzelzimmer: $1.971 pro Person')">
-            <div><span class="rate-label">Superior</span><span class="rate-sub">Gehobene Komfortkategorie</span></div>
-            <div class="solo-price-col"><span class="price-type">EZ</span><span class="price-val">$1.971</span></div>
+          <div class="solo-rate-card" onclick="selectSoloRate(this,'Superior – Single accommodation: $1,971 per pax')">
+            <div><span class="rate-label">Superior</span><span class="rate-sub">Enhanced comfort category</span></div>
+            <div class="solo-price-col"><span class="price-type">Single accom.</span><span class="price-val">$1,971</span></div>
           </div>
         </div>
-        <p class="rates-note">Preise: Pro Person, Nettopreise in US-Dollar. Buchbar ab 1 Person.</p>
+        <p class="rates-note">Rates: Per person and net rates in USD Dollars. Bookable from 1 passenger.</p>
       </div>
 
       <div class="modal-nav">
-        <span class="select-hint" id="selectHint">Bitte wählen Sie oben einen Tarif aus</span>
-        <button class="btn-primary" onclick="goToStep2()" id="btnNext" disabled style="opacity:0.4">Weiter</button>
+        <span class="select-hint" id="selectHint">Select a rate above to continue</span>
+        <button class="btn-primary" onclick="goToStep2()" id="btnNext" disabled style="opacity:0.4">Continue</button>
       </div>
     </div>
 
     <!-- PANEL 2 -->
     <div class="modal-panel" id="panel2">
       <div class="selected-rate-summary" id="rateSummary"></div>
-      <form action="https://formspree.io/f/xbdzbwyg" method="POST">
+      <form action="https://formspree.io/f/xaqdeevb" method="POST">
         <input type="hidden" name="program"       id="formProgram">
         <input type="hidden" name="departure"     id="formDeparture">
         <input type="hidden" name="selected_rate" id="formRate">
         <div class="form-grid-2">
-          <div class="form-row"><label>Vollständiger Name *</label><input type="text" name="name" required placeholder="Ihr vollständiger Name"></div>
-          <div class="form-row"><label>Unternehmen *</label><input type="text" name="company" required placeholder="Agentur / Firmenname"></div>
+          <div class="form-row"><label>Full Name *</label><input type="text" name="name" required placeholder="Your full name"></div>
+          <div class="form-row"><label>Company *</label><input type="text" name="company" required placeholder="Agency / company name"></div>
         </div>
         <div class="form-grid-2">
-          <div class="form-row"><label>E-Mail *</label><input type="email" name="email" required placeholder="ihre@email.com"></div>
-          <div class="form-row"><label>Telefon</label><input type="text" name="phone" placeholder="+49 000 000 0000"></div>
+          <div class="form-row"><label>Email *</label><input type="email" name="email" required placeholder="your@email.com"></div>
+          <div class="form-row"><label>Phone</label><input type="text" name="phone" placeholder="+1 000 000 0000"></div>
         </div>
-        <div class="form-row"><label>Pax-Referenz / Vorgangsnummer</label><input type="text" name="pax_reference" placeholder="Datei- oder Referenznummer (optional)"></div>
-        <div class="form-row"><label>Nachricht</label><textarea name="message" id="formMessage" rows="3"></textarea></div>
-        <button type="submit" class="submit-btn">Buchungsanfrage senden</button>
+        <div class="form-row"><label>Pax Reference / Booking File</label><input type="text" name="pax_reference" placeholder="File or reference number (optional)"></div>
+        <div class="form-row"><label>Message</label><textarea name="message" id="formMessage" rows="3"></textarea></div>
+        <button type="submit" class="submit-btn">Send Booking Request</button>
       </form>
-      <p class="form-note">Unser Team wird Ihre Anfrage prüfen und sich innerhalb von 24 Geschäftsstunden bei Ihnen melden.</p>
+      <p class="form-note">Our team will review your request and get back to you within 24 business hours.</p>
       <div class="modal-nav" style="justify-content:flex-start;margin-top:12px;">
-        <button class="btn-secondary" onclick="goToStep1()">← Zurück zur Tarifauswahl</button>
+        <button class="btn-secondary" onclick="goToStep1()">← Back to rates</button>
       </div>
     </div>
 
@@ -946,102 +952,99 @@ body {
 ===================== */
 const departures = [
   // GALÁPAGOS LOOP
-  { region:'galapagos', subRegion:'galapagos', date:'04. Jan',         year:'2026', fullDate:'04. Jan 2026',         program:'Galapagos Loop', duration:'6 Tage / 5 Nächte', status:['operated'],         promo:false, bookable:false, fewSpots:false, dealType:null,     promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:null },
-  { region:'galapagos', subRegion:'galapagos', date:'25.–30. Jan',     year:'2026', fullDate:'25.–30. Jan 2026',     program:'Galapagos Loop', duration:'6 Tage / 5 Nächte', status:['operated'],         promo:true,  bookable:false, fewSpots:false, dealType:null,     promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:null },
-  { region:'galapagos', subRegion:'galapagos', date:'15.–20. Feb',     year:'2026', fullDate:'15.–20. Feb 2026',     program:'Galapagos Loop', duration:'6 Tage / 5 Nächte', status:['operated','sold'],  promo:false, bookable:false, fewSpots:false, dealType:null,     promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:null },
-  { region:'galapagos', subRegion:'galapagos', date:'01.–06. Mär',     year:'2026', fullDate:'01.–06. Mär 2026',     program:'Galapagos Loop', duration:'6 Tage / 5 Nächte', status:['operated'],         promo:true,  bookable:false, fewSpots:false, dealType:null,     promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:null },
-  { region:'galapagos', subRegion:'galapagos', date:'10.–15. Mai',     year:'2026', fullDate:'10.–15. Mai 2026',     program:'Galapagos Loop', duration:'6 Tage / 5 Nächte', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:false, dealType:'summer', promoPrice:true,  hasSolo:true, soloPromo:true,  itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2.420', promo:'$1.999' } },
-  { region:'galapagos', subRegion:'galapagos', date:'07.–12. Jun',     year:'2026', fullDate:'07.–12. Jun 2026',     program:'Galapagos Loop', duration:'6 Tage / 5 Nächte', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:true,  dealType:'summer', promoPrice:true,  itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2.420', promo:'$1.999' } },
-  { region:'galapagos', subRegion:'galapagos', date:'21.–26. Jun',     year:'2026', fullDate:'21.–26. Jun 2026',     program:'Galapagos Loop', duration:'6 Tage / 5 Nächte', status:['open','confirmed'], promo:true,  bookable:true,  fewSpots:false, dealType:null,     promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2.420', promo:null } },
-  { region:'galapagos', subRegion:'galapagos', date:'12.–17. Jul',     year:'2026', fullDate:'12.–17. Jul 2026',     program:'Galapagos Loop', duration:'6 Tage / 5 Nächte', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:true,  dealType:'summer', promoPrice:true,  itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2.420', promo:'$1.999' } },
-  { region:'galapagos', subRegion:'galapagos', date:'02.–07. Aug',     year:'2026', fullDate:'02.–07. Aug 2026',     program:'Galapagos Loop', duration:'6 Tage / 5 Nächte', status:['open','confirmed'], promo:true,  bookable:true,  fewSpots:false, dealType:null,     promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2.420', promo:null } },
-  { region:'galapagos', subRegion:'galapagos', date:'09.–14. Aug',     year:'2026', fullDate:'09.–14. Aug 2026',     program:'Galapagos Loop', duration:'6 Tage / 5 Nächte', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:false, dealType:null,     promoPrice:false, hasSolo:true, soloPromo:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2.420', promo:null } },
-  { region:'galapagos', subRegion:'galapagos', date:'13.–18. Sep',     year:'2026', fullDate:'13.–18. Sep 2026',     program:'Galapagos Loop', duration:'6 Tage / 5 Nächte', status:['open','confirmed'], promo:true,  bookable:true,  fewSpots:false, dealType:null,     promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2.420', promo:null } },
-  { region:'galapagos', subRegion:'galapagos', date:'27. Sep–02. Okt', year:'2026', fullDate:'27. Sep–02. Okt 2026', program:'Galapagos Loop', duration:'6 Tage / 5 Nächte', status:['open','confirmed'], promo:true,  bookable:true,  fewSpots:false, dealType:null,     promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2.420', promo:null } },
-  { region:'galapagos', subRegion:'galapagos', date:'18.–23. Okt',     year:'2026', fullDate:'18.–23. Okt 2026',     program:'Galapagos Loop', duration:'6 Tage / 5 Nächte', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:false, dealType:'eoy',    promoPrice:true,  itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2.420', promo:'$1.999' } },
-  { region:'galapagos', subRegion:'galapagos', date:'08.–13. Nov',     year:'2026', fullDate:'08.–13. Nov 2026',     program:'Galapagos Loop', duration:'6 Tage / 5 Nächte', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:false, dealType:'eoy',    promoPrice:true,  itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2.420', promo:'$1.999' } },
-  { region:'galapagos', subRegion:'galapagos', date:'15.–20. Nov',     year:'2026', fullDate:'15.–20. Nov 2026',     program:'Galapagos Loop', duration:'6 Tage / 5 Nächte', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:false, dealType:null,     promoPrice:false, hasSolo:true, soloPromo:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2.420', promo:null } },
-  { region:'galapagos', subRegion:'galapagos', date:'13.–18. Dez',     year:'2026', fullDate:'13.–18. Dez 2026',     program:'Galapagos Loop', duration:'6 Tage / 5 Nächte', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:false, dealType:'eoy',    promoPrice:true,  itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2.420', promo:'$1.999' } },
-  // ANDEAN TREASURES — 04. Apr bleibt open/confirmed (DE-Markt)
-  { region:'andean', subRegion:'andean', date:'04. Apr', year:'2026', fullDate:'04. Apr 2026', program:'Andean Treasures', duration:'8 Tage / 7 Nächte', status:['open','confirmed'], promo:false, bookable:true, fewSpots:true,  dealType:null, promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/strasse-der-vulkane/andean-treasures?authuser=0', priceFrom:{ regular:'$1.395', promo:null } },
-  { region:'andean', subRegion:'andean', date:'07. Jun', year:'2026', fullDate:'07. Jun 2026', program:'Andean Treasures', duration:'8 Tage / 7 Nächte', status:['open','confirmed'], promo:false, bookable:true, fewSpots:false, dealType:null, promoPrice:false, hasSolo:true, itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/strasse-der-vulkane/andean-treasures?authuser=0', priceFrom:{ regular:'$1.395', promo:null } },
-  { region:'andean', subRegion:'andean', date:'05. Jul', year:'2026', fullDate:'05. Jul 2026', program:'Andean Treasures', duration:'8 Tage / 7 Nächte', status:['open','confirmed'], promo:false, bookable:true, fewSpots:false, dealType:null, promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/strasse-der-vulkane/andean-treasures?authuser=0', priceFrom:{ regular:'$1.395', promo:null } },
-  { region:'andean', subRegion:'andean', date:'02. Aug', year:'2026', fullDate:'02. Aug 2026', program:'Andean Treasures', duration:'8 Tage / 7 Nächte', status:['open','confirmed'], promo:false, bookable:true, fewSpots:true,  dealType:null, promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/strasse-der-vulkane/andean-treasures?authuser=0', priceFrom:{ regular:'$1.395', promo:null } },
-  { region:'andean', subRegion:'andean', date:'06. Sep', year:'2026', fullDate:'06. Sep 2026', program:'Andean Treasures', duration:'8 Tage / 7 Nächte', status:['open','confirmed'], promo:false, bookable:true, fewSpots:false, dealType:null, promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/strasse-der-vulkane/andean-treasures?authuser=0', priceFrom:{ regular:'$1.395', promo:null } },
-  { region:'andean', subRegion:'andean', date:'04. Okt', year:'2026', fullDate:'04. Okt 2026', program:'Andean Treasures', duration:'8 Tage / 7 Nächte', status:['open','confirmed'], promo:false, bookable:true, fewSpots:false, dealType:null, promoPrice:false, hasSolo:true, itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/strasse-der-vulkane/andean-treasures?authuser=0', priceFrom:{ regular:'$1.395', promo:null } },
-  // STRASSE DER VULKANE
-  { region:'volcano', subRegion:'volcano', date:'23. Jul', year:'2026', fullDate:'23. Jul 2026', program:'Strasse der Vulkane', duration:'6 Tage / 5 Nächte', status:['open','confirmed'], promo:false, bookable:true, fewSpots:false, dealType:null, promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/strasse-der-vulkane/6t-5n-strasse-der-vulkane?authuser=0', priceFrom:{ regular:'$807', promo:null } },
-  // SOLO – SANTA CRUZ
-  { region:'solo', subRegion:'solo-santacruz', date:'12. Apr', year:'2026', fullDate:'12. Apr 2026', program:'Galapagos Solo – Santa Cruz', duration:'4 Tage / 3 Nächte', status:['open','confirmed'], promo:false, bookable:true, fewSpots:false, dealType:null, promoPrice:false, depDetail:'Im Anschluss an das Andean Treasures-Programm — Zubucher-Bus (offen)', itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/gal%C3%A1pagos/gal%C3%A1pagos-solo-santa-cruz?authuser=0', priceFrom:{ regular:'$1.099', promo:null } },
-  { region:'solo', subRegion:'solo-santacruz', date:'10. Mai', year:'2026', fullDate:'10. Mai 2026', program:'Galapagos Solo – Santa Cruz', duration:'4 Tage / 3 Nächte', status:['open','confirmed'], promo:false, bookable:true, fewSpots:false, dealType:null, promoPrice:false, depDetail:'Galapagos Loop läuft am gleichen Datum — Zubucher-Bus (offen)', itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/gal%C3%A1pagos/gal%C3%A1pagos-solo-santa-cruz?authuser=0', priceFrom:{ regular:'$1.099', promo:null } },
-  { region:'solo', subRegion:'solo-santacruz', date:'14. Jun', year:'2026', fullDate:'14. Jun 2026', program:'Galapagos Solo – Santa Cruz', duration:'4 Tage / 3 Nächte', status:['open','confirmed'], promo:false, bookable:true, fewSpots:false, dealType:null, promoPrice:false, depDetail:'Im Anschluss an das Andean Treasures-Programm — Zubucher-Bus (offen)', itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/gal%C3%A1pagos/gal%C3%A1pagos-solo-santa-cruz?authuser=0', priceFrom:{ regular:'$1.099', promo:null } },
-  { region:'solo', subRegion:'solo-santacruz', date:'29. Jul', year:'2026', fullDate:'29. Jul 2026', program:'Galapagos Solo – Santa Cruz', duration:'4 Tage / 3 Nächte', status:['open','confirmed'], promo:false, bookable:true, fewSpots:false, dealType:null, promoPrice:false, depDetail:'Im Anschluss an die Strasse der Vulkane — Zubucher-Bus (offen)', itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/gal%C3%A1pagos/gal%C3%A1pagos-solo-santa-cruz?authuser=0', priceFrom:{ regular:'$1.099', promo:null } },
-  { region:'solo', subRegion:'solo-santacruz', date:'09. Aug', year:'2026', fullDate:'09. Aug 2026', program:'Galapagos Solo – Santa Cruz', duration:'4 Tage / 3 Nächte', status:['open','confirmed'], promo:false, bookable:true, fewSpots:false, dealType:null, promoPrice:false, depDetail:'Im Anschluss an das Andean Treasures-Programm — Zubucher-Bus (potenziell)', itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/gal%C3%A1pagos/gal%C3%A1pagos-solo-santa-cruz?authuser=0', priceFrom:{ regular:'$1.099', promo:null } },
-  { region:'solo', subRegion:'solo-santacruz', date:'11. Okt', year:'2026', fullDate:'11. Okt 2026', program:'Galapagos Solo – Santa Cruz', duration:'4 Tage / 3 Nächte', status:['open','confirmed'], promo:false, bookable:true, fewSpots:false, dealType:null, promoPrice:false, depDetail:'Im Anschluss an das Andean Treasures-Programm — Zubucher-Bus (offen)', itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/gal%C3%A1pagos/gal%C3%A1pagos-solo-santa-cruz?authuser=0', priceFrom:{ regular:'$1.099', promo:null } },
-  // SOLO LOOP
-  { region:'solo', subRegion:'solo-loop', date:'10.–15. Mai', year:'2026', fullDate:'10.–15. Mai 2026', program:'Galapagos Loop – Solo Traveler', duration:'6 Tage / 5 Nächte', status:['open','confirmed'], promo:false, bookable:true, fewSpots:false, dealType:'summer', promoPrice:true,  soloHasDEGuide:false, depDetail:'Buchbar ab 1 Person — englischsprachiger Reiseleiter', itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2.491', promo:'$2.070' } },
-  { region:'solo', subRegion:'solo-loop', date:'09.–14. Aug', year:'2026', fullDate:'09.–14. Aug 2026', program:'Galapagos Loop – Solo Traveler', duration:'6 Tage / 5 Nächte', status:['open','confirmed'], promo:false, bookable:true, fewSpots:false, dealType:null,     promoPrice:false, soloHasDEGuide:true,  depDetail:'Buchbar ab 1 Person — englisch- oder deutschsprachiger Reiseleiter', itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2.491', promo:null } },
-  { region:'solo', subRegion:'solo-loop', date:'15.–20. Nov', year:'2026', fullDate:'15.–20. Nov 2026', program:'Galapagos Loop – Solo Traveler', duration:'6 Tage / 5 Nächte', status:['open','confirmed'], promo:false, bookable:true, fewSpots:false, dealType:null,     promoPrice:false, soloHasDEGuide:true,  depDetail:'Buchbar ab 1 Person — englisch- oder deutschsprachiger Reiseleiter', itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2.491', promo:null } },
-  // SOLO AT
-  { region:'solo', subRegion:'solo-at', date:'07. Jun', year:'2026', fullDate:'07. Jun 2026', program:'Andean Treasures – Solo Traveler', duration:'8 Tage / 7 Nächte', status:['open','confirmed'], promo:false, bookable:true, fewSpots:false, dealType:null, promoPrice:false, depDetail:'Buchbar ab 1 Person — englischsprachiger Reiseleiter', itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/strasse-der-vulkane/andean-treasures?authuser=0', priceFrom:{ regular:'$1.561', promo:null } },
-  { region:'solo', subRegion:'solo-at', date:'04. Okt', year:'2026', fullDate:'04. Okt 2026', program:'Andean Treasures – Solo Traveler', duration:'8 Tage / 7 Nächte', status:['open','confirmed'], promo:false, bookable:true, fewSpots:false, dealType:null, promoPrice:false, depDetail:'Buchbar ab 1 Person — englischsprachiger Reiseleiter', itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/strasse-der-vulkane/andean-treasures?authuser=0', priceFrom:{ regular:'$1.561', promo:null } }
+  { region:'galapagos', subRegion:'galapagos', date:'04 Jan',        year:'2026', fullDate:'04 Jan 2026',        program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['operated'],         promo:false, bookable:false, fewSpots:false, dealType:null,     promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:null },
+  { region:'galapagos', subRegion:'galapagos', date:'25–30 Jan',     year:'2026', fullDate:'25–30 Jan 2026',     program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['operated'],         promo:true,  bookable:false, fewSpots:false, dealType:null,     promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:null },
+  { region:'galapagos', subRegion:'galapagos', date:'15–20 Feb',     year:'2026', fullDate:'15–20 Feb 2026',     program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['operated','sold'],  promo:false, bookable:false, fewSpots:false, dealType:null,     promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:null },
+  { region:'galapagos', subRegion:'galapagos', date:'01–06 Mar',     year:'2026', fullDate:'01–06 Mar 2026',     program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['operated'],         promo:true,  bookable:false, fewSpots:false, dealType:null,     promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:null },
+  { region:'galapagos', subRegion:'galapagos', date:'10–15 May',     year:'2026', fullDate:'10–15 May 2026',     program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:false, dealType:'summer', promoPrice:true,  hasSolo:true, soloPromo:true,  itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:'$1,999' } },
+  { region:'galapagos', subRegion:'galapagos', date:'07–12 Jun',     year:'2026', fullDate:'07–12 Jun 2026',     program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:true,  dealType:'summer', promoPrice:true,  itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:'$1,999' } },
+  { region:'galapagos', subRegion:'galapagos', date:'21–26 Jun',     year:'2026', fullDate:'21–26 Jun 2026',     program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:true,  bookable:true,  fewSpots:false, dealType:null,     promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:null } },
+  { region:'galapagos', subRegion:'galapagos', date:'12–17 Jul',     year:'2026', fullDate:'12–17 Jul 2026',     program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:true,  dealType:'summer', promoPrice:true,  itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:'$1,999' } },
+  { region:'galapagos', subRegion:'galapagos', date:'02–07 Aug',     year:'2026', fullDate:'02–07 Aug 2026',     program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:true,  bookable:true,  fewSpots:false, dealType:null,  promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:null } },
+  { region:'galapagos', subRegion:'galapagos', date:'09–14 Aug',     year:'2026', fullDate:'09–14 Aug 2026',     program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:false, dealType:null,  promoPrice:false, hasSolo:true, soloPromo:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:null } },
+  { region:'galapagos', subRegion:'galapagos', date:'13–18 Sep',     year:'2026', fullDate:'13–18 Sep 2026',     program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:true,  bookable:true,  fewSpots:false, dealType:null,     promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:null } },
+  { region:'galapagos', subRegion:'galapagos', date:'27 Sep–02 Oct', year:'2026', fullDate:'27 Sep–02 Oct 2026', program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:true,  bookable:true,  fewSpots:false, dealType:null,     promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:null } },
+  { region:'galapagos', subRegion:'galapagos', date:'18–23 Oct',     year:'2026', fullDate:'18–23 Oct 2026',     program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:false, dealType:'eoy',    promoPrice:true,  itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:'$1,999' } },
+  { region:'galapagos', subRegion:'galapagos', date:'08–13 Nov',     year:'2026', fullDate:'08–13 Nov 2026',     program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:false, dealType:'eoy',  promoPrice:true,  itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:'$1,999' } },
+  { region:'galapagos', subRegion:'galapagos', date:'15–20 Nov',     year:'2026', fullDate:'15–20 Nov 2026',     program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:false, dealType:null,  promoPrice:false, hasSolo:true, soloPromo:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:null } },
+  { region:'galapagos', subRegion:'galapagos', date:'13–18 Dec',     year:'2026', fullDate:'13–18 Dec 2026',     program:'Galápagos Loop', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:false, dealType:'eoy',    promoPrice:true,  itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,420', promo:'$1,999' } },
+  // ANDEAN TREASURES — M1: 04 Apr now operated
+  { region:'andean', subRegion:'andean', date:'04 Apr', year:'2026', fullDate:'04 Apr 2026', program:'Andean Treasures', duration:'8 Days / 7 Nights', status:['operated'], promo:false, bookable:false, fewSpots:false, dealType:null, promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/volcano-avenue/andean-treasures?authuser=0', priceFrom:null },
+  { region:'andean', subRegion:'andean', date:'07 Jun', year:'2026', fullDate:'07 Jun 2026', program:'Andean Treasures', duration:'8 Days / 7 Nights', status:['open','confirmed'], promo:false, bookable:true, fewSpots:false, dealType:null, promoPrice:false, hasSolo:true, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/volcano-avenue/andean-treasures?authuser=0', priceFrom:{ regular:'$1,395', promo:null } },
+  { region:'andean', subRegion:'andean', date:'05 Jul', year:'2026', fullDate:'05 Jul 2026', program:'Andean Treasures', duration:'8 Days / 7 Nights', status:['open','confirmed'], promo:false, bookable:true, fewSpots:false, dealType:null, promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/volcano-avenue/andean-treasures?authuser=0', priceFrom:{ regular:'$1,395', promo:null } },
+  { region:'andean', subRegion:'andean', date:'02 Aug', year:'2026', fullDate:'02 Aug 2026', program:'Andean Treasures', duration:'8 Days / 7 Nights', status:['open','confirmed'], promo:false, bookable:true, fewSpots:true,  dealType:null, promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/volcano-avenue/andean-treasures?authuser=0', priceFrom:{ regular:'$1,395', promo:null } },
+  { region:'andean', subRegion:'andean', date:'06 Sep', year:'2026', fullDate:'06 Sep 2026', program:'Andean Treasures', duration:'8 Days / 7 Nights', status:['open','confirmed'], promo:false, bookable:true, fewSpots:false, dealType:null, promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/volcano-avenue/andean-treasures?authuser=0', priceFrom:{ regular:'$1,395', promo:null } },
+  { region:'andean', subRegion:'andean', date:'04 Oct', year:'2026', fullDate:'04 Oct 2026', program:'Andean Treasures', duration:'8 Days / 7 Nights', status:['open','confirmed'], promo:false, bookable:true, fewSpots:false, dealType:null, promoPrice:false, hasSolo:true, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/volcano-avenue/andean-treasures?authuser=0', priceFrom:{ regular:'$1,395', promo:null } },
+  // VOLCANO AVENUE
+  { region:'volcano', subRegion:'volcano', date:'23 Jul', year:'2026', fullDate:'23 Jul 2026', program:'Volcano Avenue 6D/5N', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:false, bookable:true, fewSpots:false, dealType:null, promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/volcano-avenue/6d-5n-volcano-avenue-sib?authuser=0', priceFrom:{ regular:'$807', promo:null } },
+  // SOLO TRAVELER — Santa Cruz
+  { region:'solo', subRegion:'solo-santacruz', date:'12 Apr', year:'2026', fullDate:'12 Apr 2026', program:'Galápagos Solo – Santa Cruz', duration:'4 Days / 3 Nights', status:['open','confirmed'], promo:false, bookable:true, fewSpots:false, dealType:null, promoPrice:false, depDetail:'Available following the Andean Treasures program — Shared-in-Bus (open)', itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-solo-traveler-santa-cruz?authuser=0', priceFrom:{ regular:'$1,099', promo:null } },
+  { region:'solo', subRegion:'solo-santacruz', date:'10 May', year:'2026', fullDate:'10 May 2026', program:'Galápagos Solo – Santa Cruz', duration:'4 Days / 3 Nights', status:['open','confirmed'], promo:false, bookable:true, fewSpots:false, dealType:null, promoPrice:false, depDetail:'Loop program running the same date — Shared-in-Bus (open)', itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-solo-traveler-santa-cruz?authuser=0', priceFrom:{ regular:'$1,099', promo:null } },
+  { region:'solo', subRegion:'solo-santacruz', date:'14 Jun', year:'2026', fullDate:'14 Jun 2026', program:'Galápagos Solo – Santa Cruz', duration:'4 Days / 3 Nights', status:['open','confirmed'], promo:false, bookable:true, fewSpots:false, dealType:null, promoPrice:false, depDetail:'Available following the Andean Treasures program — Shared-in-Bus (open)', itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-solo-traveler-santa-cruz?authuser=0', priceFrom:{ regular:'$1,099', promo:null } },
+  { region:'solo', subRegion:'solo-santacruz', date:'29 Jul', year:'2026', fullDate:'29 Jul 2026', program:'Galápagos Solo – Santa Cruz', duration:'4 Days / 3 Nights', status:['open','confirmed'], promo:false, bookable:true, fewSpots:false, dealType:null, promoPrice:false, depDetail:'Available following the Volcano Avenue program — Shared-in-Bus (open)', itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-solo-traveler-santa-cruz?authuser=0', priceFrom:{ regular:'$1,099', promo:null } },
+  { region:'solo', subRegion:'solo-santacruz', date:'09 Aug', year:'2026', fullDate:'09 Aug 2026', program:'Galápagos Solo – Santa Cruz', duration:'4 Days / 3 Nights', status:['open','confirmed'], promo:false, bookable:true, fewSpots:false, dealType:null, promoPrice:false, depDetail:'Available following the Andean Treasures program — Shared-in-Bus (potential)', itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-solo-traveler-santa-cruz?authuser=0', priceFrom:{ regular:'$1,099', promo:null } },
+  { region:'solo', subRegion:'solo-santacruz', date:'11 Oct', year:'2026', fullDate:'11 Oct 2026', program:'Galápagos Solo – Santa Cruz', duration:'4 Days / 3 Nights', status:['open','confirmed'], promo:false, bookable:true, fewSpots:false, dealType:null, promoPrice:false, depDetail:'Available following the Andean Treasures program — Shared-in-Bus (open)', itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-solo-traveler-santa-cruz?authuser=0', priceFrom:{ regular:'$1,099', promo:null } },
+  // SOLO TRAVELER — Loop (M6: new entries)
+  { region:'solo', subRegion:'solo-loop', date:'10–15 May', year:'2026', fullDate:'10–15 May 2026', program:'Galápagos Loop – Solo Traveler', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:false, bookable:true, fewSpots:false, dealType:'summer', promoPrice:true,  depDetail:'Bookable from 1 passenger — English guide only', itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,491', promo:'$2,070' } },
+  { region:'solo', subRegion:'solo-loop', date:'09–14 Aug', year:'2026', fullDate:'09–14 Aug 2026', program:'Galápagos Loop – Solo Traveler', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:false, bookable:true, fewSpots:false, dealType:null,     promoPrice:false, depDetail:'Bookable from 1 passenger — English guide only', itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,491', promo:null } },
+  { region:'solo', subRegion:'solo-loop', date:'15–20 Nov', year:'2026', fullDate:'15–20 Nov 2026', program:'Galápagos Loop – Solo Traveler', duration:'6 Days / 5 Nights', status:['open','confirmed'], promo:false, bookable:true, fewSpots:false, dealType:null,     promoPrice:false, depDetail:'Bookable from 1 passenger — English guide only', itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2,491', promo:null } },
+  // SOLO TRAVELER — Andean Treasures (M7: new entries)
+  { region:'solo', subRegion:'solo-at', date:'07 Jun', year:'2026', fullDate:'07 Jun 2026', program:'Andean Treasures – Solo Traveler', duration:'8 Days / 7 Nights', status:['open','confirmed'], promo:false, bookable:true, fewSpots:false, dealType:null, promoPrice:false, depDetail:'Bookable from 1 passenger — English guide only', itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/volcano-avenue/andean-treasures?authuser=0', priceFrom:{ regular:'$1,561', promo:null } },
+  { region:'solo', subRegion:'solo-at', date:'04 Oct', year:'2026', fullDate:'04 Oct 2026', program:'Andean Treasures – Solo Traveler', duration:'8 Days / 7 Nights', status:['open','confirmed'], promo:false, bookable:true, fewSpots:false, dealType:null, promoPrice:false, depDetail:'Bookable from 1 passenger — English guide only', itinerary:'https://sites.google.com/georeisen-ecuador.com/geo-boutique-shared-tours-2026/volcano-avenue/andean-treasures?authuser=0', priceFrom:{ regular:'$1,561', promo:null } }
 ];
 
-/* Galapagos Loop Tarife — DE zuerst */
+/* Galápagos Loop rates — EN & DE */
 const loopRates = {
-  de: [
-    { id:'tourist',    name:'Tourist',          sub:'Standardunterkunft',        single:2641, double:2570, triple:2549, best:false },
-    { id:'tourist-sup',name:'Tourist Superior', sub:'Gehobene Komfortkategorie', single:2907, double:2627, triple:2590, best:false },
-    { id:'first',      name:'First Class',      sub:'Premiumkategorie',          single:3499, double:2953, triple:2846, best:false }
-  ],
   en: [
-    { id:'tourist',    name:'Tourist',          sub:'Standardunterkunft',        single:2491, double:2420, triple:2399, best:true,  promoSingle:2070, promoDouble:1999, promoTriple:1978 },
-    { id:'tourist-sup',name:'Tourist Superior', sub:'Gehobene Komfortkategorie', single:2757, double:2477, triple:2440, best:false, promoSingle:2336, promoDouble:2056, promoTriple:2019 },
-    { id:'first',      name:'First Class',      sub:'Premiumkategorie',          single:3349, double:2803, triple:2696, best:false, promoSingle:2928, promoDouble:2382, promoTriple:2275 }
+    { id:'tourist',    name:'Tourist',          sub:'Standard accommodation',   single:2491, double:2420, triple:2399, best:true,  promoSingle:2070, promoDouble:1999, promoTriple:1978 },
+    { id:'tourist-sup',name:'Tourist Superior', sub:'Enhanced comfort category',single:2757, double:2477, triple:2440, best:false, promoSingle:2336, promoDouble:2056, promoTriple:2019 },
+    { id:'first',      name:'First Class',      sub:'Premium category',         single:3349, double:2803, triple:2696, best:false, promoSingle:2928, promoDouble:2382, promoTriple:2275 }
+  ],
+  de: [
+    { id:'tourist',    name:'Tourist',          sub:'Standard accommodation',   single:2641, double:2570, triple:2549, best:false },
+    { id:'tourist-sup',name:'Tourist Superior', sub:'Enhanced comfort category',single:2907, double:2627, triple:2590, best:false },
+    { id:'first',      name:'First Class',      sub:'Premium category',         single:3499, double:2953, triple:2846, best:false }
   ]
 };
 
-/* Solo Loop Tarife — EN EZ (für Mai: nur EN; für Aug/Nov: auch DE EZ) */
-const soloLoopRates = {
-  en: [
-    { id:'tourist',    name:'Tourist',          sub:'Standardunterkunft',        single:2491, promoSingle:2070 },
-    { id:'tourist-sup',name:'Tourist Superior', sub:'Gehobene Komfortkategorie', single:2757, promoSingle:2336 },
-    { id:'first',      name:'First Class',      sub:'Premiumkategorie',          single:3349, promoSingle:2928 }
-  ],
-  de: [
-    { id:'tourist',    name:'Tourist',          sub:'Standardunterkunft',        single:2641 },
-    { id:'tourist-sup',name:'Tourist Superior', sub:'Gehobene Komfortkategorie', single:2907 },
-    { id:'first',      name:'First Class',      sub:'Premiumkategorie',          single:3499 }
-  ]
-};
-
-/* Andean Treasures EZ + DZ */
-const andeanRatesData = [
-  { label:'Deutschsprachig – Standard', sub:'Deutsch-/englischsprachiger Reiseleiter', lang:'de', single:1561, double:1395, rateKey:'Deutschsprachiger Reiseleiter – Standard' },
-  { label:'Deutschsprachig – Superior', sub:'Deutsch-/englischsprachiger Reiseleiter', lang:'de', single:1971, double:1571, rateKey:'Deutschsprachiger Reiseleiter – Superior' },
-  { label:'Englischsprachig – Standard', sub:'Englischsprachiger Reiseleiter',          lang:'en', single:1561, double:1395, rateKey:'Englischsprachiger Reiseleiter – Standard' },
-  { label:'Englischsprachig – Superior', sub:'Englischsprachiger Reiseleiter',          lang:'en', single:1971, double:1571, rateKey:'Englischsprachiger Reiseleiter – Superior' }
+/* Solo Loop rates — EN only, single accommodation */
+const soloLoopRates = [
+  { id:'tourist',    name:'Tourist',          sub:'Standard accommodation',   single:2491, promoSingle:2070 },
+  { id:'tourist-sup',name:'Tourist Superior', sub:'Enhanced comfort category',single:2757, promoSingle:2336 },
+  { id:'first',      name:'First Class',      sub:'Premium category',         single:3349, promoSingle:2928 }
 ];
 
-/* Strasse der Vulkane EZ + DZ */
+/* M4 — Andean Treasures: occupancy-pair data */
+const andeanRatesData = [
+  { label:'English Guide – Standard', sub:'English-speaking guide', lang:'en', single:1561, double:1395, rateKey:'English guide – Standard' },
+  { label:'English Guide – Superior', sub:'English-speaking guide', lang:'en', single:1971, double:1571, rateKey:'English guide – Superior' },
+  { label:'German Guide – Standard',  sub:'German-speaking guide',  lang:'de', single:1561, double:1395, rateKey:'German guide – Standard'  },
+  { label:'German Guide – Superior',  sub:'German-speaking guide',  lang:'de', single:1971, double:1571, rateKey:'German guide – Superior'  }
+];
+
+/* M4 — Volcano Avenue: occupancy-pair data */
 const volcanoRatesData = [
-  { label:'Tourist',          sub:'Standardunterkunft',        single:921,  double:807,  rateKey:'Tourist' },
-  { label:'Tourist Superior', sub:'Gehobene Komfortkategorie', single:1145, double:968,  rateKey:'Tourist Superior' },
-  { label:'First Class',      sub:'Premiumkategorie',          single:1679, double:1217, rateKey:'First Class' }
+  { label:'Tourist',          sub:'Standard accommodation',    single:921,  double:807,  rateKey:'Tourist' },
+  { label:'Tourist Superior', sub:'Enhanced comfort category', single:1145, double:968,  rateKey:'Tourist Superior' },
+  { label:'First Class',      sub:'Premium category',          single:1679, double:1217, rateKey:'First Class' }
 ];
 
 /* =====================
    HELPERS
 ===================== */
-const subRegionOrder = ['galapagos','andean','volcano','solo-santacruz','solo-loop','solo-at'];
+const regionOrder     = ['galapagos','andean','volcano','solo'];
+const subRegionOrder  = ['galapagos','andean','volcano','solo-santacruz','solo-loop','solo-at'];
+const regionLabels    = { galapagos:'Galápagos', andean:'Andean Treasures', volcano:'Volcano Avenue', solo:'Galápagos Solo Traveler' };
 const subRegionLabels = {
-  'galapagos':      'Galapagos Loop',
+  'galapagos':      'Galápagos Loop',
   'andean':         'Andean Treasures',
-  'volcano':        'Strasse der Vulkane',
+  'volcano':        'Volcano Avenue',
   'solo-santacruz': 'Solo Traveler – Santa Cruz',
-  'solo-loop':      'Galapagos Loop – Solo Traveler',
+  'solo-loop':      'Galápagos Loop – Solo Traveler',
   'solo-at':        'Andean Treasures – Solo Traveler'
 };
+
+/* Map subRegion → CSS block class */
 const subRegionBlockClass = {
   'galapagos':      'region-galapagos',
   'andean':         'region-andean',
@@ -1050,6 +1053,8 @@ const subRegionBlockClass = {
   'solo-loop':      'region-solo-loop',
   'solo-at':        'region-solo-at'
 };
+
+/* Map subRegion → card data-region attribute (for accent/link colors) */
 const subRegionCardAttr = {
   'galapagos':      'galapagos',
   'andean':         'andean',
@@ -1059,46 +1064,31 @@ const subRegionCardAttr = {
   'solo-at':        'solo-at'
 };
 
-/* Solo-Sektionen die EN-Reiseleiter-Hinweis brauchen (solo-loop hat auch DE-Option) */
-const soloENGuideSubRegions = new Set(['solo-santacruz','solo-at']);
-
-/* UK-Flagge SVG inline */
-const ukFlagSVG = `<svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#012169"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="8"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" stroke-width="5"/><path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="12"/><path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="8"/></svg>`;
-
-function fmt(n){ return '$'+n.toLocaleString('de-DE'); }
+function fmt(n){ return '$'+n.toLocaleString('en-US'); }
 
 function badgeHTML(s){
-  const m={ open:['badge-open','Offen'], confirmed:['badge-confirmed','Bestätigt'], sold:['badge-sold','Ausverkauft'], operated:['badge-operated','Durchgeführt'] };
+  const m={ open:['badge-open','Open'], confirmed:['badge-confirmed','Confirmed'], sold:['badge-sold','Sold Out'], operated:['badge-operated','Operated'] };
   return m[s]?`<span class="badge ${m[s][0]}">${m[s][1]}</span>`:'';
 }
 function dealBadge(t){
-  if(t==='summer') return `<span class="badge badge-deal-summer">☀ Sommeraktionen</span>`;
-  if(t==='eoy')    return `<span class="badge badge-deal-eoy">✦ Jahresendaktionen</span>`;
+  if(t==='summer') return `<span class="badge badge-deal-summer">☀ Summer Deals</span>`;
+  if(t==='eoy')    return `<span class="badge badge-deal-eoy">✦ End of Year Deals</span>`;
   return '';
 }
-function fewBadge(){ return `<span class="badge badge-few">⚑ Wenige Plätze</span>`; }
-function newBadge(){ return `<span class="badge badge-new">✦ Neues Programm</span>`; }
-
-/* Reiseleiter-Hinweis auf der Karte */
-function guideNoteHTML(hasDEOption){
-  if(hasDEOption){
-    const deFlagSVG=`<svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#FFCE00"/><rect width="60" height="26.7" fill="#DD0000"/><rect width="60" height="13.3" fill="#000"/></svg>`;
-    return `<div class="card-guide-note"><span class="flag-xs">${ukFlagSVG}</span><span class="flag-xs" style="margin-left:2px;">${deFlagSVG}</span>Reiseleiter: Englisch oder Deutsch</div>`;
-  }
-  return `<div class="card-guide-note"><span class="flag-xs">${ukFlagSVG}</span>Reiseleiter: Englisch</div>`;
-}
+function fewBadge(){ return `<span class="badge badge-few">⚑ Few Spots Available</span>`; }
+function newBadge(){ return `<span class="badge badge-new">✦ New Program</span>`; }
 
 function soloAvailableBanner(){
-  return `<div class="solo-available-banner"><div class="solo-av-icon">1</div><div class="solo-av-text"><span>Solo Traveler-Version verfügbar</span>Auch buchbar ab 1 Person — Solo Traveler-Tarife im Buchungsmodal</div></div>`;
+  return `<div class="solo-available-ribbon">✦ Also available<br>as Solo Traveler</div>`;
 }
 
 function priceFooter(dep){
   if(!dep.bookable) return '';
   let pb='';
   if(dep.priceFrom && dep.priceFrom.promo){
-    pb=`<div class="price-from"><span>Ab</span><div class="price-display"><span class="price-original">${dep.priceFrom.regular}</span><span class="price-current">${dep.priceFrom.promo} <small>/ Pers.</small></span></div><span class="price-promo-label">Aktionspreis</span></div>`;
+    pb=`<div class="price-from"><span>From</span><div class="price-display"><span class="price-original">${dep.priceFrom.regular}</span><span class="price-current">${dep.priceFrom.promo} <small>/ pax</small></span></div><span class="price-promo-label">Promotional rate</span></div>`;
   } else if(dep.priceFrom){
-    pb=`<div class="price-from"><span>Ab</span><div class="price-display"><span class="price-regular">${dep.priceFrom.regular} <small>/ Pers.</small></span></div></div>`;
+    pb=`<div class="price-from"><span>From</span><div class="price-display"><span class="price-regular">${dep.priceFrom.regular} <small>/ pax</small></span></div></div>`;
   }
   const effectiveSubRegion = dep.hasSolo
     ? (dep.subRegion==='galapagos' ? 'galapagos-solo' : 'andean-solo')
@@ -1106,14 +1096,13 @@ function priceFooter(dep){
     : dep.subRegion==='solo-at'   ? 'andean-solo'
     : dep.subRegion;
   const soloPrm = dep.soloPromo || dep.promoPrice || false;
-  const hasDEGuide = dep.soloHasDEGuide || false;
-  return `<div class="card-footer">${pb}<button class="book-btn" data-program="${dep.program} – ${dep.duration}" data-date="${dep.fullDate}" data-region="${dep.region}" data-subregion="${effectiveSubRegion}" data-few="${dep.fewSpots}" data-promo="${dep.promoPrice}" data-solo-promo="${soloPrm}" data-de-guide="${hasDEGuide}">Jetzt anfragen</button></div>`;
+  return `<div class="card-footer">${pb}<button class="book-btn" data-program="${dep.program} – ${dep.duration}" data-date="${dep.fullDate}" data-region="${dep.region}" data-subregion="${effectiveSubRegion}" data-few="${dep.fewSpots}" data-promo="${dep.promoPrice}" data-solo-promo="${soloPrm}">Request Now</button></div>`;
 }
 
 function promoStrip(dep){
   if(!dep.promo) return '';
-  const msg='Für alle Neubuchungen dieser Abfahrt: Galapagos-Nationalpark-Eintrittsgebühr (PNG) oder Abendessen in der Lava Lounge in Puerto Ayora.';
-  return `<div class="promo-strip"><div class="promo-icon-box">%</div><div class="promo-text"><strong>Sonderkondition</strong>${msg}</div></div>`;
+  const msg='For all new confirmations on this departure: Galápagos National Park entrance fee (PNG) or dinner at Lava Lounge in Puerto Ayora.';
+  return `<div class="promo-strip"><div class="promo-icon-box">%</div><div class="promo-text"><strong>Special Condition</strong>${msg}</div></div>`;
 }
 
 /* =====================
@@ -1135,6 +1124,7 @@ function renderCards(filter){
   });
   document.getElementById('emptyState').style.display=filtered.length===0?'block':'none';
 
+  /* Group by subRegion */
   const groups={};
   subRegionOrder.forEach(sr=>{ groups[sr]=[]; });
   filtered.forEach(d=>groups[d.subRegion].push(d));
@@ -1142,20 +1132,14 @@ function renderCards(filter){
   subRegionOrder.forEach(subRegion=>{
     if(!groups[subRegion].length) return;
 
-    const block=document.createElement('div');
-    block.className=`section-block ${subRegionBlockClass[subRegion]}`;
+    /* Wrap in colored section block */
+    const block = document.createElement('div');
+    block.className = `section-block ${subRegionBlockClass[subRegion]}`;
 
-    /* EN-Reiseleiter-Hinweis für Solo-Sektionen */
-    if(soloENGuideSubRegions.has(subRegion)){
-      const notice=document.createElement('div');
-      notice.className='solo-guide-notice';
-      notice.innerHTML=`<span class="flag-inline">${ukFlagSVG}</span><span>Diese Abfahrten werden ausschließlich mit <strong>englischsprachigem Reiseleiter</strong> durchgeführt.</span>`;
-      block.appendChild(notice);
-    }
-
-    const dv=document.createElement('div');
-    dv.className='section-divider';
-    dv.innerHTML=`<span class="section-label">${subRegionLabels[subRegion]}</span>`;
+    /* Section divider as block header */
+    const dv = document.createElement('div');
+    dv.className = 'section-divider';
+    dv.innerHTML = `<span class="section-label">${subRegionLabels[subRegion]}</span>`;
     block.appendChild(dv);
 
     const grid=document.createElement('div');
@@ -1165,21 +1149,29 @@ function renderCards(filter){
       let cls='dep-card';
       if(isSold) cls+=' is-sold'; else if(isOp) cls+=' is-operated';
       let overlay='';
-      if(isSold) overlay=`<div class="card-overlay-label">Ausverkauft</div>`;
-      else if(isOp) overlay=`<div class="card-overlay-label">Durchgeführt</div>`;
+      if(isSold) overlay=`<div class="card-overlay-label">Sold Out</div>`;
+      else if(isOp) overlay=`<div class="card-overlay-label">Operated</div>`;
       let badges=dep.status.map(badgeHTML).join('');
       if(dep.dealType) badges+=dealBadge(dep.dealType);
       if(dep.fewSpots) badges+=fewBadge();
       if(dep.region==='solo') badges+=newBadge();
-      const depDetailHTML=dep.depDetail?`<div class="card-dep-detail">${dep.depDetail}</div>`:'';
-      /* Reiseleiter-Hinweis auf Karte */
-      const showGuideNote = soloENGuideSubRegions.has(dep.subRegion) || dep.subRegion==='solo-loop';
-      const guideNote = showGuideNote ? guideNoteHTML(dep.soloHasDEGuide || false) : '';
-      const soloHTML=dep.hasSolo?soloAvailableBanner():'';
-      const cardAttr=subRegionCardAttr[dep.subRegion];
+      const depDetailHTML = dep.depDetail ? `<div class="card-dep-detail">${dep.depDetail}</div>` : '';
+      /* Guide flag for ALL cards */
+      const ukFlag=`<svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#012169"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="8"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" stroke-width="5"/><path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="12"/><path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="8"/></svg>`;
+      let guideNote='';
+      if(dep.subRegion==='galapagos'||dep.subRegion==='andean'){
+        const deFlag=`<svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#FFCE00"/><rect width="60" height="26.7" fill="#DD0000"/><rect width="60" height="13.3" fill="#000"/></svg>`;
+        guideNote=`<div class="card-guide-note"><span class="flag-xs" style="display:inline-flex;align-items:center;width:16px;height:11px;border-radius:1px;overflow:hidden;">${ukFlag}</span> <span class="flag-xs" style="display:inline-flex;align-items:center;width:16px;height:11px;border-radius:1px;overflow:hidden;margin-left:2px;">${deFlag}</span> Guide options: EN or DE — rates vary</div>`;
+      } else if(dep.subRegion==='volcano'){
+        guideNote=`<div class="card-guide-note"><span class="flag-xs" style="display:inline-flex;align-items:center;width:16px;height:11px;border-radius:1px;overflow:hidden;">${ukFlag}</span> English / Spanish guide</div>`;
+      } else if(dep.subRegion==='solo-santacruz'||dep.subRegion==='solo-at'||dep.subRegion==='solo-loop'){
+        guideNote=`<div class="card-guide-note"><span class="flag-xs" style="display:inline-flex;align-items:center;width:16px;height:11px;border-radius:1px;overflow:hidden;">${ukFlag}</span> English guide</div>`;
+      }
+      const soloRibbon = dep.hasSolo ? soloAvailableBanner() : '';
+      const cardAttr = subRegionCardAttr[dep.subRegion];
       const card=document.createElement('div');
       card.className=cls; card.dataset.region=cardAttr;
-      card.innerHTML=`<div class="card-accent"></div>${overlay}<div class="card-body"><div class="card-date">${dep.date} <span class="card-year">${dep.year}</span></div><div class="card-program">${dep.program}</div><div class="card-duration">${dep.duration}</div><a href="${dep.itinerary}" target="_blank" class="itinerary-link">Reiseverlauf ansehen</a>${guideNote}${depDetailHTML}${soloHTML}<div class="badges-row">${badges}</div>${promoStrip(dep)}</div>${priceFooter(dep)}`;
+      card.innerHTML=`<div class="card-accent"></div>${overlay}${soloRibbon}<div class="card-body"><div class="card-date">${dep.date} <span class="card-year">${dep.year}</span></div><div class="card-program">${dep.program}</div><div class="card-duration">${dep.duration}</div><a href="${dep.itinerary}" target="_blank" class="itinerary-link">View itinerary</a>${guideNote}${depDetailHTML}<div class="badges-row">${badges}</div>${promoStrip(dep)}</div>${priceFooter(dep)}`;
       grid.appendChild(card);
     });
     block.appendChild(grid);
@@ -1217,44 +1209,45 @@ function applyFilter(type,btn){
    MODAL STATE
 ===================== */
 let selectedRateText='';
-let currentLang='de';
+let currentLang='en';
 let currentPromo=false;
+/* M8 — track if default message has been set, to preserve edits */
 let modalDefaultMessage='';
 let formMessageDirty=false;
 
 /* =====================
-   LOOP TARIFLISTE
+   LOOP RATE TABLE
 ===================== */
 function buildLoopTable(lang, hasPromo){
-  const cats=loopRates[lang];
-  const body=document.getElementById('loopRateBody');
+  const cats = loopRates[lang];
+  const body = document.getElementById('loopRateBody');
   body.innerHTML='';
   cats.forEach(cat=>{
     const occupancies=[
-      { key:'single', label:'EZ',  price:cat.single, promoPrice:(hasPromo&&lang==='en'&&cat.promoSingle)?cat.promoSingle:null, isBestPromo:false },
-      { key:'double', label:'DZ',  price:cat.double, promoPrice:(hasPromo&&lang==='en'&&cat.promoDouble)?cat.promoDouble:null, isBestPromo:cat.id==='tourist' },
-      { key:'triple', label:'DRZ', price:cat.triple, promoPrice:(hasPromo&&lang==='en'&&cat.promoTriple)?cat.promoTriple:null, isBestPromo:false }
+      { key:'single', label:'Single', price:cat.single, promoPrice: (hasPromo && lang==='en' && cat.promoSingle) ? cat.promoSingle : null, isBestPromo: false },
+      { key:'double', label:'Double', price:cat.double, promoPrice: (hasPromo && lang==='en' && cat.promoDouble) ? cat.promoDouble : null, isBestPromo: cat.id==='tourist' },
+      { key:'triple', label:'Triple', price:cat.triple, promoPrice: (hasPromo && lang==='en' && cat.promoTriple) ? cat.promoTriple : null, isBestPromo: false }
     ];
     const tr=document.createElement('tr');
     const tdCat=document.createElement('td');
-    tdCat.innerHTML=`<span class="cat-cell-name">${cat.name}${cat.best&&hasPromo&&lang==='en'?'<span class="best-tag">Bestes Angebot</span>':''}</span><span class="cat-cell-sub">${cat.sub}</span>`;
+    tdCat.innerHTML=`<span class="cat-cell-name">${cat.name}${cat.best&&hasPromo&&lang==='en'?'<span class="best-tag">Best offer</span>':''}</span><span class="cat-cell-sub">${cat.sub}</span>`;
     tr.appendChild(tdCat);
     occupancies.forEach(occ=>{
       const td=document.createElement('td');
       td.style.textAlign='center';
-      const hasOccPromo=occ.promoPrice!==null;
-      const priceHTML=hasOccPromo
+      const hasOccPromo = occ.promoPrice !== null;
+      const priceHTML = hasOccPromo
         ? occ.isBestPromo
           ? `<div class="occ-price-promo"><span class="p-orig">${fmt(occ.price)}</span><span class="p-curr">${fmt(occ.promoPrice)}</span></div>`
           : `<div class="occ-price-promo"><span class="p-orig-grey">${fmt(occ.price)}</span><span class="p-curr-grey">${fmt(occ.promoPrice)}</span></div>`
         : `<span class="occ-price">${fmt(occ.price)}</span>`;
-      const rateStr=hasOccPromo
-        ? `${cat.name} – ${occ.label} (Englischsprachiger Reiseleiter): ${fmt(occ.promoPrice)} pro Person (Aktionspreis, regulär ${fmt(occ.price)})`
-        : `${cat.name} – ${occ.label} (${lang==='de'?'Deutschsprachiger':'Englischsprachiger'} Reiseleiter): ${fmt(occ.price)} pro Person`;
+      const rateStr = hasOccPromo
+        ? `${cat.name} – ${occ.label} (EN English guide): ${fmt(occ.promoPrice)} per pax (promotional, regular ${fmt(occ.price)})`
+        : `${cat.name} – ${occ.label} (${lang==='en'?'EN English':'DE German'} guide): ${fmt(occ.price)} per pax`;
       const btn=document.createElement('button');
       btn.className='occ-btn';
       btn.innerHTML=`<span class="occ-label">${occ.label}</span>${priceHTML}`;
-      btn.onclick=()=>selectOccupancy(btn,rateStr);
+      btn.onclick=()=>selectOccupancy(btn, rateStr);
       td.appendChild(btn);
       tr.appendChild(td);
     });
@@ -1262,84 +1255,127 @@ function buildLoopTable(lang, hasPromo){
   });
 }
 
-function selectOccupancy(btn,rateStr){
+function selectOccupancy(btn, rateStr){
   document.querySelectorAll('.occ-btn').forEach(b=>b.classList.remove('selected'));
   btn.classList.add('selected');
   selectedRateText=rateStr;
   enableContinue();
 }
 
-/* Solo Loop Tarifliste — EN-only für Mai; EN+DE für Aug/Nov */
-let currentSoloLoopLang='en';
-let currentSoloLoopHasDE=false;
-
-function buildSoloLoopTable(hasPromo, hasDEGuide){
-  currentSoloLoopHasDE=!!hasDEGuide;
-  /* Sprachauswahl anzeigen/verstecken */
-  const tabs=document.getElementById('soloLoopLangTabs');
-  if(tabs) tabs.style.display=hasDEGuide?'flex':'none';
-  currentSoloLoopLang=hasDEGuide?'de':'en';
-  if(hasDEGuide){
-    document.getElementById('soloLoopTabDE').classList.add('active');
-    document.getElementById('soloLoopTabEN').classList.remove('active');
-  }
-  _renderSoloLoopTable(currentSoloLoopLang, hasPromo);
-}
-
-function switchSoloLoopLang(lang){
-  currentSoloLoopLang=lang;
-  document.getElementById('soloLoopTabDE').classList.toggle('active',lang==='de');
-  document.getElementById('soloLoopTabEN').classList.toggle('active',lang==='en');
+function switchLang(lang){
+  currentLang=lang;
+  document.getElementById('langTabEN').classList.toggle('active', lang==='en');
+  document.getElementById('langTabDE').classList.toggle('active', lang==='de');
+  const notice=document.getElementById('promoOnlyNotice');
+  notice.classList.toggle('visible', lang==='de' && currentPromo);
   selectedRateText='';
   disableContinue();
-  _renderSoloLoopTable(lang, false); /* promo nur für EN/Mai */
+  buildLoopTable(lang, currentPromo);
 }
 
-function _renderSoloLoopTable(lang, hasPromo){
-  const cats=soloLoopRates[lang];
-  const body=document.getElementById('soloLoopRateBody');
-  if(!body) return;
+/* M4 — Build Andean rate cards with occupancy pills */
+function buildAndeanRates(){
+  const grid = document.getElementById('andeanRatesGrid');
+  grid.innerHTML='';
+  andeanRatesData.forEach(r=>{
+    const flagSvg = r.lang==='en'
+      ? `<svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#012169"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="8"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" stroke-width="5"/><path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="12"/><path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="8"/></svg>`
+      : `<svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#FFCE00"/><rect width="60" height="26.7" fill="#DD0000"/><rect width="60" height="13.3" fill="#000"/></svg>`;
+    const row = document.createElement('div');
+    row.className='rate-card';
+    row.style.cursor='default';
+    row.innerHTML=`
+      <div style="display:flex;align-items:center;gap:10px;flex:1;">
+        <span class="rate-flag">${flagSvg}</span>
+        <div><span class="rate-label">${r.label}</span><span class="rate-sub">${r.sub}</span></div>
+      </div>
+      <div class="occ-pair">
+        <button class="occ-pill" onclick="selectOccPill(this,'${r.rateKey} – Single accommodation: $${r.single} per pax')">
+          <span class="pill-label">Single</span>
+          <span class="pill-price">$${r.single.toLocaleString('en-US')}</span>
+        </button>
+        <button class="occ-pill" onclick="selectOccPill(this,'${r.rateKey} – Double accommodation: $${r.double} per pax')">
+          <span class="pill-label">Double</span>
+          <span class="pill-price">$${r.double.toLocaleString('en-US')}</span>
+        </button>
+      </div>`;
+    grid.appendChild(row);
+  });
+}
+
+/* M4 — Build Volcano Avenue rate cards with occupancy pills */
+function buildVolcanoRates(){
+  const grid = document.getElementById('volcanoRatesGrid');
+  grid.innerHTML='';
+  volcanoRatesData.forEach(r=>{
+    const row = document.createElement('div');
+    row.className='rate-card';
+    row.style.cursor='default';
+    row.innerHTML=`
+      <div style="flex:1;">
+        <span class="rate-label">${r.label}</span>
+        <span class="rate-sub">${r.sub}</span>
+      </div>
+      <div class="occ-pair">
+        <button class="occ-pill" onclick="selectOccPill(this,'${r.rateKey} – Single accommodation: $${r.single} per pax')">
+          <span class="pill-label">Single</span>
+          <span class="pill-price">$${r.single.toLocaleString('en-US')}</span>
+        </button>
+        <button class="occ-pill" onclick="selectOccPill(this,'${r.rateKey} – Double accommodation: $${r.double} per pax')">
+          <span class="pill-label">Double</span>
+          <span class="pill-price">$${r.double.toLocaleString('en-US')}</span>
+        </button>
+      </div>`;
+    grid.appendChild(row);
+  });
+}
+
+/* M6 — Build Solo Loop rate table */
+function buildSoloLoopTable(hasPromo){
+  const body = document.getElementById('soloLoopRateBody');
   body.innerHTML='';
-  cats.forEach(cat=>{
-    const tr=document.createElement('tr');
-    const tdCat=document.createElement('td');
+  soloLoopRates.forEach(cat=>{
+    const tr = document.createElement('tr');
+    const tdCat = document.createElement('td');
     tdCat.innerHTML=`<span class="cat-cell-name">${cat.name}</span><span class="cat-cell-sub">${cat.sub}</span>`;
     tr.appendChild(tdCat);
-    const tdPrice=document.createElement('td'); tdPrice.style.textAlign='center';
-    const hasP=hasPromo&&lang==='en'&&cat.promoSingle;
-    const priceHTML=hasP
+    const tdPrice = document.createElement('td');
+    tdPrice.style.textAlign='center';
+    const hasP = hasPromo && cat.promoSingle;
+    const priceHTML = hasP
       ? `<div class="occ-price-promo"><span class="p-orig">${fmt(cat.single)}</span><span class="p-curr">${fmt(cat.promoSingle)}</span></div>`
       : `<span class="occ-price">${fmt(cat.single)}</span>`;
-    const guideLbl=lang==='de'?'Deutschsprachiger Reiseleiter':'Englischsprachiger Reiseleiter';
-    const rateStr=hasP
-      ? `[Solo Traveler] ${cat.name} – EZ (${guideLbl}): ${fmt(cat.promoSingle)} pro Person (Aktionspreis, regulär ${fmt(cat.single)})`
-      : `[Solo Traveler] ${cat.name} – EZ (${guideLbl}): ${fmt(cat.single)} pro Person`;
-    const btn=document.createElement('button');
-    btn.className='occ-btn'; btn.style.minWidth='90px';
-    btn.innerHTML=`<span class="occ-label">EZ</span>${priceHTML}`;
-    btn.onclick=()=>selectOccupancy(btn,rateStr);
-    tdPrice.appendChild(btn); tr.appendChild(tdPrice);
+    const rateStr = hasP
+      ? `${cat.name} – Single accommodation (EN): ${fmt(cat.promoSingle)} per pax (promotional, regular ${fmt(cat.single)})`
+      : `${cat.name} – Single accommodation (EN): ${fmt(cat.single)} per pax`;
+    const btn = document.createElement('button');
+    btn.className='occ-btn';
+    btn.style.minWidth='90px';
+    btn.innerHTML=`<span class="occ-label">Single</span>${priceHTML}`;
+    btn.onclick=()=>selectOccupancy(btn, rateStr);
+    tdPrice.appendChild(btn);
+    tr.appendChild(tdPrice);
     body.appendChild(tr);
   });
 }
 
-/* Dual Modal — Loop + Solo Traveler */
-let currentDualLang='de';
+/* Dual modal — Loop + Solo Traveler */
+let currentDualLang='en';
 let currentDualPromo=false;
 
 function buildLoopDualTable(lang, hasPromo){
-  const cats=loopRates[lang];
-  const body=document.getElementById('loopDualRateBody');
+  const cats = loopRates[lang];
+  const body = document.getElementById('loopDualRateBody');
   body.innerHTML='';
   cats.forEach(cat=>{
     const occupancies=[
-      { label:'EZ',  price:cat.single, promoPrice:(hasPromo&&lang==='en'&&cat.promoSingle)?cat.promoSingle:null, isBestPromo:false },
-      { label:'DZ',  price:cat.double, promoPrice:(hasPromo&&lang==='en'&&cat.promoDouble)?cat.promoDouble:null, isBestPromo:cat.id==='tourist' },
-      { label:'DRZ', price:cat.triple, promoPrice:(hasPromo&&lang==='en'&&cat.promoTriple)?cat.promoTriple:null, isBestPromo:false }
+      { key:'single', label:'Single', price:cat.single, promoPrice:(hasPromo&&lang==='en'&&cat.promoSingle)?cat.promoSingle:null, isBestPromo:false },
+      { key:'double', label:'Double', price:cat.double, promoPrice:(hasPromo&&lang==='en'&&cat.promoDouble)?cat.promoDouble:null, isBestPromo:cat.id==='tourist' },
+      { key:'triple', label:'Triple', price:cat.triple, promoPrice:(hasPromo&&lang==='en'&&cat.promoTriple)?cat.promoTriple:null, isBestPromo:false }
     ];
     const tr=document.createElement('tr');
     const tdCat=document.createElement('td');
-    tdCat.innerHTML=`<span class="cat-cell-name">${cat.name}${cat.best&&hasPromo&&lang==='en'?'<span class="best-tag">Bestes Angebot</span>':''}</span><span class="cat-cell-sub">${cat.sub}</span>`;
+    tdCat.innerHTML=`<span class="cat-cell-name">${cat.name}${cat.best&&hasPromo&&lang==='en'?'<span class="best-tag">Best offer</span>':''}</span><span class="cat-cell-sub">${cat.sub}</span>`;
     tr.appendChild(tdCat);
     occupancies.forEach(occ=>{
       const td=document.createElement('td'); td.style.textAlign='center';
@@ -1350,8 +1386,8 @@ function buildLoopDualTable(lang, hasPromo){
           : `<div class="occ-price-promo"><span class="p-orig-grey">${fmt(occ.price)}</span><span class="p-curr-grey">${fmt(occ.promoPrice)}</span></div>`
         : `<span class="occ-price">${fmt(occ.price)}</span>`;
       const rateStr=hasOccPromo
-        ? `[Gruppe] ${cat.name} – ${occ.label} (Englischsprachiger Reiseleiter): ${fmt(occ.promoPrice)} pro Person (Aktionspreis, regulär ${fmt(occ.price)})`
-        : `[Gruppe] ${cat.name} – ${occ.label} (${lang==='de'?'Deutschsprachiger':'Englischsprachiger'} Reiseleiter): ${fmt(occ.price)} pro Person`;
+        ? `[Group] ${cat.name} – ${occ.label} (EN): ${fmt(occ.promoPrice)} per pax (promotional, regular ${fmt(occ.price)})`
+        : `[Group] ${cat.name} – ${occ.label} (${lang==='en'?'EN':'DE'}): ${fmt(occ.price)} per pax`;
       const btn=document.createElement('button');
       btn.className='occ-btn';
       btn.innerHTML=`<span class="occ-label">${occ.label}</span>${priceHTML}`;
@@ -1365,9 +1401,8 @@ function buildLoopDualTable(lang, hasPromo){
 
 function buildSoloLoopDualTable(hasPromo){
   const body=document.getElementById('soloLoopDualBody');
-  if(!body) return;
   body.innerHTML='';
-  soloLoopRates.en.forEach(cat=>{
+  soloLoopRates.forEach(cat=>{
     const tr=document.createElement('tr');
     const tdCat=document.createElement('td');
     tdCat.innerHTML=`<span class="cat-cell-name">${cat.name}</span><span class="cat-cell-sub">${cat.sub}</span>`;
@@ -1378,11 +1413,11 @@ function buildSoloLoopDualTable(hasPromo){
       ? `<div class="occ-price-promo"><span class="p-orig">${fmt(cat.single)}</span><span class="p-curr">${fmt(cat.promoSingle)}</span></div>`
       : `<span class="occ-price">${fmt(cat.single)}</span>`;
     const rateStr=hasP
-      ? `[Solo Traveler] ${cat.name} – EZ (Englischsprachiger Reiseleiter): ${fmt(cat.promoSingle)} pro Person (Aktionspreis, regulär ${fmt(cat.single)})`
-      : `[Solo Traveler] ${cat.name} – EZ (Englischsprachiger Reiseleiter): ${fmt(cat.single)} pro Person`;
+      ? `[Solo Traveler] ${cat.name} – Single (EN): ${fmt(cat.promoSingle)} per pax (promotional, regular ${fmt(cat.single)})`
+      : `[Solo Traveler] ${cat.name} – Single (EN): ${fmt(cat.single)} per pax`;
     const btn=document.createElement('button');
     btn.className='occ-btn'; btn.style.minWidth='90px';
-    btn.innerHTML=`<span class="occ-label">EZ</span>${priceHTML}`;
+    btn.innerHTML=`<span class="occ-label">Single</span>${priceHTML}`;
     btn.onclick=()=>selectOccupancy(btn,rateStr);
     tdPrice.appendChild(btn); tr.appendChild(tdPrice);
     body.appendChild(tr);
@@ -1391,22 +1426,22 @@ function buildSoloLoopDualTable(hasPromo){
 
 function switchLangDual(lang){
   currentDualLang=lang;
-  document.getElementById('langTabDEDual').classList.toggle('active',lang==='de');
   document.getElementById('langTabENDual').classList.toggle('active',lang==='en');
+  document.getElementById('langTabDEDual').classList.toggle('active',lang==='de');
   document.getElementById('promoOnlyNoticeDual').classList.toggle('visible',lang==='de'&&currentDualPromo);
   selectedRateText='';
   disableContinue();
   buildLoopDualTable(lang,currentDualPromo);
 }
 
-/* Dual Modal — Andean + Solo Traveler */
+/* Dual modal — Andean + Solo Traveler */
 function buildAndeanDualRates(){
   const grid=document.getElementById('andeanSoloRatesGrid');
   grid.innerHTML='';
   andeanRatesData.forEach(r=>{
-    const flagSvg=r.lang==='de'
-      ? `<svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#FFCE00"/><rect width="60" height="26.7" fill="#DD0000"/><rect width="60" height="13.3" fill="#000"/></svg>`
-      : `<svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#012169"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="8"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" stroke-width="5"/><path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="12"/><path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="8"/></svg>`;
+    const flagSvg=r.lang==='en'
+      ? `<svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#012169"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="8"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" stroke-width="5"/><path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="12"/><path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="8"/></svg>`
+      : `<svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#FFCE00"/><rect width="60" height="26.7" fill="#DD0000"/><rect width="60" height="13.3" fill="#000"/></svg>`;
     const row=document.createElement('div');
     row.className='rate-card'; row.style.cursor='default';
     row.innerHTML=`
@@ -1415,98 +1450,40 @@ function buildAndeanDualRates(){
         <div><span class="rate-label">${r.label}</span><span class="rate-sub">${r.sub}</span></div>
       </div>
       <div class="occ-pair">
-        <button class="occ-pill" onclick="selectOccPill(this,'[Gruppe] ${r.rateKey} – EZ: $${r.single.toLocaleString('de-DE')} pro Person')">
-          <span class="pill-label">EZ</span><span class="pill-price">$${r.single.toLocaleString('de-DE')}</span>
+        <button class="occ-pill" onclick="selectOccPill(this,'[Group] ${r.rateKey} – Single: $${r.single} per pax')">
+          <span class="pill-label">Single</span><span class="pill-price">$${r.single.toLocaleString('en-US')}</span>
         </button>
-        <button class="occ-pill" onclick="selectOccPill(this,'[Gruppe] ${r.rateKey} – DZ: $${r.double.toLocaleString('de-DE')} pro Person')">
-          <span class="pill-label">DZ</span><span class="pill-price">$${r.double.toLocaleString('de-DE')}</span>
-        </button>
-      </div>`;
-    grid.appendChild(row);
-  });
-}
-
-function switchLang(lang){
-  currentLang=lang;
-  document.getElementById('langTabDE').classList.toggle('active',lang==='de');
-  document.getElementById('langTabEN').classList.toggle('active',lang==='en');
-  const notice=document.getElementById('promoOnlyNotice');
-  /* In DE-Version: Aktion nur für EN — Hinweis wenn DE gewählt und Promo aktiv */
-  notice.classList.toggle('visible',lang==='de'&&currentPromo);
-  selectedRateText='';
-  disableContinue();
-  buildLoopTable(lang,currentPromo);
-}
-
-/* Andean EZ + DZ Belegungspillen */
-function buildAndeanRates(){
-  const grid=document.getElementById('andeanRatesGrid');
-  grid.innerHTML='';
-  andeanRatesData.forEach(r=>{
-    const flagSvg=r.lang==='de'
-      ? `<svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#FFCE00"/><rect width="60" height="26.7" fill="#DD0000"/><rect width="60" height="13.3" fill="#000"/></svg>`
-      : ukFlagSVG;
-    const row=document.createElement('div');
-    row.className='rate-card';
-    row.innerHTML=`
-      <div style="display:flex;align-items:center;gap:10px;flex:1;">
-        <span class="rate-flag">${flagSvg}</span>
-        <div><span class="rate-label">${r.label}</span><span class="rate-sub">${r.sub}</span></div>
-      </div>
-      <div class="occ-pair">
-        <button class="occ-pill" onclick="selectOccPill(this,'${r.rateKey} – EZ: $${r.single.toLocaleString('de-DE')} pro Person')">
-          <span class="pill-label">EZ</span>
-          <span class="pill-price">$${r.single.toLocaleString('de-DE')}</span>
-        </button>
-        <button class="occ-pill" onclick="selectOccPill(this,'${r.rateKey} – DZ: $${r.double.toLocaleString('de-DE')} pro Person')">
-          <span class="pill-label">DZ</span>
-          <span class="pill-price">$${r.double.toLocaleString('de-DE')}</span>
+        <button class="occ-pill" onclick="selectOccPill(this,'[Group] ${r.rateKey} – Double: $${r.double} per pax')">
+          <span class="pill-label">Double</span><span class="pill-price">$${r.double.toLocaleString('en-US')}</span>
         </button>
       </div>`;
     grid.appendChild(row);
   });
 }
-
-/* Strasse der Vulkane EZ + DZ Belegungspillen */
-function buildVolcanoRates(){
-  const grid=document.getElementById('volcanoRatesGrid');
-  grid.innerHTML='';
-  volcanoRatesData.forEach(r=>{
-    const row=document.createElement('div');
-    row.className='rate-card';
-    row.innerHTML=`
-      <div style="flex:1;">
-        <span class="rate-label">${r.label}</span>
-        <span class="rate-sub">${r.sub}</span>
-      </div>
-      <div class="occ-pair">
-        <button class="occ-pill" onclick="selectOccPill(this,'${r.rateKey} – EZ: $${r.single.toLocaleString('de-DE')} pro Person')">
-          <span class="pill-label">EZ</span>
-          <span class="pill-price">$${r.single.toLocaleString('de-DE')}</span>
-        </button>
-        <button class="occ-pill" onclick="selectOccPill(this,'${r.rateKey} – DZ: $${r.double.toLocaleString('de-DE')} pro Person')">
-          <span class="pill-label">DZ</span>
-          <span class="pill-price">$${r.double.toLocaleString('de-DE')}</span>
-        </button>
-      </div>`;
-    grid.appendChild(row);
-  });
-}
-
-function selectOccPill(el,rateStr){
+function selectOccPill(el, rateStr){
   document.querySelectorAll('.occ-pill').forEach(p=>p.classList.remove('selected'));
   el.classList.add('selected');
   selectedRateText=rateStr;
   enableContinue();
 }
 
-function selectSoloRate(el,rateStr){
+/* Solo rate card selection (Santa Cruz & AT) */
+function selectSoloRate(el, rateStr){
   document.querySelectorAll('.solo-rate-card').forEach(c=>c.classList.remove('selected'));
   el.classList.add('selected');
   selectedRateText=rateStr;
   enableContinue();
 }
 
+/* M4 — selectRate kept for backward compatibility */
+function selectRate(el,rateText){
+  document.querySelectorAll('.rate-card').forEach(c=>c.classList.remove('selected'));
+  el.classList.add('selected');
+  selectedRateText=rateText;
+  enableContinue();
+}
+
+/* M9 — enable/disable Continue with hint */
 function enableContinue(){
   const btn=document.getElementById('btnNext');
   const hint=document.getElementById('selectHint');
@@ -1521,96 +1498,100 @@ function disableContinue(){
 }
 
 function clearRateSelection(){
-  document.querySelectorAll('.occ-btn,.occ-pill,.solo-rate-card').forEach(c=>c.classList.remove('selected'));
+  document.querySelectorAll('.rate-card,.occ-btn,.occ-pill,.solo-rate-card').forEach(c=>c.classList.remove('selected'));
   selectedRateText='';
   disableContinue();
 }
-
 /* =====================
-   MODAL ÖFFNEN / SCHLIESSEN
+   OPEN / CLOSE MODAL
 ===================== */
-function openModal(program,date,region,subRegion,fewSpots,promoPrice,soloPromo,deGuide){
+function openModal(program, date, region, subRegion, fewSpots, promoPrice, soloPromo){
   document.getElementById('mProgramName').textContent   = program;
   document.getElementById('mDepartureDate').textContent = date;
   document.getElementById('formProgram').value   = program;
   document.getElementById('formDeparture').value = date;
   document.getElementById('modalUrgencyBanner').style.display = fewSpots ? 'flex' : 'none';
 
-  /* Formular-Nachricht: Standard nur beim ersten Öffnen setzen */
-  const defaultMsg='Ich möchte eine Buchungsanfrage stellen für: '+program+' – '+date;
-  const msgField=document.getElementById('formMessage');
-  if(!formMessageDirty||msgField.value===''||msgField.value===modalDefaultMessage){
-    msgField.value=defaultMsg;
-    formMessageDirty=false;
+  /* M8 — only set default message on first open; preserve user edits on subsequent opens */
+  const defaultMsg = 'I would like to request a booking for: ' + program + ' – ' + date;
+  const msgField = document.getElementById('formMessage');
+  if(!formMessageDirty || msgField.value === '' || msgField.value === modalDefaultMessage){
+    msgField.value = defaultMsg;
+    formMessageDirty = false;
   }
-  modalDefaultMessage=defaultMsg;
+  modalDefaultMessage = defaultMsg;
 
-  document.getElementById('loopRates').style.display       = subRegion==='galapagos'      ? 'block' : 'none';
-  document.getElementById('loopSoloRates').style.display   = subRegion==='galapagos-solo' ? 'block' : 'none';
-  document.getElementById('andeanRates').style.display     = subRegion==='andean'         ? 'block' : 'none';
-  document.getElementById('andeanSoloRates').style.display = subRegion==='andean-solo'    ? 'block' : 'none';
-  document.getElementById('volcanoRates').style.display    = subRegion==='volcano'        ? 'block' : 'none';
-  document.getElementById('soloRates').style.display       = subRegion==='solo-santacruz' ? 'block' : 'none';
-  document.getElementById('soloLoopRates').style.display   = subRegion==='solo-loop'      ? 'block' : 'none';
-  document.getElementById('soloATRates').style.display     = subRegion==='solo-at'        ? 'block' : 'none';
+  /* Show correct rate panel */
+  document.getElementById('loopRates').style.display       = subRegion==='galapagos'       ? 'block' : 'none';
+  document.getElementById('loopSoloRates').style.display   = subRegion==='galapagos-solo'  ? 'block' : 'none';
+  document.getElementById('andeanRates').style.display     = subRegion==='andean'          ? 'block' : 'none';
+  document.getElementById('andeanSoloRates').style.display = subRegion==='andean-solo'     ? 'block' : 'none';
+  document.getElementById('volcanoRates').style.display    = subRegion==='volcano'         ? 'block' : 'none';
+  document.getElementById('soloRates').style.display       = subRegion==='solo-santacruz'  ? 'block' : 'none';
+  document.getElementById('soloLoopRates').style.display   = subRegion==='solo-loop'       ? 'block' : 'none';
+  document.getElementById('soloATRates').style.display     = subRegion==='solo-at'         ? 'block' : 'none';
 
   if(subRegion==='galapagos'){
-    currentPromo=promoPrice;
-    currentLang='de';
-    document.getElementById('promoNoticeEN').style.display=promoPrice?'inline-block':'none';
-    document.getElementById('langTabDE').classList.add('active');
-    document.getElementById('langTabEN').classList.remove('active');
-    document.getElementById('promoOnlyNotice').classList.toggle('visible',promoPrice);
-    buildLoopTable('de',promoPrice);
+    currentPromo = promoPrice;
+    currentLang  = 'en';
+    document.getElementById('promoNoticeEN').style.display = promoPrice ? 'inline-block' : 'none';
+    document.getElementById('langTabEN').classList.add('active');
+    document.getElementById('langTabDE').classList.remove('active');
+    document.getElementById('promoOnlyNotice').classList.remove('visible');
+    buildLoopTable('en', promoPrice);
   }
   if(subRegion==='galapagos-solo'){
-    currentDualPromo=soloPromo;
-    currentDualLang='de';
-    document.getElementById('promoNoticeENDual').style.display=soloPromo?'inline-block':'none';
-    document.getElementById('langTabDEDual').classList.add('active');
-    document.getElementById('langTabENDual').classList.remove('active');
-    document.getElementById('promoOnlyNoticeDual').classList.toggle('visible',soloPromo);
-    buildLoopDualTable('de',soloPromo);
+    currentDualPromo = soloPromo;
+    currentDualLang  = 'en';
+    document.getElementById('promoNoticeENDual').style.display = soloPromo ? 'inline-block' : 'none';
+    document.getElementById('langTabENDual').classList.add('active');
+    document.getElementById('langTabDEDual').classList.remove('active');
+    document.getElementById('promoOnlyNoticeDual').classList.remove('visible');
+    buildLoopDualTable('en', soloPromo);
   }
   if(subRegion==='andean')      buildAndeanRates();
   if(subRegion==='andean-solo') buildAndeanDualRates();
   if(subRegion==='volcano')     buildVolcanoRates();
-  if(subRegion==='solo-loop')   buildSoloLoopTable(promoPrice, deGuide);
+  if(subRegion==='solo-loop')   buildSoloLoopTable(promoPrice);
 
   goToStep1();
   clearRateSelection();
 
-  const overlay=document.getElementById('modal');
+  const overlay = document.getElementById('modal');
   overlay.classList.add('open');
-  overlay.scrollTop=0;
-  document.body.style.overflow='hidden';
+  overlay.scrollTop = 0;
+  document.body.style.overflow = 'hidden';
 }
 
 function closeModal(){
-  const overlay=document.getElementById('modal');
+  const overlay = document.getElementById('modal');
   overlay.classList.remove('open');
-  overlay.scrollTop=0;
-  document.body.style.overflow='';
-  formMessageDirty=false;
+  overlay.scrollTop = 0;
+  document.body.style.overflow = '';
+  formMessageDirty = false;
 }
 
 function handleOverlayClick(e){
   if(e.target===document.getElementById('modal')) closeModal();
 }
 
+function handleRequestOverlayClick(e){
+  if(e.target===document.getElementById('requestModal')) closeRequestModal();
+}
+
 /* =====================
-   SCHRITTNAVIGATION
+   STEP NAVIGATION
 ===================== */
 function goToStep2(){
   if(!selectedRateText) return;
   document.getElementById('formRate').value=selectedRateText;
-  document.getElementById('rateSummary').textContent='Ausgewählt: '+selectedRateText;
+  document.getElementById('rateSummary').textContent='Selected: '+selectedRateText;
   document.getElementById('panel1').classList.remove('active');
   document.getElementById('panel2').classList.add('active');
   document.getElementById('tab1').classList.remove('active');
   document.getElementById('tab1').classList.add('done');
   document.getElementById('tab2').classList.add('active');
-  document.getElementById('modal').scrollTop=0;
+  document.getElementById('modal').scrollTop = 0;
 }
 function goToStep1(){
   document.getElementById('panel2').classList.remove('active');
@@ -1618,53 +1599,49 @@ function goToStep1(){
   document.getElementById('tab2').classList.remove('active');
   document.getElementById('tab1').classList.remove('done');
   document.getElementById('tab1').classList.add('active');
-  document.getElementById('modal').scrollTop=0;
+  document.getElementById('modal').scrollTop = 0;
 }
 
-/* Nachrichtenfeld-Änderungen verfolgen */
-document.getElementById('formMessage').addEventListener('input',function(){
-  formMessageDirty=true;
+/* M8 — Track when user edits the message field */
+document.getElementById('formMessage').addEventListener('input', function(){
+  formMessageDirty = true;
 });
 
 /* =====================
-   DATUM ANFRAGEN MODAL
+   REQUEST DATE MODAL
 ===================== */
 function openRequestModal(){
-  const overlay=document.getElementById('requestModal');
+  const overlay = document.getElementById('requestModal');
   overlay.classList.add('open');
-  overlay.scrollTop=0;
-  document.body.style.overflow='hidden';
+  overlay.scrollTop = 0;
+  document.body.style.overflow = 'hidden';
   requestAnimationFrame(function(){
-    document.querySelector('#requestModal .req-modal-box').scrollIntoView({behavior:'smooth',block:'center'});
+    document.querySelector('#requestModal .req-modal-box').scrollIntoView({ behavior: 'smooth', block: 'center' });
   });
 }
 function closeRequestModal(){
   document.getElementById('requestModal').classList.remove('open');
-  document.body.style.overflow='';
-}
-function handleRequestOverlayClick(e){
-  if(e.target===document.getElementById('requestModal')) closeRequestModal();
+  document.body.style.overflow = '';
 }
 
 /* INIT */
 updateCounts();
 renderCards('all');
 
-/* Event-Delegation für dynamisch generierte "Jetzt anfragen"-Buttons */
-document.addEventListener('click',function(e){
-  const btn=e.target.closest('.book-btn');
+/* Event delegation for dynamically generated Request Now buttons */
+document.addEventListener('click', function(e){
+  const btn = e.target.closest('.book-btn');
   if(!btn) return;
-  const program   =btn.getAttribute('data-program');
-  const date      =btn.getAttribute('data-date');
-  const region    =btn.getAttribute('data-region');
-  const subRegion =btn.getAttribute('data-subregion');
-  const few       =btn.getAttribute('data-few')==='true';
-  const promo     =btn.getAttribute('data-promo')==='true';
-  const soloPromo =btn.getAttribute('data-solo-promo')==='true';
-  const deGuide   =btn.getAttribute('data-de-guide')==='true';
-  openModal(program,date,region,subRegion,few,promo,soloPromo,deGuide);
+  const program    = btn.getAttribute('data-program');
+  const date       = btn.getAttribute('data-date');
+  const region     = btn.getAttribute('data-region');
+  const subRegion  = btn.getAttribute('data-subregion');
+  const few        = btn.getAttribute('data-few') === 'true';
+  const promo      = btn.getAttribute('data-promo') === 'true';
+  const soloPromo  = btn.getAttribute('data-solo-promo') === 'true';
+  openModal(program, date, region, subRegion, few, promo, soloPromo);
   requestAnimationFrame(function(){
-    document.querySelector('#modal .modal-box').scrollIntoView({behavior:'smooth',block:'start'});
+    document.querySelector('#modal .modal-box').scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 });
 
