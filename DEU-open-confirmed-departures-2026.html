@@ -80,20 +80,17 @@ body {
 .filter-btn.f-solo.active, .filter-btn.f-solo:hover { background:#00897B; border-color:#00897B; color:#fff; }
 .filter-btn.f-solo.active .f-count, .filter-btn.f-solo:hover .f-count { background:rgba(255,255,255,0.25); color:#fff; }
 
-/* =====================
-   SECTION BLOCKS — Farbzonen pro Programm
-===================== */
 .section-block {
   border-radius: 14px;
   padding: 20px 20px 24px;
   margin-bottom: 12px;
 }
-.section-block.region-galapagos      { background: #f0f4ff; }
-.section-block.region-andean         { background: #fdf6ee; }
-.section-block.region-volcano        { background: #f3f0fa; }
-.section-block.region-solo-santacruz { background: #e8f5f3; }
-.section-block.region-solo-loop      { background: #eef2fb; }
-.section-block.region-solo-at        { background: #fef9f0; }
+.section-block.region-galapagos      { background: #e4ecff; border: 1px solid #c0d0f0; }
+.section-block.region-andean         { background: #faeedd; border: 1px solid #e8d0a0; }
+.section-block.region-volcano        { background: #ede8f8; border: 1px solid #cfc0ea; }
+.section-block.region-solo-santacruz { background: #d6f0ec; border: 1px solid #8ecec6; }
+.section-block.region-solo-loop      { background: #dce8ff; border: 1px solid #a8c0e8; }
+.section-block.region-solo-at        { background: #fdf0e0; border: 1px solid #e8cc98; }
 
 /* SECTION DIVIDER — als Blockheader */
 .section-divider {
@@ -101,14 +98,14 @@ body {
 }
 .section-divider .section-label {
   font-size: 10px; font-weight: 700; letter-spacing: 2px;
-  text-transform: uppercase; color: #6b7a99; white-space: nowrap;
+  text-transform: uppercase; color: #4a5a7a; white-space: nowrap;
 }
-.section-block.region-galapagos      .section-divider::after { background: #c5d3f0; }
-.section-block.region-andean         .section-divider::after { background: #e0cfa0; }
-.section-block.region-volcano        .section-divider::after { background: #d0bfea; }
-.section-block.region-solo-santacruz .section-divider::after { background: #a0d4cd; }
-.section-block.region-solo-loop      .section-divider::after { background: #bbc9e8; }
-.section-block.region-solo-at        .section-divider::after { background: #e8d9c0; }
+.section-block.region-galapagos      .section-divider::after { background: #a0b8e0; }
+.section-block.region-andean         .section-divider::after { background: #d4b080; }
+.section-block.region-volcano        .section-divider::after { background: #b8a0d8; }
+.section-block.region-solo-santacruz .section-divider::after { background: #70b8b0; }
+.section-block.region-solo-loop      .section-divider::after { background: #88a8d8; }
+.section-block.region-solo-at        .section-divider::after { background: #d4a870; }
 .section-divider::after { content:''; flex:1; height:1px; }
 
 /* SOLO TRAVELER — Hinweisbox (EN-Reiseleiter) */
@@ -123,6 +120,63 @@ body {
   border-radius: 2px; overflow: hidden; flex-shrink: 0;
 }
 .solo-guide-notice .flag-inline svg { width: 22px; height: 15px; display: block; }
+
+/* SOLO AVAILABLE BANNER — auf Loop/AT-Karten mit Solo Traveler-Version */
+.solo-available-banner {
+  display: flex; align-items: center; gap: 8px;
+  background: linear-gradient(135deg, #e8f5f3, #f0faf9);
+  border: 1.5px solid #00897B;
+  border-radius: 7px;
+  padding: 8px 12px;
+  margin-top: 10px;
+}
+.solo-available-banner .solo-av-icon {
+  width: 22px; height: 22px; min-width: 22px; border-radius: 50%;
+  background: #00897B; color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 800; flex-shrink: 0;
+}
+.solo-available-banner .solo-av-text { font-size: 11px; font-weight: 600; color: #00695C; line-height: 1.4; }
+.solo-available-banner .solo-av-text span { font-weight: 700; display: block; font-size: 10px; text-transform: uppercase; letter-spacing: 0.4px; margin-bottom: 1px; }
+
+/* DUAL MODAL — Trenner zwischen Loop- und Solo-Tarifen */
+.modal-rates-divider {
+  display: flex; align-items: center; gap: 10px;
+  margin: 20px 0 16px;
+}
+.modal-rates-divider::before,
+.modal-rates-divider::after { content:''; flex:1; height:1px; background: #e2e6ed; }
+.modal-rates-divider .divider-label {
+  font-size: 9px; font-weight: 700; letter-spacing: 1.5px;
+  text-transform: uppercase; color: #9199a8; white-space: nowrap;
+  padding: 0 4px;
+}
+
+/* Solo Traveler Tarifblock im Dual-Modal */
+.solo-block-in-modal {
+  background: #e8f5f3;
+  border: 1.5px solid #00897B;
+  border-radius: 10px;
+  padding: 14px 16px 10px;
+  margin-top: 4px;
+}
+.solo-block-header {
+  display: flex; align-items: center; gap: 7px;
+  margin-bottom: 12px;
+}
+.solo-block-header .solo-block-icon {
+  width: 20px; height: 20px; border-radius: 50%;
+  background: #00897B; color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px; font-weight: 800; flex-shrink: 0;
+}
+.solo-block-header .solo-block-title {
+  font-size: 10px; font-weight: 700; letter-spacing: 1px;
+  text-transform: uppercase; color: #00695C;
+}
+.solo-block-header .solo-block-sub {
+  font-size: 10px; color: #00897B; font-weight: 500; margin-left: auto;
+}
 
 /* CARDS GRID */
 .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap: 16px; }
@@ -679,11 +733,91 @@ body {
         <p class="rates-note">Preise: Pro Person, Nettopreise in US-Dollar. Alle Kategorien beinhalten Programmleistungen gemäß Reiseverlauf.</p>
       </div>
 
+      <!-- GALÁPAGOS LOOP + SOLO TRAVELER — Dual-Modal -->
+      <div id="loopSoloRates" style="display:none;">
+        <div class="rates-section-title">Sprache des Reiseleiters wählen</div>
+        <div class="lang-tabs">
+          <button class="lang-tab active" id="langTabDEDual" onclick="switchLangDual('de')">
+            <span class="flag"><svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#FFCE00"/><rect width="60" height="26.7" fill="#DD0000"/><rect width="60" height="13.3" fill="#000"/></svg></span>
+            Deutschsprachiger Reiseleiter
+          </button>
+          <button class="lang-tab" id="langTabENDual" onclick="switchLangDual('en')">
+            <span class="flag"><svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#012169"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="8"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" stroke-width="5"/><path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="12"/><path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="8"/></svg></span>
+            Englischsprachiger Reiseleiter
+            <span class="promo-notice" id="promoNoticeENDual" style="display:none;">Aktion verfügbar</span>
+          </button>
+        </div>
+        <div class="promo-only-notice" id="promoOnlyNoticeDual">
+          Aktionspreis gilt nur für Abfahrten mit englischsprachigem Reiseleiter.
+        </div>
+        <div class="rates-section-title" style="margin-top:4px;">Kategorie und Zimmerbelegung wählen</div>
+        <div class="rate-table-wrap">
+          <table class="rate-table" id="loopDualRateTable">
+            <thead>
+              <tr>
+                <th>Kategorie</th>
+                <th class="center">EZ</th>
+                <th class="center">DZ</th>
+                <th class="center">DRZ</th>
+              </tr>
+            </thead>
+            <tbody id="loopDualRateBody"></tbody>
+          </table>
+        </div>
+        <p class="rates-note">Preise: Pro Person, Nettopreise in US-Dollar. Alle Kategorien beinhalten Programmleistungen gemäß Reiseverlauf.</p>
+        <div class="modal-rates-divider"><span class="divider-label">Auch buchbar als Solo Traveler</span></div>
+        <div class="solo-block-in-modal">
+          <div class="solo-block-header">
+            <div class="solo-block-icon">1</div>
+            <span class="solo-block-title">Galápagos Loop – Solo Traveler</span>
+            <span class="solo-block-sub" id="soloLoopDualSub">Buchbar ab 1 Person</span>
+          </div>
+          <div class="rate-table-wrap">
+            <table class="solo-loop-rate-table" id="soloLoopDualTable">
+              <thead>
+                <tr>
+                  <th>Kategorie</th>
+                  <th class="center">EZ</th>
+                </tr>
+              </thead>
+              <tbody id="soloLoopDualBody"></tbody>
+            </table>
+          </div>
+        </div>
+        <p class="rates-note" style="margin-top:8px;">Solo Traveler-Preise: Pro Person, Nettopreise in US-Dollar. Buchbar ab 1 Person.</p>
+      </div>
+
       <!-- ANDEAN TREASURES — EZ + DZ Belegungspillen -->
       <div id="andeanRates" style="display:none;">
         <div class="rates-section-title">Sprache, Kategorie und Zimmerbelegung wählen</div>
         <div class="rates-grid" id="andeanRatesGrid"></div>
         <p class="rates-note">Preise: Pro Person, Nettopreise in US-Dollar.</p>
+      </div>
+
+      <!-- ANDEAN TREASURES + SOLO TRAVELER — Dual-Modal -->
+      <div id="andeanSoloRates" style="display:none;">
+        <div class="rates-section-title">Sprache, Kategorie und Zimmerbelegung wählen</div>
+        <div class="rates-grid" id="andeanSoloRatesGrid"></div>
+        <p class="rates-note">Preise: Pro Person, Nettopreise in US-Dollar.</p>
+        <div class="modal-rates-divider"><span class="divider-label">Auch buchbar als Solo Traveler</span></div>
+        <div class="solo-block-in-modal">
+          <div class="solo-block-header">
+            <div class="solo-block-icon">1</div>
+            <span class="solo-block-title">Andean Treasures – Solo Traveler</span>
+            <span class="solo-block-sub">Englisch · Buchbar ab 1 Person</span>
+          </div>
+          <div class="solo-rates-grid">
+            <div class="solo-rate-card" onclick="selectSoloRate(this,'[Solo Traveler] Standard – EZ: $1.561 pro Person')">
+              <div><span class="rate-label">Standard</span><span class="rate-sub">Standardunterkunft</span></div>
+              <div class="solo-price-col"><span class="price-type">EZ</span><span class="price-val">$1.561</span></div>
+            </div>
+            <div class="solo-rate-card" onclick="selectSoloRate(this,'[Solo Traveler] Superior – EZ: $1.971 pro Person')">
+              <div><span class="rate-label">Superior</span><span class="rate-sub">Gehobene Komfortkategorie</span></div>
+              <div class="solo-price-col"><span class="price-type">EZ</span><span class="price-val">$1.971</span></div>
+            </div>
+          </div>
+        </div>
+        <p class="rates-note" style="margin-top:8px;">Solo Traveler-Preise: Pro Person, Nettopreise in US-Dollar.</p>
       </div>
 
       <!-- STRASSE DER VULKANE — EZ + DZ Belegungspillen -->
@@ -719,11 +853,24 @@ body {
         <p class="rates-note">Preise: Pro Person, Nettopreise in US-Dollar.</p>
       </div>
 
-      <!-- SOLO LOOP: EZ-Tarifliste, EN-Reiseleiter -->
+      <!-- SOLO LOOP: EZ-Tarifliste — EN + DE für Aug/Nov -->
       <div id="soloLoopRates" style="display:none;">
         <div class="rates-section-title">Unterkunftskategorie wählen</div>
         <div style="display:flex;align-items:center;gap:6px;margin-bottom:12px;font-size:11px;color:#4a5568;font-weight:500;">
-          <span class="rate-flag"><svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#012169"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="8"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" stroke-width="5"/><path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="12"/><path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="8"/></svg></span> Englischsprachiger Reiseleiter
+          <span class="rate-flag" id="soloLoopFlagDE" style="display:none;"><svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#FFCE00"/><rect width="60" height="26.7" fill="#DD0000"/><rect width="60" height="13.3" fill="#000"/></svg></span>
+          <span class="rate-flag" id="soloLoopFlagEN"><svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#012169"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="8"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" stroke-width="5"/><path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="12"/><path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="8"/></svg></span>
+          <span id="soloLoopGuideLabel">Englischsprachiger Reiseleiter</span>
+        </div>
+        <!-- Sprachauswahl nur für Aug/Nov -->
+        <div class="lang-tabs" id="soloLoopLangTabs" style="display:none;">
+          <button class="lang-tab active" id="soloLoopTabDE" onclick="switchSoloLoopLang('de')">
+            <span class="flag"><svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#FFCE00"/><rect width="60" height="26.7" fill="#DD0000"/><rect width="60" height="13.3" fill="#000"/></svg></span>
+            Deutschsprachiger Reiseleiter
+          </button>
+          <button class="lang-tab" id="soloLoopTabEN" onclick="switchSoloLoopLang('en')">
+            <span class="flag"><svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#012169"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="8"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" stroke-width="5"/><path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="12"/><path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="8"/></svg></span>
+            Englischsprachiger Reiseleiter
+          </button>
         </div>
         <div class="rate-table-wrap">
           <table class="solo-loop-rate-table" id="soloLoopRateTable">
@@ -803,23 +950,25 @@ const departures = [
   { region:'galapagos', subRegion:'galapagos', date:'25.–30. Jan',     year:'2026', fullDate:'25.–30. Jan 2026',     program:'Galápagos Loop', duration:'6 Tage / 5 Nächte', status:['operated'],         promo:true,  bookable:false, fewSpots:false, dealType:null,     promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:null },
   { region:'galapagos', subRegion:'galapagos', date:'15.–20. Feb',     year:'2026', fullDate:'15.–20. Feb 2026',     program:'Galápagos Loop', duration:'6 Tage / 5 Nächte', status:['operated','sold'],  promo:false, bookable:false, fewSpots:false, dealType:null,     promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:null },
   { region:'galapagos', subRegion:'galapagos', date:'01.–06. Mär',     year:'2026', fullDate:'01.–06. Mär 2026',     program:'Galápagos Loop', duration:'6 Tage / 5 Nächte', status:['operated'],         promo:true,  bookable:false, fewSpots:false, dealType:null,     promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:null },
-  { region:'galapagos', subRegion:'galapagos', date:'10.–15. Mai',     year:'2026', fullDate:'10.–15. Mai 2026',     program:'Galápagos Loop', duration:'6 Tage / 5 Nächte', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:false, dealType:'summer', promoPrice:true,  itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2.420', promo:'$1.999' } },
+  { region:'galapagos', subRegion:'galapagos', date:'10.–15. Mai',     year:'2026', fullDate:'10.–15. Mai 2026',     program:'Galápagos Loop', duration:'6 Tage / 5 Nächte', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:false, dealType:'summer', promoPrice:true,  hasSolo:true, soloPromo:true,  itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2.420', promo:'$1.999' } },
   { region:'galapagos', subRegion:'galapagos', date:'07.–12. Jun',     year:'2026', fullDate:'07.–12. Jun 2026',     program:'Galápagos Loop', duration:'6 Tage / 5 Nächte', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:true,  dealType:'summer', promoPrice:true,  itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2.420', promo:'$1.999' } },
   { region:'galapagos', subRegion:'galapagos', date:'21.–26. Jun',     year:'2026', fullDate:'21.–26. Jun 2026',     program:'Galápagos Loop', duration:'6 Tage / 5 Nächte', status:['open','confirmed'], promo:true,  bookable:true,  fewSpots:false, dealType:null,     promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2.420', promo:null } },
   { region:'galapagos', subRegion:'galapagos', date:'12.–17. Jul',     year:'2026', fullDate:'12.–17. Jul 2026',     program:'Galápagos Loop', duration:'6 Tage / 5 Nächte', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:true,  dealType:'summer', promoPrice:true,  itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2.420', promo:'$1.999' } },
   { region:'galapagos', subRegion:'galapagos', date:'02.–07. Aug',     year:'2026', fullDate:'02.–07. Aug 2026',     program:'Galápagos Loop', duration:'6 Tage / 5 Nächte', status:['open','confirmed'], promo:true,  bookable:true,  fewSpots:false, dealType:null,     promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2.420', promo:null } },
+  { region:'galapagos', subRegion:'galapagos', date:'09.–14. Aug',     year:'2026', fullDate:'09.–14. Aug 2026',     program:'Galápagos Loop', duration:'6 Tage / 5 Nächte', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:false, dealType:null,     promoPrice:false, hasSolo:true, soloPromo:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2.420', promo:null } },
   { region:'galapagos', subRegion:'galapagos', date:'13.–18. Sep',     year:'2026', fullDate:'13.–18. Sep 2026',     program:'Galápagos Loop', duration:'6 Tage / 5 Nächte', status:['open','confirmed'], promo:true,  bookable:true,  fewSpots:false, dealType:null,     promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2.420', promo:null } },
   { region:'galapagos', subRegion:'galapagos', date:'27. Sep–02. Okt', year:'2026', fullDate:'27. Sep–02. Okt 2026', program:'Galápagos Loop', duration:'6 Tage / 5 Nächte', status:['open','confirmed'], promo:true,  bookable:true,  fewSpots:false, dealType:null,     promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2.420', promo:null } },
   { region:'galapagos', subRegion:'galapagos', date:'18.–23. Okt',     year:'2026', fullDate:'18.–23. Okt 2026',     program:'Galápagos Loop', duration:'6 Tage / 5 Nächte', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:false, dealType:'eoy',    promoPrice:true,  itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2.420', promo:'$1.999' } },
   { region:'galapagos', subRegion:'galapagos', date:'08.–13. Nov',     year:'2026', fullDate:'08.–13. Nov 2026',     program:'Galápagos Loop', duration:'6 Tage / 5 Nächte', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:false, dealType:'eoy',    promoPrice:true,  itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2.420', promo:'$1.999' } },
+  { region:'galapagos', subRegion:'galapagos', date:'15.–20. Nov',     year:'2026', fullDate:'15.–20. Nov 2026',     program:'Galápagos Loop', duration:'6 Tage / 5 Nächte', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:false, dealType:null,     promoPrice:false, hasSolo:true, soloPromo:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2.420', promo:null } },
   { region:'galapagos', subRegion:'galapagos', date:'13.–18. Dez',     year:'2026', fullDate:'13.–18. Dez 2026',     program:'Galápagos Loop', duration:'6 Tage / 5 Nächte', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:false, dealType:'eoy',    promoPrice:true,  itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2.420', promo:'$1.999' } },
   // ANDEAN TREASURES — 04. Apr bleibt open/confirmed (DE-Markt)
   { region:'andean', subRegion:'andean', date:'04. Apr', year:'2026', fullDate:'04. Apr 2026', program:'Andean Treasures', duration:'8 Tage / 7 Nächte', status:['open','confirmed'], promo:false, bookable:true, fewSpots:true,  dealType:null, promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/strasse-der-vulkane/andean-treasures?authuser=0', priceFrom:{ regular:'$1.395', promo:null } },
-  { region:'andean', subRegion:'andean', date:'07. Jun', year:'2026', fullDate:'07. Jun 2026', program:'Andean Treasures', duration:'8 Tage / 7 Nächte', status:['open','confirmed'], promo:false, bookable:true, fewSpots:false, dealType:null, promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/strasse-der-vulkane/andean-treasures?authuser=0', priceFrom:{ regular:'$1.395', promo:null } },
+  { region:'andean', subRegion:'andean', date:'07. Jun', year:'2026', fullDate:'07. Jun 2026', program:'Andean Treasures', duration:'8 Tage / 7 Nächte', status:['open','confirmed'], promo:false, bookable:true, fewSpots:false, dealType:null, promoPrice:false, hasSolo:true, itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/strasse-der-vulkane/andean-treasures?authuser=0', priceFrom:{ regular:'$1.395', promo:null } },
   { region:'andean', subRegion:'andean', date:'05. Jul', year:'2026', fullDate:'05. Jul 2026', program:'Andean Treasures', duration:'8 Tage / 7 Nächte', status:['open','confirmed'], promo:false, bookable:true, fewSpots:false, dealType:null, promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/strasse-der-vulkane/andean-treasures?authuser=0', priceFrom:{ regular:'$1.395', promo:null } },
   { region:'andean', subRegion:'andean', date:'02. Aug', year:'2026', fullDate:'02. Aug 2026', program:'Andean Treasures', duration:'8 Tage / 7 Nächte', status:['open','confirmed'], promo:false, bookable:true, fewSpots:true,  dealType:null, promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/strasse-der-vulkane/andean-treasures?authuser=0', priceFrom:{ regular:'$1.395', promo:null } },
   { region:'andean', subRegion:'andean', date:'06. Sep', year:'2026', fullDate:'06. Sep 2026', program:'Andean Treasures', duration:'8 Tage / 7 Nächte', status:['open','confirmed'], promo:false, bookable:true, fewSpots:false, dealType:null, promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/strasse-der-vulkane/andean-treasures?authuser=0', priceFrom:{ regular:'$1.395', promo:null } },
-  { region:'andean', subRegion:'andean', date:'04. Okt', year:'2026', fullDate:'04. Okt 2026', program:'Andean Treasures', duration:'8 Tage / 7 Nächte', status:['open','confirmed'], promo:false, bookable:true, fewSpots:false, dealType:null, promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/strasse-der-vulkane/andean-treasures?authuser=0', priceFrom:{ regular:'$1.395', promo:null } },
+  { region:'andean', subRegion:'andean', date:'04. Okt', year:'2026', fullDate:'04. Okt 2026', program:'Andean Treasures', duration:'8 Tage / 7 Nächte', status:['open','confirmed'], promo:false, bookable:true, fewSpots:false, dealType:null, promoPrice:false, hasSolo:true, itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/strasse-der-vulkane/andean-treasures?authuser=0', priceFrom:{ regular:'$1.395', promo:null } },
   // STRASSE DER VULKANE
   { region:'volcano', subRegion:'volcano', date:'23. Jul', year:'2026', fullDate:'23. Jul 2026', program:'Strasse der Vulkane', duration:'6 Tage / 5 Nächte', status:['open','confirmed'], promo:false, bookable:true, fewSpots:false, dealType:null, promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/strasse-der-vulkane/6t-5n-strasse-der-vulkane?authuser=0', priceFrom:{ regular:'$807', promo:null } },
   // SOLO – SANTA CRUZ
@@ -830,9 +979,9 @@ const departures = [
   { region:'solo', subRegion:'solo-santacruz', date:'09. Aug', year:'2026', fullDate:'09. Aug 2026', program:'Galápagos Solo – Santa Cruz', duration:'4 Tage / 3 Nächte', status:['open','confirmed'], promo:false, bookable:true, fewSpots:false, dealType:null, promoPrice:false, depDetail:'Im Anschluss an das Andean Treasures-Programm — Zubucher-Bus (potenziell)', itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/gal%C3%A1pagos/gal%C3%A1pagos-solo-santa-cruz?authuser=0', priceFrom:{ regular:'$1.099', promo:null } },
   { region:'solo', subRegion:'solo-santacruz', date:'11. Okt', year:'2026', fullDate:'11. Okt 2026', program:'Galápagos Solo – Santa Cruz', duration:'4 Tage / 3 Nächte', status:['open','confirmed'], promo:false, bookable:true, fewSpots:false, dealType:null, promoPrice:false, depDetail:'Im Anschluss an das Andean Treasures-Programm — Zubucher-Bus (offen)', itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/gal%C3%A1pagos/gal%C3%A1pagos-solo-santa-cruz?authuser=0', priceFrom:{ regular:'$1.099', promo:null } },
   // SOLO LOOP
-  { region:'solo', subRegion:'solo-loop', date:'10.–15. Mai', year:'2026', fullDate:'10.–15. Mai 2026', program:'Galápagos Loop – Solo Traveler', duration:'6 Tage / 5 Nächte', status:['open','confirmed'], promo:false, bookable:true, fewSpots:false, dealType:'summer', promoPrice:true,  depDetail:'Buchbar ab 1 Person — englischsprachiger Reiseleiter', itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2.491', promo:'$2.070' } },
-  { region:'solo', subRegion:'solo-loop', date:'09.–14. Aug', year:'2026', fullDate:'09.–14. Aug 2026', program:'Galápagos Loop – Solo Traveler', duration:'6 Tage / 5 Nächte', status:['open','confirmed'], promo:false, bookable:true, fewSpots:false, dealType:null,     promoPrice:false, depDetail:'Buchbar ab 1 Person — englischsprachiger Reiseleiter', itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2.491', promo:null } },
-  { region:'solo', subRegion:'solo-loop', date:'15.–20. Nov', year:'2026', fullDate:'15.–20. Nov 2026', program:'Galápagos Loop – Solo Traveler', duration:'6 Tage / 5 Nächte', status:['open','confirmed'], promo:false, bookable:true, fewSpots:false, dealType:null,     promoPrice:false, depDetail:'Buchbar ab 1 Person — englischsprachiger Reiseleiter', itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2.491', promo:null } },
+  { region:'solo', subRegion:'solo-loop', date:'10.–15. Mai', year:'2026', fullDate:'10.–15. Mai 2026', program:'Galápagos Loop – Solo Traveler', duration:'6 Tage / 5 Nächte', status:['open','confirmed'], promo:false, bookable:true, fewSpots:false, dealType:'summer', promoPrice:true,  soloHasDEGuide:false, depDetail:'Buchbar ab 1 Person — englischsprachiger Reiseleiter', itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2.491', promo:'$2.070' } },
+  { region:'solo', subRegion:'solo-loop', date:'09.–14. Aug', year:'2026', fullDate:'09.–14. Aug 2026', program:'Galápagos Loop – Solo Traveler', duration:'6 Tage / 5 Nächte', status:['open','confirmed'], promo:false, bookable:true, fewSpots:false, dealType:null,     promoPrice:false, soloHasDEGuide:true,  depDetail:'Buchbar ab 1 Person — englisch- oder deutschsprachiger Reiseleiter', itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2.491', promo:null } },
+  { region:'solo', subRegion:'solo-loop', date:'15.–20. Nov', year:'2026', fullDate:'15.–20. Nov 2026', program:'Galápagos Loop – Solo Traveler', duration:'6 Tage / 5 Nächte', status:['open','confirmed'], promo:false, bookable:true, fewSpots:false, dealType:null,     promoPrice:false, soloHasDEGuide:true,  depDetail:'Buchbar ab 1 Person — englisch- oder deutschsprachiger Reiseleiter', itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2.491', promo:null } },
   // SOLO AT
   { region:'solo', subRegion:'solo-at', date:'07. Jun', year:'2026', fullDate:'07. Jun 2026', program:'Andean Treasures – Solo Traveler', duration:'8 Tage / 7 Nächte', status:['open','confirmed'], promo:false, bookable:true, fewSpots:false, dealType:null, promoPrice:false, depDetail:'Buchbar ab 1 Person — englischsprachiger Reiseleiter', itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/strasse-der-vulkane/andean-treasures?authuser=0', priceFrom:{ regular:'$1.561', promo:null } },
   { region:'solo', subRegion:'solo-at', date:'04. Okt', year:'2026', fullDate:'04. Okt 2026', program:'Andean Treasures – Solo Traveler', duration:'8 Tage / 7 Nächte', status:['open','confirmed'], promo:false, bookable:true, fewSpots:false, dealType:null, promoPrice:false, depDetail:'Buchbar ab 1 Person — englischsprachiger Reiseleiter', itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/strasse-der-vulkane/andean-treasures?authuser=0', priceFrom:{ regular:'$1.561', promo:null } }
@@ -852,12 +1001,19 @@ const loopRates = {
   ]
 };
 
-/* Solo Loop Tarife — nur EZ, EN */
-const soloLoopRates = [
-  { id:'tourist',    name:'Tourist',          sub:'Standardunterkunft',        single:2491, promoSingle:2070 },
-  { id:'tourist-sup',name:'Tourist Superior', sub:'Gehobene Komfortkategorie', single:2757, promoSingle:2336 },
-  { id:'first',      name:'First Class',      sub:'Premiumkategorie',          single:3349, promoSingle:2928 }
-];
+/* Solo Loop Tarife — EN EZ (für Mai: nur EN; für Aug/Nov: auch DE EZ) */
+const soloLoopRates = {
+  en: [
+    { id:'tourist',    name:'Tourist',          sub:'Standardunterkunft',        single:2491, promoSingle:2070 },
+    { id:'tourist-sup',name:'Tourist Superior', sub:'Gehobene Komfortkategorie', single:2757, promoSingle:2336 },
+    { id:'first',      name:'First Class',      sub:'Premiumkategorie',          single:3349, promoSingle:2928 }
+  ],
+  de: [
+    { id:'tourist',    name:'Tourist',          sub:'Standardunterkunft',        single:2641 },
+    { id:'tourist-sup',name:'Tourist Superior', sub:'Gehobene Komfortkategorie', single:2907 },
+    { id:'first',      name:'First Class',      sub:'Premiumkategorie',          single:3499 }
+  ]
+};
 
 /* Andean Treasures EZ + DZ */
 const andeanRatesData = [
@@ -903,8 +1059,8 @@ const subRegionCardAttr = {
   'solo-at':        'solo-at'
 };
 
-/* Solo-Sektionen die EN-Reiseleiter-Hinweis brauchen */
-const soloENGuideSubRegions = new Set(['solo-santacruz','solo-loop','solo-at']);
+/* Solo-Sektionen die EN-Reiseleiter-Hinweis brauchen (solo-loop hat auch DE-Option) */
+const soloENGuideSubRegions = new Set(['solo-santacruz','solo-at']);
 
 /* UK-Flagge SVG inline */
 const ukFlagSVG = `<svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#012169"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="8"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" stroke-width="5"/><path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="12"/><path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="8"/></svg>`;
@@ -924,8 +1080,16 @@ function fewBadge(){ return `<span class="badge badge-few">⚑ Wenige Plätze</s
 function newBadge(){ return `<span class="badge badge-new">✦ Neues Programm</span>`; }
 
 /* Reiseleiter-Hinweis auf der Karte */
-function guideNoteHTML(){
+function guideNoteHTML(hasDEOption){
+  if(hasDEOption){
+    const deFlagSVG=`<svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#FFCE00"/><rect width="60" height="26.7" fill="#DD0000"/><rect width="60" height="13.3" fill="#000"/></svg>`;
+    return `<div class="card-guide-note"><span class="flag-xs">${ukFlagSVG}</span><span class="flag-xs" style="margin-left:2px;">${deFlagSVG}</span>Reiseleiter: Englisch oder Deutsch</div>`;
+  }
   return `<div class="card-guide-note"><span class="flag-xs">${ukFlagSVG}</span>Reiseleiter: Englisch</div>`;
+}
+
+function soloAvailableBanner(){
+  return `<div class="solo-available-banner"><div class="solo-av-icon">1</div><div class="solo-av-text"><span>Solo Traveler-Version verfügbar</span>Auch buchbar ab 1 Person — Solo Traveler-Tarife im Buchungsmodal</div></div>`;
 }
 
 function priceFooter(dep){
@@ -936,7 +1100,14 @@ function priceFooter(dep){
   } else if(dep.priceFrom){
     pb=`<div class="price-from"><span>Ab</span><div class="price-display"><span class="price-regular">${dep.priceFrom.regular} <small>/ Pers.</small></span></div></div>`;
   }
-  return `<div class="card-footer">${pb}<button class="book-btn" data-program="${dep.program} – ${dep.duration}" data-date="${dep.fullDate}" data-region="${dep.region}" data-subregion="${dep.subRegion}" data-few="${dep.fewSpots}" data-promo="${dep.promoPrice}">Jetzt anfragen</button></div>`;
+  const effectiveSubRegion = dep.hasSolo
+    ? (dep.subRegion==='galapagos' ? 'galapagos-solo' : 'andean-solo')
+    : dep.subRegion==='solo-loop' ? 'galapagos-solo'
+    : dep.subRegion==='solo-at'   ? 'andean-solo'
+    : dep.subRegion;
+  const soloPrm = dep.soloPromo || dep.promoPrice || false;
+  const hasDEGuide = dep.soloHasDEGuide || false;
+  return `<div class="card-footer">${pb}<button class="book-btn" data-program="${dep.program} – ${dep.duration}" data-date="${dep.fullDate}" data-region="${dep.region}" data-subregion="${effectiveSubRegion}" data-few="${dep.fewSpots}" data-promo="${dep.promoPrice}" data-solo-promo="${soloPrm}" data-de-guide="${hasDEGuide}">Jetzt anfragen</button></div>`;
 }
 
 function promoStrip(dep){
@@ -952,14 +1123,14 @@ function renderCards(filter){
   const container=document.getElementById('cardsContainer');
   container.innerHTML='';
   const filtered=departures.filter(d=>{
-    if(filter==='all')       return true;
-    if(filter==='galapagos') return d.subRegion==='galapagos' || d.subRegion==='solo-loop';
-    if(filter==='andean')    return d.subRegion==='andean'    || d.subRegion==='solo-at';
+    if(filter==='all')       return d.subRegion!=='solo-loop' && d.subRegion!=='solo-at';
+    if(filter==='galapagos') return d.subRegion==='galapagos';
+    if(filter==='andean')    return d.subRegion==='andean';
     if(filter==='volcano')   return d.subRegion==='volcano';
     if(filter==='solo')      return d.region==='solo';
-    if(filter==='promo')     return d.promo||d.dealType;
-    if(filter==='few')       return d.fewSpots;
-    if(filter==='sold')      return d.status.includes('sold');
+    if(filter==='promo')     return (d.promo||d.dealType) && d.subRegion!=='solo-loop' && d.subRegion!=='solo-at';
+    if(filter==='few')       return d.fewSpots && d.subRegion!=='solo-loop' && d.subRegion!=='solo-at';
+    if(filter==='sold')      return d.status.includes('sold') && d.subRegion!=='solo-loop' && d.subRegion!=='solo-at';
     return true;
   });
   document.getElementById('emptyState').style.display=filtered.length===0?'block':'none';
@@ -1001,12 +1172,14 @@ function renderCards(filter){
       if(dep.fewSpots) badges+=fewBadge();
       if(dep.region==='solo') badges+=newBadge();
       const depDetailHTML=dep.depDetail?`<div class="card-dep-detail">${dep.depDetail}</div>`:'';
-      /* Reiseleiter-Hinweis auf Karte für Solo-Programme */
-      const guideNote=soloENGuideSubRegions.has(dep.subRegion)?guideNoteHTML():'';
+      /* Reiseleiter-Hinweis auf Karte */
+      const showGuideNote = soloENGuideSubRegions.has(dep.subRegion) || dep.subRegion==='solo-loop';
+      const guideNote = showGuideNote ? guideNoteHTML(dep.soloHasDEGuide || false) : '';
+      const soloHTML=dep.hasSolo?soloAvailableBanner():'';
       const cardAttr=subRegionCardAttr[dep.subRegion];
       const card=document.createElement('div');
       card.className=cls; card.dataset.region=cardAttr;
-      card.innerHTML=`<div class="card-accent"></div>${overlay}<div class="card-body"><div class="card-date">${dep.date} <span class="card-year">${dep.year}</span></div><div class="card-program">${dep.program}</div><div class="card-duration">${dep.duration}</div><a href="${dep.itinerary}" target="_blank" class="itinerary-link">Reiseverlauf ansehen</a>${guideNote}${depDetailHTML}<div class="badges-row">${badges}</div>${promoStrip(dep)}</div>${priceFooter(dep)}`;
+      card.innerHTML=`<div class="card-accent"></div>${overlay}<div class="card-body"><div class="card-date">${dep.date} <span class="card-year">${dep.year}</span></div><div class="card-program">${dep.program}</div><div class="card-duration">${dep.duration}</div><a href="${dep.itinerary}" target="_blank" class="itinerary-link">Reiseverlauf ansehen</a>${guideNote}${depDetailHTML}${soloHTML}<div class="badges-row">${badges}</div>${promoStrip(dep)}</div>${priceFooter(dep)}`;
       grid.appendChild(card);
     });
     block.appendChild(grid);
@@ -1019,14 +1192,14 @@ function renderCards(filter){
 ===================== */
 function updateCounts(){
   const c={
-    all:       departures.length,
-    galapagos: departures.filter(d=>d.subRegion==='galapagos'||d.subRegion==='solo-loop').length,
-    andean:    departures.filter(d=>d.subRegion==='andean'||d.subRegion==='solo-at').length,
+    all:       departures.filter(d=>d.subRegion!=='solo-loop'&&d.subRegion!=='solo-at').length,
+    galapagos: departures.filter(d=>d.subRegion==='galapagos').length,
+    andean:    departures.filter(d=>d.subRegion==='andean').length,
     volcano:   departures.filter(d=>d.subRegion==='volcano').length,
     solo:      departures.filter(d=>d.region==='solo').length,
-    promo:     departures.filter(d=>d.promo||d.dealType).length,
-    few:       departures.filter(d=>d.fewSpots).length,
-    sold:      departures.filter(d=>d.status.includes('sold')).length
+    promo:     departures.filter(d=>(d.promo||d.dealType)&&d.subRegion!=='solo-loop'&&d.subRegion!=='solo-at').length,
+    few:       departures.filter(d=>d.fewSpots&&d.subRegion!=='solo-loop'&&d.subRegion!=='solo-at').length,
+    sold:      departures.filter(d=>d.status.includes('sold')&&d.subRegion!=='solo-loop'&&d.subRegion!=='solo-at').length
   };
   Object.keys(c).forEach(k=>{ const el=document.getElementById('cnt-'+k); if(el) el.textContent=c[k]; });
 }
@@ -1096,6 +1269,163 @@ function selectOccupancy(btn,rateStr){
   enableContinue();
 }
 
+/* Solo Loop Tarifliste — EN-only für Mai; EN+DE für Aug/Nov */
+let currentSoloLoopLang='en';
+let currentSoloLoopHasDE=false;
+
+function buildSoloLoopTable(hasPromo, hasDEGuide){
+  currentSoloLoopHasDE=!!hasDEGuide;
+  /* Sprachauswahl anzeigen/verstecken */
+  const tabs=document.getElementById('soloLoopLangTabs');
+  if(tabs) tabs.style.display=hasDEGuide?'flex':'none';
+  currentSoloLoopLang=hasDEGuide?'de':'en';
+  if(hasDEGuide){
+    document.getElementById('soloLoopTabDE').classList.add('active');
+    document.getElementById('soloLoopTabEN').classList.remove('active');
+  }
+  _renderSoloLoopTable(currentSoloLoopLang, hasPromo);
+}
+
+function switchSoloLoopLang(lang){
+  currentSoloLoopLang=lang;
+  document.getElementById('soloLoopTabDE').classList.toggle('active',lang==='de');
+  document.getElementById('soloLoopTabEN').classList.toggle('active',lang==='en');
+  selectedRateText='';
+  disableContinue();
+  _renderSoloLoopTable(lang, false); /* promo nur für EN/Mai */
+}
+
+function _renderSoloLoopTable(lang, hasPromo){
+  const cats=soloLoopRates[lang];
+  const body=document.getElementById('soloLoopRateBody');
+  if(!body) return;
+  body.innerHTML='';
+  cats.forEach(cat=>{
+    const tr=document.createElement('tr');
+    const tdCat=document.createElement('td');
+    tdCat.innerHTML=`<span class="cat-cell-name">${cat.name}</span><span class="cat-cell-sub">${cat.sub}</span>`;
+    tr.appendChild(tdCat);
+    const tdPrice=document.createElement('td'); tdPrice.style.textAlign='center';
+    const hasP=hasPromo&&lang==='en'&&cat.promoSingle;
+    const priceHTML=hasP
+      ? `<div class="occ-price-promo"><span class="p-orig">${fmt(cat.single)}</span><span class="p-curr">${fmt(cat.promoSingle)}</span></div>`
+      : `<span class="occ-price">${fmt(cat.single)}</span>`;
+    const guideLbl=lang==='de'?'Deutschsprachiger Reiseleiter':'Englischsprachiger Reiseleiter';
+    const rateStr=hasP
+      ? `[Solo Traveler] ${cat.name} – EZ (${guideLbl}): ${fmt(cat.promoSingle)} pro Person (Aktionspreis, regulär ${fmt(cat.single)})`
+      : `[Solo Traveler] ${cat.name} – EZ (${guideLbl}): ${fmt(cat.single)} pro Person`;
+    const btn=document.createElement('button');
+    btn.className='occ-btn'; btn.style.minWidth='90px';
+    btn.innerHTML=`<span class="occ-label">EZ</span>${priceHTML}`;
+    btn.onclick=()=>selectOccupancy(btn,rateStr);
+    tdPrice.appendChild(btn); tr.appendChild(tdPrice);
+    body.appendChild(tr);
+  });
+}
+
+/* Dual Modal — Loop + Solo Traveler */
+let currentDualLang='de';
+let currentDualPromo=false;
+
+function buildLoopDualTable(lang, hasPromo){
+  const cats=loopRates[lang];
+  const body=document.getElementById('loopDualRateBody');
+  body.innerHTML='';
+  cats.forEach(cat=>{
+    const occupancies=[
+      { label:'EZ',  price:cat.single, promoPrice:(hasPromo&&lang==='en'&&cat.promoSingle)?cat.promoSingle:null, isBestPromo:false },
+      { label:'DZ',  price:cat.double, promoPrice:(hasPromo&&lang==='en'&&cat.promoDouble)?cat.promoDouble:null, isBestPromo:cat.id==='tourist' },
+      { label:'DRZ', price:cat.triple, promoPrice:(hasPromo&&lang==='en'&&cat.promoTriple)?cat.promoTriple:null, isBestPromo:false }
+    ];
+    const tr=document.createElement('tr');
+    const tdCat=document.createElement('td');
+    tdCat.innerHTML=`<span class="cat-cell-name">${cat.name}${cat.best&&hasPromo&&lang==='en'?'<span class="best-tag">Bestes Angebot</span>':''}</span><span class="cat-cell-sub">${cat.sub}</span>`;
+    tr.appendChild(tdCat);
+    occupancies.forEach(occ=>{
+      const td=document.createElement('td'); td.style.textAlign='center';
+      const hasOccPromo=occ.promoPrice!==null;
+      const priceHTML=hasOccPromo
+        ? occ.isBestPromo
+          ? `<div class="occ-price-promo"><span class="p-orig">${fmt(occ.price)}</span><span class="p-curr">${fmt(occ.promoPrice)}</span></div>`
+          : `<div class="occ-price-promo"><span class="p-orig-grey">${fmt(occ.price)}</span><span class="p-curr-grey">${fmt(occ.promoPrice)}</span></div>`
+        : `<span class="occ-price">${fmt(occ.price)}</span>`;
+      const rateStr=hasOccPromo
+        ? `[Gruppe] ${cat.name} – ${occ.label} (Englischsprachiger Reiseleiter): ${fmt(occ.promoPrice)} pro Person (Aktionspreis, regulär ${fmt(occ.price)})`
+        : `[Gruppe] ${cat.name} – ${occ.label} (${lang==='de'?'Deutschsprachiger':'Englischsprachiger'} Reiseleiter): ${fmt(occ.price)} pro Person`;
+      const btn=document.createElement('button');
+      btn.className='occ-btn';
+      btn.innerHTML=`<span class="occ-label">${occ.label}</span>${priceHTML}`;
+      btn.onclick=()=>selectOccupancy(btn,rateStr);
+      td.appendChild(btn); tr.appendChild(td);
+    });
+    body.appendChild(tr);
+  });
+  buildSoloLoopDualTable(hasPromo&&lang==='en');
+}
+
+function buildSoloLoopDualTable(hasPromo){
+  const body=document.getElementById('soloLoopDualBody');
+  if(!body) return;
+  body.innerHTML='';
+  soloLoopRates.en.forEach(cat=>{
+    const tr=document.createElement('tr');
+    const tdCat=document.createElement('td');
+    tdCat.innerHTML=`<span class="cat-cell-name">${cat.name}</span><span class="cat-cell-sub">${cat.sub}</span>`;
+    tr.appendChild(tdCat);
+    const tdPrice=document.createElement('td'); tdPrice.style.textAlign='center';
+    const hasP=hasPromo&&cat.promoSingle;
+    const priceHTML=hasP
+      ? `<div class="occ-price-promo"><span class="p-orig">${fmt(cat.single)}</span><span class="p-curr">${fmt(cat.promoSingle)}</span></div>`
+      : `<span class="occ-price">${fmt(cat.single)}</span>`;
+    const rateStr=hasP
+      ? `[Solo Traveler] ${cat.name} – EZ (Englischsprachiger Reiseleiter): ${fmt(cat.promoSingle)} pro Person (Aktionspreis, regulär ${fmt(cat.single)})`
+      : `[Solo Traveler] ${cat.name} – EZ (Englischsprachiger Reiseleiter): ${fmt(cat.single)} pro Person`;
+    const btn=document.createElement('button');
+    btn.className='occ-btn'; btn.style.minWidth='90px';
+    btn.innerHTML=`<span class="occ-label">EZ</span>${priceHTML}`;
+    btn.onclick=()=>selectOccupancy(btn,rateStr);
+    tdPrice.appendChild(btn); tr.appendChild(tdPrice);
+    body.appendChild(tr);
+  });
+}
+
+function switchLangDual(lang){
+  currentDualLang=lang;
+  document.getElementById('langTabDEDual').classList.toggle('active',lang==='de');
+  document.getElementById('langTabENDual').classList.toggle('active',lang==='en');
+  document.getElementById('promoOnlyNoticeDual').classList.toggle('visible',lang==='de'&&currentDualPromo);
+  selectedRateText='';
+  disableContinue();
+  buildLoopDualTable(lang,currentDualPromo);
+}
+
+/* Dual Modal — Andean + Solo Traveler */
+function buildAndeanDualRates(){
+  const grid=document.getElementById('andeanSoloRatesGrid');
+  grid.innerHTML='';
+  andeanRatesData.forEach(r=>{
+    const flagSvg=r.lang==='de'
+      ? `<svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#FFCE00"/><rect width="60" height="26.7" fill="#DD0000"/><rect width="60" height="13.3" fill="#000"/></svg>`
+      : `<svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#012169"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="8"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" stroke-width="5"/><path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="12"/><path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="8"/></svg>`;
+    const row=document.createElement('div');
+    row.className='rate-card'; row.style.cursor='default';
+    row.innerHTML=`
+      <div style="display:flex;align-items:center;gap:10px;flex:1;">
+        <span class="rate-flag">${flagSvg}</span>
+        <div><span class="rate-label">${r.label}</span><span class="rate-sub">${r.sub}</span></div>
+      </div>
+      <div class="occ-pair">
+        <button class="occ-pill" onclick="selectOccPill(this,'[Gruppe] ${r.rateKey} – EZ: $${r.single.toLocaleString('de-DE')} pro Person')">
+          <span class="pill-label">EZ</span><span class="pill-price">$${r.single.toLocaleString('de-DE')}</span>
+        </button>
+        <button class="occ-pill" onclick="selectOccPill(this,'[Gruppe] ${r.rateKey} – DZ: $${r.double.toLocaleString('de-DE')} pro Person')">
+          <span class="pill-label">DZ</span><span class="pill-price">$${r.double.toLocaleString('de-DE')}</span>
+        </button>
+      </div>`;
+    grid.appendChild(row);
+  });
+}
+
 function switchLang(lang){
   currentLang=lang;
   document.getElementById('langTabDE').classList.toggle('active',lang==='de');
@@ -1163,35 +1493,6 @@ function buildVolcanoRates(){
   });
 }
 
-/* Solo Loop EZ-Tarifliste */
-function buildSoloLoopTable(hasPromo){
-  const body=document.getElementById('soloLoopRateBody');
-  body.innerHTML='';
-  soloLoopRates.forEach(cat=>{
-    const tr=document.createElement('tr');
-    const tdCat=document.createElement('td');
-    tdCat.innerHTML=`<span class="cat-cell-name">${cat.name}</span><span class="cat-cell-sub">${cat.sub}</span>`;
-    tr.appendChild(tdCat);
-    const tdPrice=document.createElement('td');
-    tdPrice.style.textAlign='center';
-    const hasP=hasPromo&&cat.promoSingle;
-    const priceHTML=hasP
-      ? `<div class="occ-price-promo"><span class="p-orig">${fmt(cat.single)}</span><span class="p-curr">${fmt(cat.promoSingle)}</span></div>`
-      : `<span class="occ-price">${fmt(cat.single)}</span>`;
-    const rateStr=hasP
-      ? `${cat.name} – EZ (Englischsprachiger Reiseleiter): ${fmt(cat.promoSingle)} pro Person (Aktionspreis, regulär ${fmt(cat.single)})`
-      : `${cat.name} – EZ (Englischsprachiger Reiseleiter): ${fmt(cat.single)} pro Person`;
-    const btn=document.createElement('button');
-    btn.className='occ-btn';
-    btn.style.minWidth='90px';
-    btn.innerHTML=`<span class="occ-label">EZ</span>${priceHTML}`;
-    btn.onclick=()=>selectOccupancy(btn,rateStr);
-    tdPrice.appendChild(btn);
-    tr.appendChild(tdPrice);
-    body.appendChild(tr);
-  });
-}
-
 function selectOccPill(el,rateStr){
   document.querySelectorAll('.occ-pill').forEach(p=>p.classList.remove('selected'));
   el.classList.add('selected');
@@ -1228,7 +1529,7 @@ function clearRateSelection(){
 /* =====================
    MODAL ÖFFNEN / SCHLIESSEN
 ===================== */
-function openModal(program,date,region,subRegion,fewSpots,promoPrice){
+function openModal(program,date,region,subRegion,fewSpots,promoPrice,soloPromo,deGuide){
   document.getElementById('mProgramName').textContent   = program;
   document.getElementById('mDepartureDate').textContent = date;
   document.getElementById('formProgram').value   = program;
@@ -1244,12 +1545,14 @@ function openModal(program,date,region,subRegion,fewSpots,promoPrice){
   }
   modalDefaultMessage=defaultMsg;
 
-  document.getElementById('loopRates').style.display     = subRegion==='galapagos'     ? 'block' : 'none';
-  document.getElementById('andeanRates').style.display   = subRegion==='andean'        ? 'block' : 'none';
-  document.getElementById('volcanoRates').style.display  = subRegion==='volcano'       ? 'block' : 'none';
-  document.getElementById('soloRates').style.display     = subRegion==='solo-santacruz'? 'block' : 'none';
-  document.getElementById('soloLoopRates').style.display = subRegion==='solo-loop'     ? 'block' : 'none';
-  document.getElementById('soloATRates').style.display   = subRegion==='solo-at'       ? 'block' : 'none';
+  document.getElementById('loopRates').style.display       = subRegion==='galapagos'      ? 'block' : 'none';
+  document.getElementById('loopSoloRates').style.display   = subRegion==='galapagos-solo' ? 'block' : 'none';
+  document.getElementById('andeanRates').style.display     = subRegion==='andean'         ? 'block' : 'none';
+  document.getElementById('andeanSoloRates').style.display = subRegion==='andean-solo'    ? 'block' : 'none';
+  document.getElementById('volcanoRates').style.display    = subRegion==='volcano'        ? 'block' : 'none';
+  document.getElementById('soloRates').style.display       = subRegion==='solo-santacruz' ? 'block' : 'none';
+  document.getElementById('soloLoopRates').style.display   = subRegion==='solo-loop'      ? 'block' : 'none';
+  document.getElementById('soloATRates').style.display     = subRegion==='solo-at'        ? 'block' : 'none';
 
   if(subRegion==='galapagos'){
     currentPromo=promoPrice;
@@ -1257,13 +1560,22 @@ function openModal(program,date,region,subRegion,fewSpots,promoPrice){
     document.getElementById('promoNoticeEN').style.display=promoPrice?'inline-block':'none';
     document.getElementById('langTabDE').classList.add('active');
     document.getElementById('langTabEN').classList.remove('active');
-    /* DE-Version: Hinweis erscheint sofort wenn DE aktiv und Promo vorhanden */
     document.getElementById('promoOnlyNotice').classList.toggle('visible',promoPrice);
     buildLoopTable('de',promoPrice);
   }
-  if(subRegion==='andean')    buildAndeanRates();
-  if(subRegion==='volcano')   buildVolcanoRates();
-  if(subRegion==='solo-loop') buildSoloLoopTable(promoPrice);
+  if(subRegion==='galapagos-solo'){
+    currentDualPromo=soloPromo;
+    currentDualLang='de';
+    document.getElementById('promoNoticeENDual').style.display=soloPromo?'inline-block':'none';
+    document.getElementById('langTabDEDual').classList.add('active');
+    document.getElementById('langTabENDual').classList.remove('active');
+    document.getElementById('promoOnlyNoticeDual').classList.toggle('visible',soloPromo);
+    buildLoopDualTable('de',soloPromo);
+  }
+  if(subRegion==='andean')      buildAndeanRates();
+  if(subRegion==='andean-solo') buildAndeanDualRates();
+  if(subRegion==='volcano')     buildVolcanoRates();
+  if(subRegion==='solo-loop')   buildSoloLoopTable(promoPrice, deGuide);
 
   goToStep1();
   clearRateSelection();
@@ -1348,7 +1660,9 @@ document.addEventListener('click',function(e){
   const subRegion =btn.getAttribute('data-subregion');
   const few       =btn.getAttribute('data-few')==='true';
   const promo     =btn.getAttribute('data-promo')==='true';
-  openModal(program,date,region,subRegion,few,promo);
+  const soloPromo =btn.getAttribute('data-solo-promo')==='true';
+  const deGuide   =btn.getAttribute('data-de-guide')==='true';
+  openModal(program,date,region,subRegion,few,promo,soloPromo,deGuide);
   requestAnimationFrame(function(){
     document.querySelector('#modal .modal-box').scrollIntoView({behavior:'smooth',block:'start'});
   });
