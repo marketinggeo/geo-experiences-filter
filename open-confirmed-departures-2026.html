@@ -108,25 +108,24 @@ body {
 .section-block.region-solo-at        .section-divider::after { background: #d4a870; }
 .section-divider::after { content:''; flex:1; height:1px; }
 
-/* SOLO AVAILABLE BANNER — shown on regular Loop/AT cards that have a Solo Traveler version */
-.solo-available-banner {
-  display: flex; align-items: center; gap: 8px;
-  background: linear-gradient(135deg, #e8f5f3, #f0faf9);
-  border: 1.5px solid #00897B;
-  border-radius: 7px;
-  padding: 8px 12px;
-  margin-top: 10px;
+/* SOLO AVAILABLE RIBBON — top-right corner of hasSolo cards */
+.solo-available-ribbon {
+  position: absolute;
+  top: 14px; right: 0;
+  background: linear-gradient(135deg, #00897B, #00bfa5);
+  color: #fff;
+  font-size: 9px; font-weight: 700; letter-spacing: 0.6px;
+  text-transform: uppercase;
+  padding: 5px 12px 5px 10px;
+  border-radius: 4px 0 0 4px;
+  box-shadow: -2px 2px 6px rgba(0,137,123,0.25);
+  line-height: 1.3;
+  text-align: right;
+  z-index: 2;
+  max-width: 160px;
 }
-.solo-available-banner .solo-av-icon {
-  width: 22px; height: 22px; min-width: 22px; border-radius: 50%;
-  background: #00897B; color: #fff;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 11px; font-weight: 800; flex-shrink: 0;
-}
-.solo-available-banner .solo-av-text { font-size: 11px; font-weight: 600; color: #00695C; line-height: 1.4; }
-.solo-available-banner .solo-av-text span { font-weight: 700; display: block; font-size: 10px; text-transform: uppercase; letter-spacing: 0.4px; margin-bottom: 1px; }
 
-/* DUAL MODAL — section divider between Loop rates and Solo Traveler rates */
+/* DUAL RATES — section divider between regular rates and Solo Traveler rates */
 .modal-rates-divider {
   display: flex; align-items: center; gap: 10px;
   margin: 20px 0 16px;
@@ -163,6 +162,15 @@ body {
 }
 .solo-block-header .solo-block-sub {
   font-size: 10px; color: #00897B; font-weight: 500; margin-left: auto;
+}
+
+/* Guide note on card */
+.card-guide-note {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 10px; font-weight: 600; color: #1a4fa0;
+  background: #eef2fb; border: 1px solid #c3d0ef;
+  border-radius: 5px; padding: 3px 8px; margin-top: 8px;
+  width: fit-content;
 }
 
 /* CARDS GRID */
@@ -778,12 +786,12 @@ body {
           </table>
         </div>
         <p class="rates-note">Rates: Per person and net rates in USD Dollars. All categories include program services as per itinerary.</p>
-        <div class="modal-rates-divider"><span class="divider-label">Also available as Solo Traveler</span></div>
+        <div class="modal-rates-divider"><span class="divider-label">This departure is also available as Solo Traveler — bookable from 1 passenger</span></div>
         <div class="solo-block-in-modal">
           <div class="solo-block-header">
             <div class="solo-block-icon">1</div>
             <span class="solo-block-title">Galápagos Loop – Solo Traveler</span>
-            <span class="solo-block-sub" id="soloLoopDualSub">English guide · Bookable from 1 pax</span>
+            <span class="solo-block-sub" id="soloLoopDualSub">English guide · From 1 passenger</span>
           </div>
           <div class="rate-table-wrap">
             <table class="solo-loop-rate-table" id="soloLoopDualTable">
@@ -810,12 +818,12 @@ body {
         <div class="rates-section-title">Select guide language, category and room occupancy</div>
         <div class="rates-grid" id="andeanSoloRatesGrid"></div>
         <p class="rates-note">Rates: Per person and net rates in USD Dollars.</p>
-        <div class="modal-rates-divider"><span class="divider-label">Also available as Solo Traveler</span></div>
+        <div class="modal-rates-divider"><span class="divider-label">This departure is also available as Solo Traveler — bookable from 1 passenger</span></div>
         <div class="solo-block-in-modal">
           <div class="solo-block-header">
             <div class="solo-block-icon">1</div>
             <span class="solo-block-title">Andean Treasures – Solo Traveler</span>
-            <span class="solo-block-sub">English guide · Bookable from 1 pax</span>
+            <span class="solo-block-sub">English guide · From 1 passenger</span>
           </div>
           <div class="solo-rates-grid" id="andeanSoloInnerGrid">
             <div class="solo-rate-card" onclick="selectSoloRate(this,'[Solo Traveler] Standard – Single accommodation: $1,561 per pax')">
@@ -1071,7 +1079,7 @@ function fewBadge(){ return `<span class="badge badge-few">⚑ Few Spots Availab
 function newBadge(){ return `<span class="badge badge-new">✦ New Program</span>`; }
 
 function soloAvailableBanner(){
-  return `<div class="solo-available-banner"><div class="solo-av-icon">1</div><div class="solo-av-text"><span>Solo Traveler version available</span>Also bookable from 1 passenger — see Solo Traveler rates in the booking modal</div></div>`;
+  return `<div class="solo-available-ribbon">✦ Also available<br>as Solo Traveler</div>`;
 }
 
 function priceFooter(dep){
@@ -1148,11 +1156,21 @@ function renderCards(filter){
       if(dep.fewSpots) badges+=fewBadge();
       if(dep.region==='solo') badges+=newBadge();
       const depDetailHTML = dep.depDetail ? `<div class="card-dep-detail">${dep.depDetail}</div>` : '';
-      const soloHTML = dep.hasSolo ? soloAvailableBanner() : '';
+      /* Guide flag for ALL cards */
+      const ukFlag=`<svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#012169"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="8"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" stroke-width="5"/><path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="12"/><path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="8"/></svg>`;
+      let guideNote='';
+      if(dep.subRegion==='galapagos'||dep.subRegion==='andean'){
+        guideNote=`<div class="card-guide-note"><span class="flag-xs" style="display:inline-flex;align-items:center;width:16px;height:11px;border-radius:1px;overflow:hidden;">${ukFlag}</span> English / German guide</div>`;
+      } else if(dep.subRegion==='volcano'){
+        guideNote=`<div class="card-guide-note"><span class="flag-xs" style="display:inline-flex;align-items:center;width:16px;height:11px;border-radius:1px;overflow:hidden;">${ukFlag}</span> English / Spanish guide</div>`;
+      } else if(dep.subRegion==='solo-santacruz'||dep.subRegion==='solo-at'||dep.subRegion==='solo-loop'){
+        guideNote=`<div class="card-guide-note"><span class="flag-xs" style="display:inline-flex;align-items:center;width:16px;height:11px;border-radius:1px;overflow:hidden;">${ukFlag}</span> English guide</div>`;
+      }
+      const soloRibbon = dep.hasSolo ? soloAvailableBanner() : '';
       const cardAttr = subRegionCardAttr[dep.subRegion];
       const card=document.createElement('div');
       card.className=cls; card.dataset.region=cardAttr;
-      card.innerHTML=`<div class="card-accent"></div>${overlay}<div class="card-body"><div class="card-date">${dep.date} <span class="card-year">${dep.year}</span></div><div class="card-program">${dep.program}</div><div class="card-duration">${dep.duration}</div><a href="${dep.itinerary}" target="_blank" class="itinerary-link">View itinerary</a>${depDetailHTML}${soloHTML}<div class="badges-row">${badges}</div>${promoStrip(dep)}</div>${priceFooter(dep)}`;
+      card.innerHTML=`<div class="card-accent"></div>${overlay}${soloRibbon}<div class="card-body"><div class="card-date">${dep.date} <span class="card-year">${dep.year}</span></div><div class="card-program">${dep.program}</div><div class="card-duration">${dep.duration}</div><a href="${dep.itinerary}" target="_blank" class="itinerary-link">View itinerary</a>${guideNote}${depDetailHTML}<div class="badges-row">${badges}</div>${promoStrip(dep)}</div>${priceFooter(dep)}`;
       grid.appendChild(card);
     });
     block.appendChild(grid);
