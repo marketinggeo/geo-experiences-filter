@@ -177,6 +177,38 @@ body {
   font-size: 10px; color: #00897B; font-weight: 500; margin-left: auto;
 }
 
+/* Anklickbare Tabellenzeilen */
+.rate-table tbody tr { cursor: pointer; }
+.rate-table tbody tr:hover td { background: #f0f4ff; }
+.rate-table tbody tr.row-selected td { background: #e8edf8; }
+
+/* Gruppen-Aktionshinweis — 6+ Passagiere */
+.group-promo-note {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px; flex-wrap: wrap;
+  background: linear-gradient(135deg, #f0f4ff, #e8edf8);
+  border: 1.5px solid #a8bce0;
+  border-radius: 9px;
+  padding: 11px 16px;
+  margin-bottom: 14px;
+}
+.group-promo-note .gpn-text {
+  font-size: 11px; color: #002060; font-weight: 500; line-height: 1.5; flex: 1;
+}
+.group-promo-note .gpn-text strong {
+  font-weight: 700; color: #002060; display: block; margin-bottom: 2px; font-size: 11px;
+}
+.group-promo-note .gpn-btn {
+  font-family: 'Montserrat', sans-serif;
+  background: #002060; color: #fff; border: none;
+  border-radius: 6px; padding: 7px 14px;
+  font-size: 11px; font-weight: 700; cursor: pointer;
+  white-space: nowrap; text-decoration: none;
+  display: inline-flex; align-items: center; gap: 5px;
+  transition: background 0.15s;
+}
+.group-promo-note .gpn-btn:hover { background: #003080; }
+
 /* CARDS GRID */
 .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap: 16px; }
 
@@ -730,6 +762,10 @@ body {
           </table>
         </div>
         <p class="rates-note">Preise: Pro Person, Nettopreise in US-Dollar. Alle Kategorien beinhalten Programmleistungen gemäß Reiseverlauf.</p>
+        <div class="group-promo-note" style="margin-top:12px;margin-bottom:0;">
+          <div class="gpn-text"><strong>✦ Mit 6 oder mehr Passagieren unterwegs?</strong>Sonderpreise für Gruppen auf derselben Abfahrt verfügbar — kontaktieren Sie uns für Ihre Optionen.</div>
+          <a class="gpn-btn" href="https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/contact-us" target="_blank">Gruppenpreise anfragen →</a>
+        </div>
       </div>
 
       <!-- GALÁPAGOS LOOP + SOLO TRAVELER — Dual-Modal -->
@@ -764,12 +800,16 @@ body {
           </table>
         </div>
         <p class="rates-note">Preise: Pro Person, Nettopreise in US-Dollar. Alle Kategorien beinhalten Programmleistungen gemäß Reiseverlauf.</p>
+        <div class="group-promo-note" style="margin-top:12px;margin-bottom:0;">
+          <div class="gpn-text"><strong>✦ Mit 6 oder mehr Passagieren unterwegs?</strong>Sonderpreise für Gruppen auf derselben Abfahrt verfügbar — kontaktieren Sie uns für Ihre Optionen.</div>
+          <a class="gpn-btn" href="https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/contact-us" target="_blank">Gruppenpreise anfragen →</a>
+        </div>
         <div class="modal-rates-divider"><span class="divider-label">Diese Abfahrt ist auch als Solo Traveler buchbar — ab 1 Person</span></div>
         <div class="solo-block-in-modal">
           <div class="solo-block-header">
             <div class="solo-block-icon">1</div>
             <span class="solo-block-title">Galapagos Loop – Solo Traveler</span>
-            <span class="solo-block-sub" id="soloLoopDualSub">Ab 1 Person buchbar</span>
+            <span class="solo-block-sub" id="soloLoopDualSub"><span id="soloLoopDualSubFlag" style="display:inline-flex;align-items:center;width:16px;height:11px;border-radius:1px;overflow:hidden;margin-right:4px;vertical-align:middle;"></span><span id="soloLoopDualSubText">Ab 1 Person buchbar</span></span>
           </div>
           <div class="rate-table-wrap">
             <table class="solo-loop-rate-table" id="soloLoopDualTable">
@@ -803,17 +843,10 @@ body {
           <div class="solo-block-header">
             <div class="solo-block-icon">1</div>
             <span class="solo-block-title">Andean Treasures – Solo Traveler</span>
-            <span class="solo-block-sub">Englischsprachiger Reiseleiter · Ab 1 Person</span>
+            <span class="solo-block-sub">DE oder EN Reiseleiter · Ab 1 Person</span>
           </div>
-          <div class="solo-rates-grid">
-            <div class="solo-rate-card" onclick="selectSoloRate(this,'[Solo Traveler] Standard – EZ: $1.561 pro Person')">
-              <div><span class="rate-label">Standard</span><span class="rate-sub">Standardunterkunft</span></div>
-              <div class="solo-price-col"><span class="price-type">EZ</span><span class="price-val">$1.561</span></div>
-            </div>
-            <div class="solo-rate-card" onclick="selectSoloRate(this,'[Solo Traveler] Superior – EZ: $1.971 pro Person')">
-              <div><span class="rate-label">Superior</span><span class="rate-sub">Gehobene Komfortkategorie</span></div>
-              <div class="solo-price-col"><span class="price-type">EZ</span><span class="price-val">$1.971</span></div>
-            </div>
+          <div class="solo-rates-grid" id="andeanSoloInnerGrid">
+            <!-- Wird dynamisch durch buildAndeanDualRates() befüllt -->
           </div>
         </div>
         <p class="rates-note" style="margin-top:8px;">Solo Traveler-Preise: Pro Person, Nettopreise in US-Dollar.</p>
@@ -869,21 +902,11 @@ body {
         <p class="rates-note">Preise: Pro Person, Nettopreise in US-Dollar. Buchbar ab 1 Person.</p>
       </div>
 
-      <!-- SOLO AT: EZ-Tarife, EN-Reiseleiter -->
+      <!-- SOLO AT: EZ-Tarife — DE und EN Reiseleiter -->
       <div id="soloATRates" style="display:none;">
-        <div class="rates-section-title">Unterkunftskategorie wählen</div>
-        <div style="display:flex;align-items:center;gap:6px;margin-bottom:12px;font-size:11px;color:#4a5568;font-weight:500;">
-          <span class="rate-flag"><svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#012169"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="8"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" stroke-width="5"/><path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="12"/><path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="8"/></svg></span> Englischsprachiger Reiseleiter
-        </div>
-        <div class="solo-rates-grid">
-          <div class="solo-rate-card" onclick="selectSoloRate(this,'Standard – Einzelzimmer: $1.561 pro Person')">
-            <div><span class="rate-label">Standard</span><span class="rate-sub">Standardunterkunft</span></div>
-            <div class="solo-price-col"><span class="price-type">EZ</span><span class="price-val">$1.561</span></div>
-          </div>
-          <div class="solo-rate-card" onclick="selectSoloRate(this,'Superior – Einzelzimmer: $1.971 pro Person')">
-            <div><span class="rate-label">Superior</span><span class="rate-sub">Gehobene Komfortkategorie</span></div>
-            <div class="solo-price-col"><span class="price-type">EZ</span><span class="price-val">$1.971</span></div>
-          </div>
+        <div class="rates-section-title">Unterkunftskategorie und Reiseleitersprache wählen</div>
+        <div class="solo-rates-grid" id="soloATRatesGrid">
+          <!-- Wird dynamisch durch buildSoloATRates() befüllt -->
         </div>
         <p class="rates-note">Preise: Pro Person, Nettopreise in US-Dollar. Buchbar ab 1 Person.</p>
       </div>
@@ -910,6 +933,14 @@ body {
           <div class="form-row"><label>Telefon</label><input type="text" name="phone" placeholder="+49 000 000 0000"></div>
         </div>
         <div class="form-row"><label>Pax-Referenz / Vorgangsnummer</label><input type="text" name="pax_reference" placeholder="Datei- oder Referenznummer (optional)"></div>
+        <div class="form-grid-2">
+          <div class="form-row"><label>Anzahl Passagiere *</label><input type="number" name="num_passengers" min="1" required placeholder="z. B. 2"></div>
+          <div class="form-row"><label>Zimmertyp *</label><select name="room_type" required style="font-family:'Montserrat',sans-serif;padding:10px 12px;border:1.5px solid #d0d5de;border-radius:7px;font-size:13px;color:#1a1a2e;background:#fff;width:100%;"><option value="" disabled selected>Zimmertyp wählen</option><option value="Einzelzimmer">Einzelzimmer</option><option value="Doppelzimmer">Doppelzimmer</option><option value="Dreibettzimmer">Dreibettzimmer</option></select></div>
+        </div>
+        <div class="group-promo-note" id="groupPromoForm" style="display:none;">
+          <div class="gpn-text"><strong>✦ Mit 6 oder mehr Passagieren unterwegs?</strong>Fragen Sie uns nach Sonderpreisen für den Galapagos Loop — exklusive Gruppenpreise für dieselbe Abfahrt verfügbar.</div>
+          <a class="gpn-btn" href="https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/contact-us" target="_blank">Gruppenpreise anfragen →</a>
+        </div>
         <div class="form-row"><label>Nachricht</label><textarea name="message" id="formMessage" rows="3"></textarea></div>
         <button type="submit" class="submit-btn">Buchungsanfrage senden</button>
       </form>
@@ -1132,6 +1163,14 @@ function renderCards(filter){
     dv.innerHTML=`<span class="section-label">${subRegionLabels[subRegion]}</span>`;
     block.appendChild(dv);
 
+    /* Gruppen-Aktionshinweis für Galapagos Loop Abschnitt */
+    if(subRegion==='galapagos'){
+      const gpn=document.createElement('div');
+      gpn.className='group-promo-note';
+      gpn.innerHTML=`<div class="gpn-text"><strong>✦ Sonderpreise für Gruppen ab 6 Personen</strong>Reisen Sie mit 6 oder mehr Personen auf derselben Abfahrt? Fragen Sie uns nach unseren exklusiven Gruppenpreisen für den Galapagos Loop.</div><a class="gpn-btn" href="https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/contact-us" target="_blank">Gruppenpreise anfragen →</a>`;
+      block.appendChild(gpn);
+    }
+
     const grid=document.createElement('div');
     grid.className='cards-grid';
     groups[subRegion].forEach(dep=>{
@@ -1236,10 +1275,11 @@ function buildLoopTable(lang, hasPromo){
       const btn=document.createElement('button');
       btn.className='occ-btn';
       btn.innerHTML=`<span class="occ-label">${occ.label}</span>${priceHTML}`;
-      btn.onclick=()=>selectOccupancy(btn,rateStr);
+      btn.onclick=(e)=>{ e.stopPropagation(); selectOccupancy(btn,rateStr); };
       td.appendChild(btn);
       tr.appendChild(td);
     });
+    tr.onclick=()=>{ const first=tr.querySelector('.occ-btn'); if(first) first.click(); };
     body.appendChild(tr);
   });
 }
@@ -1343,15 +1383,25 @@ function buildLoopDualTable(lang, hasPromo){
       const btn=document.createElement('button');
       btn.className='occ-btn';
       btn.innerHTML=`<span class="occ-label">${occ.label}</span>${priceHTML}`;
-      btn.onclick=()=>selectOccupancy(btn,rateStr);
+      btn.onclick=(e)=>{ e.stopPropagation(); selectOccupancy(btn,rateStr); };
       td.appendChild(btn); tr.appendChild(td);
     });
+    tr.onclick=()=>{ const first=tr.querySelector('.occ-btn'); if(first) first.click(); };
     body.appendChild(tr);
   });
   buildSoloLoopDualTable(hasPromo&&lang==='en', currentDualDeGuide);
 }
 
 function buildSoloLoopDualTable(hasPromo, hasDEGuide){
+  const enFlagSvg=`<svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#012169"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="8"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" stroke-width="5"/><path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="12"/><path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="8"/></svg>`;
+  /* Determine which lang the dual modal is currently showing */
+  const lang = currentDualLang || 'de';
+  const flagForSub = lang==='de' ? deFlagSVG : enFlagSvg;
+  const textForSub = lang==='de' ? 'Deutschsprachiger Reiseleiter · Ab 1 Person' : 'Englischsprachiger Reiseleiter · Ab 1 Person';
+  const subFlag=document.getElementById('soloLoopDualSubFlag');
+  const subText=document.getElementById('soloLoopDualSubText');
+  if(subFlag) subFlag.innerHTML=flagForSub;
+  if(subText) subText.textContent=textForSub;
   const body=document.getElementById('soloLoopDualBody');
   if(!body) return;
   /* Update dual table header */
@@ -1380,7 +1430,7 @@ function buildSoloLoopDualTable(hasPromo, hasDEGuide){
     const btnEN=document.createElement('button');
     btnEN.className='occ-btn'; btnEN.style.minWidth='80px';
     btnEN.innerHTML=`<span class="occ-label">EN</span>${priceHTMLEN}`;
-    btnEN.onclick=()=>selectOccupancy(btnEN,rateStrEN);
+    btnEN.onclick=(e)=>{ e.stopPropagation(); selectOccupancy(btnEN,rateStrEN); };
     tdEN.appendChild(btnEN); tr.appendChild(tdEN);
     if(hasDEGuide){
       const tdDE=document.createElement('td'); tdDE.style.textAlign='center';
@@ -1389,9 +1439,10 @@ function buildSoloLoopDualTable(hasPromo, hasDEGuide){
       const btnDE=document.createElement('button');
       btnDE.className='occ-btn'; btnDE.style.minWidth='80px';
       btnDE.innerHTML=`<span class="occ-label">DE</span><span class="occ-price">${fmt(catDE.single)}</span>`;
-      btnDE.onclick=()=>selectOccupancy(btnDE,rateStrDE);
+      btnDE.onclick=(e)=>{ e.stopPropagation(); selectOccupancy(btnDE,rateStrDE); };
       tdDE.appendChild(btnDE); tr.appendChild(tdDE);
     }
+    tr.onclick=()=>{ const first=tr.querySelector('.occ-btn'); if(first) first.click(); };
     body.appendChild(tr);
   });
 }
@@ -1415,22 +1466,40 @@ function buildAndeanDualRates(){
       ? `<svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#FFCE00"/><rect width="60" height="26.7" fill="#DD0000"/><rect width="60" height="13.3" fill="#000"/></svg>`
       : `<svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#012169"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="8"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" stroke-width="5"/><path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="12"/><path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="8"/></svg>`;
     const row=document.createElement('div');
-    row.className='rate-card'; row.style.cursor='default';
+    row.className='rate-card'; row.style.cursor='pointer';
     row.innerHTML=`
       <div style="display:flex;align-items:center;gap:10px;flex:1;">
         <span class="rate-flag">${flagSvg}</span>
         <div><span class="rate-label">${r.label}</span><span class="rate-sub">${r.sub}</span></div>
       </div>
       <div class="occ-pair">
-        <button class="occ-pill" onclick="selectOccPill(this,'[Gruppe] ${r.rateKey} – EZ: $${r.single.toLocaleString('de-DE')} pro Person')">
+        <button class="occ-pill" onclick="event.stopPropagation();selectOccPill(this,'[Gruppe] ${r.rateKey} – EZ: $${r.single.toLocaleString('de-DE')} pro Person')">
           <span class="pill-label">EZ</span><span class="pill-price">$${r.single.toLocaleString('de-DE')}</span>
         </button>
-        <button class="occ-pill" onclick="selectOccPill(this,'[Gruppe] ${r.rateKey} – DZ: $${r.double.toLocaleString('de-DE')} pro Person')">
+        <button class="occ-pill" onclick="event.stopPropagation();selectOccPill(this,'[Gruppe] ${r.rateKey} – DZ: $${r.double.toLocaleString('de-DE')} pro Person')">
           <span class="pill-label">DZ</span><span class="pill-price">$${r.double.toLocaleString('de-DE')}</span>
         </button>
       </div>`;
+    row.onclick=()=>{ const first=row.querySelector('.occ-pill'); if(first) first.click(); };
     grid.appendChild(row);
   });
+  /* Solo Traveler Innenblock befüllen — DE und EN Optionen */
+  const soloGrid=document.getElementById('andeanSoloInnerGrid');
+  if(soloGrid){
+    soloGrid.innerHTML='';
+    const enFlagSvg=`<svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#012169"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="8"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" stroke-width="5"/><path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="12"/><path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="8"/></svg>`;
+    const cats=[{name:'Standard',sub:'Standardunterkunft',price:1561},{name:'Superior',sub:'Gehobene Komfortkategorie',price:1971}];
+    cats.forEach(cat=>{
+      [['de',deFlagSVG,'Deutschsprachiger Reiseleiter'],['en',enFlagSvg,'Englischsprachiger Reiseleiter']].forEach(([lang,flag,lbl])=>{
+        const rateStr=`[Solo Traveler] ${cat.name} – EZ (${lang==='de'?'DE':'EN'} Reiseleiter): ${fmt(cat.price)} pro Person`;
+        const card=document.createElement('div');
+        card.className='solo-rate-card';
+        card.onclick=()=>selectSoloRate(card,rateStr);
+        card.innerHTML=`<div style="display:flex;align-items:center;gap:8px;flex:1;"><span class="rate-flag" style="display:inline-flex;width:20px;height:13px;overflow:hidden;border-radius:1px;flex-shrink:0;">${flag}</span><div><span class="rate-label">${cat.name}</span><span class="rate-sub">${cat.sub} · ${lbl}</span></div></div><div class="solo-price-col"><span class="price-type">EZ</span><span class="price-val">${fmt(cat.price)}</span></div>`;
+        soloGrid.appendChild(card);
+      });
+    });
+  }
 }
 
 function switchLang(lang){
@@ -1454,48 +1523,67 @@ function buildAndeanRates(){
       ? `<svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#FFCE00"/><rect width="60" height="26.7" fill="#DD0000"/><rect width="60" height="13.3" fill="#000"/></svg>`
       : ukFlagSVG;
     const row=document.createElement('div');
-    row.className='rate-card';
+    row.className='rate-card'; row.style.cursor='pointer';
     row.innerHTML=`
       <div style="display:flex;align-items:center;gap:10px;flex:1;">
         <span class="rate-flag">${flagSvg}</span>
         <div><span class="rate-label">${r.label}</span><span class="rate-sub">${r.sub}</span></div>
       </div>
       <div class="occ-pair">
-        <button class="occ-pill" onclick="selectOccPill(this,'${r.rateKey} – EZ: $${r.single.toLocaleString('de-DE')} pro Person')">
+        <button class="occ-pill" onclick="event.stopPropagation();selectOccPill(this,'${r.rateKey} – EZ: $${r.single.toLocaleString('de-DE')} pro Person')">
           <span class="pill-label">EZ</span>
           <span class="pill-price">$${r.single.toLocaleString('de-DE')}</span>
         </button>
-        <button class="occ-pill" onclick="selectOccPill(this,'${r.rateKey} – DZ: $${r.double.toLocaleString('de-DE')} pro Person')">
+        <button class="occ-pill" onclick="event.stopPropagation();selectOccPill(this,'${r.rateKey} – DZ: $${r.double.toLocaleString('de-DE')} pro Person')">
           <span class="pill-label">DZ</span>
           <span class="pill-price">$${r.double.toLocaleString('de-DE')}</span>
         </button>
       </div>`;
+    row.onclick=()=>{ const first=row.querySelector('.occ-pill'); if(first) first.click(); };
     grid.appendChild(row);
   });
 }
 
-/* Strasse der Vulkane EZ + DZ Belegungspillen */
+/* Solo AT — DE und EN Optionen */
+function buildSoloATRates(){
+  const grid=document.getElementById('soloATRatesGrid');
+  if(!grid) return;
+  grid.innerHTML='';
+  const enFlagSvg=`<svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#012169"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="8"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" stroke-width="5"/><path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="12"/><path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="8"/></svg>`;
+  const cats=[{name:'Standard',sub:'Standardunterkunft',price:1561},{name:'Superior',sub:'Gehobene Komfortkategorie',price:1971}];
+  cats.forEach(cat=>{
+    [['de',deFlagSVG,'Deutschsprachiger Reiseleiter'],['en',enFlagSvg,'Englischsprachiger Reiseleiter']].forEach(([lang,flag,lbl])=>{
+      const rateStr=`[Solo Traveler] ${cat.name} – EZ (${lang==='de'?'DE':'EN'} Reiseleiter): ${fmt(cat.price)} pro Person`;
+      const card=document.createElement('div');
+      card.className='solo-rate-card';
+      card.onclick=()=>selectSoloRate(card,rateStr);
+      card.innerHTML=`<div style="display:flex;align-items:center;gap:8px;flex:1;"><span class="rate-flag" style="display:inline-flex;width:20px;height:13px;overflow:hidden;border-radius:1px;flex-shrink:0;">${flag}</span><div><span class="rate-label">${cat.name}</span><span class="rate-sub">${cat.sub} · ${lbl}</span></div></div><div class="solo-price-col"><span class="price-type">EZ</span><span class="price-val">${fmt(cat.price)}</span></div>`;
+      grid.appendChild(card);
+    });
+  });
+}
 function buildVolcanoRates(){
   const grid=document.getElementById('volcanoRatesGrid');
   grid.innerHTML='';
   volcanoRatesData.forEach(r=>{
     const row=document.createElement('div');
-    row.className='rate-card';
+    row.className='rate-card'; row.style.cursor='pointer';
     row.innerHTML=`
       <div style="flex:1;">
         <span class="rate-label">${r.label}</span>
         <span class="rate-sub">${r.sub}</span>
       </div>
       <div class="occ-pair">
-        <button class="occ-pill" onclick="selectOccPill(this,'${r.rateKey} – EZ: $${r.single.toLocaleString('de-DE')} pro Person')">
+        <button class="occ-pill" onclick="event.stopPropagation();selectOccPill(this,'${r.rateKey} – EZ: $${r.single.toLocaleString('de-DE')} pro Person')">
           <span class="pill-label">EZ</span>
           <span class="pill-price">$${r.single.toLocaleString('de-DE')}</span>
         </button>
-        <button class="occ-pill" onclick="selectOccPill(this,'${r.rateKey} – DZ: $${r.double.toLocaleString('de-DE')} pro Person')">
+        <button class="occ-pill" onclick="event.stopPropagation();selectOccPill(this,'${r.rateKey} – DZ: $${r.double.toLocaleString('de-DE')} pro Person')">
           <span class="pill-label">DZ</span>
           <span class="pill-price">$${r.double.toLocaleString('de-DE')}</span>
         </button>
       </div>`;
+    row.onclick=()=>{ const first=row.querySelector('.occ-pill'); if(first) first.click(); };
     grid.appendChild(row);
   });
 }
@@ -1584,6 +1672,7 @@ function openModal(program,date,region,subRegion,fewSpots,promoPrice,soloPromo,d
   if(subRegion==='andean-solo') buildAndeanDualRates();
   if(subRegion==='volcano')     buildVolcanoRates();
   if(subRegion==='solo-loop')   buildSoloLoopTable(promoPrice, deGuide);
+  if(subRegion==='solo-at')     buildSoloATRates();
 
   goToStep1();
   clearRateSelection();
@@ -1613,6 +1702,11 @@ function goToStep2(){
   if(!selectedRateText) return;
   document.getElementById('formRate').value=selectedRateText;
   document.getElementById('rateSummary').textContent='Ausgewählt: '+selectedRateText;
+  const gpnForm=document.getElementById('groupPromoForm');
+  if(gpnForm){
+    const prog=document.getElementById('formProgram').value||'';
+    gpnForm.style.display=prog.toLowerCase().includes('loop')?'flex':'none';
+  }
   document.getElementById('panel1').classList.remove('active');
   document.getElementById('panel2').classList.add('active');
   document.getElementById('tab1').classList.remove('active');
