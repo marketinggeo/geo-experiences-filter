@@ -707,6 +707,47 @@ body {
   </div>
 </div>
 
+<!-- GRUPPENPREISE MODAL -->
+<div id="groupModal" class="req-modal-overlay" onclick="if(event.target===this)closeGroupModal()" style="display:none;opacity:0;pointer-events:none;">
+  <div class="req-modal-box" onclick="event.stopPropagation()">
+    <div class="req-modal-header">
+      <button class="req-modal-close" onclick="closeGroupModal()">✕</button>
+      <div class="req-modal-title">Gruppenpreise — Galapagos Loop</div>
+      <div class="req-modal-sub">Sonderpreise verfügbar ab 6 Personen auf derselben Abfahrt.</div>
+    </div>
+    <div class="req-modal-body">
+      <form action="https://formspree.io/f/xbdzbwyg" method="POST">
+        <input type="hidden" name="request_type" value="Gruppenpreise Anfrage – Galapagos Loop">
+        <input type="hidden" name="program" value="Galapagos Loop – 6 Tage / 5 Nächte">
+        <div class="form-row">
+          <label>Abfahrtsdatum *</label>
+          <select name="departure_date" id="groupModalDates" required style="font-family:'Montserrat',sans-serif;padding:10px 12px;border:1.5px solid #d0d5de;border-radius:7px;font-size:13px;color:#1a1a2e;background:#fff;width:100%;">
+            <option value="" disabled selected>Abfahrt wählen</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label>Anzahl Passagiere *</label>
+          <input type="number" name="num_passengers" min="6" required placeholder="Mindestens 6 Passagiere" style="font-family:'Montserrat',sans-serif;padding:10px 12px;border:1.5px solid #d0d5de;border-radius:7px;font-size:13px;width:100%;">
+        </div>
+        <div class="form-grid-2">
+          <div class="form-row"><label>Vollständiger Name *</label><input type="text" name="name" required placeholder="Ihr vollständiger Name"></div>
+          <div class="form-row"><label>Unternehmen *</label><input type="text" name="company" required placeholder="Agentur / Firmenname"></div>
+        </div>
+        <div class="form-grid-2">
+          <div class="form-row"><label>E-Mail *</label><input type="email" name="email" required placeholder="ihre@email.com"></div>
+          <div class="form-row"><label>Telefon</label><input type="text" name="phone" placeholder="+49 000 000 0000"></div>
+        </div>
+        <div class="form-row">
+          <label>Nachricht</label>
+          <textarea name="message" id="groupModalMessage" rows="3"></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Gruppenpreise anfragen</button>
+      </form>
+      <p class="form-note">Unser Team prüft Ihre Gruppenanfrage und meldet sich innerhalb von 24 Geschäftsstunden mit exklusiven Preisoptionen.</p>
+    </div>
+  </div>
+</div>
+
 <!-- BUCHUNGSANFRAGE MODAL -->
 <div id="modal" class="modal-overlay" onclick="handleOverlayClick(event)">
   <div class="modal-box">
@@ -764,7 +805,7 @@ body {
         <p class="rates-note">Preise: Pro Person, Nettopreise in US-Dollar. Alle Kategorien beinhalten Programmleistungen gemäß Reiseverlauf.</p>
         <div class="group-promo-note" style="margin-top:12px;margin-bottom:0;">
           <div class="gpn-text"><strong>✦ Mit 6 oder mehr Passagieren unterwegs?</strong>Sonderpreise für Gruppen auf derselben Abfahrt verfügbar — kontaktieren Sie uns für Ihre Optionen.</div>
-          <a class="gpn-btn" href="https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/kontakt?authuser=0" target="_blank">Gruppenpreise anfragen →</a>
+          <button class="gpn-btn" onclick="openGroupModal()">Gruppenpreise anfragen →</button>
         </div>
       </div>
 
@@ -802,7 +843,7 @@ body {
         <p class="rates-note">Preise: Pro Person, Nettopreise in US-Dollar. Alle Kategorien beinhalten Programmleistungen gemäß Reiseverlauf.</p>
         <div class="group-promo-note" style="margin-top:12px;margin-bottom:0;">
           <div class="gpn-text"><strong>✦ Mit 6 oder mehr Passagieren unterwegs?</strong>Sonderpreise für Gruppen auf derselben Abfahrt verfügbar — kontaktieren Sie uns für Ihre Optionen.</div>
-          <a class="gpn-btn" href="https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/kontakt?authuser=0" target="_blank">Gruppenpreise anfragen →</a>
+          <button class="gpn-btn" onclick="openGroupModal()">Gruppenpreise anfragen →</button>
         </div>
         <div class="modal-rates-divider"><span class="divider-label">Diese Abfahrt ist auch als Solo Traveler buchbar — ab 1 Person</span></div>
         <div class="solo-block-in-modal">
@@ -939,7 +980,7 @@ body {
         </div>
         <div class="group-promo-note" id="groupPromoForm" style="display:none;">
           <div class="gpn-text"><strong>✦ Mit 6 oder mehr Passagieren unterwegs?</strong>Fragen Sie uns nach Sonderpreisen für den Galapagos Loop — exklusive Gruppenpreise für dieselbe Abfahrt verfügbar.</div>
-          <a class="gpn-btn" href="https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/kontakt?authuser=0" target="_blank">Gruppenpreise anfragen →</a>
+          <button class="gpn-btn" onclick="openGroupModal()">Gruppenpreise anfragen →</button>
         </div>
         <div class="form-row"><label>Nachricht</label><textarea name="message" id="formMessage" rows="3"></textarea></div>
         <button type="submit" class="submit-btn">Buchungsanfrage senden</button>
@@ -964,7 +1005,7 @@ const departures = [
   { region:'galapagos', subRegion:'galapagos', date:'25.–30. Jan',     year:'2026', fullDate:'25.–30. Jan 2026',     program:'Galapagos Loop', duration:'6 Tage / 5 Nächte', status:['operated'],         promo:true,  bookable:false, fewSpots:false, dealType:null,     promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:null },
   { region:'galapagos', subRegion:'galapagos', date:'15.–20. Feb',     year:'2026', fullDate:'15.–20. Feb 2026',     program:'Galapagos Loop', duration:'6 Tage / 5 Nächte', status:['operated','sold'],  promo:false, bookable:false, fewSpots:false, dealType:null,     promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:null },
   { region:'galapagos', subRegion:'galapagos', date:'01.–06. Mär',     year:'2026', fullDate:'01.–06. Mär 2026',     program:'Galapagos Loop', duration:'6 Tage / 5 Nächte', status:['operated'],         promo:true,  bookable:false, fewSpots:false, dealType:null,     promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:null },
-  { region:'galapagos', subRegion:'galapagos', date:'10.–15. Mai',     year:'2026', fullDate:'10.–15. Mai 2026',     program:'Galapagos Loop', duration:'6 Tage / 5 Nächte', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:false, dealType:'summer', promoPrice:true,  hasSolo:true, soloPromo:true,  itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2.420', promo:'$1.999' } },
+  { region:'galapagos', subRegion:'galapagos', date:'10.–15. Mai',     year:'2026', fullDate:'10.–15. Mai 2026',     program:'Galapagos Loop', duration:'6 Tage / 5 Nächte', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:false, dealType:'summer', promoPrice:true,  hasSolo:true, soloPromo:true, soloHasDEGuide:true, itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2.420', promo:'$1.999' } },
   { region:'galapagos', subRegion:'galapagos', date:'07.–12. Jun',     year:'2026', fullDate:'07.–12. Jun 2026',     program:'Galapagos Loop', duration:'6 Tage / 5 Nächte', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:true,  dealType:'summer', promoPrice:true,  itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2.420', promo:'$1.999' } },
   { region:'galapagos', subRegion:'galapagos', date:'21.–26. Jun',     year:'2026', fullDate:'21.–26. Jun 2026',     program:'Galapagos Loop', duration:'6 Tage / 5 Nächte', status:['open','confirmed'], promo:true,  bookable:true,  fewSpots:false, dealType:null,     promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2.420', promo:null } },
   { region:'galapagos', subRegion:'galapagos', date:'12.–17. Jul',     year:'2026', fullDate:'12.–17. Jul 2026',     program:'Galapagos Loop', duration:'6 Tage / 5 Nächte', status:['open','confirmed'], promo:false, bookable:true,  fewSpots:true,  dealType:'summer', promoPrice:true,  itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0', priceFrom:{ regular:'$2.420', promo:'$1.999' } },
@@ -1167,7 +1208,7 @@ function renderCards(filter){
     if(subRegion==='galapagos'){
       const gpn=document.createElement('div');
       gpn.className='group-promo-note';
-      gpn.innerHTML=`<div class="gpn-text"><strong>✦ Sonderpreise für Gruppen ab 6 Personen</strong>Reisen Sie mit 6 oder mehr Personen auf derselben Abfahrt? Fragen Sie uns nach unseren exklusiven Gruppenpreisen für den Galapagos Loop.</div><a class="gpn-btn" href="https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/kontakt?authuser=0" target="_blank">Gruppenpreise anfragen →</a>`;
+      gpn.innerHTML=`<div class="gpn-text"><strong>✦ Sonderpreise für Gruppen ab 6 Personen</strong>Reisen Sie mit 6 oder mehr Personen auf derselben Abfahrt? Fragen Sie uns nach unseren exklusiven Gruppenpreisen für den Galapagos Loop.</div><button class="gpn-btn" onclick="openGroupModal()">Gruppenpreise anfragen →</button>`;
       block.appendChild(gpn);
     }
 
@@ -1719,6 +1760,39 @@ function goToStep1(){
 document.getElementById('formMessage').addEventListener('input',function(){
   formMessageDirty=true;
 });
+
+/* =====================
+   GRUPPENPREISE MODAL
+===================== */
+function openGroupModal(){
+  /* Dropdown mit offenen Loop-Abfahrten befüllen */
+  const sel=document.getElementById('groupModalDates');
+  sel.innerHTML='<option value="" disabled selected>Abfahrt wählen</option>';
+  departures
+    .filter(d=>d.subRegion==='galapagos'&&d.status.includes('open')&&d.bookable)
+    .forEach(d=>{
+      const opt=document.createElement('option');
+      opt.value=d.fullDate;
+      opt.textContent=d.fullDate;
+      sel.appendChild(opt);
+    });
+  /* Nachricht vorausfüllen */
+  document.getElementById('groupModalMessage').value=
+    'Ich habe mehr als 6 Passagiere, die an einer Galapagos-Loop-Abfahrt interessiert sind, und möchte Informationen zu Gruppenpreisen für eine bestimmte Abfahrt erhalten.';
+  /* Modal anzeigen */
+  const overlay=document.getElementById('groupModal');
+  overlay.style.display='flex';
+  overlay.style.opacity='1';
+  overlay.style.pointerEvents='auto';
+  document.body.style.overflow='hidden';
+}
+function closeGroupModal(){
+  const overlay=document.getElementById('groupModal');
+  overlay.style.display='none';
+  overlay.style.opacity='0';
+  overlay.style.pointerEvents='none';
+  document.body.style.overflow='';
+}
 
 /* =====================
    DATUM ANFRAGEN MODAL
