@@ -1160,7 +1160,8 @@ function renderCards(filter){
       const ukFlag=`<svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#012169"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="8"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" stroke-width="5"/><path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="12"/><path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="8"/></svg>`;
       let guideNote='';
       if(dep.subRegion==='galapagos'||dep.subRegion==='andean'){
-        guideNote=`<div class="card-guide-note"><span class="flag-xs" style="display:inline-flex;align-items:center;width:16px;height:11px;border-radius:1px;overflow:hidden;">${ukFlag}</span> English / German guide</div>`;
+        const deFlag=`<svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#FFCE00"/><rect width="60" height="26.7" fill="#DD0000"/><rect width="60" height="13.3" fill="#000"/></svg>`;
+        guideNote=`<div class="card-guide-note"><span class="flag-xs" style="display:inline-flex;align-items:center;width:16px;height:11px;border-radius:1px;overflow:hidden;">${ukFlag}</span> <span class="flag-xs" style="display:inline-flex;align-items:center;width:16px;height:11px;border-radius:1px;overflow:hidden;margin-left:2px;">${deFlag}</span> Guide options: EN or DE — rates vary</div>`;
       } else if(dep.subRegion==='volcano'){
         guideNote=`<div class="card-guide-note"><span class="flag-xs" style="display:inline-flex;align-items:center;width:16px;height:11px;border-radius:1px;overflow:hidden;">${ukFlag}</span> English / Spanish guide</div>`;
       } else if(dep.subRegion==='solo-santacruz'||dep.subRegion==='solo-at'||dep.subRegion==='solo-loop'){
