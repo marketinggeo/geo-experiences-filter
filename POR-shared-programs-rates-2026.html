@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Geo Boutique | Tabela de Tarifas 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Montserrat',sans-serif;background:#f4f4f4;color:#1a1a2e;}
+.container{max-width:1500px;margin:40px auto;padding:0 24px;}
+.card-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:8px;}
+.menu-card{background:#fff;border:1px solid #dde1ea;border-radius:10px;padding:32px 36px;cursor:pointer;transition:box-shadow 0.2s ease,transform 0.15s ease,border-color 0.2s;display:flex;flex-direction:column;gap:10px;position:relative;overflow:hidden;}
+.menu-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#002060,#1a56c4);}
+.menu-card:hover{box-shadow:0 8px 28px rgba(0,32,96,0.12);transform:translateY(-2px);border-color:#b0bcd4;}
+.menu-card h2{font-size:17px;font-weight:700;color:#002060;margin:0;}
+.menu-card .card-desc{font-size:12px;color:#6b7a99;font-weight:500;line-height:1.5;}
+.menu-card .card-programs{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px;}
+.menu-card .prog-pill{background:#eef2fb;color:#1a4fa0;border-radius:20px;padding:3px 10px;font-size:10px;font-weight:600;letter-spacing:0.3px;}
+.menu-card .card-arrow{display:inline-flex;align-items:center;gap:6px;background:#002060;color:#fff;padding:10px 18px;border-radius:5px;font-size:12px;font-weight:700;margin-top:8px;letter-spacing:0.3px;transition:background 0.15s;align-self:flex-start;}
+.menu-card .card-arrow::after{content:'→';font-size:13px;}
+.menu-card:hover .card-arrow{background:#1a3d8f;}
+.rate-section{display:none;margin-top:8px;}
+.back-btn{display:inline-flex;align-items:center;gap:5px;margin-bottom:24px;font-size:12px;font-weight:600;cursor:pointer;color:#002060;letter-spacing:0.2px;}
+.back-btn::before{content:'←';}
+.section-title{font-size:20px;font-weight:700;color:#002060;margin-bottom:20px;}
+.filter-bar{margin-bottom:24px;}
+.filter-bar select{padding:9px 14px;font-family:'Montserrat',sans-serif;font-size:12px;border:1.5px solid #d0d5de;border-radius:6px;width:100%;max-width:320px;color:#1a1a2e;background:#fff;outline:none;cursor:pointer;}
+.filter-bar select:focus{border-color:#002060;}
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:8px;border:1px solid #dde1ea;}
+table{width:100%;border-collapse:collapse;font-size:12.5px;}
+thead tr{background:#002060;}
+th{padding:12px 14px;color:#fff;font-size:10px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;text-align:left;border-right:1px solid rgba(255,255,255,0.1);}
+th:last-child{border-right:none;}
+td{padding:11px 14px;border-bottom:1px solid #eef0f5;border-right:1px solid #eef0f5;vertical-align:middle;}
+td:last-child{border-right:none;}
+tbody tr:last-child td{border-bottom:none;}
+tbody tr.alt td{background:#f8fafc;}
+tbody tr:hover td{background:#f0f4ff;}
+.hidden{display:none!important;}
+h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
+.lang-cell{text-align:center;vertical-align:middle;white-space:nowrap;min-width:54px;}
+.lang-flags{display:inline-flex;align-items:center;gap:4px;}
+.guide-note{display:block;color:#888;font-style:italic;margin-top:3px;font-size:10.5px;}
+@media(max-width:768px){
+  .card-grid{grid-template-columns:1fr;}
+  .menu-card{padding:22px 20px;}
+  table thead{display:none;}
+  table,tbody,tr,td{display:block;width:100%;}
+  tr.program{background:#fff;border:1px solid #dde1ea;border-radius:6px;margin-bottom:10px;padding:0;}
+  tr.program.alt td{background:#f8fafc;}
+  tr.program.hidden{display:none!important;}
+  td{border:none;border-bottom:1px solid #eef0f5;padding:9px 14px 9px 46%;position:relative;min-height:34px;font-size:11.5px;}
+  td:last-child{border-bottom:none;}
+  td::before{content:attr(data-label);position:absolute;left:14px;top:9px;width:38%;font-weight:700;color:#002060;font-size:10px;text-transform:uppercase;line-height:1.4;}
+  td.lang-cell{padding-left:42%;text-align:left;}
+  .supplements-table tr{background:#fff;border:1px solid #dde1ea;border-radius:6px;margin-bottom:10px;}
+  .filter-bar select{max-width:100%;}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- MENU -->
+<div id="mainMenu" class="card-grid">
+  <div class="menu-card" onclick="showSection('galapagos')">
+    <h2>Tarifas Galápagos 2026</h2>
+    <p class="card-desc">Tarifas NET por pessoa em USD. Programas disponíveis com guias em inglês e espanhol.</p>
+    <div class="card-programs">
+      <span class="prog-pill">Galápagos Loop 6D/5N</span>
+      <span class="prog-pill">Galápagos Loop 7D/6N</span>
+      <span class="prog-pill">Galápagos 360 6D/5N</span>
+      <span class="prog-pill">Extensão 3D/2N</span>
+      <span class="prog-pill">Charles Darwin Path 8D/7N</span>
+      <span class="prog-pill" style="background:#e0f2f1;color:#00564f;">Galápagos Solo – Santa Cruz 4D/3N</span>
+    </div>
+    <span class="card-arrow">Ver tarifas Galápagos</span>
+  </div>
+  <div class="menu-card" onclick="showSection('mainland')">
+    <h2>Tarifas Continente 2026</h2>
+    <p class="card-desc">Tarifas NET por pessoa em USD. Programas disponíveis com guias em inglês e espanhol.</p>
+    <div class="card-programs">
+      <span class="prog-pill">Tours Diários Quito</span>
+      <span class="prog-pill">Avenida dos Vulcões 2D/1N</span>
+      <span class="prog-pill">Avenida dos Vulcões 3D/2N</span>
+      <span class="prog-pill">Avenida dos Vulcões 5D/4N</span>
+      <span class="prog-pill">Avenida dos Vulcões 6D/5N</span>
+      <span class="prog-pill">Andean Treasures 8D/7N</span>
+    </div>
+    <span class="card-arrow">Ver tarifas Continente</span>
+  </div>
+</div>
+
+<div style="margin:20px 0;">
+  <a href="https://sites.google.com/georeisen-ecuador.com/geoboutiquepacotesregular2026/sa%C3%ADdas-abertas-promo%C3%A7%C3%B5es?authuser=0" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#002060;color:#fff;padding:11px 20px;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600;text-decoration:none;border-radius:4px;letter-spacing:0.3px;">
+    Ver saídas abertas &amp; promoções atuais ⟶
+  </a>
+  <span style="display:block;margin-top:6px;font-size:11px;color:#777;font-family:'Montserrat',sans-serif;">Consulte disponibilidade em tempo real, saídas confirmadas e promoções ativas.</span>
+</div>
+
+<!-- ======================== GALÁPAGOS ======================== -->
+<div id="galapagos" class="rate-section">
+  <div class="back-btn" onclick="goBack()"> Voltar</div>
+  <div class="section-title">Tarifas Galápagos 2026</div>
+  <div class="filter-bar">
+    <select onchange="filterPrograms(this,'galapagos')">
+      <option value="all">Todos os Programas</option>
+      <option value="loop6">Galápagos Loop 6D/5N</option>
+      <option value="loop7">Galápagos Loop 7D/6N – Imersivo</option>
+      <option value="galapagos360">Galápagos 360 6D/5N</option>
+      <option value="extension">Extensão 3D/2N</option>
+      <option value="darwin">Charles Darwin Path 8D/7N</option>
+      <option value="solo">Galápagos Solo – Santa Cruz 4D/3N</option>
+    </select>
+  </div>
+
+  <div style="margin:20px 0;">
+    <a href="https://sites.google.com/georeisen-ecuador.com/geoboutiquepacotesregular2026/sa%C3%ADdas-abertas-promo%C3%A7%C3%B5es?authuser=0" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#002060;color:#fff;padding:11px 20px;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600;text-decoration:none;border-radius:4px;letter-spacing:0.3px;">
+      Ver saídas abertas &amp; promoções atuais ⟶
+    </a>
+    <span style="display:block;margin-top:6px;font-size:11px;color:#777;font-family:'Montserrat',sans-serif;">Consulte disponibilidade em tempo real, saídas confirmadas e promoções ativas.</span>
+  </div>
+
+  <div class="table-wrap">
+  <table>
+    <thead><tr>
+      <th>Código</th><th>Programa</th><th>Ilhas</th><th>Categoria</th>
+      <th>Acomodação</th><th>Idioma</th><th>Saídas 2026</th>
+      <th>SGL</th><th>DBL</th><th>TPL</th>
+    </tr></thead>
+    <tbody>
+
+    <!-- ===== LOOP 6D ===== -->
+    <tr class="program alt" data-category="loop6">
+      <td data-label="Código">SG-04-A</td>
+      <td data-label="Programa">The Galápagos Loop 6D/5N</td>
+      <td data-label="Ilhas">Santa Cruz<br>Floreana<br>Isabela</td>
+      <td data-label="Categoria">Tourist</td>
+      <td data-label="Acomodação">DEJA VU<br>AGUA MARINA<br>CALLY</td>
+      <td data-label="Idioma" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="Inglês" title="Inglês" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Espanhol" title="Espanhol" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
+      <td data-label="Saídas"><span class="guide-note" style="font-style:normal;color:#333;">Todo domingo</span><span class="guide-note">Guia Espanhol/Inglês</span></td>
+      <td data-label="SGL">2.491</td><td data-label="DBL">2.420</td><td data-label="TPL">2.399</td>
+    </tr>
+    <tr class="program alt" data-category="loop6">
+      <td data-label="Código">SG-04-A</td>
+      <td data-label="Programa">The Galápagos Loop 6D/5N</td>
+      <td data-label="Ilhas">Santa Cruz<br>Floreana<br>Isabela</td>
+      <td data-label="Categoria">Tourist Superior</td>
+      <td data-label="Acomodação">VILLA LAGUNA<br>AGUA MARINA (Santa María)<br>VOLCANO</td>
+      <td data-label="Idioma" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="Inglês" title="Inglês" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Espanhol" title="Espanhol" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
+      <td data-label="Saídas"><span class="guide-note" style="font-style:normal;color:#333;">Todo domingo</span><span class="guide-note">Guia Espanhol/Inglês</span></td>
+      <td data-label="SGL">2.757</td><td data-label="DBL">2.477</td><td data-label="TPL">2.440</td>
+    </tr>
+    <tr class="program alt" data-category="loop6">
+      <td data-label="Código">SG-04-A</td>
+      <td data-label="Programa">The Galápagos Loop 6D/5N</td>
+      <td data-label="Ilhas">Santa Cruz<br>Floreana<br>Isabela</td>
+      <td data-label="Categoria">First Class</td>
+      <td data-label="Acomodação">IKALA SUITE<br>AGUA MARINA<br>CASA MARITA OCEAN FRONT</td>
+      <td data-label="Idioma" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="Inglês" title="Inglês" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Espanhol" title="Espanhol" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
+      <td data-label="Saídas"><span class="guide-note" style="font-style:normal;color:#333;">Todo domingo</span><span class="guide-note">Guia Espanhol/Inglês</span></td>
+      <td data-label="SGL">3.349</td><td data-label="DBL">2.803</td><td data-label="TPL">2.696</td>
+    </tr>
+
+    <!-- ===== LOOP 7D ===== -->
+    <tr class="program" data-category="loop7">
+      <td data-label="Código">SG-04-B</td>
+      <td data-label="Programa">The Galápagos Loop 7D/6N – Imersivo</td>
+      <td data-label="Ilhas">Santa Cruz<br>Floreana<br>Isabela</td>
+      <td data-label="Categoria">Tourist</td>
+      <td data-label="Acomodação">DEJA VU<br>AGUA MARINA<br>CALLY</td>
+      <td data-label="Idioma" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="Inglês" title="Inglês" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Espanhol" title="Espanhol" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
+      <td data-label="Saídas"><span class="guide-note" style="font-style:normal;color:#333;">Todo sábado</span><span class="guide-note">Guia Espanhol/Inglês</span></td>
+      <td data-label="SGL">2.877</td><td data-label="DBL">2.794</td><td data-label="TPL">2.764</td>
+    </tr>
+    <tr class="program alt" data-category="loop7">
+      <td data-label="Código">SG-04-B</td>
+      <td data-label="Programa">The Galápagos Loop 7D/6N – Imersivo</td>
+      <td data-label="Ilhas">Santa Cruz<br>Floreana<br>Isabela</td>
+      <td data-label="Categoria">Tourist Superior</td>
+      <td data-label="Acomodação">VILLA LAGUNA<br>AGUA MARINA (Santa María)<br>VOLCANO</td>
+      <td data-label="Idioma" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="Inglês" title="Inglês" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Espanhol" title="Espanhol" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
+      <td data-label="Saídas"><span class="guide-note" style="font-style:normal;color:#333;">Todo sábado</span><span class="guide-note">Guia Espanhol/Inglês</span></td>
+      <td data-label="SGL">3.143</td><td data-label="DBL">2.851</td><td data-label="TPL">2.805</td>
+    </tr>
+    <tr class="program" data-category="loop7">
+      <td data-label="Código">SG-04-B</td>
+      <td data-label="Programa">The Galápagos Loop 7D/6N – Imersivo</td>
+      <td data-label="Ilhas">Santa Cruz<br>Floreana<br>Isabela</td>
+      <td data-label="Categoria">First Class</td>
+      <td data-label="Acomodação">IKALA SUITE<br>AGUA MARINA<br>CASA MARITA OCEAN FRONT</td>
+      <td data-label="Idioma" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="Inglês" title="Inglês" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Espanhol" title="Espanhol" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
+      <td data-label="Saídas"><span class="guide-note" style="font-style:normal;color:#333;">Todo sábado</span><span class="guide-note">Guia Espanhol/Inglês</span></td>
+      <td data-label="SGL">3.735</td><td data-label="DBL">3.177</td><td data-label="TPL">3.061</td>
+    </tr>
+
+    <!-- ===== GALÁPAGOS 360 ===== -->
+    <tr class="program alt" data-category="galapagos360">
+      <td data-label="Código">SG-04-C</td>
+      <td data-label="Programa">Galápagos 360 6D/5N<br><span style="font-size:10.5px;color:#888;">Dias: domingo a sexta · Guias locais</span></td>
+      <td data-label="Ilhas">Santa Cruz<br>Floreana<br>Isabela</td>
+      <td data-label="Categoria">Tourist</td>
+      <td data-label="Acomodação">DEJA VU<br>AGUA MARINA<br>CALLY</td>
+      <td data-label="Idioma" class="lang-cell"><img src="https://flagcdn.com/h20/es.png" alt="Espanhol" title="Espanhol" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Saídas"><span class="guide-note" style="font-style:normal;color:#333;">Todo domingo</span><span class="guide-note">Guia local em espanhol</span></td>
+      <td data-label="SGL">2.282</td><td data-label="DBL">2.212</td><td data-label="TPL">2.185</td>
+    </tr>
+    <tr class="program" data-category="galapagos360">
+      <td data-label="Código">SG-04-C</td>
+      <td data-label="Programa">Galápagos 360 6D/5N</td>
+      <td data-label="Ilhas">Santa Cruz<br>Floreana<br>Isabela</td>
+      <td data-label="Categoria">Tourist Superior</td>
+      <td data-label="Acomodação">VILLA LAGUNA<br>AGUA MARINA (Santa María)<br>VOLCANO</td>
+      <td data-label="Idioma" class="lang-cell"><img src="https://flagcdn.com/h20/es.png" alt="Espanhol" title="Espanhol" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Saídas"><span class="guide-note" style="font-style:normal;color:#333;">Todo domingo</span><span class="guide-note">Guia local em espanhol</span></td>
+      <td data-label="SGL">2.494</td><td data-label="DBL">2.260</td><td data-label="TPL">2.224</td>
+    </tr>
+    <tr class="program alt" data-category="galapagos360">
+      <td data-label="Código">SG-04-C</td>
+      <td data-label="Programa">Galápagos 360 6D/5N</td>
+      <td data-label="Ilhas">Santa Cruz<br>Floreana<br>Isabela</td>
+      <td data-label="Categoria">First Class</td>
+      <td data-label="Acomodação">IKALA SUITE<br>AGUA MARINA<br>CASA MARITA OCEAN FRONT</td>
+      <td data-label="Idioma" class="lang-cell"><img src="https://flagcdn.com/h20/es.png" alt="Espanhol" title="Espanhol" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Saídas"><span class="guide-note" style="font-style:normal;color:#333;">Todo domingo</span><span class="guide-note">Guia local em espanhol</span></td>
+      <td data-label="SGL">2.908</td><td data-label="DBL">2.482</td><td data-label="TPL">2.391</td>
+    </tr>
+
+    <!-- ===== EXTENSÃO ===== -->
+    <tr class="program" data-category="extension" style="background:#fdf8ee;">
+      <td colspan="10" style="padding:10px 14px;font-size:11px;color:#7a5800;font-style:italic;border-bottom:1px solid #e0cfa0;">
+        &#9432;&nbsp; Os programas de extensão estão disponíveis somente com guia em inglês/espanhol.
+      </td>
+    </tr>
+    <tr class="program alt" data-category="extension">
+      <td data-label="Código">SG-04 (Ext.)</td>
+      <td data-label="Programa">Extensão Pós Galápagos Loop 3D/2N</td>
+      <td data-label="Ilhas">Santa Cruz</td>
+      <td data-label="Categoria">Tourist</td>
+      <td data-label="Acomodação">DEJA VU</td>
+      <td data-label="Idioma" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="Inglês" title="Inglês" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Espanhol" title="Espanhol" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
+      <td data-label="Saídas"><span class="guide-note" style="font-style:normal;color:#333;">Toda sexta-feira após o Loop</span><span class="guide-note">Guia Espanhol/Inglês</span></td>
+      <td data-label="SGL">877</td><td data-label="DBL">852</td><td data-label="TPL">844</td>
+    </tr>
+    <tr class="program" data-category="extension">
+      <td data-label="Código">SG-04 (Ext.)</td>
+      <td data-label="Programa">Extensão Pós Galápagos Loop 3D/2N</td>
+      <td data-label="Ilhas">Santa Cruz</td>
+      <td data-label="Categoria">Tourist Superior</td>
+      <td data-label="Acomodação">VILLA LAGUNA</td>
+      <td data-label="Idioma" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="Inglês" title="Inglês" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Espanhol" title="Espanhol" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
+      <td data-label="Saídas"><span class="guide-note" style="font-style:normal;color:#333;">Toda sexta-feira após o Loop</span><span class="guide-note">Guia Espanhol/Inglês</span></td>
+      <td data-label="SGL">985</td><td data-label="DBL">869</td><td data-label="TPL">849</td>
+    </tr>
+    <tr class="program alt" data-category="extension">
+      <td data-label="Código">SG-04 (Ext.)</td>
+      <td data-label="Programa">Extensão Pós Galápagos Loop 3D/2N</td>
+      <td data-label="Ilhas">Santa Cruz</td>
+      <td data-label="Categoria">First Class</td>
+      <td data-label="Acomodação">IKALA SUITE</td>
+      <td data-label="Idioma" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="Inglês" title="Inglês" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Espanhol" title="Espanhol" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
+      <td data-label="Saídas"><span class="guide-note" style="font-style:normal;color:#333;">Toda sexta-feira após o Loop</span><span class="guide-note">Guia Espanhol/Inglês</span></td>
+      <td data-label="SGL">1.341</td><td data-label="DBL">1.077</td><td data-label="TPL">753</td>
+    </tr>
+
+    <!-- ===== DARWIN ===== -->
+    <tr class="program" data-category="darwin">
+      <td data-label="Código">SG-05</td>
+      <td data-label="Programa">Charles Darwin Path 8D/7N</td>
+      <td data-label="Ilhas">Cristóbal<br>Santa Cruz<br>Floreana<br>Isabela</td>
+      <td data-label="Categoria">Tourist</td>
+      <td data-label="Acomodação">PIMAMPIRO<br>DEJA VU<br>AGUA MARINA<br>CALLY</td>
+      <td data-label="Idioma" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="Inglês" title="Inglês" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Espanhol" title="Espanhol" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
+      <td data-label="Saídas"><span class="guide-note" style="font-style:normal;color:#333;">Toda sexta-feira</span><span class="guide-note">Guia Espanhol/Inglês</span></td>
+      <td data-label="SGL">3.146</td><td data-label="DBL">3.053</td><td data-label="TPL">3.022</td>
+    </tr>
+    <tr class="program alt" data-category="darwin">
+      <td data-label="Código">SG-05</td>
+      <td data-label="Programa">Charles Darwin Path 8D/7N</td>
+      <td data-label="Ilhas">Cristóbal<br>Santa Cruz<br>Floreana<br>Isabela</td>
+      <td data-label="Categoria">Tourist Superior</td>
+      <td data-label="Acomodação">KATARMA<br>VILLA LAGUNA<br>AGUA MARINA (Santa María)<br>VOLCANO</td>
+      <td data-label="Idioma" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="Inglês" title="Inglês" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Espanhol" title="Espanhol" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
+      <td data-label="Saídas"><span class="guide-note" style="font-style:normal;color:#333;">Toda sexta-feira</span><span class="guide-note">Guia Espanhol/Inglês</span></td>
+      <td data-label="SGL">3.518</td><td data-label="DBL">3.180</td><td data-label="TPL">3.117</td>
+    </tr>
+    <tr class="program" data-category="darwin">
+      <td data-label="Código">SG-05</td>
+      <td data-label="Programa">Charles Darwin Path 8D/7N</td>
+      <td data-label="Ilhas">Cristóbal<br>Santa Cruz<br>Floreana<br>Isabela</td>
+      <td data-label="Categoria">First Class</td>
+      <td data-label="Acomodação">CASA OPUNTIA (Suite)<br>IKALA SUITE<br>AGUA MARINA<br>CASA MARITA OCEAN FRONT</td>
+      <td data-label="Idioma" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="Inglês" title="Inglês" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Espanhol" title="Espanhol" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
+      <td data-label="Saídas"><span class="guide-note" style="font-style:normal;color:#333;">Toda sexta-feira</span><span class="guide-note">Guia Espanhol/Inglês</span></td>
+      <td data-label="SGL">4.334</td><td data-label="DBL">3.602</td><td data-label="TPL">3.439</td>
+    </tr>
+
+    <!-- ===== SOLO TRAVELER ===== -->
+    <tr class="program" data-category="solo" style="background:#f4fafa;">
+      <td colspan="10" style="padding:10px 14px;font-size:11px;color:#00564f;font-style:italic;border-bottom:1px solid #b2dfdb;">
+        &#9432;&nbsp; Programa Solo Traveler. Tarifas por pessoa em base dupla (mesmo sexo). Somente guia em inglês. Suplemento individual aplicável caso não haja disponibilidade de quarto compartilhado.
+      </td>
+    </tr>
+    <tr class="program alt" data-category="solo">
+      <td data-label="Código">SG-SOLO-A</td>
+      <td data-label="Programa">Galápagos Solo – Santa Cruz 4D/3N</td>
+      <td data-label="Ilhas">Santa Cruz</td>
+      <td data-label="Categoria">Tourist</td>
+      <td data-label="Acomodação">LEÓN MARINO / GALAPAGOS DREAMS<span class="guide-note">ou similar</span></td>
+      <td data-label="Idioma" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="Inglês" title="Inglês" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Saídas"><span class="guide-note" style="font-style:normal;color:#333;">12 Abr · 10 Mai · 14 Jun<br>29 Jul · 9 Ago · 11 Out</span><span class="guide-note">Guia em inglês</span></td>
+      <td data-label="SGL">–</td><td data-label="DBL">1.027<span class="guide-note">Suplem. individual: 72</span></td><td data-label="TPL">–</td>
+    </tr>
+    <tr class="program" data-category="solo">
+      <td data-label="Código">SG-SOLO-A</td>
+      <td data-label="Programa">Galápagos Solo – Santa Cruz 4D/3N</td>
+      <td data-label="Ilhas">Santa Cruz</td>
+      <td data-label="Categoria">Tourist Superior</td>
+      <td data-label="Acomodação">MAINAO / LAS NINFAS<span class="guide-note">ou similar</span></td>
+      <td data-label="Idioma" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="Inglês" title="Inglês" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Saídas"><span class="guide-note" style="font-style:normal;color:#333;">12 Abr · 10 Mai · 14 Jun<br>29 Jul · 9 Ago · 11 Out</span><span class="guide-note">Guia em inglês</span></td>
+      <td data-label="SGL">–</td><td data-label="DBL">1.096<span class="guide-note">Suplem. individual: 135</span></td><td data-label="TPL">–</td>
+    </tr>
+    <tr class="program alt" data-category="solo">
+      <td data-label="Código">SG-SOLO-A</td>
+      <td data-label="Programa">Galápagos Solo – Santa Cruz 4D/3N</td>
+      <td data-label="Ilhas">Santa Cruz</td>
+      <td data-label="Categoria">First Class</td>
+      <td data-label="Acomodação">IKALA / CUCUVE / ACACIA<span class="guide-note">ou similar</span></td>
+      <td data-label="Idioma" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="Inglês" title="Inglês" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Saídas"><span class="guide-note" style="font-style:normal;color:#333;">12 Abr · 10 Mai · 14 Jun<br>29 Jul · 9 Ago · 11 Out</span><span class="guide-note">Guia em inglês</span></td>
+      <td data-label="SGL">–</td><td data-label="DBL">1.264<span class="guide-note">Suplem. individual: 318</span></td><td data-label="TPL">–</td>
+    </tr>
+
+    </tbody>
+  </table>
+  </div>
+
+  <h2 class="subsection">Suplementos</h2>
+  <p style="font-size:11px;color:#7a5800;background:#fdf8ee;border:1px solid #e0cfa0;border-radius:5px;padding:9px 14px;margin-bottom:14px;font-style:italic;">
+    &#9432;&nbsp; Os suplementos estão disponíveis somente com guia em inglês/espanhol.
+  </p>
+  <div class="table-wrap">
+  <table class="supplements-table">
+    <thead><tr><th>Suplemento</th><th>Idioma</th><th>Tarifa NET (USD) / pessoa</th></tr></thead>
+    <tbody>
+    <tr class="alt">
+      <td data-label="Suplemento">Traslado particular extra em Santa Cruz<br><span style="font-size:10.5px;color:#888;">Mínimo 2 pax</span></td>
+      <td data-label="Idioma" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="Inglês" title="Inglês" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Espanhol" title="Espanhol" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
+      <td data-label="Tarifa NET">71 (1–2 Pax) / 49 (3–4 Pax)</td>
+    </tr>
+    <tr>
+      <td data-label="Suplemento">Suplemento para Túneis compartilhados em vez de Tintoreras (opcional)</td>
+      <td data-label="Idioma" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="Inglês" title="Inglês" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Espanhol" title="Espanhol" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
+      <td data-label="Tarifa NET">120</td>
+    </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div style="margin:28px 0 10px;">
+    <a href="https://sites.google.com/georeisen-ecuador.com/geoboutiquepacotesregular2026/sa%C3%ADdas-abertas-promo%C3%A7%C3%B5es?authuser=0" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#002060;color:#fff;padding:11px 20px;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600;text-decoration:none;border-radius:4px;letter-spacing:0.3px;">
+      Ver saídas abertas &amp; promoções atuais ⟶
+    </a>
+    <span style="display:block;margin-top:6px;font-size:11px;color:#777;font-family:'Montserrat',sans-serif;">Consulte disponibilidade em tempo real, saídas confirmadas e promoções ativas.</span>
+  </div>
+</div>
+
+<!-- ======================== CONTINENTE ======================== -->
+<div id="mainland" class="rate-section">
+  <div class="back-btn" onclick="goBack()"> Voltar</div>
+  <div class="section-title">Tarifas Continente 2026</div>
+  <div class="filter-bar">
+    <select onchange="filterPrograms(this,'mainland')">
+      <option value="all">Todos os Programas</option>
+      <option value="daily">Tours Diários Quito</option>
+      <option value="volcano2d">Avenida dos Vulcões 2D/1N</option>
+      <option value="volcano3d">Avenida dos Vulcões 3D/2N</option>
+      <option value="volcano5d">Avenida dos Vulcões 5D/4N</option>
+      <option value="volcano6d">Avenida dos Vulcões 6D/5N</option>
+      <option value="andean">Andean Treasures 8D/7N</option>
+    </select>
+  </div>
+
+  <div style="margin:20px 0;">
+    <a href="https://sites.google.com/georeisen-ecuador.com/geoboutiquepacotesregular2026/sa%C3%ADdas-abertas-promo%C3%A7%C3%B5es?authuser=0" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#002060;color:#fff;padding:11px 20px;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600;text-decoration:none;border-radius:4px;letter-spacing:0.3px;">
+      Ver saídas abertas &amp; promoções atuais ⟶
+    </a>
+    <span style="display:block;margin-top:6px;font-size:11px;color:#777;font-family:'Montserrat',sans-serif;">Consulte disponibilidade em tempo real, saídas confirmadas e promoções ativas.</span>
+  </div>
+
+  <div class="table-wrap">
+  <table>
+    <thead><tr>
+      <th>Código</th><th>Programa</th><th>Entradas</th><th>Categoria</th>
+      <th>Cidade / Rota</th><th>Hotéis</th><th>Idioma</th>
+      <th>Saídas 2026</th><th>Tarifa NET</th><th>S.S</th>
+    </tr></thead>
+    <tbody>
+
+    <!-- TOURS DIÁRIOS -->
+    <tr class="program alt" data-category="daily">
+      <td data-label="Código">GR-SM-01</td><td data-label="Programa">City Tour a Pé em Quito (Meio Dia)</td>
+      <td data-label="Entradas">Não</td><td data-label="Categoria">–</td>
+      <td data-label="Cidade">Quito</td><td data-label="Hotéis">–</td>
+      <td data-label="Idioma" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="Inglês" title="Inglês" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Espanhol" title="Espanhol" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
+      <td data-label="Saídas">Todas as terças e sextas-feiras</td>
+      <td data-label="Tarifa NET">24</td><td data-label="S.S">–</td>
+    </tr>
+    <tr class="program" data-category="daily">
+      <td data-label="Código">GR-SM-02</td><td data-label="Programa">City Tour de Quito e Metade do Mundo</td>
+      <td data-label="Entradas">Não</td><td data-label="Categoria">–</td>
+      <td data-label="Cidade">Quito</td><td data-label="Hotéis">–</td>
+      <td data-label="Idioma" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="Inglês" title="Inglês" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Espanhol" title="Espanhol" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
+      <td data-label="Saídas">Todas as terças e sextas-feiras</td>
+      <td data-label="Tarifa NET">60</td><td data-label="S.S">–</td>
+    </tr>
+    <tr class="program alt" data-category="daily">
+      <td data-label="Código">GR-SM-03</td><td data-label="Programa">Mercado Indígena de Otavalo</td>
+      <td data-label="Entradas">Não</td><td data-label="Categoria">–</td>
+      <td data-label="Cidade">Otavalo</td><td data-label="Hotéis">–</td>
+      <td data-label="Idioma" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="Inglês" title="Inglês" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Espanhol" title="Espanhol" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
+      <td data-label="Saídas">Todas as quartas-feiras e sábados</td>
+      <td data-label="Tarifa NET">75</td><td data-label="S.S">–</td>
+    </tr>
+    <tr class="program" data-category="daily">
+      <td data-label="Código">GR-SM-04</td><td data-label="Programa">Parque Nacional Cotopaxi</td>
+      <td data-label="Entradas">Não</td><td data-label="Categoria">–</td>
+      <td data-label="Cidade">Cotopaxi</td><td data-label="Hotéis">–</td>
+      <td data-label="Idioma" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="Inglês" title="Inglês" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Espanhol" title="Espanhol" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
+      <td data-label="Saídas">Toda quinta-feira e domingo</td>
+      <td data-label="Tarifa NET">75</td><td data-label="S.S">–</td>
+    </tr>
+
+    <!-- AVENIDA DOS VULCÕES 2D -->
+    <tr class="program alt" data-category="volcano2d">
+      <td data-label="Código">GR-SM-05</td><td data-label="Programa">Avenida dos Vulcões 2D/1N (Espanhol - Inglês)</td>
+      <td data-label="Entradas">Não</td><td data-label="Categoria">Tourist</td>
+      <td data-label="Cidade / Rota">Quito – Cotopaxi – Baños – Riobamba – Quito</td>
+      <td data-label="Hotéis">La Floresta</td>
+      <td data-label="Idioma" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="Inglês" title="Inglês" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Espanhol" title="Espanhol" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
+      <td data-label="Saídas"><span class="guide-note" style="font-style:normal;color:#333;">Toda quinta-feira</span></td>
+      <td data-label="Tarifa NET">251</td><td data-label="S.S">18</td>
+    </tr>
+    <tr class="program" data-category="volcano2d">
+      <td data-label="Código">GR-SM-05</td><td data-label="Programa">Avenida dos Vulcões 2D/1N (Espanhol - Inglês)</td>
+      <td data-label="Entradas">Não</td><td data-label="Categoria">Tourist Superior</td>
+      <td data-label="Cidade / Rota">Quito – Cotopaxi – Baños – Riobamba – Quito</td>
+      <td data-label="Hotéis">Hotel Sangay (Std Room)</td>
+      <td data-label="Idioma" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="Inglês" title="Inglês" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Espanhol" title="Espanhol" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
+      <td data-label="Saídas"><span class="guide-note" style="font-style:normal;color:#333;">Toda quinta-feira</span></td>
+      <td data-label="Tarifa NET">298</td><td data-label="S.S">40</td>
+    </tr>
+    <tr class="program alt" data-category="volcano2d">
+      <td data-label="Código">GR-SM-05</td><td data-label="Programa">Avenida dos Vulcões 2D/1N (Espanhol - Inglês)</td>
+      <td data-label="Entradas">Não</td><td data-label="Categoria">First Class</td>
+      <td data-label="Cidade / Rota">Quito – Cotopaxi – Baños – Riobamba – Quito</td>
+      <td data-label="Hotéis">Samari Spa</td>
+      <td data-label="Idioma" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="Inglês" title="Inglês" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Espanhol" title="Espanhol" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
+      <td data-label="Saídas"><span class="guide-note" style="font-style:normal;color:#333;">Toda quinta-feira</span></td>
+      <td data-label="Tarifa NET">335</td><td data-label="S.S">122</td>
+    </tr>
+
+    <!-- AVENIDA DOS VULCÕES 3D -->
+    <tr class="program alt" data-category="volcano3d">
+      <td data-label="Código">GR-SM-06</td><td data-label="Programa">Avenida dos Vulcões 3D/2N (Espanhol - Inglês)</td>
+      <td data-label="Entradas">Não</td><td data-label="Categoria">Tourist</td>
+      <td data-label="Cidade / Rota">Quito – Cotopaxi – Baños – Riobamba – Nariz del Diablo – Cuenca</td>
+      <td data-label="Hotéis">La Floresta / Casa Real</td>
+      <td data-label="Idioma" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="Inglês" title="Inglês" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Espanhol" title="Espanhol" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
+      <td data-label="Saídas"><span class="guide-note" style="font-style:normal;color:#333;">Toda quinta-feira</span></td>
+      <td data-label="Tarifa NET">470</td><td data-label="S.S">44</td>
+    </tr>
+    <tr class="program" data-category="volcano3d">
+      <td data-label="Código">GR-SM-06</td><td data-label="Programa">Avenida dos Vulcões 3D/2N (Espanhol - Inglês)</td>
+      <td data-label="Entradas">Não</td><td data-label="Categoria">Tourist Superior</td>
+      <td data-label="Cidade / Rota">Quito – Cotopaxi – Baños – Riobamba – Nariz del Diablo – Cuenca</td>
+      <td data-label="Hotéis">Hotel Sangay / Hacienda Abraspungo (STD)</td>
+      <td data-label="Idioma" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="Inglês" title="Inglês" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Espanhol" title="Espanhol" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
+      <td data-label="Saídas"><span class="guide-note" style="font-style:normal;color:#333;">Toda quinta-feira</span></td>
+      <td data-label="Tarifa NET">543</td><td data-label="S.S">66</td>
+    </tr>
+    <tr class="program alt" data-category="volcano3d">
+      <td data-label="Código">GR-SM-06</td><td data-label="Programa">Avenida dos Vulcões 3D/2N (Espanhol - Inglês)</td>
+      <td data-label="Entradas">Não</td><td data-label="Categoria">First Class</td>
+      <td data-label="Cidade / Rota">Quito – Cotopaxi – Baños – Riobamba – Nariz del Diablo – Cuenca</td>
+      <td data-label="Hotéis">Samari Spa / Hacienda Abraspungo</td>
+      <td data-label="Idioma" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="Inglês" title="Inglês" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Espanhol" title="Espanhol" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
+      <td data-label="Saídas"><span class="guide-note" style="font-style:normal;color:#333;">Toda quinta-feira</span></td>
+      <td data-label="Tarifa NET">601</td><td data-label="S.S">265</td>
+    </tr>
+
+    <!-- AVENIDA DOS VULCÕES 5D -->
+    <tr class="program alt" data-category="volcano5d">
+      <td data-label="Código">GR-SM-07</td><td data-label="Programa">Avenida dos Vulcões 5D/4N (Espanhol - Inglês)</td>
+      <td data-label="Entradas">Não</td><td data-label="Categoria">Tourist</td>
+      <td data-label="Cidade / Rota">Quito – Cotopaxi – Baños – Riobamba – Nariz del Diablo – Cuenca – Guayaquil</td>
+      <td data-label="Hotéis">La Floresta / Casa Real / Los Balcones</td>
+      <td data-label="Idioma" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="Inglês" title="Inglês" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Espanhol" title="Espanhol" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
+      <td data-label="Saídas"><span class="guide-note" style="font-style:normal;color:#333;">Toda quinta-feira</span></td>
+      <td data-label="Tarifa NET">738</td><td data-label="S.S">82</td>
+    </tr>
+    <tr class="program" data-category="volcano5d">
+      <td data-label="Código">GR-SM-07</td><td data-label="Programa">Avenida dos Vulcões 5D/4N (Espanhol - Inglês)</td>
+      <td data-label="Entradas">Não</td><td data-label="Categoria">Tourist Superior</td>
+      <td data-label="Cidade / Rota">Quito – Cotopaxi – Baños – Riobamba – Nariz del Diablo – Cuenca – Guayaquil</td>
+      <td data-label="Hotéis">Hotel Sangay / Hacienda Abraspungo (STD) / San Juan</td>
+      <td data-label="Idioma" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="Inglês" title="Inglês" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Espanhol" title="Espanhol" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
+      <td data-label="Saídas"><span class="guide-note" style="font-style:normal;color:#333;">Toda quinta-feira</span></td>
+      <td data-label="Tarifa NET">885</td><td data-label="S.S">124</td>
+    </tr>
+    <tr class="program alt" data-category="volcano5d">
+      <td data-label="Código">GR-SM-07</td><td data-label="Programa">Avenida dos Vulcões 5D/4N (Espanhol - Inglês)</td>
+      <td data-label="Entradas">Não</td><td data-label="Categoria">First Class</td>
+      <td data-label="Cidade / Rota">Quito – Cotopaxi – Baños – Riobamba – Nariz del Diablo – Cuenca – Guayaquil</td>
+      <td data-label="Hotéis">Samari Spa / Hacienda Abraspungo (Suite) / Cruz del Vado</td>
+      <td data-label="Idioma" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="Inglês" title="Inglês" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Espanhol" title="Espanhol" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
+      <td data-label="Saídas"><span class="guide-note" style="font-style:normal;color:#333;">Toda quinta-feira</span></td>
+      <td data-label="Tarifa NET">1.067</td><td data-label="S.S">391</td>
+    </tr>
+
+    <!-- AVENIDA DOS VULCÕES 6D -->
+    <tr class="program alt" data-category="volcano6d">
+      <td data-label="Código">GR-SM-08</td><td data-label="Programa">Avenida dos Vulcões 6D/5N (Espanhol - Inglês)</td>
+      <td data-label="Entradas">Não</td><td data-label="Categoria">Tourist</td>
+      <td data-label="Cidade / Rota">Quito – Cotopaxi – Baños – Riobamba – Nariz del Diablo – Cuenca – Guayaquil (transfer out)</td>
+      <td data-label="Hotéis">La Floresta / Casa Real / Los Balcones / Grand Hotel Guayaquil</td>
+      <td data-label="Idioma" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="Inglês" title="Inglês" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Espanhol" title="Espanhol" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
+      <td data-label="Saídas"><span class="guide-note" style="font-style:normal;color:#333;">Toda quinta-feira</span></td>
+      <td data-label="Tarifa NET">807</td><td data-label="S.S">114</td>
+    </tr>
+    <tr class="program" data-category="volcano6d">
+      <td data-label="Código">GR-SM-08</td><td data-label="Programa">Avenida dos Vulcões 6D/5N (Espanhol - Inglês)</td>
+      <td data-label="Entradas">Não</td><td data-label="Categoria">Tourist Superior</td>
+      <td data-label="Cidade / Rota">Quito – Cotopaxi – Baños – Riobamba – Nariz del Diablo – Cuenca – Guayaquil (transfer out)</td>
+      <td data-label="Hotéis">Hotel Sangay / Hacienda Abraspungo (STD) / San Juan / Tryp by Wyndham</td>
+      <td data-label="Idioma" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="Inglês" title="Inglês" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Espanhol" title="Espanhol" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
+      <td data-label="Saídas"><span class="guide-note" style="font-style:normal;color:#333;">Toda quinta-feira</span></td>
+      <td data-label="Tarifa NET">968</td><td data-label="S.S">177</td>
+    </tr>
+    <tr class="program alt" data-category="volcano6d">
+      <td data-label="Código">GR-SM-08</td><td data-label="Programa">Avenida dos Vulcões 6D/5N (Espanhol - Inglês)</td>
+      <td data-label="Entradas">Não</td><td data-label="Categoria">First Class</td>
+      <td data-label="Cidade / Rota">Quito – Cotopaxi – Baños – Riobamba – Nariz del Diablo – Cuenca – Guayaquil (transfer out)</td>
+      <td data-label="Hotéis">Samari Spa / Hacienda Abraspungo / Cruz del Vado / Wyndham Santa Ana</td>
+      <td data-label="Idioma" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="Inglês" title="Inglês" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Espanhol" title="Espanhol" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
+      <td data-label="Saídas"><span class="guide-note" style="font-style:normal;color:#333;">Toda quinta-feira</span></td>
+      <td data-label="Tarifa NET">1.217</td><td data-label="S.S">462</td>
+    </tr>
+
+    <!-- ANDEAN TREASURES -->
+    <tr class="program alt" data-category="andean">
+      <td data-label="Código">GR-SM-11</td>
+      <td data-label="Programa">Andean Treasures 8D/7N</td>
+      <td data-label="Entradas">Sim</td>
+      <td data-label="Categoria">Standard</td>
+      <td data-label="Cidade / Rota">Quito – Cotopaxi – Baños – Riobamba – Cuenca – Guayaquil</td>
+      <td data-label="Hotéis">Hotel Ikala / La Cienega / La Floresta / Mansión Santa Isabella / Los Balcones / Grand Hotel GYE</td>
+      <td data-label="Idioma" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="Inglês" title="Inglês" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Espanhol" title="Espanhol" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
+      <td data-label="Saídas"><span class="guide-note" style="font-style:normal;color:#333;">04 Jan / 01 Fev / 08 Mar / 05 Abr / 03 Mai / 07 Jun<br>05 Jul / 02 Ago / 06 Set / 04 Out / 08 Nov / 06 Dez</span><span class="guide-note">Guia Espanhol/Inglês</span></td>
+      <td data-label="Tarifa NET">1.395</td><td data-label="S.S">166</td>
+    </tr>
+    <tr class="program" data-category="andean">
+      <td data-label="Código">GR-SM-11</td>
+      <td data-label="Programa">Andean Treasures 8D/7N</td>
+      <td data-label="Entradas">Sim</td>
+      <td data-label="Categoria">Superior</td>
+      <td data-label="Cidade / Rota">Quito – Cotopaxi – Baños – Riobamba – Cuenca – Guayaquil</td>
+      <td data-label="Hotéis">Adamas House / La Ciénega (Suite) / Samari Spa / Abraspungo / Santa Lucia / Wyndham Santa Ana</td>
+      <td data-label="Idioma" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="Inglês" title="Inglês" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Espanhol" title="Espanhol" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
+      <td data-label="Saídas"><span class="guide-note" style="font-style:normal;color:#333;">Mesmas datas acima</span><span class="guide-note">Guia Espanhol/Inglês</span></td>
+      <td data-label="Tarifa NET">1.571</td><td data-label="S.S">400</td>
+    </tr>
+
+    </tbody>
+  </table>
+  </div>
+
+  <h2 class="subsection">Suplementos Pré &amp; Pós Tour</h2>
+  <p style="font-size:11px;color:#7a5800;background:#fdf8ee;border:1px solid #e0cfa0;border-radius:5px;padding:9px 14px;margin-bottom:14px;font-style:italic;">
+    &#9432;&nbsp; Os suplementos pré e pós tour estão disponíveis somente com guia em inglês/espanhol.
+  </p>
+  <div class="table-wrap">
+  <table class="supplements-table">
+    <thead><tr><th>Descrição</th><th>Serviço</th><th>Idioma</th><th>Tarifa NET (USD)</th></tr></thead>
+    <tbody>
+    <tr class="alt">
+      <td data-label="Descrição">Pré Tour Quito – Standard</td>
+      <td data-label="Serviço">Hotel Ikala + Transfer IN Quito</td>
+      <td data-label="Idioma" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="Inglês" title="Inglês" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Espanhol" title="Espanhol" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
+      <td data-label="Tarifa NET">82</td>
+    </tr>
+    <tr>
+      <td data-label="Descrição">Pré Tour Quito – Superior</td>
+      <td data-label="Serviço">Adamas House + Transfer IN Quito</td>
+      <td data-label="Idioma" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="Inglês" title="Inglês" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Espanhol" title="Espanhol" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
+      <td data-label="Tarifa NET">108</td>
+    </tr>
+    <tr class="alt">
+      <td data-label="Descrição">Pós Tour Guayaquil – Padrão</td>
+      <td data-label="Serviço">Grand Hotel Guayaquil + Transfer OUT GYE</td>
+      <td data-label="Idioma" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="Inglês" title="Inglês" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Espanhol" title="Espanhol" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
+      <td data-label="Tarifa NET">69</td>
+    </tr>
+    <tr>
+      <td data-label="Descrição">Pós Tour Guayaquil – Superior</td>
+      <td data-label="Serviço">Wyndham Santa Ana DLX + Transfer OUT GYE</td>
+      <td data-label="Idioma" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="Inglês" title="Inglês" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Espanhol" title="Espanhol" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
+      <td data-label="Tarifa NET">94</td>
+    </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div style="margin:28px 0 10px;">
+    <a href="https://sites.google.com/georeisen-ecuador.com/geoboutiquepacotesregular2026/sa%C3%ADdas-abertas-promo%C3%A7%C3%B5es?authuser=0" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#002060;color:#fff;padding:11px 20px;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600;text-decoration:none;border-radius:4px;letter-spacing:0.3px;">
+      Ver saídas abertas &amp; promoções atuais ⟶
+    </a>
+    <span style="display:block;margin-top:6px;font-size:11px;color:#777;font-family:'Montserrat',sans-serif;">Consulte disponibilidade em tempo real, saídas confirmadas e promoções ativas.</span>
+  </div>
+</div>
+</div>
+
+<script>
+function showSection(id){
+  document.getElementById('mainMenu').style.display='none';
+  document.querySelectorAll('.rate-section').forEach(s=>s.style.display='none');
+  document.getElementById(id).style.display='block';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function goBack(){
+  document.getElementById('mainMenu').style.display='grid';
+  document.querySelectorAll('.rate-section').forEach(s=>s.style.display='none');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function filterPrograms(select,sectionId){
+  const val=select.value;
+  document.getElementById(sectionId).querySelectorAll('.program').forEach(p=>{
+    p.classList.toggle('hidden', val!=='all' && p.dataset.category!==val);
+  });
+}
+</script>
+</body>
+</html>
