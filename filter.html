@@ -92,7 +92,7 @@
 
 <body>
 
-<h2 style="font-weight:700;">Experiences – Quito & Surroundings</h2>
+<h2 style="font-weight:700;">Experiences - Quito &amp; Surroundings</h2>
 
 <!-- FILTERS -->
 <div class="filter-box">
@@ -111,139 +111,132 @@
     </label>
 </div>
 
-
 <!-- RESULTS -->
 <div id="results"></div>
 
-
 <script>
-/* ---------------------------------------------------------
-   JSON FINAL – ALL EXPERIENCES (already cleaned & completed)
-----------------------------------------------------------*/
 const experiences = [
   {
-    "title": "Gold Leaf restauration experience at the “La Compañía de Jesus” Church with a visit to the cupolas while enjoing a glass of sparkling wine",
-    "categories": ["Art", "Cultural", "Luxe"],
-    "duration": "30 min",
-    "bestSeller": true,
-    "url": "https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo-2025/quito-surroundings/gold-leaf-restoration-quito"
+    title: "Gold Leaf restauration experience at the 'La Compania de Jesus' Church with a visit to the cupolas while enjoing a glass of sparkling wine",
+    categories: ["Art", "Cultural", "Luxe"],
+    duration: "30 min",
+    bestSeller: true,
+    url: "https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo/quito-surroundings/gold-leaf-restoration-quito"
   },
   {
-    "title": "Beer Tasting & Pairing Lunch",
-    "categories": ["Artisanal Beer", "Culinary"],
-    "duration": "1 hour",
-    "bestSeller": false,
-    "url": "https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo-2025/quito-surroundings/beer-tasting-pairing-lunch"
+    title: "Beer Tasting & Pairing Lunch",
+    categories: ["Artisanal Beer", "Culinary"],
+    duration: "1 hour",
+    bestSeller: false,
+    url: "https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo/quito-surroundings/beer-tasting-pairing-lunch"
   },
   {
-    "title": "Gold Leaf restauration experience",
-    "categories": ["Arts & Crafts", "Cultural", "Luxe"],
-    "duration": "30 min",
-    "bestSeller": true,
-    "url": "https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo-2025/quito-surroundings/gold-leaf-restauration-experience"
+    title: "Gold Leaf restauration experience",
+    categories: ["Arts & Crafts", "Cultural", "Luxe"],
+    duration: "30 min",
+    bestSeller: true,
+    url: "https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo/quito-surroundings/gold-leaf-restauration-experience"
   },
   {
-    "title": "Escuela Quiteña Wood Carving Workshop (or Tin Craft or Goldsmithing)",
-    "categories": ["Arts & Crafts", "Cultural"],
-    "duration": "30 min",
-    "bestSeller": true,
-    "url": "https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo-2025/quito-surroundings/escuela-quiteña-wood-carving-workshop-or-tin-craft-or-goldsmithing"
+    title: "Escuela Quitena Wood Carving Workshop (or Tin Craft or Goldsmithing)",
+    categories: ["Arts & Crafts", "Cultural"],
+    duration: "30 min",
+    bestSeller: true,
+    url: "https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo/quito-surroundings/escuela-quite%C3%B1a-wood-carving-workshop-or-tin-craft-or-goldsmithing"
   },
   {
-    "title": "Make Your Own Chocolate Bar in Quito's Colonial District (1 Bar)",
-    "categories": ["Chocolate"],
-    "duration": "1 hour",
-    "bestSeller": true,
-    "url": "https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo-2025/quito-surroundings/make-your-own-chocolate-bar-in-quitos-colonial-district-1-bar"
+    title: "Make Your Own Chocolate Bar in Quito's Colonial District (1 Bar)",
+    categories: ["Chocolate"],
+    duration: "1 hour",
+    bestSeller: true,
+    url: "https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo/quito-surroundings/make-your-own-chocolate-bar-in-quitos-colonial-district-1-bar"
   },
   {
-    "title": "Chocolate & Wine Tasting and Pairing Experience (1 Glass of Wine)",
-    "categories": ["Chocolate"],
-    "duration": "1 hour",
-    "bestSeller": true,
-    "url": "https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo-2025/quito-surroundings/chocolate-wine-tasting-and-pairing-experience-1-glass-of-wine"
+    title: "Chocolate & Wine Tasting and Pairing Experience (1 Glass of Wine)",
+    categories: ["Chocolate"],
+    duration: "1 hour",
+    bestSeller: true,
+    url: "https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo/quito-surroundings/chocolate-wine-tasting-and-pairing-experience-1-glass-of-wine"
   },
   {
-    "title": "Chocolate Tasting and Pairing Dining Experience",
-    "categories": ["Chocolate", "Culinary", "Luxe"],
-    "duration": "2 hours",
-    "bestSeller": true,
-    "url": "https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo-2025/quito-surroundings/chocolate-tasting-and-pairing-dining-experience"
+    title: "Chocolate Tasting and Pairing Dining Experience",
+    categories: ["Chocolate", "Culinary", "Luxe"],
+    duration: "2 hours",
+    bestSeller: true,
+    url: "https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo/quito-surroundings/chocolate-tasting-and-pairing-dining-experience"
   },
   {
-    "title": "Specialty Ecuadorian Coffee: Tasting Experience at a Local Coffee Shop",
-    "categories": ["Coffee"],
-    "duration": "2 hours",
-    "bestSeller": false,
-    "url": "https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo-2025/quito-surroundings/specialty-ecuadorian-coffee-tasting-experience-at-a-local-coffee-shop"
+    title: "Specialty Ecuadorian Coffee: Tasting Experience at a Local Coffee Shop",
+    categories: ["Coffee"],
+    duration: "2 hours",
+    bestSeller: false,
+    url: "https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo/quito-surroundings/specialty-ecuadorian-coffee-tasting-experience-at-a-local-coffee-shop"
   },
   {
-    "title": "Exclusive Dinner with Folkloric Dance Troupe (Only Saturdays at Somos Restaurant)",
-    "categories": ["Culinary", "Cultural", "Luxe"],
-    "duration": "2 hours",
-    "bestSeller": true,
-    "url": "https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo-2025/quito-surroundings/exclusive-dinner-with-folkloric-dance-troupe-only-saturdays-at-somos-resta"
+    title: "Exclusive Dinner with Folkloric Dance Troupe (Only Saturdays at Somos Restaurant)",
+    categories: ["Culinary", "Cultural", "Luxe"],
+    duration: "2 hours",
+    bestSeller: true,
+    url: "https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo/quito-surroundings/exclusive-dinner-with-folkloric-dance-troupe-only-saturdays-at-somos-resta"
   },
   {
-    "title": "Cooking Class in a Traditional Locale in Quito's Colonial District",
-    "categories": ["Culinary"],
-    "duration": "2 hours",
-    "bestSeller": false,
-    "url": "https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo-2025/quito-surroundings/cooking-class-in-a-traditional-locale-in-quitos-colonial-district"
+    title: "Cooking Class in a Traditional Locale in Quito's Colonial District",
+    categories: ["Culinary"],
+    duration: "2 hours",
+    bestSeller: false,
+    url: "https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo/quito-surroundings/cooking-class-in-a-traditional-locale-in-quitos-colonial-district"
   },
   {
-    "title": "Exclusive Immersive Private Cooking Class",
-    "categories": ["Culinary", "Luxe"],
-    "duration": "2 hours",
-    "bestSeller": false,
-    "url": "https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo-2025/quito-surroundings/exclusive-immersive-private-cooking-class"
+    title: "Exclusive Immersive Private Cooking Class",
+    categories: ["Culinary", "Luxe"],
+    duration: "2 hours",
+    bestSeller: false,
+    url: "https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo/quito-surroundings/exclusive-immersive-private-cooking-class"
   },
   {
-    "title": "Exclusive Dinner at a Historic Venue in the Colonial District",
-    "categories": ["Culinary", "Luxe"],
-    "duration": "2 hours",
-    "bestSeller": false,
-    "url": "https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo-2025/quito-surroundings/exclusive-dinner-at-a-historic-venue-in-the-colonial-district"
+    title: "Exclusive Dinner at a Historic Venue in the Colonial District",
+    categories: ["Culinary", "Luxe"],
+    duration: "2 hours",
+    bestSeller: false,
+    url: "https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo/quito-surroundings/exclusive-dinner-at-a-historic-venue-in-the-colonial-district"
   },
   {
-    "title": "Andean Spiritual Cleansing",
-    "categories": ["Cultural"],
-    "duration": "30 min",
-    "bestSeller": false,
-    "url": "https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo-2025/quito-surroundings/andean-spiritual-cleansing"
+    title: "Andean Spiritual Cleansing",
+    categories: ["Cultural"],
+    duration: "30 min",
+    bestSeller: false,
+    url: "https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo/quito-surroundings/andean-spiritual-cleansing"
   },
   {
-    "title": "Frog exhibition and conservation project",
-    "categories": ["Nature"],
-    "duration": "2 hours",
-    "bestSeller": false,
-    "url": "https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo-2025/quito-surroundings/frog-exhibition-and-conservation-project"
+    title: "Frog exhibition and conservation project",
+    categories: ["Nature"],
+    duration: "2 hours",
+    bestSeller: false,
+    url: "https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo/quito-surroundings/frog-exhibition-and-conservation-project"
   },
   {
-    "title": "Frog exhibition and conservation project (Technical visit)",
-    "categories": ["Nature"],
-    "duration": "3 hours",
-    "bestSeller": false,
-    "url": "https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo-2025/quito-surroundings/frog-exhibition-and-conservation-project-technical-visit"
+    title: "Frog exhibition and conservation project (Technical visit)",
+    categories: ["Nature"],
+    duration: "3 hours",
+    bestSeller: false,
+    url: "https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo/quito-surroundings/frog-exhibition-and-conservation-project-technical-visit"
   },
   {
-    "title": "Urban Bird Observation and Conservation Project",
-    "categories": ["Nature"],
-    "duration": "1 hour",
-    "bestSeller": false,
-    "url": "https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo-2025/quito-surroundings/urban-bird-observation-and-conservation-project"
+    title: "Urban Bird Observation and Conservation Project",
+    categories: ["Nature"],
+    duration: "1 hour",
+    bestSeller: false,
+    url: "https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo/quito-surroundings/urban-bird-observation-and-conservation-project"
   },
   {
-    "title": "The Different Traditions, Uses and Flavors of Ecuadorian Liquor Agave & Miske",
-    "categories": ["Spirits"],
-    "duration": "1 hour",
-    "bestSeller": false,
-    "url": "https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo-2025/quito-surroundings/the-different-traditions-uses-and-flavors-of-ecuadorian-liquor-agave-mis"
+    title: "The Different Traditions, Uses and Flavors of Ecuadorian Liquor Agave & Miske",
+    categories: ["Spirits"],
+    duration: "1 hour",
+    bestSeller: false,
+    url: "https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo/quito-surroundings/the-different-traditions-uses-and-flavors-of-ecuadorian-liquor-agave-mis"
   }
 ];
 
-
-// Populate dropdowns
 const categoryFilter = document.getElementById("categoryFilter");
 const durationFilter = document.getElementById("durationFilter");
 const bestSellerFilter = document.getElementById("bestSellerFilter");
@@ -251,19 +244,16 @@ const bestSellerFilter = document.getElementById("bestSellerFilter");
 function loadFilters() {
     const categories = new Set();
     const durations = new Set();
-
     experiences.forEach(exp => {
         exp.categories.forEach(cat => categories.add(cat));
         durations.add(exp.duration);
     });
-
     categories.forEach(cat => {
         const opt = document.createElement("option");
         opt.value = cat;
         opt.textContent = cat;
         categoryFilter.appendChild(opt);
     });
-
     durations.forEach(dur => {
         const opt = document.createElement("option");
         opt.value = dur;
@@ -272,38 +262,29 @@ function loadFilters() {
     });
 }
 
-
-// Render experiences
 function renderExperiences() {
     const container = document.getElementById("results");
     container.innerHTML = "";
-
     const cat = categoryFilter.value;
     const dur = durationFilter.value;
     const showBest = bestSellerFilter.checked;
-
     const filtered = experiences.filter(exp => {
         const matchCategory = cat === "all" || exp.categories.includes(cat);
         const matchDuration = dur === "all" || exp.duration === dur;
         const matchBest = !showBest || exp.bestSeller;
         return matchCategory && matchDuration && matchBest;
     });
-
     filtered.forEach(exp => {
         const card = document.createElement("div");
         card.className = "experience-card";
-
-        card.innerHTML = `
-            <div class="experience-title">${exp.title}</div>
-            <div class="experience-meta">
-                ${exp.bestSeller ? `<span class="badge">BEST SELLER</span>` : ""}
-                <span class="duration-tag">${exp.duration}</span>
-                <br><br>
-                Category: ${exp.categories.join(", ")}
-            </div>
-            <a class="button" href="${exp.url}" target="_blank">View Experience</a>
-        `;
-
+        card.innerHTML =
+            '<div class="experience-title">' + exp.title + '</div>' +
+            '<div class="experience-meta">' +
+            (exp.bestSeller ? '<span class="badge">BEST SELLER</span>' : '') +
+            '<span class="duration-tag">' + exp.duration + '</span>' +
+            '<br><br>Category: ' + exp.categories.join(", ") +
+            '</div>' +
+            '<a class="button" href="' + exp.url + '" target="_blank">View Experience</a>';
         container.appendChild(card);
     });
 }
