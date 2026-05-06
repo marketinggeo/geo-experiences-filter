@@ -149,54 +149,54 @@
 <script>
 const experiences = [
     {
-        "title": "Cacao Plantation (w/ Lunch)",
-        "category": ["Chocolate"],
-        "duration": "2 hours",
-        "bestSeller": true,
-        "url": "https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo-2025/guayaquil-surroundings/cacao-plantation-w-lunch?authuser=0"
+        title: "Cacao Plantation (w/ Lunch)",
+        category: ["Chocolate"],
+        duration: "2 hours",
+        bestSeller: true,
+        url: "https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo/guayaquil-surroundings/cacao-plantation-w-lunch?authuser=0"
     },
     {
-        "title": "Clay Pottery Workshop (w/ Souvenir)",
-        "category": ["Cultural", "Art & Crafts"],
-        "duration": "2 hours",
-        "bestSeller": false,
-        "url": "https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo-2025/guayaquil-surroundings/clay-pottery-workshop-w-souvenir?authuser=0"
+        title: "Clay Pottery Workshop (w/ Souvenir)",
+        category: ["Cultural", "Art & Crafts"],
+        duration: "2 hours",
+        bestSeller: false,
+        url: "https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo/guayaquil-surroundings/clay-pottery-workshop-w-souvenir?authuser=0"
     },
     {
-        "title": "Ecuadorian Wine & Chocolate Tasting and Pairing Experience",
-        "category": ["Culinary", "Wine"],
-        "duration": "1 hour",
-        "bestSeller": false,
-        "url": "https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo-2025/guayaquil-surroundings/ecuadorian-wine-chocolate-tasting-and-pairing-experience?authuser=0"
+        title: "Ecuadorian Wine & Chocolate Tasting and Pairing Experience",
+        category: ["Culinary", "Wine"],
+        duration: "1 hour",
+        bestSeller: false,
+        url: "https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo/guayaquil-surroundings/ecuadorian-wine-chocolate-tasting-and-pairing-experience?authuser=0"
     },
     {
-        "title": "Ecuadorian Wine Tasting & Pairing Experience w/lunch",
-        "category": ["Culinary", "Wine"],
-        "duration": "1 hour",
-        "bestSeller": false,
-        "url": "https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo-2025/guayaquil-surroundings/ecuadorian-wine-tasting-pairing-experience-wlunch?authuser=0"
+        title: "Ecuadorian Wine Tasting & Pairing Experience w/lunch",
+        category: ["Culinary", "Wine"],
+        duration: "1 hour",
+        bestSeller: false,
+        url: "https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo/guayaquil-surroundings/ecuadorian-wine-tasting-pairing-experience-wlunch?authuser=0"
     },
     {
-        "title": "Tour of Wine Vineyard and Live Cooking Experience",
-        "category": ["Culinary", "Wine"],
-        "duration": "8 hours",
-        "bestSeller": false,
-        "url": "https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo-2025/guayaquil-surroundings/tour-of-wine-vineyard-and-live-cooking-experience?authuser=0"
+        title: "Tour of Wine Vineyard and Live Cooking Experience",
+        category: ["Culinary", "Wine"],
+        duration: "8 hours",
+        bestSeller: false,
+        url: "https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo/guayaquil-surroundings/tour-of-wine-vineyard-and-live-cooking-experience?authuser=0"
     },
     {
-        "title": "Tour of Wine Vineyard and Premium Pairing Experience",
-        "category": ["Culinary", "Wine"],
-        "duration": "8 hours",
-        "bestSeller": false,
-        "url": "https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo-2025/guayaquil-surroundings/tour-of-wine-vineyard-and-premium-pairing-experience?authuser=0"
+        title: "Tour of Wine Vineyard and Premium Pairing Experience",
+        category: ["Culinary", "Wine"],
+        duration: "8 hours",
+        bestSeller: false,
+        url: "https://sites.google.com/georeisen-ecuador.com/unique-experiences-geo/guayaquil-surroundings/tour-of-wine-vineyard-and-premium-pairing-experience?authuser=0"
     }
 ];
 
 const container = document.getElementById('experiencesContainer');
 
 function renderExperiences() {
-    container.innerHTML = ""; 
-    
+    container.innerHTML = "";
+
     const selectedCategory = document.getElementById('categoryFilter').value;
     const selectedDuration = document.getElementById('durationFilter').value;
     const onlyBest = document.getElementById('bestSellerFilter').checked;
@@ -212,18 +212,14 @@ function renderExperiences() {
         const card = document.createElement('div');
         card.className = "experience-card";
 
-        card.innerHTML = `
-            <div class="experience-title">${exp.title}</div>
-
-            <div class="badge-container">
-                ${exp.bestSeller ? `<div class="badge-yellow">BEST SELLER</div>` : ""}
-                <div class="badge-blue">${exp.duration}</div>
-            </div>
-
-            <div class="category-text"><strong>Category:</strong> ${exp.category.join(", ")}</div>
-
-            <a class="experience-btn" href="${exp.url}" target="_blank">View Experience</a>
-        `;
+        card.innerHTML =
+            '<div class="experience-title">' + exp.title + '</div>' +
+            '<div class="badge-container">' +
+            (exp.bestSeller ? '<div class="badge-yellow">BEST SELLER</div>' : '') +
+            '<div class="badge-blue">' + exp.duration + '</div>' +
+            '</div>' +
+            '<div class="category-text"><strong>Category:</strong> ' + exp.category.join(", ") + '</div>' +
+            '<a class="experience-btn" href="' + exp.url + '" target="_blank">View Experience</a>';
 
         container.appendChild(card);
     });
