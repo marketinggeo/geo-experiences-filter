@@ -44,6 +44,7 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
 .specific-dep-btn{display:inline-block;background:#002060;color:#fff;padding:6px 11px;font-size:11px;font-family:'Montserrat',sans-serif;font-weight:600;cursor:pointer;border:none;border-radius:4px;white-space:nowrap;letter-spacing:0.3px;transition:background 0.15s;}
 .specific-dep-btn:hover{background:#003399;}
 .guide-note{display:block;color:#888;font-style:italic;margin-top:3px;font-size:10.5px;}
+.new-pill{background:linear-gradient(135deg,#002060,#1a56c4);color:#fff;border-radius:20px;padding:3px 10px;font-size:10px;font-weight:700;letter-spacing:0.3px;}
 .modal-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.55);z-index:1000;justify-content:center;align-items:center;}
 .modal-overlay.active{display:flex;}
 .modal-box{background:#fff;padding:36px;max-width:560px;width:90%;max-height:82vh;overflow-y:auto;position:relative;border-top:5px solid #002060;border-radius:4px;box-shadow:0 20px 60px rgba(0,32,96,0.2);}
@@ -100,6 +101,7 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
       <span class="prog-pill">Volcano Avenue 5D/4N</span>
       <span class="prog-pill">Volcano Avenue 6D/5N</span>
       <span class="prog-pill">Andean Treasures 8D/7N</span>
+      <span class="new-pill">✦ Andean Treasures 7D/6N</span>
     </div>
     <span class="card-arrow">View Mainland rates</span>
   </div>
@@ -405,6 +407,7 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
       <option value="volcano5d">Volcano Avenue 5D/4N</option>
       <option value="volcano6d">Volcano Avenue 6D/5N</option>
       <option value="andean">Andean Treasures 8D/7N</option>
+      <option value="andean7">✦ Andean Treasures 7D/6N</option>
     </select>
   </div>
 
@@ -574,7 +577,7 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
       <td data-label="Net Rate">1,217</td><td data-label="S.S">462</td>
     </tr>
 
-    <!-- ANDEAN TREASURES -->
+    <!-- ANDEAN TREASURES 8D/7N -->
     <tr class="program alt" data-category="andean">
       <td data-label="Code" rowspan="2">GR-SM-11</td>
       <td data-label="Program" rowspan="2">Andean Treasures 8D/7N</td>
@@ -606,6 +609,45 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
       <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
       <td data-label="Departures"><button class="specific-dep-btn" onclick="openModal('andean-superior')">Specific departures 2027</button></td>
       <td data-label="Net Rate">1,571</td><td data-label="S.S">400</td>
+    </tr>
+
+    <!-- ===== ANDEAN TREASURES 7D/6N — NEW ===== -->
+    <tr class="program" data-category="andean7" style="background:#f0f4ff;">
+      <td colspan="10" style="padding:10px 14px;font-size:11px;color:#1a4fa0;border-bottom:1px solid #c5d3f0;">
+        ✦&nbsp; <strong>New program</strong> — Andean Treasures 7D/6N ends in Cuenca with a direct flight connection to the Galápagos Islands.
+      </td>
+    </tr>
+    <tr class="program alt" data-category="andean7">
+      <td data-label="Code" rowspan="2">GR-SM-11</td>
+      <td data-label="Program" rowspan="2">Andean Treasures 7D/6N<br><span style="font-size:10px;color:#1a56c4;font-weight:600;">✈ Connects to Galápagos from Cuenca</span></td>
+      <td data-label="Entrances" rowspan="2">Yes</td>
+      <td data-label="Category" rowspan="2">Standard</td>
+      <td data-label="City / Route" rowspan="2">Quito – Cotopaxi – Baños – Riobamba – Cuenca (flight to GPS)</td>
+      <td data-label="Hotels" rowspan="2">Hotel Ikala / Hacienda La Cienega (Std) / Hotel La Floresta / Casa Real / Hotel Los Balcones</td>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Departures"><span class="guide-note" style="font-style:normal;color:#333;">03 Jan · 14 Feb · 07 Mar · 04 Apr · 02 May · 06 Jun<br>04 Jul · 01 Aug · 05 Sep · 10 Oct · 07 Nov · 05 Dec</span><span class="guide-note">English/German-speaking guide</span></td>
+      <td data-label="Net Rate">1,196</td><td data-label="S.S">138</td>
+    </tr>
+    <tr class="program alt" data-category="andean7">
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Departures"><button class="specific-dep-btn" onclick="openModal('andean7-standard')">Specific departures 2027</button></td>
+      <td data-label="Net Rate">1,196</td><td data-label="S.S">138</td>
+    </tr>
+    <tr class="program" data-category="andean7">
+      <td data-label="Code" rowspan="2">GR-SM-11</td>
+      <td data-label="Program" rowspan="2">Andean Treasures 7D/6N<br><span style="font-size:10px;color:#1a56c4;font-weight:600;">✈ Connects to Galápagos from Cuenca</span></td>
+      <td data-label="Entrances" rowspan="2">Yes</td>
+      <td data-label="Category" rowspan="2">Superior</td>
+      <td data-label="City / Route" rowspan="2">Quito – Cotopaxi – Baños – Riobamba – Cuenca (flight to GPS)</td>
+      <td data-label="Hotels" rowspan="2">Adamas House / Hacienda La Cienega (Jr. Suite) / Hotel Samari Spa / Hacienda Abraspungo / Hotel Santa Lucia</td>
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="English" title="English" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Departures"><span class="guide-note" style="font-style:normal;color:#333;">Same dates as above</span><span class="guide-note">English/German-speaking guide</span></td>
+      <td data-label="Net Rate">1,355</td><td data-label="S.S">363</td>
+    </tr>
+    <tr class="program" data-category="andean7">
+      <td data-label="Language" class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="German" title="German" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Departures"><button class="specific-dep-btn" onclick="openModal('andean7-superior')">Specific departures 2027</button></td>
+      <td data-label="Net Rate">1,355</td><td data-label="S.S">363</td>
     </tr>
 
     </tbody>
@@ -659,7 +701,7 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
 
 <!-- ======================== MODALS ======================== -->
 
-<!-- LOOP 6D GERMAN DEPARTURES -->
+<!-- LOOP 6D -->
 <div class="modal-overlay" id="modal-loop6-tourist">
   <div class="modal-box">
     <button class="modal-close" onclick="closeModal('loop6-tourist')">&#10005;</button>
@@ -691,7 +733,7 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
   </div>
 </div>
 
-<!-- LOOP 7D GERMAN DEPARTURES -->
+<!-- LOOP 7D -->
 <div class="modal-overlay" id="modal-loop7-tourist">
   <div class="modal-box">
     <button class="modal-close" onclick="closeModal('loop7-tourist')">&#10005;</button>
@@ -723,7 +765,7 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
   </div>
 </div>
 
-<!-- DARWIN GERMAN DEPARTURES -->
+<!-- DARWIN -->
 <div class="modal-overlay" id="modal-darwin-tourist">
   <div class="modal-box">
     <button class="modal-close" onclick="closeModal('darwin-tourist')">&#10005;</button>
@@ -755,7 +797,7 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
   </div>
 </div>
 
-<!-- ANDEAN TREASURES GERMAN DEPARTURES -->
+<!-- ANDEAN TREASURES 8D/7N -->
 <div class="modal-overlay" id="modal-andean-standard">
   <div class="modal-box">
     <button class="modal-close" onclick="closeModal('andean-standard')">&#10005;</button>
@@ -770,6 +812,28 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
   <div class="modal-box">
     <button class="modal-close" onclick="closeModal('andean-superior')">&#10005;</button>
     <h3><img src="https://flagcdn.com/h20/de.png" alt="German" style="height:20px;border-radius:2px;vertical-align:middle;"> Andean Treasures 8D/7N – Superior</h3>
+    <p class="modal-subtitle">Specific departures 2027 – German/English-speaking guide</p>
+    <table class="modal-table"><tr><th>Departure Date</th></tr>
+      <tr><td>Sun, 03 Jan 2027</td></tr><tr><td>Sun, 14 Feb 2027</td></tr><tr><td>Sun, 07 Mar 2027</td></tr><tr><td>Sun, 04 Apr 2027</td></tr><tr><td>Sun, 02 May 2027</td></tr><tr><td>Sun, 06 Jun 2027</td></tr><tr><td>Sun, 04 Jul 2027</td></tr><tr><td>Sun, 01 Aug 2027</td></tr><tr><td>Sun, 05 Sep 2027</td></tr><tr><td>Sun, 10 Oct 2027</td></tr><tr><td>Sun, 07 Nov 2027</td></tr><tr><td>Sun, 05 Dec 2027</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- ANDEAN TREASURES 7D/6N -->
+<div class="modal-overlay" id="modal-andean7-standard">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('andean7-standard')">&#10005;</button>
+    <h3><img src="https://flagcdn.com/h20/de.png" alt="German" style="height:20px;border-radius:2px;vertical-align:middle;"> Andean Treasures 7D/6N – Standard</h3>
+    <p class="modal-subtitle">Specific departures 2027 – German/English-speaking guide</p>
+    <table class="modal-table"><tr><th>Departure Date</th></tr>
+      <tr><td>Sun, 03 Jan 2027</td></tr><tr><td>Sun, 14 Feb 2027</td></tr><tr><td>Sun, 07 Mar 2027</td></tr><tr><td>Sun, 04 Apr 2027</td></tr><tr><td>Sun, 02 May 2027</td></tr><tr><td>Sun, 06 Jun 2027</td></tr><tr><td>Sun, 04 Jul 2027</td></tr><tr><td>Sun, 01 Aug 2027</td></tr><tr><td>Sun, 05 Sep 2027</td></tr><tr><td>Sun, 10 Oct 2027</td></tr><tr><td>Sun, 07 Nov 2027</td></tr><tr><td>Sun, 05 Dec 2027</td></tr>
+    </table>
+  </div>
+</div>
+<div class="modal-overlay" id="modal-andean7-superior">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('andean7-superior')">&#10005;</button>
+    <h3><img src="https://flagcdn.com/h20/de.png" alt="German" style="height:20px;border-radius:2px;vertical-align:middle;"> Andean Treasures 7D/6N – Superior</h3>
     <p class="modal-subtitle">Specific departures 2027 – German/English-speaking guide</p>
     <table class="modal-table"><tr><th>Departure Date</th></tr>
       <tr><td>Sun, 03 Jan 2027</td></tr><tr><td>Sun, 14 Feb 2027</td></tr><tr><td>Sun, 07 Mar 2027</td></tr><tr><td>Sun, 04 Apr 2027</td></tr><tr><td>Sun, 02 May 2027</td></tr><tr><td>Sun, 06 Jun 2027</td></tr><tr><td>Sun, 04 Jul 2027</td></tr><tr><td>Sun, 01 Aug 2027</td></tr><tr><td>Sun, 05 Sep 2027</td></tr><tr><td>Sun, 10 Oct 2027</td></tr><tr><td>Sun, 07 Nov 2027</td></tr><tr><td>Sun, 05 Dec 2027</td></tr>
