@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { overflow-x: hidden; width: 100%; }
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: #f5f6f8;
+  color: #1a1a2e;
+  padding: 32px 24px 60px;
+}
+
+/* HEADER */
+.page-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 28px; flex-wrap: wrap; gap: 12px;
+}
+.page-header h1 {
+  font-size: 13px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; color: #002060;
+}
+.live-badge {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 11px; font-weight: 600; color: #2e7d52;
+  letter-spacing: 0.5px; text-transform: uppercase;
+}
+.live-dot {
+  width: 7px; height: 7px; border-radius: 50%; background: #2e7d52;
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+@keyframes pulse-dot {
+  0%,100% { opacity:1; transform:scale(1); }
+  50%      { opacity:0.5; transform:scale(0.8); }
+}
+
+/* FILTER BAR */
+.filter-bar {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  margin-bottom: 28px; align-items: center;
+}
+.filter-label {
+  font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+  text-transform: uppercase; color: #9199a8; width: 100%;
+}
+@media(min-width:480px){ .filter-label { width:auto; margin-right:4px; } }
+
+.filter-btn {
+  font-family: 'Montserrat', sans-serif;
+  padding: 7px 14px; border-radius: 6px;
+  border: 1.5px solid #d0d5de; background: #fff;
+  color: #4a5568; cursor: pointer; font-size: 12px; font-weight: 600;
+  transition: all 0.18s ease; white-space: nowrap;
+  display: flex; align-items: center; gap: 6px;
+}
+.filter-btn .f-count {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 18px; height: 18px; border-radius: 50%;
+  font-size: 10px; font-weight: 700; background: #e8edf5; color: #4a5568;
+  transition: all 0.18s ease;
+}
+.filter-btn.active, .filter-btn:hover { background:#002060; color:#fff; border-color:#002060; }
+.filter-btn.active .f-count, .filter-btn:hover .f-count { background:rgba(255,255,255,0.25); color:#fff; }
+.filter-btn.f-solo { border-color:#00897B; color:#00897B; }
+.filter-btn.f-solo .f-count { background:#e0f2f1; color:#00897B; }
+.filter-btn.f-solo.active, .filter-btn.f-solo:hover { background:#00897B; border-color:#00897B; color:#fff; }
+.filter-btn.f-solo.active .f-count, .filter-btn.f-solo:hover .f-count { background:rgba(255,255,255,0.25); color:#fff; }
+
+/* SECTION BLOCK */
+.section-block {
+  border-radius: 12px;
+  padding: 20px 20px 24px;
+  margin-bottom: 12px;
+}
+.section-block.region-galapagos      { background: #e4ecff; border: 1px solid #c0d0f0; }
+.section-block.region-andean         { background: #faeedd; border: 1px solid #e8d0a0; }
+.section-block.region-volcano        { background: #ede8f8; border: 1px solid #cfc0ea; }
+.section-block.region-solo-santacruz { background: #d6f0ec; border: 1px solid #8ecec6; }
+.section-block.region-promotions     { background: #f0f5ff; border: 1px solid #c8d8f0; }
+
+.section-divider {
+  display: flex; align-items: center; gap: 12px; margin-bottom: 16px;
+}
+.section-divider .section-label {
+  font-size: 10px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; color: #4a5a7a; white-space: nowrap;
+}
+.section-block.region-galapagos      .section-divider::after { content:''; flex:1; height:1px; background: #a0b8e0; }
+.section-block.region-andean         .section-divider::after { content:''; flex:1; height:1px; background: #d4b080; }
+.section-block.region-volcano        .section-divider::after { content:''; flex:1; height:1px; background: #b8a0d8; }
+.section-block.region-solo-santacruz .section-divider::after { content:''; flex:1; height:1px; background: #70b8b0; }
+.section-block.region-promotions     .section-divider::after { content:''; flex:1; height:1px; background: #90b0d8; }
+
+/* EMPTY SECTION MESSAGE */
+.empty-section-msg {
+  background: #fff;
+  border: 1.5px solid #dde3ef;
+  border-left: 4px solid #002060;
+  border-radius: 10px;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.empty-section-msg .esm-text {
+  font-size: 12px; color: #4a5568; line-height: 1.6; flex: 1;
+}
+.empty-section-msg .esm-text strong {
+  display: block; font-size: 13px; font-weight: 700; color: #002060; margin-bottom: 4px;
+}
+.esm-btn {
+  font-family: 'Montserrat', sans-serif;
+  background: #002060; color: #fff; border: none;
+  border-radius: 7px; padding: 9px 18px;
+  font-size: 12px; font-weight: 700; cursor: pointer;
+  white-space: nowrap; text-decoration: none;
+  display: inline-flex; align-items: center; gap: 5px;
+  transition: background 0.15s; flex-shrink: 0;
+}
+.esm-btn:hover { background: #003080; }
+
+/* PROMOTIONS COMING SOON */
+.promo-coming-soon {
+  background: #fff;
+  border: 1.5px solid #dde3ef;
+  border-left: 4px solid #1a56c4;
+  border-radius: 10px;
+  padding: 24px 28px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.promo-coming-soon .pcs-icon {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: linear-gradient(135deg, #002060, #1a56c4);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; flex-shrink: 0;
+}
+.promo-coming-soon .pcs-text { flex: 1; }
+.promo-coming-soon .pcs-title {
+  font-size: 14px; font-weight: 700; color: #002060; margin-bottom: 5px;
+}
+.promo-coming-soon .pcs-sub {
+  font-size: 12px; color: #6b7a99; line-height: 1.6;
+}
+
+/* SOLO RIBBON */
+.solo-available-ribbon {
+  position: absolute;
+  top: 14px; right: 0;
+  background: linear-gradient(135deg, #00897B, #00bfa5);
+  color: #fff;
+  font-size: 9px; font-weight: 700; letter-spacing: 0.6px;
+  text-transform: uppercase;
+  padding: 5px 12px 5px 10px;
+  border-radius: 4px 0 0 4px;
+  box-shadow: -2px 2px 6px rgba(0,137,123,0.25);
+  line-height: 1.3;
+  text-align: right;
+  z-index: 2;
+  max-width: 160px;
+}
+
+/* CARDS GRID */
+.cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap: 16px; }
+
+/* DEPARTURE CARD */
+.dep-card {
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid #e8ecf2;
+  border-left: 3px solid #002060;
+  overflow: hidden;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  display: flex; flex-direction: column; position: relative;
+}
+.dep-card[data-region="galapagos"]  { border-left-color: #1a56c4; }
+.dep-card[data-region="solo"]       { border-left-color: #00897B; }
+.dep-card:hover {
+  box-shadow: 0 6px 24px rgba(0,32,96,0.09); transform: translateY(-2px);
+}
+
+.card-body { padding: 18px 20px 16px; flex:1; display:flex; flex-direction:column; }
+.card-date { font-size:21px; font-weight:700; color:#002060; line-height:1.1; margin-bottom:4px; letter-spacing:-0.3px; }
+.card-year { font-size:13px; font-weight:500; color:#9199a8; }
+.card-program { font-size:13px; font-weight:600; color:#1a1a2e; margin-top:10px; margin-bottom:2px; }
+.card-duration { font-size:11px; color:#9199a8; font-weight:500; }
+.itinerary-link {
+  display:inline-flex; align-items:center; gap:3px;
+  font-size:11px; font-weight:600; color:#1a56c4; text-decoration:none; margin-top:8px;
+}
+.itinerary-link:hover { text-decoration:underline; }
+.itinerary-link::after { content:'→'; }
+
+/* Guide note */
+.card-guide-note {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 10px; font-weight: 600; color: #1a4fa0;
+  background: #eef2fb; border: 1px solid #c3d0ef;
+  border-radius: 5px; padding: 3px 8px; margin-top: 8px;
+  width: fit-content;
+}
+
+/* Min pax note */
+.card-minpax-note {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 10px; font-weight: 600; color: #5a4000;
+  background: #fdf6ec; border: 1px solid #e8d5b0;
+  border-radius: 5px; padding: 3px 8px; margin-top: 6px;
+  width: fit-content;
+}
+
+/* BADGES */
+.badges-row { display:flex; flex-wrap:wrap; gap:5px; margin-top:12px; }
+.badge {
+  padding: 3px 9px; border-radius: 20px; font-size: 10px; font-weight: 600;
+  letter-spacing: 0.3px; text-transform: uppercase;
+  display: inline-flex; align-items: center; gap: 3px;
+}
+.badge-open      { background:#eef6f1; color:#2e7d52; border:1px solid #c3dece; }
+.badge-confirmed { background:#eef2fb; color:#1a4fa0; border:1px solid #c3d0ef; }
+.badge-new       { background:linear-gradient(135deg,#00897B,#00bfa5); color:#fff; border:none; box-shadow:0 2px 6px rgba(0,137,123,0.3); }
+
+/* CARD FOOTER */
+.card-footer {
+  padding:12px 20px 16px; border-top:1px solid #f0f2f5;
+  display:flex; align-items:center; justify-content:space-between;
+  gap:10px; margin-top:auto; flex-wrap:wrap;
+}
+.price-from { display:flex; flex-direction:column; }
+.price-from > span:first-child { font-size:9px; font-weight:700; color:#9199a8; text-transform:uppercase; letter-spacing:0.8px; margin-bottom:2px; }
+.price-regular  { font-size:17px; font-weight:700; color:#002060; }
+.price-regular small { font-size:10px; font-weight:500; color:#9199a8; }
+
+.book-btn {
+  font-family:'Montserrat',sans-serif; background:#002060; color:#fff;
+  border:none; border-radius:7px; padding:10px 20px;
+  font-size:12px; font-weight:700; cursor:pointer; letter-spacing:0.3px;
+  transition:background 0.18s ease, transform 0.12s ease; white-space:nowrap;
+}
+.book-btn:hover  { background:#003080; transform:scale(1.02); }
+.book-btn:active { transform:scale(0.98); }
+
+/* EMPTY STATE */
+.empty-state { display:none; text-align:center; padding:60px 20px; color:#9199a8; }
+.empty-state p { font-size:13px; font-weight:500; margin-top:8px; }
+
+/* DATE REQUEST NOTE */
+.request-note {
+  background:#f0f4ff; border:1px solid #c5d3f0; border-left: 4px solid #1a56c4;
+  border-radius:10px; padding:14px 18px; margin:0 0 20px;
+  display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap;
+}
+.request-note-text { font-size:11px; color:#002060; font-weight:500; line-height:1.5; flex:1; }
+.request-note-text strong { font-weight:700; display:block; margin-bottom:2px; font-size:11px; }
+.request-date-btn {
+  font-family:'Montserrat',sans-serif; background:#002060; color:#fff; border:none;
+  border-radius:7px; padding:8px 16px; font-size:11px; font-weight:700; cursor:pointer;
+  white-space:nowrap; transition:background 0.15s; flex-shrink:0;
+}
+.request-date-btn:hover { background:#003080; }
+
+/* MODAL RATES DIVIDER */
+.modal-rates-divider {
+  display: flex; align-items: center; gap: 10px;
+  margin: 20px 0 16px;
+}
+.modal-rates-divider::before,
+.modal-rates-divider::after { content:''; flex:1; height:1px; background: #e2e6ed; }
+.modal-rates-divider .divider-label {
+  font-size: 9px; font-weight: 700; letter-spacing: 1.5px;
+  text-transform: uppercase; color: #9199a8; white-space: nowrap;
+  padding: 0 4px;
+}
+
+/* Solo block in modal */
+.solo-block-in-modal {
+  background: #e8f5f3;
+  border: 1.5px solid #00897B;
+  border-radius: 10px;
+  padding: 14px 16px 10px;
+  margin-top: 4px;
+}
+.solo-block-header {
+  display: flex; align-items: center; gap: 7px;
+  margin-bottom: 12px;
+}
+.solo-block-header .solo-block-icon {
+  width: 20px; height: 20px; border-radius: 50%;
+  background: #00897B; color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px; font-weight: 800; flex-shrink: 0;
+}
+.solo-block-header .solo-block-title {
+  font-size: 10px; font-weight: 700; letter-spacing: 1px;
+  text-transform: uppercase; color: #00695C;
+}
+.solo-block-header .solo-block-sub {
+  font-size: 10px; color: #00897B; font-weight: 500; margin-left: auto;
+}
+
+/* REQUEST DATE MODAL */
+.req-modal-overlay {
+  display:none; position:fixed; top:0; left:0; width:100%; height:100%;
+  background:rgba(10,20,60,0.55); z-index:99999; justify-content:center;
+  align-items:flex-start; overflow-y:auto; -webkit-overflow-scrolling:touch;
+  padding:24px 16px 40px; box-sizing:border-box;
+}
+.req-modal-overlay.open { display:flex; }
+.req-modal-box {
+  background:#fff; border-radius:16px; width:100%; max-width:540px;
+  margin:auto; overflow:hidden; box-shadow:0 20px 60px rgba(0,32,96,0.18);
+  animation:modal-in 0.2s ease; position:relative;
+}
+@keyframes modal-in {
+  from { opacity:0; transform:translateY(10px) scale(0.98); }
+  to   { opacity:1; transform:translateY(0) scale(1); }
+}
+.req-modal-header { background:#002060; padding:20px 26px 18px; position:relative; }
+.req-modal-title { font-size:16px; font-weight:700; color:#fff; margin-bottom:3px; padding-right:36px; }
+.req-modal-sub { font-size:11px; color:rgba(255,255,255,0.65); }
+.req-modal-close {
+  position:absolute; top:16px; right:18px; background:rgba(255,255,255,0.15);
+  border:none; color:#fff; width:28px; height:28px; border-radius:50%;
+  font-size:15px; cursor:pointer; display:flex; align-items:center;
+  justify-content:center; font-family:'Montserrat',sans-serif; transition:background 0.15s;
+}
+.req-modal-close:hover { background:rgba(255,255,255,0.25); }
+.req-modal-body { padding:22px 26px 26px; }
+
+/* BOOKING MODAL */
+.modal-overlay {
+  display: none; position: fixed; top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(10,20,60,0.55);
+  z-index: 99999; justify-content: center;
+  align-items: flex-start; overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 16px; box-sizing: border-box;
+}
+.modal-overlay.open { display: flex; }
+.modal-box {
+  background: #fff; border-radius: 16px;
+  width: 100%; max-width: 620px; margin: auto;
+  box-shadow: 0 20px 60px rgba(0,32,96,0.18);
+  animation: modal-in 0.2s ease;
+  overflow: hidden; position: relative;
+}
+.modal-header { background:#002060; padding:22px 26px 20px; position:relative; }
+.modal-close {
+  position:absolute; top:16px; right:18px;
+  background:rgba(255,255,255,0.15); border:none; color:#fff;
+  width:28px; height:28px; border-radius:50%; font-size:15px; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Montserrat',sans-serif; line-height:1; transition:background 0.15s;
+}
+.modal-close:hover { background:rgba(255,255,255,0.25); }
+.modal-program-name { font-size:17px; font-weight:700; color:#fff; margin-bottom:4px; padding-right:36px; }
+.modal-departure-date { font-size:12px; font-weight:500; color:rgba(255,255,255,0.65); display:flex; align-items:center; gap:5px; }
+.modal-departure-date::before { content:'✦'; font-size:8px; opacity:0.5; }
+
+/* MODAL STEPS */
+.modal-steps { display:flex; border-bottom:1px solid #eef0f5; background:#f9fafb; }
+.modal-step-tab {
+  flex:1; padding:12px 10px; font-size:10px; font-weight:700;
+  letter-spacing:0.8px; text-transform:uppercase; color:#9199a8;
+  cursor:default; border-bottom:2px solid transparent; transition:all 0.2s;
+  display:flex; align-items:center; justify-content:center; gap:6px;
+}
+.modal-step-tab .step-num {
+  width:18px; height:18px; border-radius:50%; background:#dde1ea; color:#9199a8;
+  font-size:9px; font-weight:700; display:flex; align-items:center; justify-content:center; transition:all 0.2s;
+}
+.modal-step-tab.active { color:#002060; border-bottom-color:#002060; }
+.modal-step-tab.active .step-num { background:#002060; color:#fff; }
+.modal-step-tab.done { color:#2e7d52; }
+.modal-step-tab.done .step-num { background:#2e7d52; color:#fff; }
+
+.modal-panel { display:none; padding:22px 26px 26px; }
+.modal-panel.active { display:block; }
+
+/* RATES */
+.rates-section-title {
+  font-size:9px; font-weight:700; letter-spacing:1.5px;
+  text-transform:uppercase; color:#9199a8; margin-bottom:10px;
+}
+
+/* Language tabs — DE zuerst */
+.lang-tabs { display: flex; gap: 8px; margin-bottom: 16px; }
+.lang-tab {
+  font-family:'Montserrat',sans-serif;
+  display: flex; align-items: center; gap: 6px;
+  padding: 7px 14px; border-radius: 8px;
+  border: 1.5px solid #e0e4ed; background: #fff;
+  font-size: 12px; font-weight: 600; color: #4a5568;
+  cursor: pointer; transition: all 0.15s;
+}
+.lang-tab .flag { display:inline-flex; align-items:center; width:22px; height:15px; border-radius:2px; overflow:hidden; flex-shrink:0; }
+.lang-tab .flag svg { width:22px; height:15px; display:block; }
+.lang-tab:hover { border-color:#1a56c4; color:#1a56c4; background:#f4f7fd; }
+.lang-tab.active { border-color:#002060; background:#002060; color:#fff; }
+
+/* Rate table */
+.rate-table-wrap { overflow-x: auto; }
+.rate-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.rate-table thead tr { background: #f4f6fb; }
+.rate-table th {
+  padding: 9px 12px; font-size: 9px; font-weight: 700;
+  letter-spacing: 0.8px; text-transform: uppercase; color: #9199a8;
+  text-align: left; border-bottom: 1px solid #e8ecf2;
+}
+.rate-table th.center { text-align: center; }
+.rate-table td {
+  padding: 10px 12px; border-bottom: 1px solid #f0f2f5; vertical-align: middle;
+}
+.rate-table tbody tr:last-child td { border-bottom: none; }
+.rate-table tbody tr:hover { background: #f8f9fd; cursor: pointer; }
+
+.cat-cell-name { font-size:13px; font-weight:600; color:#1a1a2e; display:block; }
+.cat-cell-sub  { font-size:10px; font-weight:500; color:#9199a8; display:block; margin-top:1px; }
+
+.occ-options { display:flex; gap:6px; justify-content:center; }
+.occ-btn {
+  font-family:'Montserrat',sans-serif;
+  min-width: 68px; padding: 7px 8px; border-radius: 7px;
+  border: 1.5px solid #e0e4ed; background: #fff;
+  cursor: pointer; transition: all 0.15s; text-align: center;
+}
+.occ-btn:hover { border-color:#1a56c4; background:#f4f7fd; }
+.occ-btn.selected { border-color:#002060; background:#f0f4ff; box-shadow:0 0 0 2px rgba(0,32,96,0.07); }
+.occ-btn .occ-label { font-size:9px; font-weight:700; letter-spacing:0.5px; text-transform:uppercase; color:#9199a8; display:block; margin-bottom:3px; }
+.occ-btn.selected .occ-label { color:#002060; }
+.occ-btn .occ-price { font-size:13px; font-weight:700; color:#002060; display:block; }
+
+/* Solo rates */
+.solo-loop-rate-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.solo-loop-rate-table thead tr { background: #f4f6fb; }
+.solo-loop-rate-table th {
+  padding: 9px 12px; font-size: 9px; font-weight: 700;
+  letter-spacing: 0.8px; text-transform: uppercase; color: #9199a8;
+  text-align: left; border-bottom: 1px solid #e8ecf2;
+}
+.solo-loop-rate-table th.center { text-align: center; }
+.solo-loop-rate-table td {
+  padding: 10px 12px; border-bottom: 1px solid #f0f2f5; vertical-align: middle;
+}
+.solo-loop-rate-table tbody tr:last-child td { border-bottom: none; }
+.solo-loop-rate-table tbody tr:hover { background: #f8f9fd; cursor: pointer; }
+
+.rates-note { font-size:10px; color:#9199a8; margin-top:12px; line-height:1.5; }
+.best-tag {
+  display:inline-block; background:#2e7d52; color:#fff;
+  font-size:8px; font-weight:700; letter-spacing:0.6px; text-transform:uppercase;
+  padding:2px 6px; border-radius:4px; margin-left:6px; vertical-align:middle;
+}
+
+/* MODAL NAV */
+.modal-nav { display:flex; justify-content:flex-end; margin-top:20px; gap:10px; align-items: center; }
+.select-hint {
+  font-size: 10px; color: #9199a8; font-style: italic;
+  margin-right: auto; transition: opacity 0.2s;
+}
+.select-hint.hidden { opacity: 0; pointer-events: none; }
+.btn-secondary {
+  font-family:'Montserrat',sans-serif; background:transparent;
+  border:1.5px solid #d0d5de; color:#4a5568; border-radius:7px;
+  padding:9px 18px; font-size:12px; font-weight:600; cursor:pointer; transition:all 0.15s;
+}
+.btn-secondary:hover { border-color:#002060; color:#002060; }
+.btn-primary {
+  font-family:'Montserrat',sans-serif; background:#002060; border:none; color:#fff;
+  border-radius:7px; padding:9px 22px; font-size:12px; font-weight:700;
+  cursor:pointer; transition:all 0.15s; display:flex; align-items:center; gap:5px;
+}
+.btn-primary:hover { background:#003080; }
+.btn-primary::after { content:'→'; }
+
+/* CONTACT FORM */
+.form-row { margin-bottom:11px; }
+.form-row label { display:block; font-size:9px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:#9199a8; margin-bottom:4px; }
+.form-row input, .form-row textarea, .form-row select {
+  font-family:'Montserrat',sans-serif; width:100%; padding:9px 13px;
+  border:1.5px solid #dde1ea; border-radius:7px; font-size:12px;
+  color:#1a1a2e; background:#fff; transition:border-color 0.15s; outline:none;
+}
+.form-row input:focus, .form-row textarea:focus, .form-row select:focus { border-color:#002060; box-shadow:0 0 0 3px rgba(0,32,96,0.07); }
+.form-row textarea { resize:vertical; min-height:80px; }
+.form-grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+
+.selected-rate-summary {
+  background:#f0f4ff; border:1px solid #c5d3f0; border-radius:7px;
+  padding:10px 14px; margin-bottom:16px; font-size:11px; color:#002060;
+  font-weight:500; display:flex; align-items:flex-start; gap:8px; line-height:1.4;
+}
+.selected-rate-summary::before {
+  content:'✓'; width:16px; height:16px; min-width:16px;
+  background:#002060; color:#fff; border-radius:50%; font-size:9px; font-weight:700;
+  display:flex; align-items:center; justify-content:center; margin-top:1px;
+}
+.submit-btn {
+  font-family:'Montserrat',sans-serif; width:100%; background:#002060; color:#fff;
+  border:none; border-radius:7px; padding:12px; font-size:13px; font-weight:700;
+  cursor:pointer; letter-spacing:0.3px; margin-top:4px; transition:background 0.15s;
+}
+.submit-btn:hover { background:#003080; }
+.form-note { font-size:10px; color:#9199a8; text-align:center; margin-top:10px; line-height:1.5; }
+
+/* MOBILE */
+@media(max-width:600px){
+  body { padding:18px 12px 48px; }
+  .cards-grid { grid-template-columns:1fr; }
+  .form-grid-2 { grid-template-columns:1fr; }
+  .modal-panel { padding:18px 16px 22px; }
+  .modal-header { padding:18px 44px 16px 18px; }
+  .card-footer { flex-direction:column; align-items:flex-start; }
+  .book-btn { width:100%; text-align:center; padding:12px; }
+  .occ-btn { min-width:58px; padding:6px 4px; }
+  .lang-tabs { flex-wrap:wrap; }
+  .section-block { padding: 14px 12px 18px; }
+  .empty-section-msg { flex-direction: column; }
+  .promo-coming-soon { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>Abfahrten &amp; Verfügbarkeit — 2027</h1>
+  <div class="live-badge"><div class="live-dot"></div>Aktuelle Verfügbarkeit</div>
+</div>
+
+<div class="filter-bar">
+  <span class="filter-label">Nach Programm filtern</span>
+  <button class="filter-btn active"   onclick="applyFilter('all',this)">Alle <span class="f-count" id="cnt-all">0</span></button>
+  <button class="filter-btn"          onclick="applyFilter('galapagos',this)">Galapagos Loop <span class="f-count" id="cnt-galapagos">0</span></button>
+  <button class="filter-btn"          onclick="applyFilter('andean',this)">Andean Treasures <span class="f-count" id="cnt-andean">0</span></button>
+  <button class="filter-btn"          onclick="applyFilter('volcano',this)">Strasse der Vulkane <span class="f-count" id="cnt-volcano">0</span></button>
+  <button class="filter-btn f-solo"   onclick="applyFilter('solo',this)">Solo Traveler <span class="f-count" id="cnt-solo">0</span></button>
+</div>
+
+<div class="request-note">
+  <div class="request-note-text">
+    <strong>Sie finden Ihr gewünschtes Datum nicht?</strong>
+    Dies sind unsere bestätigten offenen Abfahrten der Zubucher Programme 2027. Neue Termine werden ab mindestens 2 Passagieren eröffnet. Falls das gewünschte Datum nicht aufgeführt ist, kontaktieren Sie unser Verkaufsteam und wir prüfen, ob eine Abfahrt auf Anfrage eröffnet werden kann.
+  </div>
+  <button class="request-date-btn" onclick="openRequestModal()">Datum anfragen</button>
+</div>
+
+<div id="cardsContainer"></div>
+<div class="empty-state" id="emptyState"><p>Keine Abfahrten entsprechen dem gewählten Filter.</p></div>
+
+<!-- DATUM ANFRAGEN MODAL -->
+<div id="requestModal" class="req-modal-overlay" onclick="if(event.target===this)closeRequestModal()">
+  <div class="req-modal-box" onclick="event.stopPropagation()">
+    <div class="req-modal-header">
+      <button class="req-modal-close" onclick="closeRequestModal()">✕</button>
+      <div class="req-modal-title">Bestimmtes Abfahrtsdatum anfragen</div>
+      <div class="req-modal-sub">Sie finden Ihr gewünschtes Datum nicht? Teilen Sie es uns mit.</div>
+    </div>
+    <div class="req-modal-body">
+      <form action="https://formspree.io/f/xbdzbwyg" method="POST">
+        <input type="hidden" name="request_type" value="Datum-Anfrage – 2027">
+        <div class="form-row">
+          <label>Programm *</label>
+          <select name="program" required>
+            <option value="">Programm auswählen</option>
+            <option>Galapagos Loop – 6 Tage / 5 Nächte</option>
+            <option>Galapagos Loop Immersive – 7 Tage / 6 Nächte</option>
+            <option>Charles Darwin Path – 8 Tage / 7 Nächte</option>
+            <option>Andean Treasures – 8 Tage / 7 Nächte</option>
+            <option>Strasse der Vulkane 6T/5N</option>
+            <option>Strasse der Vulkane 5T/4N</option>
+            <option>Strasse der Vulkane 3T/2N</option>
+            <option>Strasse der Vulkane 2T/1N</option>
+            <option>Zubucher-Tagesausflüge ab Quito</option>
+            <option>Galapagos Solo – Santa Cruz 4T/3N</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label>Gewünschtes Abfahrtsdatum *</label>
+          <input type="text" name="requested_date" required placeholder="z. B. 15. Aug 2027">
+        </div>
+        <div class="form-grid-2">
+          <div class="form-row"><label>Vollständiger Name *</label><input type="text" name="name" required placeholder="Ihr vollständiger Name"></div>
+          <div class="form-row"><label>Unternehmen *</label><input type="text" name="company" required placeholder="Agentur / Firmenname"></div>
+        </div>
+        <div class="form-grid-2">
+          <div class="form-row"><label>E-Mail *</label><input type="email" name="email" required placeholder="ihre@email.com"></div>
+          <div class="form-row"><label>Telefon</label><input type="text" name="phone" placeholder="+49 000 000 0000"></div>
+        </div>
+        <div class="form-row"><label>Anzahl Passagiere</label><input type="number" name="num_passengers" min="2" placeholder="Mindestens 2 Passagiere erforderlich"></div>
+        <div class="form-row"><label>Nachricht</label><textarea name="message" rows="3" placeholder="Zusätzliche Angaben zur Gruppe oder zu den Terminen..."></textarea></div>
+        <button type="submit" class="submit-btn">Anfrage senden</button>
+      </form>
+      <p class="form-note">Unser Verkaufsteam wird Ihre Anfrage prüfen und sich so schnell wie möglich bei Ihnen melden.</p>
+    </div>
+  </div>
+</div>
+
+<!-- BUCHUNGSANFRAGE MODAL -->
+<div id="modal" class="modal-overlay" onclick="handleOverlayClick(event)">
+  <div class="modal-box" onclick="event.stopPropagation()">
+
+    <div class="modal-header">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <div class="modal-program-name" id="mProgramName"></div>
+      <div class="modal-departure-date" id="mDepartureDate"></div>
+    </div>
+
+    <div class="modal-steps">
+      <div class="modal-step-tab active" id="tab1"><span class="step-num">1</span> Tarif wählen</div>
+      <div class="modal-step-tab" id="tab2"><span class="step-num">2</span> Anfrage senden</div>
+    </div>
+
+    <!-- PANEL 1 -->
+    <div class="modal-panel active" id="panel1">
+
+      <!-- GALAPAGOS LOOP + SOLO TRAVELER — DE zuerst -->
+      <div id="loopSoloRates" style="display:none;">
+        <div class="rates-section-title">Sprache des Reiseleiters wählen</div>
+        <div class="lang-tabs">
+          <!-- DE tab kommt zuerst -->
+          <button class="lang-tab active" id="langTabDEDual" onclick="switchLangDual('de')">
+            <span class="flag"><svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#FFCE00"/><rect width="60" height="26.7" fill="#DD0000"/><rect width="60" height="13.3" fill="#000"/></svg></span>
+            Deutschsprachiger Reiseleiter
+          </button>
+          <button class="lang-tab" id="langTabENDual" onclick="switchLangDual('en')">
+            <span class="flag"><svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#012169"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="8"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" stroke-width="5"/><path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="12"/><path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="8"/></svg></span>
+            Englischsprachiger Reiseleiter
+          </button>
+        </div>
+        <div class="rates-section-title" style="margin-top:4px;">Kategorie und Zimmerbelegung wählen</div>
+        <div class="rate-table-wrap">
+          <table class="rate-table" id="loopDualRateTable">
+            <thead>
+              <tr>
+                <th>Kategorie</th>
+                <th class="center">EZ</th>
+                <th class="center">DZ</th>
+                <th class="center">DRZ</th>
+              </tr>
+            </thead>
+            <tbody id="loopDualRateBody"></tbody>
+          </table>
+        </div>
+        <p class="rates-note">Nettopreise pro Person in US-Dollar. Alle Kategorien beinhalten Programmleistungen gemäß Reiseverlauf.</p>
+
+        <div class="modal-rates-divider"><span class="divider-label">Diese Abfahrt ist auch als Solo Traveler buchbar — ab 1 Person</span></div>
+        <div class="solo-block-in-modal">
+          <div class="solo-block-header">
+            <div class="solo-block-icon">1</div>
+            <span class="solo-block-title">Galapagos Loop – Solo Traveler</span>
+            <span class="solo-block-sub" id="soloLoopDualSub">
+              <span id="soloLoopDualSubFlag" style="display:inline-flex;align-items:center;width:16px;height:11px;border-radius:1px;overflow:hidden;margin-right:4px;vertical-align:middle;"></span>
+              <span id="soloLoopDualSubText">Deutschsprachiger Reiseleiter · Ab 1 Person</span>
+            </span>
+          </div>
+          <div class="rate-table-wrap">
+            <table class="solo-loop-rate-table" id="soloLoopDualTable">
+              <thead id="soloLoopDualHead">
+                <tr><th>Kategorie</th><th class="center">EZ</th></tr>
+              </thead>
+              <tbody id="soloLoopDualBody"></tbody>
+            </table>
+          </div>
+        </div>
+        <p class="rates-note" style="margin-top:8px;">Solo Traveler-Preise: Pro Person, Nettopreise in US-Dollar. Buchbar ab 1 Person.</p>
+      </div>
+
+      <div class="modal-nav">
+        <span class="select-hint" id="selectHint">Bitte wählen Sie oben einen Tarif aus</span>
+        <button class="btn-primary" onclick="goToStep2()" id="btnNext" disabled style="opacity:0.4">Weiter</button>
+      </div>
+    </div>
+
+    <!-- PANEL 2 -->
+    <div class="modal-panel" id="panel2">
+      <div class="selected-rate-summary" id="rateSummary"></div>
+      <form action="https://formspree.io/f/xbdzbwyg" method="POST">
+        <input type="hidden" name="program"       id="formProgram">
+        <input type="hidden" name="departure"     id="formDeparture">
+        <input type="hidden" name="selected_rate" id="formRate">
+        <div class="form-grid-2">
+          <div class="form-row"><label>Vollständiger Name *</label><input type="text" name="name" required placeholder="Ihr vollständiger Name"></div>
+          <div class="form-row"><label>Unternehmen *</label><input type="text" name="company" required placeholder="Agentur / Firmenname"></div>
+        </div>
+        <div class="form-grid-2">
+          <div class="form-row"><label>E-Mail *</label><input type="email" name="email" required placeholder="ihre@email.com"></div>
+          <div class="form-row"><label>Telefon</label><input type="text" name="phone" placeholder="+49 000 000 0000"></div>
+        </div>
+        <div class="form-row"><label>Pax-Referenz / Vorgangsnummer</label><input type="text" name="pax_reference" placeholder="Datei- oder Referenznummer (optional)"></div>
+        <div class="form-grid-2">
+          <div class="form-row"><label>Anzahl Passagiere *</label><input type="number" name="num_passengers" min="1" required placeholder="z. B. 2"></div>
+          <div class="form-row"><label>Zimmertyp *</label>
+            <select name="room_type" required style="font-family:'Montserrat',sans-serif;padding:10px 12px;border:1.5px solid #d0d5de;border-radius:7px;font-size:13px;color:#1a1a2e;background:#fff;width:100%;">
+              <option value="" disabled selected>Zimmertyp wählen</option>
+              <option value="Einzelzimmer">Einzelzimmer</option>
+              <option value="Doppelzimmer">Doppelzimmer</option>
+              <option value="Dreibettzimmer">Dreibettzimmer</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row"><label>Nachricht</label><textarea name="message" id="formMessage" rows="3"></textarea></div>
+        <button type="submit" class="submit-btn">Buchungsanfrage senden</button>
+      </form>
+      <p class="form-note">Unser Team wird Ihre Anfrage prüfen und sich innerhalb von 24 Geschäftsstunden bei Ihnen melden.</p>
+      <div class="modal-nav" style="justify-content:flex-start;margin-top:12px;">
+        <button class="btn-secondary" onclick="goToStep1()">← Zurück zur Tarifauswahl</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+
+/* =====================
+   DATA — 2027
+   4 bestätigte Abfahrten — Galapagos Loop
+   Datumsformat: TT. Monat (deutsches Format)
+===================== */
+const departures = [
+  {
+    region:'galapagos', subRegion:'galapagos',
+    date:'21. Feb', year:'2027', fullDate:'21. Feb 2027',
+    program:'Galapagos Loop', duration:'6 Tage / 5 Nächte',
+    status:['open','confirmed'], bookable:true, fewSpots:false,
+    hasSolo:true,
+    itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutique-programs-shared-27/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0',
+    priceFrom:{ regular:'$2.570' }
+  },
+  {
+    region:'galapagos', subRegion:'galapagos',
+    date:'11. Apr', year:'2027', fullDate:'11. Apr 2027',
+    program:'Galapagos Loop', duration:'6 Tage / 5 Nächte',
+    status:['open','confirmed'], bookable:true, fewSpots:false,
+    hasSolo:true,
+    itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutique-programs-shared-27/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0',
+    priceFrom:{ regular:'$2.570' }
+  },
+  {
+    region:'galapagos', subRegion:'galapagos',
+    date:'11. Jul', year:'2027', fullDate:'11. Jul 2027',
+    program:'Galapagos Loop', duration:'6 Tage / 5 Nächte',
+    status:['open','confirmed'], bookable:true, fewSpots:false,
+    hasSolo:true,
+    itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutique-programs-shared-27/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0',
+    priceFrom:{ regular:'$2.570' }
+  },
+  {
+    region:'galapagos', subRegion:'galapagos',
+    date:'17. Okt', year:'2027', fullDate:'17. Okt 2027',
+    program:'Galapagos Loop', duration:'6 Tage / 5 Nächte',
+    status:['open','confirmed'], bookable:true, fewSpots:false,
+    hasSolo:true,
+    itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutique-programs-shared-27/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0',
+    priceFrom:{ regular:'$2.570' }
+  }
+];
+
+/* =====================
+   TARIFE 2027 — Galapagos Loop
+   DE zuerst (Deutschsprachiger Reiseleiter hat Vorrang in der Darstellung)
+===================== */
+const loopRates = {
+  de: [
+    { id:'tourist',     name:'Tourist',          sub:'Standardunterkunft',        single:2641, double:2570, triple:2549, best:true  },
+    { id:'tourist-sup', name:'Tourist Superior',  sub:'Gehobene Komfortkategorie', single:2907, double:2627, triple:2590, best:false },
+    { id:'first',       name:'First Class',       sub:'Premiumkategorie',          single:3499, double:2953, triple:2846, best:false }
+  ],
+  en: [
+    { id:'tourist',     name:'Tourist',          sub:'Standardunterkunft',        single:2491, double:2420, triple:2399, best:false },
+    { id:'tourist-sup', name:'Tourist Superior',  sub:'Gehobene Komfortkategorie', single:2757, double:2477, triple:2440, best:false },
+    { id:'first',       name:'First Class',       sub:'Premiumkategorie',          single:3349, double:2803, triple:2696, best:false }
+  ]
+};
+
+const soloLoopRatesDE = [
+  { id:'tourist',     name:'Tourist',         sub:'Standardunterkunft',        single:2641 },
+  { id:'tourist-sup', name:'Tourist Superior', sub:'Gehobene Komfortkategorie', single:2907 },
+  { id:'first',       name:'First Class',      sub:'Premiumkategorie',          single:3499 }
+];
+const soloLoopRatesEN = [
+  { id:'tourist',     name:'Tourist',         sub:'Standardunterkunft',        single:2491 },
+  { id:'tourist-sup', name:'Tourist Superior', sub:'Gehobene Komfortkategorie', single:2757 },
+  { id:'first',       name:'First Class',      sub:'Premiumkategorie',          single:3349 }
+];
+
+/* =====================
+   HELPERS
+===================== */
+function fmt(n){ return '$'+n.toLocaleString('de-DE'); }
+
+function badgeHTML(s){
+  const m={
+    open:      ['badge-open',      'Offen'],
+    confirmed: ['badge-confirmed', 'Bestätigt']
+  };
+  return m[s]?`<span class="badge ${m[s][0]}">${m[s][1]}</span>`:'';
+}
+
+const deFlag = `<svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#FFCE00"/><rect width="60" height="26.7" fill="#DD0000"/><rect width="60" height="13.3" fill="#000"/></svg>`;
+const ukFlag = `<svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#012169"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="8"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" stroke-width="5"/><path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="12"/><path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="8"/></svg>`;
+
+/* =====================
+   RENDER CARDS
+===================== */
+const subRegionLabels = {
+  galapagos:        'Galapagos Loop',
+  andean:           'Andean Treasures',
+  volcano:          'Strasse der Vulkane',
+  'solo-santacruz': 'Solo Traveler – Santa Cruz'
+};
+const subRegionBlockClass = {
+  galapagos:        'region-galapagos',
+  andean:           'region-andean',
+  volcano:          'region-volcano',
+  'solo-santacruz': 'region-solo-santacruz'
+};
+
+const allSections = ['galapagos','andean','volcano','solo-santacruz'];
+
+const emptyMessages = {
+  andean: {
+    title: 'Noch keine bestätigten Abfahrten für Andean Treasures',
+    text: 'Wir bereiten derzeit die bestätigten Abfahrtstermine für dieses Programm vor. Bei Interesse Ihrer Kunden kontaktieren Sie unser Verkaufsteam und wir prüfen die besten Optionen für Sie.'
+  },
+  volcano: {
+    title: 'Noch keine bestätigten Abfahrten für Strasse der Vulkane',
+    text: 'Die Strasse der Vulkane Programme werden jeden Donnerstag auf Zubucher-Basis ab mindestens 2 Passagieren durchgeführt. Kontaktieren Sie uns mit Ihren Reisedaten und wir bestätigen die Verfügbarkeit.'
+  },
+  'solo-santacruz': {
+    title: 'Noch keine bestätigten Abfahrten für Galapagos Solo – Santa Cruz',
+    text: 'Solo Traveler-Abfahrten sind an andere Programme im gleichen Zeitraum gekoppelt. Bei Interesse kontaktieren Sie uns und wir finden den passenden Termin.'
+  }
+};
+
+function renderCards(filter){
+  const container = document.getElementById('cardsContainer');
+  container.innerHTML = '';
+
+  const sectionsToShow = filter === 'all'
+    ? allSections
+    : filter === 'galapagos' ? ['galapagos']
+    : filter === 'andean'    ? ['andean']
+    : filter === 'volcano'   ? ['volcano']
+    : filter === 'solo'      ? ['solo-santacruz']
+    : allSections;
+
+  let totalCards = 0;
+
+  sectionsToShow.forEach(subRegion => {
+    const sectionDeps = departures.filter(d => d.subRegion === subRegion);
+    totalCards += sectionDeps.length;
+
+    const block = document.createElement('div');
+    block.className = `section-block ${subRegionBlockClass[subRegion]}`;
+
+    const dv = document.createElement('div');
+    dv.className = 'section-divider';
+    dv.innerHTML = `<span class="section-label">${subRegionLabels[subRegion]}</span>`;
+    block.appendChild(dv);
+
+    if(sectionDeps.length === 0){
+      if(subRegion !== 'galapagos'){
+        const msg = emptyMessages[subRegion];
+        if(msg){
+          const emptyDiv = document.createElement('div');
+          emptyDiv.className = 'empty-section-msg';
+          emptyDiv.innerHTML = `
+            <div class="esm-text">
+              <strong>${msg.title}</strong>
+              ${msg.text}
+            </div>
+            <button class="esm-btn" onclick="openRequestModal()">Kontakt aufnehmen →</button>
+          `;
+          block.appendChild(emptyDiv);
+        }
+      }
+    } else {
+      const grid = document.createElement('div');
+      grid.className = 'cards-grid';
+
+      sectionDeps.forEach(dep => {
+        let badges = dep.status.map(badgeHTML).join('');
+
+        /* Reiseleiter-Hinweis: DE zuerst, dann EN */
+        const guideNote = subRegion === 'galapagos'
+          ? `<div class="card-guide-note"><span style="display:inline-flex;align-items:center;width:16px;height:11px;border-radius:1px;overflow:hidden;">${deFlag}</span><span style="display:inline-flex;align-items:center;width:16px;height:11px;border-radius:1px;overflow:hidden;margin-left:2px;">${ukFlag}</span> Reiseleiter: DE oder EN — Preise variieren</div>`
+          : '';
+
+        const minPaxNote = `<div class="card-minpax-note">✦ Neue Termine ab mind. 2 Passagieren</div>`;
+
+        const soloRibbon = dep.hasSolo
+          ? `<div class="solo-available-ribbon">✦ Auch verfügbar<br>als Solo Traveler</div>`
+          : '';
+
+        const priceFooterHTML = dep.bookable && dep.priceFrom
+          ? `<div class="card-footer">
+              <div class="price-from">
+                <span>Ab</span>
+                <div><span class="price-regular">${dep.priceFrom.regular} <small>/ Pers.</small></span></div>
+              </div>
+              <button class="book-btn"
+                data-program="${dep.program} – ${dep.duration}"
+                data-date="${dep.fullDate}"
+                data-subregion="galapagos-solo">Jetzt anfragen</button>
+            </div>`
+          : '';
+
+        const card = document.createElement('div');
+        card.className = 'dep-card';
+        card.dataset.region = subRegion === 'galapagos' ? 'galapagos' : 'solo';
+        card.innerHTML = `
+          ${soloRibbon}
+          <div class="card-body">
+            <div class="card-date">${dep.date} <span class="card-year">${dep.year}</span></div>
+            <div class="card-program">${dep.program}</div>
+            <div class="card-duration">${dep.duration}</div>
+            <a href="${dep.itinerary}" target="_blank" class="itinerary-link">Reiseverlauf ansehen</a>
+            ${guideNote}
+            ${minPaxNote}
+            <div class="badges-row">${badges}</div>
+          </div>
+          ${priceFooterHTML}
+        `;
+        grid.appendChild(card);
+      });
+      block.appendChild(grid);
+    }
+
+    container.appendChild(block);
+  });
+
+  /* Sonderkonditionen — immer sichtbar bei "Alle" */
+  if(filter === 'all'){
+    const promoBlock = document.createElement('div');
+    promoBlock.className = 'section-block region-promotions';
+    promoBlock.innerHTML = `
+      <div class="section-divider"><span class="section-label">Sonderkonditionen &amp; Aktionen</span></div>
+      <div class="promo-coming-soon">
+        <div class="pcs-icon">✦</div>
+        <div class="pcs-text">
+          <div class="pcs-title">Aktionen in Vorbereitung</div>
+          <div class="pcs-sub">Wir bereiten Sonderkonditionen und Aktionspreise für die Saison 2027 vor. Schauen Sie regelmäßig vorbei oder kontaktieren Sie unser Verkaufsteam, um über neue Angebote informiert zu werden.</div>
+        </div>
+      </div>
+    `;
+    container.appendChild(promoBlock);
+  }
+
+  document.getElementById('emptyState').style.display = totalCards === 0 && filter !== 'all' ? 'block' : 'none';
+}
+
+/* =====================
+   COUNTS
+===================== */
+function updateCounts(){
+  const c = {
+    all:       departures.length,
+    galapagos: departures.filter(d=>d.subRegion==='galapagos').length,
+    andean:    departures.filter(d=>d.subRegion==='andean').length,
+    volcano:   departures.filter(d=>d.subRegion==='volcano').length,
+    solo:      departures.filter(d=>d.subRegion==='solo-santacruz').length
+  };
+  Object.keys(c).forEach(k=>{ const el=document.getElementById('cnt-'+k); if(el) el.textContent=c[k]; });
+}
+
+/* =====================
+   FILTER
+===================== */
+function applyFilter(type, btn){
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderCards(type);
+}
+
+/* =====================
+   MODAL STATE
+===================== */
+let selectedRateText = '';
+let currentDualLang = 'de'; /* DE zuerst */
+let modalDefaultMessage = '';
+let formMessageDirty = false;
+
+/* =====================
+   LOOP DUAL TABLE (Loop + Solo) — DE zuerst
+===================== */
+function buildLoopDualTable(lang){
+  const cats = loopRates[lang];
+  const body = document.getElementById('loopDualRateBody');
+  body.innerHTML = '';
+  cats.forEach(cat => {
+    const tr = document.createElement('tr');
+    const tdCat = document.createElement('td');
+    tdCat.innerHTML = `<span class="cat-cell-name">${cat.name}${cat.best ? '<span class="best-tag">Bestes Angebot</span>' : ''}</span><span class="cat-cell-sub">${cat.sub}</span>`;
+    tr.appendChild(tdCat);
+    [
+      { label:'EZ',  price:cat.single },
+      { label:'DZ',  price:cat.double },
+      { label:'DRZ', price:cat.triple }
+    ].forEach(occ => {
+      const td = document.createElement('td'); td.style.textAlign = 'center';
+      const guideTxt = lang === 'de' ? 'Deutschsprachiger Reiseleiter' : 'Englischsprachiger Reiseleiter';
+      const rateStr = `${cat.name} – ${occ.label} (${guideTxt}): ${fmt(occ.price)} pro Person`;
+      const btn = document.createElement('button');
+      btn.className = 'occ-btn';
+      btn.innerHTML = `<span class="occ-label">${occ.label}</span><span class="occ-price">${fmt(occ.price)}</span>`;
+      btn.onclick = (e) => { e.stopPropagation(); selectOccupancy(btn, rateStr); };
+      td.appendChild(btn); tr.appendChild(td);
+    });
+    tr.onclick = () => { const first = tr.querySelector('.occ-btn'); if(first) first.click(); };
+    body.appendChild(tr);
+  });
+  buildSoloLoopDualTable(lang);
+}
+
+function buildSoloLoopDualTable(lang){
+  const subFlag = document.getElementById('soloLoopDualSubFlag');
+  const subText = document.getElementById('soloLoopDualSubText');
+  if(subFlag) subFlag.innerHTML = lang === 'de' ? deFlag : ukFlag;
+  if(subText) subText.textContent = lang === 'de'
+    ? 'Deutschsprachiger Reiseleiter · Ab 1 Person'
+    : 'Englischsprachiger Reiseleiter · Ab 1 Person';
+
+  const body = document.getElementById('soloLoopDualBody');
+  if(!body) return;
+  body.innerHTML = '';
+  const cats = lang === 'de' ? soloLoopRatesDE : soloLoopRatesEN;
+  cats.forEach(cat => {
+    const tr = document.createElement('tr');
+    const tdCat = document.createElement('td');
+    tdCat.innerHTML = `<span class="cat-cell-name">${cat.name}</span><span class="cat-cell-sub">${cat.sub}</span>`;
+    tr.appendChild(tdCat);
+    const tdPrice = document.createElement('td'); tdPrice.style.textAlign = 'center';
+    const guideTxt = lang === 'de' ? 'Deutschsprachiger Reiseleiter' : 'Englischsprachiger Reiseleiter';
+    const rateStr = `[Solo Traveler] ${cat.name} – EZ (${guideTxt}): ${fmt(cat.single)} pro Person`;
+    const btn = document.createElement('button');
+    btn.className = 'occ-btn'; btn.style.minWidth = '90px';
+    btn.innerHTML = `<span class="occ-label">EZ</span><span class="occ-price">${fmt(cat.single)}</span>`;
+    btn.onclick = (e) => { e.stopPropagation(); selectOccupancy(btn, rateStr); };
+    tdPrice.appendChild(btn); tr.appendChild(tdPrice);
+    tr.onclick = () => btn.click();
+    body.appendChild(tr);
+  });
+}
+
+function switchLangDual(lang){
+  currentDualLang = lang;
+  document.getElementById('langTabDEDual').classList.toggle('active', lang==='de');
+  document.getElementById('langTabENDual').classList.toggle('active', lang==='en');
+  selectedRateText = '';
+  disableContinue();
+  buildLoopDualTable(lang);
+}
+
+function selectOccupancy(btn, rateStr){
+  document.querySelectorAll('.occ-btn').forEach(b=>b.classList.remove('selected'));
+  btn.classList.add('selected');
+  selectedRateText = rateStr;
+  enableContinue();
+}
+
+function enableContinue(){
+  const btn = document.getElementById('btnNext');
+  const hint = document.getElementById('selectHint');
+  btn.disabled = false; btn.style.opacity = '1';
+  hint.classList.add('hidden');
+}
+function disableContinue(){
+  const btn = document.getElementById('btnNext');
+  const hint = document.getElementById('selectHint');
+  btn.disabled = true; btn.style.opacity = '0.4';
+  hint.classList.remove('hidden');
+}
+function clearRateSelection(){
+  document.querySelectorAll('.occ-btn').forEach(c=>c.classList.remove('selected'));
+  selectedRateText = '';
+  disableContinue();
+}
+
+/* =====================
+   MODAL ÖFFNEN / SCHLIESSEN
+===================== */
+function openModal(program, date){
+  document.getElementById('mProgramName').textContent   = program;
+  document.getElementById('mDepartureDate').textContent = date;
+  document.getElementById('formProgram').value  = program;
+  document.getElementById('formDeparture').value = date;
+
+  const defaultMsg = 'Ich möchte eine Buchungsanfrage stellen für: ' + program + ' – ' + date;
+  const msgField = document.getElementById('formMessage');
+  if(!formMessageDirty || msgField.value === '' || msgField.value === modalDefaultMessage){
+    msgField.value = defaultMsg;
+    formMessageDirty = false;
+  }
+  modalDefaultMessage = defaultMsg;
+
+  document.getElementById('loopSoloRates').style.display = 'block';
+
+  /* DE tab immer als Standard beim Öffnen */
+  currentDualLang = 'de';
+  document.getElementById('langTabDEDual').classList.add('active');
+  document.getElementById('langTabENDual').classList.remove('active');
+  buildLoopDualTable('de');
+  goToStep1();
+  clearRateSelection();
+
+  const overlay = document.getElementById('modal');
+  overlay.classList.add('open');
+  overlay.scrollTop = 0;
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal(){
+  document.getElementById('modal').classList.remove('open');
+  document.getElementById('modal').scrollTop = 0;
+  document.body.style.overflow = '';
+  formMessageDirty = false;
+}
+
+function handleOverlayClick(e){
+  if(e.target === document.getElementById('modal')) closeModal();
+}
+
+/* =====================
+   SCHRITTNAVIGATION
+===================== */
+function goToStep2(){
+  if(!selectedRateText) return;
+  document.getElementById('formRate').value = selectedRateText;
+  document.getElementById('rateSummary').textContent = 'Ausgewählt: ' + selectedRateText;
+  document.getElementById('panel1').classList.remove('active');
+  document.getElementById('panel2').classList.add('active');
+  document.getElementById('tab1').classList.remove('active');
+  document.getElementById('tab1').classList.add('done');
+  document.getElementById('tab2').classList.add('active');
+  document.getElementById('modal').scrollTop = 0;
+}
+function goToStep1(){
+  document.getElementById('panel2').classList.remove('active');
+  document.getElementById('panel1').classList.add('active');
+  document.getElementById('tab2').classList.remove('active');
+  document.getElementById('tab1').classList.remove('done');
+  document.getElementById('tab1').classList.add('active');
+  document.getElementById('modal').scrollTop = 0;
+}
+
+document.getElementById('formMessage').addEventListener('input', function(){
+  formMessageDirty = true;
+});
+
+/* =====================
+   DATUM ANFRAGEN MODAL
+===================== */
+function openRequestModal(){
+  const overlay = document.getElementById('requestModal');
+  overlay.classList.add('open');
+  overlay.scrollTop = 0;
+  document.body.style.overflow = 'hidden';
+}
+function closeRequestModal(){
+  document.getElementById('requestModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+/* =====================
+   EVENT DELEGATION — Jetzt anfragen Buttons
+===================== */
+document.addEventListener('click', function(e){
+  const btn = e.target.closest('.book-btn');
+  if(!btn) return;
+  const program = btn.getAttribute('data-program');
+  const date    = btn.getAttribute('data-date');
+  openModal(program, date);
+  requestAnimationFrame(function(){
+    const box = document.querySelector('#modal .modal-box');
+    if(box) box.scrollIntoView({ behavior:'smooth', block:'start' });
+  });
+});
+
+/* INIT */
+updateCounts();
+renderCards('all');
+
+/* URL FILTER */
+window.addEventListener('load', function(){
+  const params = new URLSearchParams(window.location.search);
+  const filter = params.get('filter');
+  if(filter){
+    const btn = document.querySelector('.filter-btn[onclick*="\''+filter+'\'"]');
+    if(btn) applyFilter(filter, btn);
+  }
+});
+
+</script>
+</body>
+</html>
