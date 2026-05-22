@@ -1026,6 +1026,7 @@ const departures = [
   { region:'andean', subRegion:'andean', date:'04. Okt', year:'2026', fullDate:'04. Okt 2026', program:'Andean Treasures', duration:'8 Tage / 7 Nächte', status:['open','confirmed'], promo:false, bookable:true, fewSpots:false, dealType:null, promoPrice:false, hasSolo:true, itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/festland/andean-treasures?authuser=0', priceFrom:{ regular:'$1.395', promo:null } },
   // STRASSE DER VULKANE
   { region:'volcano', subRegion:'volcano', date:'23. Jul', year:'2026', fullDate:'23. Jul 2026', program:'Strasse der Vulkane', duration:'6 Tage / 5 Nächte', status:['open','confirmed'], promo:false, bookable:true, fewSpots:false, dealType:null, promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/strasse-der-vulkane/6t-5n-strasse-der-vulkane?authuser=0', priceFrom:{ regular:'$807', promo:null } },
+  { region:'volcano', subRegion:'volcano', date:'15. Okt', year:'2026', fullDate:'15. Okt 2026', program:'Strasse der Vulkane', duration:'6 Tage / 5 Nächte', status:['open','confirmed'], promo:false, bookable:true, fewSpots:false, dealType:null, promoPrice:false, itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/strasse-der-vulkane/6t-5n-strasse-der-vulkane?authuser=0', priceFrom:{ regular:'$807', promo:null } },
   // SOLO – SANTA CRUZ
   { region:'solo', subRegion:'solo-santacruz', date:'12. Apr', year:'2026', fullDate:'12. Apr 2026', program:'Galapagos Solo – Santa Cruz', duration:'4 Tage / 3 Nächte', status:['open','confirmed'], promo:false, bookable:true, fewSpots:false, dealType:null, promoPrice:false, depDetail:'Im Anschluss an das Andean Treasures-Programm — Zubucher-Bus (offen)', itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/gal%C3%A1pagos/gal%C3%A1pagos-solo-santa-cruz?authuser=0', priceFrom:{ regular:'$1.099', promo:null } },
   { region:'solo', subRegion:'solo-santacruz', date:'10. Mai', year:'2026', fullDate:'10. Mai 2026', program:'Galapagos Solo – Santa Cruz', duration:'4 Tage / 3 Nächte', status:['open','confirmed'], promo:false, bookable:true, fewSpots:false, dealType:null, promoPrice:false, depDetail:'Galapagos Loop läuft am gleichen Datum — Zubucher-Bus (offen)', itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutiquezubucherprogr2026/gal%C3%A1pagos/gal%C3%A1pagos-solo-santa-cruz?authuser=0', priceFrom:{ regular:'$1.099', promo:null } },
@@ -1595,6 +1596,7 @@ function buildSoloATRates(){
     });
   });
 }
+
 function buildVolcanoRates(){
   const grid=document.getElementById('volcanoRatesGrid');
   grid.innerHTML='';
