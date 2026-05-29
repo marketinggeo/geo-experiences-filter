@@ -545,6 +545,7 @@ body {
   <span class="filter-label">Filter by program</span>
   <button class="filter-btn active"   onclick="applyFilter('all',this)">All <span class="f-count" id="cnt-all">0</span></button>
   <button class="filter-btn"          onclick="applyFilter('galapagos',this)">Galápagos Loop <span class="f-count" id="cnt-galapagos">0</span></button>
+  <button class="filter-btn"          onclick="applyFilter('immersive',this)">Galápagos Immersive <span class="f-count" id="cnt-immersive">0</span></button>
   <button class="filter-btn"          onclick="applyFilter('andean',this)">Andean Treasures <span class="f-count" id="cnt-andean">0</span></button>
   <button class="filter-btn"          onclick="applyFilter('volcano',this)">Volcano Avenue <span class="f-count" id="cnt-volcano">0</span></button>
   <button class="filter-btn f-solo"   onclick="applyFilter('solo',this)">Solo Traveler <span class="f-count" id="cnt-solo">0</span></button>
@@ -656,26 +657,28 @@ body {
         </div>
         <p class="rates-note">Net rates per person in USD. All categories include program services as per itinerary.</p>
 
-        <div class="modal-rates-divider"><span class="divider-label">This departure is also available as Solo Traveler — bookable from 1 passenger</span></div>
-        <div class="solo-block-in-modal">
-          <div class="solo-block-header">
-            <div class="solo-block-icon">1</div>
-            <span class="solo-block-title">Galápagos Loop – Solo Traveler</span>
-            <span class="solo-block-sub" id="soloLoopDualSub">
-              <span id="soloLoopDualSubFlag" style="display:inline-flex;align-items:center;width:16px;height:11px;border-radius:1px;overflow:hidden;margin-right:4px;vertical-align:middle;"></span>
-              <span id="soloLoopDualSubText">English guide · From 1 passenger</span>
-            </span>
+        <div id="soloSection">
+          <div class="modal-rates-divider"><span class="divider-label">This departure is also available as Solo Traveler — bookable from 1 passenger</span></div>
+          <div class="solo-block-in-modal">
+            <div class="solo-block-header">
+              <div class="solo-block-icon">1</div>
+              <span class="solo-block-title">Galápagos Loop – Solo Traveler</span>
+              <span class="solo-block-sub" id="soloLoopDualSub">
+                <span id="soloLoopDualSubFlag" style="display:inline-flex;align-items:center;width:16px;height:11px;border-radius:1px;overflow:hidden;margin-right:4px;vertical-align:middle;"></span>
+                <span id="soloLoopDualSubText">English guide · From 1 passenger</span>
+              </span>
+            </div>
+            <div class="rate-table-wrap">
+              <table class="solo-loop-rate-table" id="soloLoopDualTable">
+                <thead id="soloLoopDualHead">
+                  <tr><th>Category</th><th class="center">Single accom.</th></tr>
+                </thead>
+                <tbody id="soloLoopDualBody"></tbody>
+              </table>
+            </div>
           </div>
-          <div class="rate-table-wrap">
-            <table class="solo-loop-rate-table" id="soloLoopDualTable">
-              <thead id="soloLoopDualHead">
-                <tr><th>Category</th><th class="center">Single accom.</th></tr>
-              </thead>
-              <tbody id="soloLoopDualBody"></tbody>
-            </table>
-          </div>
+          <p class="rates-note" style="margin-top:8px;">Solo Traveler rates: per person in USD. Bookable from 1 passenger.</p>
         </div>
-        <p class="rates-note" style="margin-top:8px;">Solo Traveler rates: per person in USD. Bookable from 1 passenger.</p>
       </div>
 
       <div class="modal-nav">
@@ -727,15 +730,17 @@ body {
 
 /* =====================
    DATA — 2027
-   Only 4 confirmed Loop departures. All also available as Solo Traveler.
+   Loop 6D/5N: 4 confirmed departures — hasSolo:true
+   Immersive 7D/6N: 4 confirmed departures — hasSolo:false
 ===================== */
 const departures = [
+  /* ── GALÁPAGOS LOOP 6D/5N ── */
   {
     region:'galapagos', subRegion:'galapagos',
     date:'21 Feb', year:'2027', fullDate:'21 Feb 2027',
     program:'Galápagos Loop', duration:'6 Days / 5 Nights',
     status:['open','confirmed'], bookable:true, fewSpots:false,
-    hasSolo:true,
+    hasSolo:true, rateSet:'loop',
     itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutique-programs-shared-27/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0',
     priceFrom:{ regular:'$2,420' }
   },
@@ -744,7 +749,7 @@ const departures = [
     date:'11 Apr', year:'2027', fullDate:'11 Apr 2027',
     program:'Galápagos Loop', duration:'6 Days / 5 Nights',
     status:['open','confirmed'], bookable:true, fewSpots:false,
-    hasSolo:true,
+    hasSolo:true, rateSet:'loop',
     itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutique-programs-shared-27/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0',
     priceFrom:{ regular:'$2,420' }
   },
@@ -753,7 +758,7 @@ const departures = [
     date:'11 Jul', year:'2027', fullDate:'11 Jul 2027',
     program:'Galápagos Loop', duration:'6 Days / 5 Nights',
     status:['open','confirmed'], bookable:true, fewSpots:false,
-    hasSolo:true,
+    hasSolo:true, rateSet:'loop',
     itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutique-programs-shared-27/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0',
     priceFrom:{ regular:'$2,420' }
   },
@@ -762,14 +767,51 @@ const departures = [
     date:'17 Oct', year:'2027', fullDate:'17 Oct 2027',
     program:'Galápagos Loop', duration:'6 Days / 5 Nights',
     status:['open','confirmed'], bookable:true, fewSpots:false,
-    hasSolo:true,
+    hasSolo:true, rateSet:'loop',
     itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutique-programs-shared-27/gal%C3%A1pagos/gal%C3%A1pagos-loop?authuser=0',
     priceFrom:{ regular:'$2,420' }
+  },
+  /* ── GALÁPAGOS LOOP IMMERSIVE 7D/6N ── */
+  {
+    region:'galapagos', subRegion:'immersive',
+    date:'20 Feb', year:'2027', fullDate:'20 Feb 2027',
+    program:'Galápagos Loop Immersive Experience', duration:'7 Days / 6 Nights',
+    status:['open','confirmed'], bookable:true, fewSpots:false,
+    hasSolo:false, rateSet:'immersive',
+    itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutique-programs-shared-27/gal%C3%A1pagos/gal%C3%A1pagos-loop-immersive-experience?authuser=0',
+    priceFrom:{ regular:'$2,794' }
+  },
+  {
+    region:'galapagos', subRegion:'immersive',
+    date:'10 Apr', year:'2027', fullDate:'10 Apr 2027',
+    program:'Galápagos Loop Immersive Experience', duration:'7 Days / 6 Nights',
+    status:['open','confirmed'], bookable:true, fewSpots:false,
+    hasSolo:false, rateSet:'immersive',
+    itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutique-programs-shared-27/gal%C3%A1pagos/gal%C3%A1pagos-loop-immersive-experience?authuser=0',
+    priceFrom:{ regular:'$2,794' }
+  },
+  {
+    region:'galapagos', subRegion:'immersive',
+    date:'10 Jul', year:'2027', fullDate:'10 Jul 2027',
+    program:'Galápagos Loop Immersive Experience', duration:'7 Days / 6 Nights',
+    status:['open','confirmed'], bookable:true, fewSpots:false,
+    hasSolo:false, rateSet:'immersive',
+    itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutique-programs-shared-27/gal%C3%A1pagos/gal%C3%A1pagos-loop-immersive-experience?authuser=0',
+    priceFrom:{ regular:'$2,794' }
+  },
+  {
+    region:'galapagos', subRegion:'immersive',
+    date:'16 Oct', year:'2027', fullDate:'16 Oct 2027',
+    program:'Galápagos Loop Immersive Experience', duration:'7 Days / 6 Nights',
+    status:['open','confirmed'], bookable:true, fewSpots:false,
+    hasSolo:false, rateSet:'immersive',
+    itinerary:'https://sites.google.com/georeisen-ecuador.com/geoboutique-programs-shared-27/gal%C3%A1pagos/gal%C3%A1pagos-loop-immersive-experience?authuser=0',
+    priceFrom:{ regular:'$2,794' }
   }
 ];
 
 /* =====================
-   RATES 2027 — Loop
+   RATES 2027 — Loop 6D/5N (SG-04-A)
 ===================== */
 const loopRates = {
   en: [
@@ -781,6 +823,22 @@ const loopRates = {
     { id:'tourist',     name:'Tourist',          sub:'Standard accommodation',    single:2641, double:2570, triple:2549, best:false },
     { id:'tourist-sup', name:'Tourist Superior',  sub:'Enhanced comfort category', single:2907, double:2627, triple:2590, best:false },
     { id:'first',       name:'First Class',       sub:'Premium category',          single:3499, double:2953, triple:2846, best:false }
+  ]
+};
+
+/* =====================
+   RATES 2027 — Immersive 7D/6N (SG-04-B)
+===================== */
+const immersiveRates = {
+  en: [
+    { id:'tourist',     name:'Tourist',          sub:'Standard accommodation',    single:2877, double:2794, triple:2764, best:true  },
+    { id:'tourist-sup', name:'Tourist Superior',  sub:'Enhanced comfort category', single:3143, double:2851, triple:2805, best:false },
+    { id:'first',       name:'First Class',       sub:'Premium category',          single:3735, double:3177, triple:3061, best:false }
+  ],
+  de: [
+    { id:'tourist',     name:'Tourist',          sub:'Standard accommodation',    single:3050, double:2967, triple:2937, best:false },
+    { id:'tourist-sup', name:'Tourist Superior',  sub:'Enhanced comfort category', single:3316, double:3024, triple:2978, best:false },
+    { id:'first',       name:'First Class',       sub:'Premium category',          single:3908, double:3350, triple:3234, best:false }
   ]
 };
 
@@ -812,20 +870,21 @@ const deFlag = `<svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rec
    RENDER CARDS
 ===================== */
 const subRegionLabels = {
-  galapagos: 'Galápagos Loop',
-  andean:    'Andean Treasures',
-  volcano:   'Volcano Avenue',
+  galapagos:        'Galápagos Loop',
+  immersive:        'Galápagos Loop Immersive Experience',
+  andean:           'Andean Treasures',
+  volcano:          'Volcano Avenue',
   'solo-santacruz': 'Solo Traveler – Santa Cruz'
 };
 const subRegionBlockClass = {
   galapagos:        'region-galapagos',
+  immersive:        'region-galapagos',
   andean:           'region-andean',
   volcano:          'region-volcano',
   'solo-santacruz': 'region-solo-santacruz'
 };
 
-/* Sections that may have empty states */
-const allSections = ['galapagos','andean','volcano','solo-santacruz'];
+const allSections = ['galapagos','immersive','andean','volcano','solo-santacruz'];
 
 const emptyMessages = {
   andean: {
@@ -849,6 +908,7 @@ function renderCards(filter){
   const sectionsToShow = filter === 'all'
     ? allSections
     : filter === 'galapagos' ? ['galapagos']
+    : filter === 'immersive' ? ['immersive']
     : filter === 'andean'    ? ['andean']
     : filter === 'volcano'   ? ['volcano']
     : filter === 'solo'      ? ['solo-santacruz']
@@ -869,9 +929,8 @@ function renderCards(filter){
     block.appendChild(dv);
 
     if(sectionDeps.length === 0){
-      /* Empty section — show message + contact button, or promotions block */
-      if(subRegion === 'galapagos'){
-        /* Galapagos should have cards — skip */
+      if(subRegion === 'galapagos' || subRegion === 'immersive'){
+        /* should have cards — skip */
       } else {
         const msg = emptyMessages[subRegion];
         if(msg){
@@ -894,11 +953,11 @@ function renderCards(filter){
       sectionDeps.forEach(dep => {
         let badges = dep.status.map(badgeHTML).join('');
 
-        const guideNote = subRegion === 'galapagos'
+        const guideNote = (subRegion === 'galapagos' || subRegion === 'immersive')
           ? `<div class="card-guide-note"><span style="display:inline-flex;align-items:center;width:16px;height:11px;border-radius:1px;overflow:hidden;">${ukFlag}</span><span style="display:inline-flex;align-items:center;width:16px;height:11px;border-radius:1px;overflow:hidden;margin-left:2px;">${deFlag}</span> Guide options: EN or DE — rates vary</div>`
           : '';
 
-        const minPaxNote = `<div class="card-minpax-note">✦ New dates open with min. 2 passengers</div>`;
+        const minPaxNote = `<div class="card-minpax-note">✦ Minimum 2 passengers required to confirm departure</div>`;
 
         const soloRibbon = dep.hasSolo
           ? `<div class="solo-available-ribbon">✦ Also available<br>as Solo Traveler</div>`
@@ -913,13 +972,14 @@ function renderCards(filter){
               <button class="book-btn"
                 data-program="${dep.program} – ${dep.duration}"
                 data-date="${dep.fullDate}"
-                data-subregion="galapagos-solo">Request Now</button>
+                data-rateset="${dep.rateSet}"
+                data-hassolo="${dep.hasSolo}">Request Now</button>
             </div>`
           : '';
 
         const card = document.createElement('div');
         card.className = 'dep-card';
-        card.dataset.region = subRegion === 'galapagos' ? 'galapagos' : 'solo';
+        card.dataset.region = 'galapagos';
         card.innerHTML = `
           ${soloRibbon}
           <div class="card-body">
@@ -968,6 +1028,7 @@ function updateCounts(){
   const c = {
     all:       departures.length,
     galapagos: departures.filter(d=>d.subRegion==='galapagos').length,
+    immersive: departures.filter(d=>d.subRegion==='immersive').length,
     andean:    departures.filter(d=>d.subRegion==='andean').length,
     volcano:   departures.filter(d=>d.subRegion==='volcano').length,
     solo:      departures.filter(d=>d.subRegion==='solo-santacruz').length
@@ -989,14 +1050,15 @@ function applyFilter(type, btn){
 ===================== */
 let selectedRateText = '';
 let currentDualLang = 'en';
+let currentRateSet = 'loop';
 let modalDefaultMessage = '';
 let formMessageDirty = false;
 
 /* =====================
-   LOOP DUAL TABLE (Loop + Solo)
+   RATE TABLE — builds loop or immersive depending on rateSet
 ===================== */
 function buildLoopDualTable(lang){
-  const cats = loopRates[lang];
+  const cats = currentRateSet === 'immersive' ? immersiveRates[lang] : loopRates[lang];
   const body = document.getElementById('loopDualRateBody');
   body.innerHTML = '';
   cats.forEach(cat => {
@@ -1005,9 +1067,9 @@ function buildLoopDualTable(lang){
     tdCat.innerHTML = `<span class="cat-cell-name">${cat.name}${cat.best ? '<span class="best-tag">Best value</span>' : ''}</span><span class="cat-cell-sub">${cat.sub}</span>`;
     tr.appendChild(tdCat);
     [
-      { label:'Single', price:cat.single, key:'single' },
-      { label:'Double', price:cat.double, key:'double' },
-      { label:'Triple', price:cat.triple, key:'triple' }
+      { label:'Single', price:cat.single },
+      { label:'Double', price:cat.double },
+      { label:'Triple', price:cat.triple }
     ].forEach(occ => {
       const td = document.createElement('td'); td.style.textAlign = 'center';
       const guideTxt = lang === 'en' ? 'EN guide' : 'DE guide';
@@ -1021,7 +1083,7 @@ function buildLoopDualTable(lang){
     tr.onclick = () => { const first = tr.querySelector('.occ-btn'); if(first) first.click(); };
     body.appendChild(tr);
   });
-  buildSoloLoopDualTable(lang);
+  if(currentRateSet === 'loop') buildSoloLoopDualTable(lang);
 }
 
 function buildSoloLoopDualTable(lang){
@@ -1089,7 +1151,7 @@ function clearRateSelection(){
 /* =====================
    OPEN / CLOSE MODAL
 ===================== */
-function openModal(program, date){
+function openModal(program, date, rateSet, hasSolo){
   document.getElementById('mProgramName').textContent   = program;
   document.getElementById('mDepartureDate').textContent = date;
   document.getElementById('formProgram').value  = program;
@@ -1102,6 +1164,11 @@ function openModal(program, date){
     formMessageDirty = false;
   }
   modalDefaultMessage = defaultMsg;
+
+  currentRateSet = rateSet;
+
+  /* Show/hide Solo block depending on program */
+  document.getElementById('soloSection').style.display = hasSolo ? 'block' : 'none';
 
   document.getElementById('loopSoloRates').style.display = 'block';
   currentDualLang = 'en';
@@ -1175,9 +1242,11 @@ function closeRequestModal(){
 document.addEventListener('click', function(e){
   const btn = e.target.closest('.book-btn');
   if(!btn) return;
-  const program = btn.getAttribute('data-program');
-  const date    = btn.getAttribute('data-date');
-  openModal(program, date);
+  const program  = btn.getAttribute('data-program');
+  const date     = btn.getAttribute('data-date');
+  const rateSet  = btn.getAttribute('data-rateset') || 'loop';
+  const hasSolo  = btn.getAttribute('data-hassolo') === 'true';
+  openModal(program, date, rateSet, hasSolo);
   requestAnimationFrame(function(){
     const box = document.querySelector('#modal .modal-box');
     if(box) box.scrollIntoView({ behavior:'smooth', block:'start' });
