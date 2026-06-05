@@ -45,16 +45,32 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
 .specific-dep-btn:hover{background:#003399;}
 .guide-note{display:block;color:#888;font-style:italic;margin-top:3px;font-size:10.5px;}
 .new-pill{background:linear-gradient(135deg,#002060,#1a56c4);color:#fff;border-radius:20px;padding:3px 10px;font-size:10px;font-weight:700;letter-spacing:0.3px;}
+
+.prog-header-row td{background:#e8edf7;color:#002060;font-size:11px;font-weight:700;letter-spacing:0.6px;text-transform:uppercase;padding:9px 14px;border-bottom:2px solid #002060;border-top:2px solid #dde1ea;}
+.prog-header-row.first-header td{border-top:none;}
+.pvt-btn-row td{background:#eef4ff;padding:10px 14px;border-bottom:1px solid #d0d9f0;}
+.private-rates-btn{display:inline-flex;align-items:center;gap:14px;background:#002060;color:#fff;border:none;padding:11px 22px;font-size:12px;font-family:'Montserrat',sans-serif;font-weight:600;cursor:pointer;border-radius:4px;letter-spacing:0.4px;text-transform:uppercase;transition:background 0.18s;border-left:5px solid #1a73e8;}
+.private-rates-btn:hover{background:#003399;}
+.private-rates-btn .btn-arrow{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border:2px solid rgba(255,255,255,0.5);border-radius:50%;font-size:12px;line-height:1;flex-shrink:0;transition:border-color 0.18s;}
+.private-rates-btn:hover .btn-arrow{border-color:#fff;}
+
 .modal-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.55);z-index:1000;justify-content:center;align-items:center;}
 .modal-overlay.active{display:flex;}
 .modal-box{background:#fff;padding:36px;max-width:560px;width:90%;max-height:82vh;overflow-y:auto;position:relative;border-top:5px solid #002060;border-radius:4px;box-shadow:0 20px 60px rgba(0,32,96,0.2);}
+.modal-box.wide{max-width:900px;width:95%;}
 .modal-box h3{color:#002060;margin:0 0 4px;font-size:15px;}
 .modal-subtitle{font-size:11px;color:#777;margin-bottom:18px;font-style:italic;}
 .modal-close{position:absolute;top:14px;right:16px;font-size:18px;cursor:pointer;color:#002060;font-weight:700;background:none;border:none;font-family:'Montserrat',sans-serif;}
 .modal-table{width:100%;border-collapse:collapse;font-size:12px;margin-top:8px;}
-.modal-table th{background:#002060;color:#fff;padding:8px 12px;border:1px solid #dde1ea;text-align:left;}
-.modal-table td{padding:8px 12px;border:1px solid #dde1ea;}
+.modal-table th{background:#002060;color:#fff;padding:8px 12px;border:1px solid #dde1ea;text-align:left;font-size:10px;letter-spacing:0.5px;text-transform:uppercase;}
+.modal-table td{padding:8px 12px;border:1px solid #dde1ea;font-size:12px;}
 .modal-table tr:nth-child(even) td{background:#f0f6fb;}
+.modal-note{font-size:11px;color:#777;margin-top:12px;font-style:italic;}
+.modal-section-header{display:flex;align-items:center;gap:10px;background:#f0f4ff;border-left:4px solid #002060;padding:10px 14px;margin:20px 0 10px;font-size:12px;font-weight:700;color:#002060;letter-spacing:0.5px;text-transform:uppercase;}
+.modal-section-header:first-of-type{margin-top:8px;}
+.modal-section-dates{font-size:11px;color:#555;background:#fafafa;border:1px solid #e4e8f0;border-radius:4px;padding:8px 14px;margin-bottom:10px;line-height:1.7;}
+.modal-section-dates span{font-weight:600;color:#002060;}
+
 @media(max-width:768px){
   .card-grid{grid-template-columns:1fr;}
   .menu-card{padding:22px 20px;}
@@ -63,6 +79,10 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
   tr.program{background:#fff;border:1px solid #dde1ea;border-radius:6px;margin-bottom:10px;padding:0;}
   tr.program.alt td{background:#f8fafc;}
   tr.program.hidden{display:none!important;}
+  tr.prog-header-row{display:block;border-radius:6px;margin-bottom:4px;}
+  tr.prog-header-row td{display:block;}
+  tr.pvt-btn-row{display:block;margin-bottom:10px;}
+  tr.pvt-btn-row td{display:block;padding:10px 14px;}
   td{border:none;border-bottom:1px solid #eef0f5;padding:9px 14px 9px 46%;position:relative;min-height:34px;font-size:11.5px;}
   td:last-child{border-bottom:none;}
   td::before{content:attr(data-label);position:absolute;left:14px;top:9px;width:38%;font-weight:700;color:#002060;font-size:10px;text-transform:uppercase;line-height:1.4;}
@@ -71,6 +91,7 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
   .filter-bar select{max-width:100%;}
   .modal-box{padding:22px;}
   .specific-dep-btn{font-size:10px;padding:5px 9px;}
+  .private-rates-btn{font-size:11px;padding:10px 16px;}
 }
 </style>
 </head>
@@ -107,13 +128,6 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
   </div>
 </div>
 
-<div style="margin:20px 0;">
-  <a href="https://marketinggeo.github.io/geo-experiences-filter/DEU-open-confirmed-departures-2027.html" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#002060;color:#fff;padding:11px 20px;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600;text-decoration:none;border-radius:4px;letter-spacing:0.3px;">
-    Offene Abfahrten &amp; aktuelle Aktionen &#8594;
-  </a>
-  <span style="display:block;margin-top:6px;font-size:11px;color:#777;font-family:'Montserrat',sans-serif;">Aktuelle Verfügbarkeit, bestätigte Abfahrten und laufende Aktionen einsehen.</span>
-</div>
-
 <!-- ======================== GALÁPAGOS ======================== -->
 <div id="galapagos" class="rate-section">
   <div class="back-btn" onclick="goBack()">Zurück</div>
@@ -128,7 +142,6 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
       <option value="solo">Galápagos Solo – Santa Cruz 4T/3N</option>
     </select>
   </div>
-
   <div style="margin:20px 0;">
     <a href="https://marketinggeo.github.io/geo-experiences-filter/DEU-open-confirmed-departures-2027.html" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#002060;color:#fff;padding:11px 20px;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600;text-decoration:none;border-radius:4px;letter-spacing:0.3px;">
       Offene Abfahrten &amp; aktuelle Aktionen &#8594;
@@ -145,19 +158,30 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
     </tr></thead>
     <tbody>
 
-    <!-- ===== LOOP 6T — DE ZUERST ===== -->
+    <!-- ===== LOOP 6T ===== -->
+    <tr class="program prog-header-row first-header" data-category="loop6">
+      <td colspan="10">Galápagos Loop 6T/5N &nbsp;·&nbsp; SG-04-A &nbsp;·&nbsp; Santa Cruz · Floreana · Isabela</td>
+    </tr>
+    <tr class="program pvt-btn-row" data-category="loop6">
+      <td colspan="10">
+        <button class="private-rates-btn" onclick="openModal('pvt-loop6')">
+          Preise für Privatreisen – Galápagos Loop 6T/5N
+          <span class="btn-arrow">&#8594;</span>
+        </button>
+      </td>
+    </tr>
     <tr class="program alt" data-category="loop6">
       <td data-label="Code" rowspan="2">SG-04-A</td>
       <td data-label="Programm" rowspan="2">Galápagos Loop 6T/5N</td>
       <td data-label="Inseln" rowspan="2">Santa Cruz<br>Floreana<br>Isabela</td>
       <td data-label="Kategorie" rowspan="2">Tourist</td>
       <td data-label="Unterkunft" rowspan="2">DEJA VU<br>AGUA MARINA<br>CALLY</td>
-      <td data-label="Sprache" class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="Deutsch" title="Deutschsprachiger Reiseleiter" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td data-label="Abfahrten"><button class="specific-dep-btn" onclick="openModal('loop6-tourist')">Feste Abfahrten 2027</button></td>
+      <td data-label="Sprache" class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="Deutsch" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Abfahrten"><button class="specific-dep-btn" onclick="openModal('loop6-tourist')">Garantierte Abfahrten 2027</button></td>
       <td data-label="EZ">2.641</td><td data-label="DZ">2.570</td><td data-label="DRZ">2.549</td>
     </tr>
     <tr class="program alt" data-category="loop6">
-      <td data-label="Sprache" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" title="Englischsprachiger Reiseleiter" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Sprache" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
       <td data-label="Abfahrten"><span class="guide-note" style="font-style:normal;color:#333;">Jeden Sonntag</span><span class="guide-note">Englischsprachiger Reiseleiter</span></td>
       <td data-label="EZ">2.491</td><td data-label="DZ">2.420</td><td data-label="DRZ">2.399</td>
     </tr>
@@ -167,12 +191,12 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
       <td data-label="Inseln" rowspan="2">Santa Cruz<br>Floreana<br>Isabela</td>
       <td data-label="Kategorie" rowspan="2">Tourist Superior</td>
       <td data-label="Unterkunft" rowspan="2">VILLA LAGUNA<br>AGUA MARINA (Santa María)<br>VOLCANO</td>
-      <td data-label="Sprache" class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="Deutsch" title="Deutschsprachiger Reiseleiter" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td data-label="Abfahrten"><button class="specific-dep-btn" onclick="openModal('loop6-touristsup')">Feste Abfahrten 2027</button></td>
+      <td data-label="Sprache" class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="Deutsch" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Abfahrten"><button class="specific-dep-btn" onclick="openModal('loop6-touristsup')">Garantierte Abfahrten 2027</button></td>
       <td data-label="EZ">2.907</td><td data-label="DZ">2.627</td><td data-label="DRZ">2.590</td>
     </tr>
     <tr class="program" data-category="loop6">
-      <td data-label="Sprache" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" title="Englischsprachiger Reiseleiter" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Sprache" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
       <td data-label="Abfahrten"><span class="guide-note" style="font-style:normal;color:#333;">Jeden Sonntag</span><span class="guide-note">Englischsprachiger Reiseleiter</span></td>
       <td data-label="EZ">2.757</td><td data-label="DZ">2.477</td><td data-label="DRZ">2.440</td>
     </tr>
@@ -182,29 +206,40 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
       <td data-label="Inseln" rowspan="2">Santa Cruz<br>Floreana<br>Isabela</td>
       <td data-label="Kategorie" rowspan="2">First Class</td>
       <td data-label="Unterkunft" rowspan="2">IKALA SUITE<br>AGUA MARINA<br>CASA MARITA OCEAN FRONT</td>
-      <td data-label="Sprache" class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="Deutsch" title="Deutschsprachiger Reiseleiter" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td data-label="Abfahrten"><button class="specific-dep-btn" onclick="openModal('loop6-firstclass')">Feste Abfahrten 2027</button></td>
+      <td data-label="Sprache" class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="Deutsch" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Abfahrten"><button class="specific-dep-btn" onclick="openModal('loop6-firstclass')">Garantierte Abfahrten 2027</button></td>
       <td data-label="EZ">3.499</td><td data-label="DZ">2.953</td><td data-label="DRZ">2.846</td>
     </tr>
     <tr class="program alt" data-category="loop6">
-      <td data-label="Sprache" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" title="Englischsprachiger Reiseleiter" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Sprache" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
       <td data-label="Abfahrten"><span class="guide-note" style="font-style:normal;color:#333;">Jeden Sonntag</span><span class="guide-note">Englischsprachiger Reiseleiter</span></td>
       <td data-label="EZ">3.349</td><td data-label="DZ">2.803</td><td data-label="DRZ">2.696</td>
     </tr>
 
-    <!-- ===== LOOP 7T — DE ZUERST ===== -->
+    <!-- ===== LOOP 7T ===== -->
+    <tr class="program prog-header-row" data-category="loop7">
+      <td colspan="10">Galápagos Loop 7T/6N – Ein immersives Erlebnis &nbsp;·&nbsp; SG-04-B &nbsp;·&nbsp; Santa Cruz · Floreana · Isabela</td>
+    </tr>
+    <tr class="program pvt-btn-row" data-category="loop7">
+      <td colspan="10">
+        <button class="private-rates-btn" onclick="openModal('pvt-loop7')">
+          Preise für Privatreisen – Galápagos Loop 7T/6N Immersiv
+          <span class="btn-arrow">&#8594;</span>
+        </button>
+      </td>
+    </tr>
     <tr class="program" data-category="loop7">
       <td data-label="Code" rowspan="2">SG-04-B</td>
       <td data-label="Programm" rowspan="2">Galápagos Loop 7T/6N – Ein immersives Erlebnis</td>
       <td data-label="Inseln" rowspan="2">Santa Cruz<br>Floreana<br>Isabela</td>
       <td data-label="Kategorie" rowspan="2">Tourist</td>
       <td data-label="Unterkunft" rowspan="2">DEJA VU<br>AGUA MARINA<br>CALLY</td>
-      <td data-label="Sprache" class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="Deutsch" title="Deutschsprachiger Reiseleiter" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td data-label="Abfahrten"><button class="specific-dep-btn" onclick="openModal('loop7-tourist')">Feste Abfahrten 2027</button></td>
+      <td data-label="Sprache" class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="Deutsch" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Abfahrten"><button class="specific-dep-btn" onclick="openModal('loop7-tourist')">Garantierte Abfahrten 2027</button></td>
       <td data-label="EZ">3.050</td><td data-label="DZ">2.967</td><td data-label="DRZ">2.937</td>
     </tr>
     <tr class="program" data-category="loop7">
-      <td data-label="Sprache" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" title="Englischsprachiger Reiseleiter" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Sprache" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
       <td data-label="Abfahrten"><span class="guide-note" style="font-style:normal;color:#333;">Jeden Samstag</span><span class="guide-note">Englischsprachiger Reiseleiter</span></td>
       <td data-label="EZ">2.877</td><td data-label="DZ">2.794</td><td data-label="DRZ">2.764</td>
     </tr>
@@ -214,12 +249,12 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
       <td data-label="Inseln" rowspan="2">Santa Cruz<br>Floreana<br>Isabela</td>
       <td data-label="Kategorie" rowspan="2">Tourist Superior</td>
       <td data-label="Unterkunft" rowspan="2">VILLA LAGUNA<br>AGUA MARINA (Santa María)<br>VOLCANO</td>
-      <td data-label="Sprache" class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="Deutsch" title="Deutschsprachiger Reiseleiter" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td data-label="Abfahrten"><button class="specific-dep-btn" onclick="openModal('loop7-touristsup')">Feste Abfahrten 2027</button></td>
+      <td data-label="Sprache" class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="Deutsch" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Abfahrten"><button class="specific-dep-btn" onclick="openModal('loop7-touristsup')">Garantierte Abfahrten 2027</button></td>
       <td data-label="EZ">3.316</td><td data-label="DZ">3.024</td><td data-label="DRZ">2.978</td>
     </tr>
     <tr class="program alt" data-category="loop7">
-      <td data-label="Sprache" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" title="Englischsprachiger Reiseleiter" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Sprache" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
       <td data-label="Abfahrten"><span class="guide-note" style="font-style:normal;color:#333;">Jeden Samstag</span><span class="guide-note">Englischsprachiger Reiseleiter</span></td>
       <td data-label="EZ">3.143</td><td data-label="DZ">2.851</td><td data-label="DRZ">2.805</td>
     </tr>
@@ -229,66 +264,74 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
       <td data-label="Inseln" rowspan="2">Santa Cruz<br>Floreana<br>Isabela</td>
       <td data-label="Kategorie" rowspan="2">First Class</td>
       <td data-label="Unterkunft" rowspan="2">IKALA SUITE<br>AGUA MARINA<br>CASA MARITA OCEAN FRONT</td>
-      <td data-label="Sprache" class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="Deutsch" title="Deutschsprachiger Reiseleiter" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td data-label="Abfahrten"><button class="specific-dep-btn" onclick="openModal('loop7-firstclass')">Feste Abfahrten 2027</button></td>
+      <td data-label="Sprache" class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="Deutsch" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Abfahrten"><button class="specific-dep-btn" onclick="openModal('loop7-firstclass')">Garantierte Abfahrten 2027</button></td>
       <td data-label="EZ">3.908</td><td data-label="DZ">3.350</td><td data-label="DRZ">3.234</td>
     </tr>
     <tr class="program" data-category="loop7">
-      <td data-label="Sprache" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" title="Englischsprachiger Reiseleiter" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Sprache" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
       <td data-label="Abfahrten"><span class="guide-note" style="font-style:normal;color:#333;">Jeden Samstag</span><span class="guide-note">Englischsprachiger Reiseleiter</span></td>
       <td data-label="EZ">3.735</td><td data-label="DZ">3.177</td><td data-label="DRZ">3.061</td>
     </tr>
 
-    <!-- ===== VERLÄNGERUNG — nur EN ===== -->
+    <!-- ===== VERLÄNGERUNG ===== -->
+    <tr class="program prog-header-row" data-category="extension">
+      <td colspan="10">Verlängerung Post Galápagos Loop 3T/2N &nbsp;·&nbsp; SG-04 (Verl.) &nbsp;·&nbsp; Nur englischsprachiger Reiseleiter</td>
+    </tr>
     <tr class="program" data-category="extension" style="background:#fdf8ee;">
       <td colspan="10" style="padding:10px 14px;font-size:11px;color:#7a5800;font-style:italic;border-bottom:1px solid #e0cfa0;">
         &#9432;&nbsp; Verlängerung nur mit englischsprachigem Reiseleiter verfügbar.
       </td>
     </tr>
     <tr class="program alt" data-category="extension">
-      <td data-label="Code">SG-04 (Verl.)</td>
-      <td data-label="Programm">Verlängerung Post Galápagos Loop 3T/2N</td>
-      <td data-label="Inseln">Santa Cruz</td>
-      <td data-label="Kategorie">Tourist</td>
+      <td data-label="Code">SG-04 (Verl.)</td><td data-label="Programm">Verlängerung Post Galápagos Loop 3T/2N</td>
+      <td data-label="Inseln">Santa Cruz</td><td data-label="Kategorie">Tourist</td>
       <td data-label="Unterkunft">DEJA VU</td>
-      <td data-label="Sprache" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" title="Englischsprachiger Reiseleiter" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Sprache" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
       <td data-label="Abfahrten"><span class="guide-note" style="font-style:normal;color:#333;">Jeden Freitag nach dem Loop</span><span class="guide-note">Englischsprachiger Reiseleiter</span></td>
       <td data-label="EZ">877</td><td data-label="DZ">852</td><td data-label="DRZ">844</td>
     </tr>
     <tr class="program" data-category="extension">
-      <td data-label="Code">SG-04 (Verl.)</td>
-      <td data-label="Programm">Verlängerung Post Galápagos Loop 3T/2N</td>
-      <td data-label="Inseln">Santa Cruz</td>
-      <td data-label="Kategorie">Tourist Superior</td>
+      <td data-label="Code">SG-04 (Verl.)</td><td data-label="Programm">Verlängerung Post Galápagos Loop 3T/2N</td>
+      <td data-label="Inseln">Santa Cruz</td><td data-label="Kategorie">Tourist Superior</td>
       <td data-label="Unterkunft">VILLA LAGUNA</td>
-      <td data-label="Sprache" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" title="Englischsprachiger Reiseleiter" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Sprache" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
       <td data-label="Abfahrten"><span class="guide-note" style="font-style:normal;color:#333;">Jeden Freitag nach dem Loop</span><span class="guide-note">Englischsprachiger Reiseleiter</span></td>
       <td data-label="EZ">985</td><td data-label="DZ">869</td><td data-label="DRZ">849</td>
     </tr>
     <tr class="program alt" data-category="extension">
-      <td data-label="Code">SG-04 (Verl.)</td>
-      <td data-label="Programm">Verlängerung Post Galápagos Loop 3T/2N</td>
-      <td data-label="Inseln">Santa Cruz</td>
-      <td data-label="Kategorie">First Class</td>
+      <td data-label="Code">SG-04 (Verl.)</td><td data-label="Programm">Verlängerung Post Galápagos Loop 3T/2N</td>
+      <td data-label="Inseln">Santa Cruz</td><td data-label="Kategorie">First Class</td>
       <td data-label="Unterkunft">IKALA SUITE</td>
-      <td data-label="Sprache" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" title="Englischsprachiger Reiseleiter" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Sprache" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
       <td data-label="Abfahrten"><span class="guide-note" style="font-style:normal;color:#333;">Jeden Freitag nach dem Loop</span><span class="guide-note">Englischsprachiger Reiseleiter</span></td>
       <td data-label="EZ">1.341</td><td data-label="DZ">1.077</td><td data-label="DRZ">753</td>
     </tr>
 
-    <!-- ===== DARWIN — DE ZUERST ===== -->
+    <!-- ===== DARWIN ===== -->
+    <tr class="program prog-header-row" data-category="darwin">
+      <td colspan="10">Charles Darwin Path 8T/7N &nbsp;·&nbsp; SG-05 &nbsp;·&nbsp; Cristóbal · Santa Cruz · Floreana · Isabela</td>
+    </tr>
+    <tr class="program pvt-btn-row" data-category="darwin">
+      <td colspan="10">
+        <button class="private-rates-btn" onclick="openModal('pvt-darwin')">
+          Preise für Privatreisen – Charles Darwin Path 8T/7N
+          <span class="btn-arrow">&#8594;</span>
+        </button>
+      </td>
+    </tr>
     <tr class="program" data-category="darwin">
       <td data-label="Code" rowspan="2">SG-05</td>
       <td data-label="Programm" rowspan="2">Charles Darwin Path 8T/7N</td>
       <td data-label="Inseln" rowspan="2">Cristóbal<br>Santa Cruz<br>Floreana<br>Isabela</td>
       <td data-label="Kategorie" rowspan="2">Tourist</td>
       <td data-label="Unterkunft" rowspan="2">PIMAMPIRO<br>DEJA VU<br>AGUA MARINA<br>CALLY</td>
-      <td data-label="Sprache" class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="Deutsch" title="Deutschsprachiger Reiseleiter" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td data-label="Abfahrten"><button class="specific-dep-btn" onclick="openModal('darwin-tourist')">Feste Abfahrten 2027</button></td>
+      <td data-label="Sprache" class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="Deutsch" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Abfahrten"><button class="specific-dep-btn" onclick="openModal('darwin-tourist')">Garantierte Abfahrten 2027</button></td>
       <td data-label="EZ">3.296</td><td data-label="DZ">3.203</td><td data-label="DRZ">3.172</td>
     </tr>
     <tr class="program" data-category="darwin">
-      <td data-label="Sprache" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" title="Englischsprachiger Reiseleiter" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Sprache" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
       <td data-label="Abfahrten"><span class="guide-note" style="font-style:normal;color:#333;">Jeden Freitag</span><span class="guide-note">Englischsprachiger Reiseleiter</span></td>
       <td data-label="EZ">3.146</td><td data-label="DZ">3.053</td><td data-label="DRZ">3.022</td>
     </tr>
@@ -298,12 +341,12 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
       <td data-label="Inseln" rowspan="2">Cristóbal<br>Santa Cruz<br>Floreana<br>Isabela</td>
       <td data-label="Kategorie" rowspan="2">Tourist Superior</td>
       <td data-label="Unterkunft" rowspan="2">KATARMA<br>VILLA LAGUNA<br>AGUA MARINA (Santa María)<br>VOLCANO</td>
-      <td data-label="Sprache" class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="Deutsch" title="Deutschsprachiger Reiseleiter" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td data-label="Abfahrten"><button class="specific-dep-btn" onclick="openModal('darwin-touristsup')">Feste Abfahrten 2027</button></td>
+      <td data-label="Sprache" class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="Deutsch" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Abfahrten"><button class="specific-dep-btn" onclick="openModal('darwin-touristsup')">Garantierte Abfahrten 2027</button></td>
       <td data-label="EZ">3.668</td><td data-label="DZ">3.330</td><td data-label="DRZ">3.267</td>
     </tr>
     <tr class="program alt" data-category="darwin">
-      <td data-label="Sprache" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" title="Englischsprachiger Reiseleiter" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Sprache" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
       <td data-label="Abfahrten"><span class="guide-note" style="font-style:normal;color:#333;">Jeden Freitag</span><span class="guide-note">Englischsprachiger Reiseleiter</span></td>
       <td data-label="EZ">3.518</td><td data-label="DZ">3.180</td><td data-label="DRZ">3.117</td>
     </tr>
@@ -313,49 +356,46 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
       <td data-label="Inseln" rowspan="2">Cristóbal<br>Santa Cruz<br>Floreana<br>Isabela</td>
       <td data-label="Kategorie" rowspan="2">First Class</td>
       <td data-label="Unterkunft" rowspan="2">CASA OPUNTIA (Suite)<br>IKALA SUITE<br>AGUA MARINA<br>CASA MARITA OCEAN FRONT</td>
-      <td data-label="Sprache" class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="Deutsch" title="Deutschsprachiger Reiseleiter" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
-      <td data-label="Abfahrten"><button class="specific-dep-btn" onclick="openModal('darwin-firstclass')">Feste Abfahrten 2027</button></td>
+      <td data-label="Sprache" class="lang-cell"><img src="https://flagcdn.com/h20/de.png" alt="Deutsch" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Abfahrten"><button class="specific-dep-btn" onclick="openModal('darwin-firstclass')">Garantierte Abfahrten 2027</button></td>
       <td data-label="EZ">4.484</td><td data-label="DZ">3.752</td><td data-label="DRZ">3.589</td>
     </tr>
     <tr class="program" data-category="darwin">
-      <td data-label="Sprache" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" title="Englischsprachiger Reiseleiter" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Sprache" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
       <td data-label="Abfahrten"><span class="guide-note" style="font-style:normal;color:#333;">Jeden Freitag</span><span class="guide-note">Englischsprachiger Reiseleiter</span></td>
       <td data-label="EZ">4.334</td><td data-label="DZ">3.602</td><td data-label="DRZ">3.439</td>
     </tr>
 
-    <!-- ===== GALÁPAGOS SOLO — nur EN ===== -->
+    <!-- ===== SOLO ===== -->
+    <tr class="program prog-header-row" data-category="solo">
+      <td colspan="10">Galápagos Solo – Santa Cruz 4T/3N &nbsp;·&nbsp; SG-SOLO-A &nbsp;·&nbsp; Alleinreisenden-Programm</td>
+    </tr>
     <tr class="program" data-category="solo" style="background:#f4fafa;">
       <td colspan="10" style="padding:10px 14px;font-size:11px;color:#00564f;font-style:italic;border-bottom:1px solid #b2dfdb;">
         &#9432;&nbsp; Alleinreisenden-Programm. Preise pro Person auf DZ-Basis (gleichgeschlechtliche Zimmervermittlung). Nur englischsprachiger Reiseleiter. EZ-Zuschlag gilt, wenn kein gleichgeschlechtlicher Mitreisender verfügbar ist.
       </td>
     </tr>
     <tr class="program alt" data-category="solo">
-      <td data-label="Code">SG-SOLO-A</td>
-      <td data-label="Programm">Galápagos Solo – Santa Cruz 4T/3N</td>
-      <td data-label="Inseln">Santa Cruz</td>
-      <td data-label="Kategorie">Tourist</td>
+      <td data-label="Code">SG-SOLO-A</td><td data-label="Programm">Galápagos Solo – Santa Cruz 4T/3N</td>
+      <td data-label="Inseln">Santa Cruz</td><td data-label="Kategorie">Tourist</td>
       <td data-label="Unterkunft">LEON MARINO</td>
-      <td data-label="Sprache" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" title="Englischsprachiger Reiseleiter" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Sprache" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
       <td data-label="Abfahrten"><span class="guide-note" style="font-style:normal;color:#333;">10 Jan · 21 Feb · 14 Mär · 11 Apr<br>09 Mai · 13 Jun · 11 Jul · 08 Aug<br>12 Sep · 17 Okt · 14 Nov · 12 Dez</span><span class="guide-note">Englischsprachiger Reiseleiter</span></td>
       <td data-label="EZ">1.099<span class="guide-note">EZ-Zuschlag: 72</span></td><td data-label="DZ">1.027</td><td data-label="DRZ">–</td>
     </tr>
     <tr class="program" data-category="solo">
-      <td data-label="Code">SG-SOLO-A</td>
-      <td data-label="Programm">Galápagos Solo – Santa Cruz 4T/3N</td>
-      <td data-label="Inseln">Santa Cruz</td>
-      <td data-label="Kategorie">Tourist Superior</td>
+      <td data-label="Code">SG-SOLO-A</td><td data-label="Programm">Galápagos Solo – Santa Cruz 4T/3N</td>
+      <td data-label="Inseln">Santa Cruz</td><td data-label="Kategorie">Tourist Superior</td>
       <td data-label="Unterkunft">MAINAO</td>
-      <td data-label="Sprache" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" title="Englischsprachiger Reiseleiter" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Sprache" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
       <td data-label="Abfahrten"><span class="guide-note" style="font-style:normal;color:#333;">10 Jan · 21 Feb · 14 Mär · 11 Apr<br>09 Mai · 13 Jun · 11 Jul · 08 Aug<br>12 Sep · 17 Okt · 14 Nov · 12 Dez</span><span class="guide-note">Englischsprachiger Reiseleiter</span></td>
       <td data-label="EZ">1.231<span class="guide-note">EZ-Zuschlag: 135</span></td><td data-label="DZ">1.096</td><td data-label="DRZ">–</td>
     </tr>
     <tr class="program alt" data-category="solo">
-      <td data-label="Code">SG-SOLO-A</td>
-      <td data-label="Programm">Galápagos Solo – Santa Cruz 4T/3N</td>
-      <td data-label="Inseln">Santa Cruz</td>
-      <td data-label="Kategorie">First Class</td>
+      <td data-label="Code">SG-SOLO-A</td><td data-label="Programm">Galápagos Solo – Santa Cruz 4T/3N</td>
+      <td data-label="Inseln">Santa Cruz</td><td data-label="Kategorie">First Class</td>
       <td data-label="Unterkunft">IKALA STD</td>
-      <td data-label="Sprache" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" title="Englischsprachiger Reiseleiter" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Sprache" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
       <td data-label="Abfahrten"><span class="guide-note" style="font-style:normal;color:#333;">10 Jan · 21 Feb · 14 Mär · 11 Apr<br>09 Mai · 13 Jun · 11 Jul · 08 Aug<br>12 Sep · 17 Okt · 14 Nov · 12 Dez</span><span class="guide-note">Englischsprachiger Reiseleiter</span></td>
       <td data-label="EZ">1.582<span class="guide-note">EZ-Zuschlag: 318</span></td><td data-label="DZ">1.264</td><td data-label="DRZ">–</td>
     </tr>
@@ -374,18 +414,17 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
     <tbody>
     <tr class="alt">
       <td data-label="Zuschlag">Extra Privattransfer in Santa Cruz<br><span style="font-size:10.5px;color:#888;">Mindestens 2 Personen</span></td>
-      <td data-label="Sprache" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" title="Englischsprachiger Reiseleiter" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Sprache" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
       <td data-label="Nettopreis">71 (1–2 Pax) / 49 (3–4 Pax)</td>
     </tr>
     <tr>
       <td data-label="Zuschlag">Aufpreis für gemeinsame Tunnels anstelle von Tintoreras (optional)</td>
-      <td data-label="Sprache" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" title="Englischsprachiger Reiseleiter" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
+      <td data-label="Sprache" class="lang-cell"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" style="height:20px;border-radius:2px;vertical-align:middle;"></td>
       <td data-label="Nettopreis">120</td>
     </tr>
     </tbody>
   </table>
   </div>
-
   <div style="margin:28px 0 10px;">
     <a href="https://marketinggeo.github.io/geo-experiences-filter/DEU-open-confirmed-departures-2027.html" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#002060;color:#fff;padding:11px 20px;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600;text-decoration:none;border-radius:4px;letter-spacing:0.3px;">
       Offene Abfahrten &amp; aktuelle Aktionen &#8594;
@@ -410,7 +449,6 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
       <option value="andean7">✦ Andean Treasures 7T/6N</option>
     </select>
   </div>
-
   <div style="margin:20px 0;">
     <a href="https://marketinggeo.github.io/geo-experiences-filter/DEU-open-confirmed-departures-2027.html" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#002060;color:#fff;padding:11px 20px;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600;text-decoration:none;border-radius:4px;letter-spacing:0.3px;">
       Offene Abfahrten &amp; aktuelle Aktionen &#8594;
@@ -427,181 +465,51 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
     </tr></thead>
     <tbody>
 
-    <!-- TAGESAUSFLÜGE -->
-    <tr class="program alt" data-category="daily">
-      <td data-label="Code">GR-SM-01</td><td data-label="Programm">Stadtrundfahrt durch Quito (halbtags)</td>
-      <td data-label="Eintritte">Nein</td><td data-label="Kategorie">–</td>
-      <td data-label="Stadt">Quito</td><td data-label="Hotels">–</td>
-      <td data-label="Sprache" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Spanisch" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
-      <td data-label="Abfahrten">Jeden Dienstag &amp; Freitag</td>
-      <td data-label="Nettopreis">24</td><td data-label="EZ-Zuschlag">–</td>
-    </tr>
-    <tr class="program" data-category="daily">
-      <td data-label="Code">GR-SM-02</td><td data-label="Programm">Quito Stadtrundfahrt &amp; Mitte der Welt</td>
-      <td data-label="Eintritte">Nein</td><td data-label="Kategorie">–</td>
-      <td data-label="Stadt">Quito</td><td data-label="Hotels">–</td>
-      <td data-label="Sprache" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Spanisch" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
-      <td data-label="Abfahrten">Jeden Dienstag &amp; Freitag</td>
-      <td data-label="Nettopreis">60</td><td data-label="EZ-Zuschlag">–</td>
-    </tr>
-    <tr class="program alt" data-category="daily">
-      <td data-label="Code">GR-SM-03</td><td data-label="Programm">Otavalo Indigener Markt</td>
-      <td data-label="Eintritte">Nein</td><td data-label="Kategorie">–</td>
-      <td data-label="Stadt">Otavalo</td><td data-label="Hotels">–</td>
-      <td data-label="Sprache" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Spanisch" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
-      <td data-label="Abfahrten">Jeden Mittwoch &amp; Samstag</td>
-      <td data-label="Nettopreis">75</td><td data-label="EZ-Zuschlag">–</td>
-    </tr>
-    <tr class="program" data-category="daily">
-      <td data-label="Code">GR-SM-04</td><td data-label="Programm">Cotopaxi-Nationalpark</td>
-      <td data-label="Eintritte">Nein</td><td data-label="Kategorie">–</td>
-      <td data-label="Stadt">Cotopaxi</td><td data-label="Hotels">–</td>
-      <td data-label="Sprache" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Spanisch" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
-      <td data-label="Abfahrten">Jeden Donnerstag &amp; Sonntag</td>
-      <td data-label="Nettopreis">75</td><td data-label="EZ-Zuschlag">–</td>
-    </tr>
+    <tr class="program prog-header-row first-header" data-category="daily"><td colspan="10">Zubucher-Tagesausflüge ab Quito</td></tr>
+    <tr class="program alt" data-category="daily"><td data-label="Code">GR-SM-01</td><td data-label="Programm">Stadtrundfahrt durch Quito (halbtags)</td><td data-label="Eintritte">Nein</td><td data-label="Kategorie">–</td><td data-label="Stadt">Quito</td><td data-label="Hotels">–</td><td data-label="Sprache" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Spanisch" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td><td data-label="Abfahrten">Jeden Dienstag &amp; Freitag</td><td data-label="Nettopreis">24</td><td data-label="EZ-Zuschlag">–</td></tr>
+    <tr class="program" data-category="daily"><td data-label="Code">GR-SM-02</td><td data-label="Programm">Quito Stadtrundfahrt &amp; Mitte der Welt</td><td data-label="Eintritte">Nein</td><td data-label="Kategorie">–</td><td data-label="Stadt">Quito</td><td data-label="Hotels">–</td><td data-label="Sprache" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Spanisch" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td><td data-label="Abfahrten">Jeden Dienstag &amp; Freitag</td><td data-label="Nettopreis">60</td><td data-label="EZ-Zuschlag">–</td></tr>
+    <tr class="program alt" data-category="daily"><td data-label="Code">GR-SM-03</td><td data-label="Programm">Otavalo Indigener Markt</td><td data-label="Eintritte">Nein</td><td data-label="Kategorie">–</td><td data-label="Stadt">Otavalo</td><td data-label="Hotels">–</td><td data-label="Sprache" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Spanisch" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td><td data-label="Abfahrten">Jeden Mittwoch &amp; Samstag</td><td data-label="Nettopreis">75</td><td data-label="EZ-Zuschlag">–</td></tr>
+    <tr class="program" data-category="daily"><td data-label="Code">GR-SM-04</td><td data-label="Programm">Cotopaxi-Nationalpark</td><td data-label="Eintritte">Nein</td><td data-label="Kategorie">–</td><td data-label="Stadt">Cotopaxi</td><td data-label="Hotels">–</td><td data-label="Sprache" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Spanisch" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td><td data-label="Abfahrten">Jeden Donnerstag &amp; Sonntag</td><td data-label="Nettopreis">75</td><td data-label="EZ-Zuschlag">–</td></tr>
 
-    <!-- STRASSE DER VULKANE 2T -->
-    <tr class="program alt" data-category="volcano2d">
-      <td data-label="Code">GR-SM-05</td><td data-label="Programm">Strasse der Vulkane 2T/1N</td>
-      <td data-label="Eintritte">Nein</td><td data-label="Kategorie">Tourist</td>
-      <td data-label="Stadt / Route">Quito – Cotopaxi – Baños – Riobamba – Quito</td>
-      <td data-label="Hotels">La Floresta</td>
-      <td data-label="Sprache" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Spanisch" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
-      <td data-label="Abfahrten">Jeden Donnerstag</td>
-      <td data-label="Nettopreis">251</td><td data-label="EZ-Zuschlag">18</td>
-    </tr>
-    <tr class="program" data-category="volcano2d">
-      <td data-label="Code">GR-SM-05</td><td data-label="Programm">Strasse der Vulkane 2T/1N</td>
-      <td data-label="Eintritte">Nein</td><td data-label="Kategorie">Tourist Superior</td>
-      <td data-label="Stadt / Route">Quito – Cotopaxi – Baños – Riobamba – Quito</td>
-      <td data-label="Hotels">Hotel Sangay (Std Room)</td>
-      <td data-label="Sprache" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Spanisch" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
-      <td data-label="Abfahrten">Jeden Donnerstag</td>
-      <td data-label="Nettopreis">298</td><td data-label="EZ-Zuschlag">40</td>
-    </tr>
-    <tr class="program alt" data-category="volcano2d">
-      <td data-label="Code">GR-SM-05</td><td data-label="Programm">Strasse der Vulkane 2T/1N</td>
-      <td data-label="Eintritte">Nein</td><td data-label="Kategorie">First Class</td>
-      <td data-label="Stadt / Route">Quito – Cotopaxi – Baños – Riobamba – Quito</td>
-      <td data-label="Hotels">Samari Spa</td>
-      <td data-label="Sprache" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Spanisch" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
-      <td data-label="Abfahrten">Jeden Donnerstag</td>
-      <td data-label="Nettopreis">335</td><td data-label="EZ-Zuschlag">122</td>
-    </tr>
+    <tr class="program prog-header-row" data-category="volcano2d"><td colspan="10">Strasse der Vulkane 2T/1N &nbsp;·&nbsp; GR-SM-05 &nbsp;·&nbsp; Englisch &amp; Spanisch</td></tr>
+    <tr class="program alt" data-category="volcano2d"><td data-label="Code">GR-SM-05</td><td data-label="Programm">Strasse der Vulkane 2T/1N</td><td data-label="Eintritte">Nein</td><td data-label="Kategorie">Tourist</td><td data-label="Stadt / Route">Quito – Cotopaxi – Baños – Riobamba – Quito</td><td data-label="Hotels">La Floresta</td><td data-label="Sprache" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Spanisch" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td><td data-label="Abfahrten">Jeden Donnerstag</td><td data-label="Nettopreis">251</td><td data-label="EZ-Zuschlag">18</td></tr>
+    <tr class="program" data-category="volcano2d"><td data-label="Code">GR-SM-05</td><td data-label="Programm">Strasse der Vulkane 2T/1N</td><td data-label="Eintritte">Nein</td><td data-label="Kategorie">Tourist Superior</td><td data-label="Stadt / Route">Quito – Cotopaxi – Baños – Riobamba – Quito</td><td data-label="Hotels">Hotel Sangay (Std Room)</td><td data-label="Sprache" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Spanisch" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td><td data-label="Abfahrten">Jeden Donnerstag</td><td data-label="Nettopreis">298</td><td data-label="EZ-Zuschlag">40</td></tr>
+    <tr class="program alt" data-category="volcano2d"><td data-label="Code">GR-SM-05</td><td data-label="Programm">Strasse der Vulkane 2T/1N</td><td data-label="Eintritte">Nein</td><td data-label="Kategorie">First Class</td><td data-label="Stadt / Route">Quito – Cotopaxi – Baños – Riobamba – Quito</td><td data-label="Hotels">Samari Spa</td><td data-label="Sprache" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Spanisch" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td><td data-label="Abfahrten">Jeden Donnerstag</td><td data-label="Nettopreis">335</td><td data-label="EZ-Zuschlag">122</td></tr>
 
-    <!-- STRASSE DER VULKANE 3T -->
-    <tr class="program alt" data-category="volcano3d">
-      <td data-label="Code">GR-SM-06</td><td data-label="Programm">Strasse der Vulkane 3T/2N</td>
-      <td data-label="Eintritte">Nein</td><td data-label="Kategorie">Tourist</td>
-      <td data-label="Stadt / Route">Quito – Cotopaxi – Baños – Riobamba – Nariz del Diablo – Cuenca</td>
-      <td data-label="Hotels">La Floresta / Casa Real</td>
-      <td data-label="Sprache" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Spanisch" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
-      <td data-label="Abfahrten">Jeden Donnerstag</td>
-      <td data-label="Nettopreis">470</td><td data-label="EZ-Zuschlag">44</td>
-    </tr>
-    <tr class="program" data-category="volcano3d">
-      <td data-label="Code">GR-SM-06</td><td data-label="Programm">Strasse der Vulkane 3T/2N</td>
-      <td data-label="Eintritte">Nein</td><td data-label="Kategorie">Tourist Superior</td>
-      <td data-label="Stadt / Route">Quito – Cotopaxi – Baños – Riobamba – Nariz del Diablo – Cuenca</td>
-      <td data-label="Hotels">Hotel Sangay / Hacienda Abraspungo</td>
-      <td data-label="Sprache" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Spanisch" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
-      <td data-label="Abfahrten">Jeden Donnerstag</td>
-      <td data-label="Nettopreis">543</td><td data-label="EZ-Zuschlag">66</td>
-    </tr>
-    <tr class="program alt" data-category="volcano3d">
-      <td data-label="Code">GR-SM-06</td><td data-label="Programm">Strasse der Vulkane 3T/2N</td>
-      <td data-label="Eintritte">Nein</td><td data-label="Kategorie">First Class</td>
-      <td data-label="Stadt / Route">Quito – Cotopaxi – Baños – Riobamba – Nariz del Diablo – Cuenca</td>
-      <td data-label="Hotels">Samari Spa / Hacienda Abraspungo</td>
-      <td data-label="Sprache" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Spanisch" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
-      <td data-label="Abfahrten">Jeden Donnerstag</td>
-      <td data-label="Nettopreis">601</td><td data-label="EZ-Zuschlag">265</td>
-    </tr>
+    <tr class="program prog-header-row" data-category="volcano3d"><td colspan="10">Strasse der Vulkane 3T/2N &nbsp;·&nbsp; GR-SM-06 &nbsp;·&nbsp; Englisch &amp; Spanisch</td></tr>
+    <tr class="program alt" data-category="volcano3d"><td data-label="Code">GR-SM-06</td><td data-label="Programm">Strasse der Vulkane 3T/2N</td><td data-label="Eintritte">Nein</td><td data-label="Kategorie">Tourist</td><td data-label="Stadt / Route">Quito – Cotopaxi – Baños – Riobamba – Nariz del Diablo – Cuenca</td><td data-label="Hotels">La Floresta / Casa Real</td><td data-label="Sprache" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Spanisch" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td><td data-label="Abfahrten">Jeden Donnerstag</td><td data-label="Nettopreis">470</td><td data-label="EZ-Zuschlag">44</td></tr>
+    <tr class="program" data-category="volcano3d"><td data-label="Code">GR-SM-06</td><td data-label="Programm">Strasse der Vulkane 3T/2N</td><td data-label="Eintritte">Nein</td><td data-label="Kategorie">Tourist Superior</td><td data-label="Stadt / Route">Quito – Cotopaxi – Baños – Riobamba – Nariz del Diablo – Cuenca</td><td data-label="Hotels">Hotel Sangay / Hacienda Abraspungo</td><td data-label="Sprache" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Spanisch" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td><td data-label="Abfahrten">Jeden Donnerstag</td><td data-label="Nettopreis">543</td><td data-label="EZ-Zuschlag">66</td></tr>
+    <tr class="program alt" data-category="volcano3d"><td data-label="Code">GR-SM-06</td><td data-label="Programm">Strasse der Vulkane 3T/2N</td><td data-label="Eintritte">Nein</td><td data-label="Kategorie">First Class</td><td data-label="Stadt / Route">Quito – Cotopaxi – Baños – Riobamba – Nariz del Diablo – Cuenca</td><td data-label="Hotels">Samari Spa / Hacienda Abraspungo</td><td data-label="Sprache" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Spanisch" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td><td data-label="Abfahrten">Jeden Donnerstag</td><td data-label="Nettopreis">601</td><td data-label="EZ-Zuschlag">265</td></tr>
 
-    <!-- STRASSE DER VULKANE 5T -->
-    <tr class="program alt" data-category="volcano5d">
-      <td data-label="Code">GR-SM-07</td><td data-label="Programm">Strasse der Vulkane 5T/4N</td>
-      <td data-label="Eintritte">Nein</td><td data-label="Kategorie">Tourist</td>
-      <td data-label="Stadt / Route">Quito – Cotopaxi – Baños – Riobamba – Nariz del Diablo – Cuenca – Guayaquil</td>
-      <td data-label="Hotels">La Floresta / Casa Real / Los Balcones</td>
-      <td data-label="Sprache" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Spanisch" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
-      <td data-label="Abfahrten">Jeden Donnerstag</td>
-      <td data-label="Nettopreis">738</td><td data-label="EZ-Zuschlag">82</td>
-    </tr>
-    <tr class="program" data-category="volcano5d">
-      <td data-label="Code">GR-SM-07</td><td data-label="Programm">Strasse der Vulkane 5T/4N</td>
-      <td data-label="Eintritte">Nein</td><td data-label="Kategorie">Tourist Superior</td>
-      <td data-label="Stadt / Route">Quito – Cotopaxi – Baños – Riobamba – Nariz del Diablo – Cuenca – Guayaquil</td>
-      <td data-label="Hotels">Hotel Sangay / Hacienda Abraspungo (STD) / San Juan</td>
-      <td data-label="Sprache" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Spanisch" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
-      <td data-label="Abfahrten">Jeden Donnerstag</td>
-      <td data-label="Nettopreis">885</td><td data-label="EZ-Zuschlag">124</td>
-    </tr>
-    <tr class="program alt" data-category="volcano5d">
-      <td data-label="Code">GR-SM-07</td><td data-label="Programm">Strasse der Vulkane 5T/4N</td>
-      <td data-label="Eintritte">Nein</td><td data-label="Kategorie">First Class</td>
-      <td data-label="Stadt / Route">Quito – Cotopaxi – Baños – Riobamba – Nariz del Diablo – Cuenca – Guayaquil</td>
-      <td data-label="Hotels">Samari Spa / Hacienda Abraspungo (Suite) / Cruz del Vado</td>
-      <td data-label="Sprache" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Spanisch" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
-      <td data-label="Abfahrten">Jeden Donnerstag</td>
-      <td data-label="Nettopreis">1.067</td><td data-label="EZ-Zuschlag">391</td>
-    </tr>
+    <tr class="program prog-header-row" data-category="volcano5d"><td colspan="10">Strasse der Vulkane 5T/4N &nbsp;·&nbsp; GR-SM-07 &nbsp;·&nbsp; Englisch &amp; Spanisch</td></tr>
+    <tr class="program alt" data-category="volcano5d"><td data-label="Code">GR-SM-07</td><td data-label="Programm">Strasse der Vulkane 5T/4N</td><td data-label="Eintritte">Nein</td><td data-label="Kategorie">Tourist</td><td data-label="Stadt / Route">Quito – Cotopaxi – Baños – Riobamba – Nariz del Diablo – Cuenca – Guayaquil</td><td data-label="Hotels">La Floresta / Casa Real / Los Balcones</td><td data-label="Sprache" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Spanisch" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td><td data-label="Abfahrten">Jeden Donnerstag</td><td data-label="Nettopreis">738</td><td data-label="EZ-Zuschlag">82</td></tr>
+    <tr class="program" data-category="volcano5d"><td data-label="Code">GR-SM-07</td><td data-label="Programm">Strasse der Vulkane 5T/4N</td><td data-label="Eintritte">Nein</td><td data-label="Kategorie">Tourist Superior</td><td data-label="Stadt / Route">Quito – Cotopaxi – Baños – Riobamba – Nariz del Diablo – Cuenca – Guayaquil</td><td data-label="Hotels">Hotel Sangay / Hacienda Abraspungo (STD) / San Juan</td><td data-label="Sprache" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Spanisch" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td><td data-label="Abfahrten">Jeden Donnerstag</td><td data-label="Nettopreis">885</td><td data-label="EZ-Zuschlag">124</td></tr>
+    <tr class="program alt" data-category="volcano5d"><td data-label="Code">GR-SM-07</td><td data-label="Programm">Strasse der Vulkane 5T/4N</td><td data-label="Eintritte">Nein</td><td data-label="Kategorie">First Class</td><td data-label="Stadt / Route">Quito – Cotopaxi – Baños – Riobamba – Nariz del Diablo – Cuenca – Guayaquil</td><td data-label="Hotels">Samari Spa / Hacienda Abraspungo (Suite) / Cruz del Vado</td><td data-label="Sprache" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Spanisch" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td><td data-label="Abfahrten">Jeden Donnerstag</td><td data-label="Nettopreis">1.067</td><td data-label="EZ-Zuschlag">391</td></tr>
 
-    <!-- STRASSE DER VULKANE 6T -->
-    <tr class="program alt" data-category="volcano6d">
-      <td data-label="Code">GR-SM-08</td><td data-label="Programm">Strasse der Vulkane 6T/5N</td>
-      <td data-label="Eintritte">Nein</td><td data-label="Kategorie">Tourist</td>
-      <td data-label="Stadt / Route">Quito – Cotopaxi – Baños – Riobamba – Nariz del Diablo – Cuenca – Guayaquil (Transfer out)</td>
-      <td data-label="Hotels">La Floresta / Casa Real / Los Balcones / Grand Hotel Guayaquil</td>
-      <td data-label="Sprache" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Spanisch" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
-      <td data-label="Abfahrten">Jeden Donnerstag</td>
-      <td data-label="Nettopreis">807</td><td data-label="EZ-Zuschlag">114</td>
-    </tr>
-    <tr class="program" data-category="volcano6d">
-      <td data-label="Code">GR-SM-08</td><td data-label="Programm">Strasse der Vulkane 6T/5N</td>
-      <td data-label="Eintritte">Nein</td><td data-label="Kategorie">Tourist Superior</td>
-      <td data-label="Stadt / Route">Quito – Cotopaxi – Baños – Riobamba – Nariz del Diablo – Cuenca – Guayaquil (Transfer out)</td>
-      <td data-label="Hotels">Hotel Sangay / Hacienda Abraspungo (STD) / San Juan / Tryp by Wyndham</td>
-      <td data-label="Sprache" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Spanisch" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
-      <td data-label="Abfahrten">Jeden Donnerstag</td>
-      <td data-label="Nettopreis">968</td><td data-label="EZ-Zuschlag">177</td>
-    </tr>
-    <tr class="program alt" data-category="volcano6d">
-      <td data-label="Code">GR-SM-08</td><td data-label="Programm">Strasse der Vulkane 6T/5N</td>
-      <td data-label="Eintritte">Nein</td><td data-label="Kategorie">First Class</td>
-      <td data-label="Stadt / Route">Quito – Cotopaxi – Baños – Riobamba – Nariz del Diablo – Cuenca – Guayaquil (Transfer out)</td>
-      <td data-label="Hotels">Samari Spa / Hacienda Abraspungo / Cruz del Vado / Wyndham Santa Ana</td>
-      <td data-label="Sprache" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Spanisch" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
-      <td data-label="Abfahrten">Jeden Donnerstag</td>
-      <td data-label="Nettopreis">1.217</td><td data-label="EZ-Zuschlag">462</td>
-    </tr>
+    <tr class="program prog-header-row" data-category="volcano6d"><td colspan="10">Strasse der Vulkane 6T/5N &nbsp;·&nbsp; GR-SM-08 &nbsp;·&nbsp; Englisch &amp; Spanisch</td></tr>
+    <tr class="program alt" data-category="volcano6d"><td data-label="Code">GR-SM-08</td><td data-label="Programm">Strasse der Vulkane 6T/5N</td><td data-label="Eintritte">Nein</td><td data-label="Kategorie">Tourist</td><td data-label="Stadt / Route">Quito – Cotopaxi – Baños – Riobamba – Nariz del Diablo – Cuenca – Guayaquil (Transfer out)</td><td data-label="Hotels">La Floresta / Casa Real / Los Balcones / Grand Hotel Guayaquil</td><td data-label="Sprache" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Spanisch" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td><td data-label="Abfahrten">Jeden Donnerstag</td><td data-label="Nettopreis">807</td><td data-label="EZ-Zuschlag">114</td></tr>
+    <tr class="program" data-category="volcano6d"><td data-label="Code">GR-SM-08</td><td data-label="Programm">Strasse der Vulkane 6T/5N</td><td data-label="Eintritte">Nein</td><td data-label="Kategorie">Tourist Superior</td><td data-label="Stadt / Route">Quito – Cotopaxi – Baños – Riobamba – Nariz del Diablo – Cuenca – Guayaquil (Transfer out)</td><td data-label="Hotels">Hotel Sangay / Hacienda Abraspungo (STD) / San Juan / Tryp by Wyndham</td><td data-label="Sprache" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Spanisch" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td><td data-label="Abfahrten">Jeden Donnerstag</td><td data-label="Nettopreis">968</td><td data-label="EZ-Zuschlag">177</td></tr>
+    <tr class="program alt" data-category="volcano6d"><td data-label="Code">GR-SM-08</td><td data-label="Programm">Strasse der Vulkane 6T/5N</td><td data-label="Eintritte">Nein</td><td data-label="Kategorie">First Class</td><td data-label="Stadt / Route">Quito – Cotopaxi – Baños – Riobamba – Nariz del Diablo – Cuenca – Guayaquil (Transfer out)</td><td data-label="Hotels">Samari Spa / Hacienda Abraspungo / Cruz del Vado / Wyndham Santa Ana</td><td data-label="Sprache" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/es.png" alt="Spanisch" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td><td data-label="Abfahrten">Jeden Donnerstag</td><td data-label="Nettopreis">1.217</td><td data-label="EZ-Zuschlag">462</td></tr>
 
-    <!-- ANDEAN TREASURES 8T/7N — DE+EN unified -->
+    <tr class="program prog-header-row" data-category="andean"><td colspan="10">Andean Treasures 8T/7N &nbsp;·&nbsp; GR-SM-11 &nbsp;·&nbsp; Quito – Cotopaxi – Baños – Riobamba – Cuenca – Guayaquil</td></tr>
     <tr class="program alt" data-category="andean">
-      <td data-label="Code">GR-SM-11</td>
-      <td data-label="Programm">Andean Treasures 8T/7N</td>
-      <td data-label="Eintritte">Ja</td>
-      <td data-label="Kategorie">Standard</td>
+      <td data-label="Code">GR-SM-11</td><td data-label="Programm">Andean Treasures 8T/7N</td><td data-label="Eintritte">Ja</td><td data-label="Kategorie">Standard</td>
       <td data-label="Stadt / Route">Quito – Cotopaxi – Baños – Riobamba – Cuenca – Guayaquil</td>
       <td data-label="Hotels">Hotel Ikala STD / Hacienda La Ciénega STD / La Floresta STD / Casa Real STD / Los Balcones STD / Grand Hotel Guayaquil STD</td>
-      <td data-label="Sprache" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/de.png" alt="Deutsch" title="Deutschsprachiger Reiseleiter" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" title="Englischsprachiger Reiseleiter" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
+      <td data-label="Sprache" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/de.png" alt="Deutsch" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
       <td data-label="Abfahrten"><span class="guide-note" style="font-style:normal;color:#333;">03 Jan · 14 Feb · 07 Mär · 04 Apr · 02 Mai · 06 Jun<br>04 Jul · 01 Aug · 05 Sep · 10 Okt · 07 Nov · 05 Dez</span><span class="guide-note">Deutsch-/englischsprachiger Reiseleiter</span></td>
       <td data-label="Nettopreis">1.395</td><td data-label="EZ-Zuschlag">166</td>
     </tr>
     <tr class="program" data-category="andean">
-      <td data-label="Code">GR-SM-11</td>
-      <td data-label="Programm">Andean Treasures 8T/7N</td>
-      <td data-label="Eintritte">Ja</td>
-      <td data-label="Kategorie">Superior</td>
+      <td data-label="Code">GR-SM-11</td><td data-label="Programm">Andean Treasures 8T/7N</td><td data-label="Eintritte">Ja</td><td data-label="Kategorie">Superior</td>
       <td data-label="Stadt / Route">Quito – Cotopaxi – Baños – Riobamba – Cuenca – Guayaquil</td>
       <td data-label="Hotels">Adamas Haus / Hacienda La Ciénega Jr. Suite / Samari STD / Hacienda Abraspungo STD / Santa Lucia STD / Wyndham Santa Ana DLX</td>
-      <td data-label="Sprache" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/de.png" alt="Deutsch" title="Deutschsprachiger Reiseleiter" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" title="Englischsprachiger Reiseleiter" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
+      <td data-label="Sprache" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/de.png" alt="Deutsch" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
       <td data-label="Abfahrten"><span class="guide-note" style="font-style:normal;color:#333;">Gleiche Termine wie oben</span><span class="guide-note">Deutsch-/englischsprachiger Reiseleiter</span></td>
       <td data-label="Nettopreis">1.571</td><td data-label="EZ-Zuschlag">400</td>
     </tr>
 
-    <!-- ANDEAN TREASURES 7T/6N — NEU — DE+EN unified -->
+    <tr class="program prog-header-row" data-category="andean7"><td colspan="10">Andean Treasures 7T/6N &nbsp;·&nbsp; GR-SM-11-CUE &nbsp;·&nbsp; Neues Programm – Cuenca → Galápagos-Flugverbindung</td></tr>
     <tr class="program" data-category="andean7" style="background:#f0f4ff;">
       <td colspan="10" style="padding:10px 14px;font-size:11px;color:#1a4fa0;border-bottom:1px solid #c5d3f0;">
         ✦&nbsp; <strong>Neues Programm</strong> — Andean Treasures 7T/6N endet in Cuenca mit direkter Flugverbindung zu den Galápagos-Inseln.
@@ -610,22 +518,20 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
     <tr class="program alt" data-category="andean7">
       <td data-label="Code">GR-SM-11-CUE</td>
       <td data-label="Programm">Andean Treasures 7T/6N<br><span style="font-size:10px;color:#1a56c4;font-weight:600;">✈ Cuenca → Galápagos-Flugverbindung</span></td>
-      <td data-label="Eintritte">Ja</td>
-      <td data-label="Kategorie">Standard</td>
+      <td data-label="Eintritte">Ja</td><td data-label="Kategorie">Standard</td>
       <td data-label="Stadt / Route">Quito – Cotopaxi – Baños – Riobamba – Cuenca (Flug GPS)</td>
       <td data-label="Hotels">Hostal Ikala / Hacienda La Ciénega STD / Hotel Floresta / Casa Real / Hotel Los Balcones</td>
-      <td data-label="Sprache" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/de.png" alt="Deutsch" title="Deutschsprachiger Reiseleiter" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" title="Englischsprachiger Reiseleiter" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
+      <td data-label="Sprache" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/de.png" alt="Deutsch" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
       <td data-label="Abfahrten"><span class="guide-note" style="font-style:normal;color:#333;">03 Jan · 14 Feb · 07 Mär · 04 Apr · 02 Mai · 06 Jun<br>04 Jul · 01 Aug · 05 Sep · 10 Okt · 07 Nov · 05 Dez</span><span class="guide-note">Deutsch-/englischsprachiger Reiseleiter</span></td>
       <td data-label="Nettopreis">1.196</td><td data-label="EZ-Zuschlag">138</td>
     </tr>
     <tr class="program" data-category="andean7">
       <td data-label="Code">GR-SM-11-CUE</td>
       <td data-label="Programm">Andean Treasures 7T/6N<br><span style="font-size:10px;color:#1a56c4;font-weight:600;">✈ Cuenca → Galápagos-Flugverbindung</span></td>
-      <td data-label="Eintritte">Ja</td>
-      <td data-label="Kategorie">Superior</td>
+      <td data-label="Eintritte">Ja</td><td data-label="Kategorie">Superior</td>
       <td data-label="Stadt / Route">Quito – Cotopaxi – Baños – Riobamba – Cuenca (Flug GPS)</td>
       <td data-label="Hotels">Adamas / Grand Hotel Mercure Alameda / Hacienda La Ciénega Jr. Suite / Hotel Samari / Hacienda Abraspungo / Hotel Santa Lucia</td>
-      <td data-label="Sprache" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/de.png" alt="Deutsch" title="Deutschsprachiger Reiseleiter" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" title="Englischsprachiger Reiseleiter" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
+      <td data-label="Sprache" class="lang-cell"><div class="lang-flags"><img src="https://flagcdn.com/h20/de.png" alt="Deutsch" style="height:20px;border-radius:2px;vertical-align:middle;"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" style="height:20px;border-radius:2px;vertical-align:middle;"></div></td>
       <td data-label="Abfahrten"><span class="guide-note" style="font-style:normal;color:#333;">Gleiche Termine wie oben</span><span class="guide-note">Deutsch-/englischsprachiger Reiseleiter</span></td>
       <td data-label="Nettopreis">1.355</td><td data-label="EZ-Zuschlag">363</td>
     </tr>
@@ -642,30 +548,13 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
   <table class="supplements-table">
     <thead><tr><th>Beschreibung</th><th>Leistung</th><th>Nettopreis (USD)</th></tr></thead>
     <tbody>
-    <tr class="alt">
-      <td data-label="Beschreibung">Pre Tour Quito – Standard</td>
-      <td data-label="Leistung">Hotel Ikala Quito + Transfer IN Quito</td>
-      <td data-label="Nettopreis">82</td>
-    </tr>
-    <tr>
-      <td data-label="Beschreibung">Pre Tour Quito – Superior</td>
-      <td data-label="Leistung">Casa Adamas + Transfer IN Quito</td>
-      <td data-label="Nettopreis">108</td>
-    </tr>
-    <tr class="alt">
-      <td data-label="Beschreibung">Post Tour Guayaquil – Standard</td>
-      <td data-label="Leistung">Grand Hotel Guayaquil + Transfer AUS GYE</td>
-      <td data-label="Nettopreis">69</td>
-    </tr>
-    <tr>
-      <td data-label="Beschreibung">Post Tour Guayaquil – Superior</td>
-      <td data-label="Leistung">Wyndham Santa Ana DLX + Transfer AUS GYE</td>
-      <td data-label="Nettopreis">94</td>
-    </tr>
+    <tr class="alt"><td data-label="Beschreibung">Pre Tour Quito – Standard</td><td data-label="Leistung">Hotel Ikala Quito + Transfer IN Quito</td><td data-label="Nettopreis">82</td></tr>
+    <tr><td data-label="Beschreibung">Pre Tour Quito – Superior</td><td data-label="Leistung">Casa Adamas + Transfer IN Quito</td><td data-label="Nettopreis">108</td></tr>
+    <tr class="alt"><td data-label="Beschreibung">Post Tour Guayaquil – Standard</td><td data-label="Leistung">Grand Hotel Guayaquil + Transfer AUS GYE</td><td data-label="Nettopreis">69</td></tr>
+    <tr><td data-label="Beschreibung">Post Tour Guayaquil – Superior</td><td data-label="Leistung">Wyndham Santa Ana DLX + Transfer AUS GYE</td><td data-label="Nettopreis">94</td></tr>
     </tbody>
   </table>
   </div>
-
   <div style="margin:28px 0 10px;">
     <a href="https://marketinggeo.github.io/geo-experiences-filter/DEU-open-confirmed-departures-2027.html" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#002060;color:#fff;padding:11px 20px;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600;text-decoration:none;border-radius:4px;letter-spacing:0.3px;">
       Offene Abfahrten &amp; aktuelle Aktionen &#8594;
@@ -675,87 +564,90 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
 </div>
 </div>
 
-<!-- ======================== MODALS ======================== -->
+<!-- ======================== PRIVAT-PREISE MODALS ======================== -->
 
-<!-- LOOP 6T -->
-<div class="modal-overlay" id="modal-loop6-tourist"><div class="modal-box">
-  <button class="modal-close" onclick="closeModal('loop6-tourist')">&#10005;</button>
-  <h3><img src="https://flagcdn.com/h20/de.png" alt="Deutsch" style="height:20px;border-radius:2px;vertical-align:middle;"> Galápagos Loop 6T/5N – Tourist</h3>
-  <p class="modal-subtitle">Feste Abfahrten 2027 – Deutschsprachiger Reiseleiter</p>
-  <table class="modal-table"><tr><th>Abfahrtsdatum</th></tr>
-    <tr><td>So, 10. Jan 2027</td></tr><tr><td>So, 21. Feb 2027</td></tr><tr><td>So, 14. Mär 2027</td></tr><tr><td>So, 11. Apr 2027</td></tr><tr><td>So, 09. Mai 2027</td></tr><tr><td>So, 13. Jun 2027</td></tr><tr><td>So, 11. Jul 2027</td></tr><tr><td>So, 08. Aug 2027</td></tr><tr><td>So, 12. Sep 2027</td></tr><tr><td>So, 17. Okt 2027</td></tr><tr><td>So, 14. Nov 2027</td></tr><tr><td>So, 12. Dez 2027</td></tr>
-  </table>
-</div></div>
-<div class="modal-overlay" id="modal-loop6-touristsup"><div class="modal-box">
-  <button class="modal-close" onclick="closeModal('loop6-touristsup')">&#10005;</button>
-  <h3><img src="https://flagcdn.com/h20/de.png" alt="Deutsch" style="height:20px;border-radius:2px;vertical-align:middle;"> Galápagos Loop 6T/5N – Tourist Superior</h3>
-  <p class="modal-subtitle">Feste Abfahrten 2027 – Deutschsprachiger Reiseleiter</p>
-  <table class="modal-table"><tr><th>Abfahrtsdatum</th></tr>
-    <tr><td>So, 10. Jan 2027</td></tr><tr><td>So, 21. Feb 2027</td></tr><tr><td>So, 14. Mär 2027</td></tr><tr><td>So, 11. Apr 2027</td></tr><tr><td>So, 09. Mai 2027</td></tr><tr><td>So, 13. Jun 2027</td></tr><tr><td>So, 11. Jul 2027</td></tr><tr><td>So, 08. Aug 2027</td></tr><tr><td>So, 12. Sep 2027</td></tr><tr><td>So, 17. Okt 2027</td></tr><tr><td>So, 14. Nov 2027</td></tr><tr><td>So, 12. Dez 2027</td></tr>
-  </table>
-</div></div>
-<div class="modal-overlay" id="modal-loop6-firstclass"><div class="modal-box">
-  <button class="modal-close" onclick="closeModal('loop6-firstclass')">&#10005;</button>
-  <h3><img src="https://flagcdn.com/h20/de.png" alt="Deutsch" style="height:20px;border-radius:2px;vertical-align:middle;"> Galápagos Loop 6T/5N – First Class</h3>
-  <p class="modal-subtitle">Feste Abfahrten 2027 – Deutschsprachiger Reiseleiter</p>
-  <table class="modal-table"><tr><th>Abfahrtsdatum</th></tr>
-    <tr><td>So, 10. Jan 2027</td></tr><tr><td>So, 21. Feb 2027</td></tr><tr><td>So, 14. Mär 2027</td></tr><tr><td>So, 11. Apr 2027</td></tr><tr><td>So, 09. Mai 2027</td></tr><tr><td>So, 13. Jun 2027</td></tr><tr><td>So, 11. Jul 2027</td></tr><tr><td>So, 08. Aug 2027</td></tr><tr><td>So, 12. Sep 2027</td></tr><tr><td>So, 17. Okt 2027</td></tr><tr><td>So, 14. Nov 2027</td></tr><tr><td>So, 12. Dez 2027</td></tr>
-  </table>
-</div></div>
+<!-- PRIVAT: LOOP 6T -->
+<div class="modal-overlay" id="modal-pvt-loop6">
+  <div class="modal-box wide">
+    <button class="modal-close" onclick="closeModal('pvt-loop6')">&#10005;</button>
+    <h3>Galápagos Loop 6T/5N – Preise für Privatreisen</h3>
+    <p class="modal-subtitle">Nettopreise pro Person in USD · Privatreisen auf Anfrage verfügbar</p>
+    <div class="modal-section-header"><img src="https://flagcdn.com/h20/de.png" alt="Deutsch" style="height:18px;border-radius:2px;vertical-align:middle;"> Deutschsprachiger Reiseleiter</div>
+    <div class="modal-section-dates"><span>Garantierte Abfahrten 2027 – Deutschsprachiger Reiseleiter:</span> So, 10. Jan · So, 21. Feb · So, 14. Mär · So, 11. Apr · So, 09. Mai · So, 13. Jun · So, 11. Jul · So, 08. Aug · So, 12. Sep · So, 17. Okt · So, 14. Nov · So, 12. Dez</div>
+    <div style="overflow-x:auto;"><table class="modal-table"><thead><tr><th>Programm</th><th>SIB</th><th>PVT 2 Pax</th><th>PVT 4 Pax</th><th>PVT 6 Pax</th><th>PVT 8 Pax</th><th>PVT 10 Pax</th><th>PVT 12 Pax</th><th>EZ-Zuschl.</th><th>DRZ-Rabatt</th></tr></thead><tbody>
+      <tr><td>Galápagos Loop 6T/5N / <strong>Tourist</strong></td><td>2.570</td><td>3.122</td><td>2.570</td><td>1.844</td><td>1.577</td><td>1.433</td><td>1.359</td><td>71</td><td>-21</td></tr>
+      <tr><td>Galápagos Loop 6T/5N / <strong>Tourist Superior</strong></td><td>2.627</td><td>3.162</td><td>2.627</td><td>1.921</td><td>1.645</td><td>1.495</td><td>1.418</td><td>280</td><td>-37</td></tr>
+      <tr><td>Galápagos Loop 6T/5N / <strong>First Class</strong></td><td>2.953</td><td>3.476</td><td>2.953</td><td>2.330</td><td>2.030</td><td>1.866</td><td>1.779</td><td>546</td><td>-107</td></tr>
+    </tbody></table></div>
+    <div class="modal-section-header"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" style="height:18px;border-radius:2px;vertical-align:middle;"> Englischsprachiger Reiseleiter</div>
+    <div class="modal-section-dates"><span>Abfahrten:</span> Jeden Sonntag</div>
+    <div style="overflow-x:auto;"><table class="modal-table"><thead><tr><th>Programm</th><th>SIB</th><th>PVT 2 Pax</th><th>PVT 4 Pax</th><th>PVT 6 Pax</th><th>PVT 8 Pax</th><th>PVT 10 Pax</th><th>PVT 12 Pax</th><th>EZ-Zuschl.</th><th>DRZ-Rabatt</th></tr></thead><tbody>
+      <tr><td>Galápagos Loop 6T/5N / <strong>Tourist</strong></td><td>2.420</td><td>2.942</td><td>2.420</td><td>1.664</td><td>1.403</td><td>1.267</td><td>1.191</td><td>71</td><td>-21</td></tr>
+      <tr><td>Galápagos Loop 6T/5N / <strong>Tourist Superior</strong></td><td>2.477</td><td>2.982</td><td>2.477</td><td>1.742</td><td>1.471</td><td>1.329</td><td>1.250</td><td>280</td><td>-37</td></tr>
+      <tr><td>Galápagos Loop 6T/5N / <strong>First Class</strong></td><td>2.803</td><td>3.296</td><td>2.803</td><td>2.151</td><td>1.856</td><td>1.700</td><td>1.611</td><td>546</td><td>-107</td></tr>
+    </tbody></table></div>
+    <p class="modal-note">Alle Preise sind Nettopreise in USD pro Person. EZ-Zuschl. = Einzelzimmerzuschlag. DRZ-Rabatt = Dreierzimmer-Rabatt.</p>
+  </div>
+</div>
 
-<!-- LOOP 7T -->
-<div class="modal-overlay" id="modal-loop7-tourist"><div class="modal-box">
-  <button class="modal-close" onclick="closeModal('loop7-tourist')">&#10005;</button>
-  <h3><img src="https://flagcdn.com/h20/de.png" alt="Deutsch" style="height:20px;border-radius:2px;vertical-align:middle;"> Galápagos Loop 7T/6N – Ein immersives Erlebnis – Tourist</h3>
-  <p class="modal-subtitle">Feste Abfahrten 2027 – Deutschsprachiger Reiseleiter</p>
-  <table class="modal-table"><tr><th>Abfahrtsdatum</th></tr>
-    <tr><td>Sa, 09. Jan 2027</td></tr><tr><td>Sa, 20. Feb 2027</td></tr><tr><td>Sa, 13. Mär 2027</td></tr><tr><td>Sa, 10. Apr 2027</td></tr><tr><td>Sa, 08. Mai 2027</td></tr><tr><td>Sa, 12. Jun 2027</td></tr><tr><td>Sa, 10. Jul 2027</td></tr><tr><td>Sa, 07. Aug 2027</td></tr><tr><td>Sa, 11. Sep 2027</td></tr><tr><td>Sa, 16. Okt 2027</td></tr><tr><td>Sa, 13. Nov 2027</td></tr><tr><td>Sa, 11. Dez 2027</td></tr>
-  </table>
-</div></div>
-<div class="modal-overlay" id="modal-loop7-touristsup"><div class="modal-box">
-  <button class="modal-close" onclick="closeModal('loop7-touristsup')">&#10005;</button>
-  <h3><img src="https://flagcdn.com/h20/de.png" alt="Deutsch" style="height:20px;border-radius:2px;vertical-align:middle;"> Galápagos Loop 7T/6N – Ein immersives Erlebnis – Tourist Superior</h3>
-  <p class="modal-subtitle">Feste Abfahrten 2027 – Deutschsprachiger Reiseleiter</p>
-  <table class="modal-table"><tr><th>Abfahrtsdatum</th></tr>
-    <tr><td>Sa, 09. Jan 2027</td></tr><tr><td>Sa, 20. Feb 2027</td></tr><tr><td>Sa, 13. Mär 2027</td></tr><tr><td>Sa, 10. Apr 2027</td></tr><tr><td>Sa, 08. Mai 2027</td></tr><tr><td>Sa, 12. Jun 2027</td></tr><tr><td>Sa, 10. Jul 2027</td></tr><tr><td>Sa, 07. Aug 2027</td></tr><tr><td>Sa, 11. Sep 2027</td></tr><tr><td>Sa, 16. Okt 2027</td></tr><tr><td>Sa, 13. Nov 2027</td></tr><tr><td>Sa, 11. Dez 2027</td></tr>
-  </table>
-</div></div>
-<div class="modal-overlay" id="modal-loop7-firstclass"><div class="modal-box">
-  <button class="modal-close" onclick="closeModal('loop7-firstclass')">&#10005;</button>
-  <h3><img src="https://flagcdn.com/h20/de.png" alt="Deutsch" style="height:20px;border-radius:2px;vertical-align:middle;"> Galápagos Loop 7T/6N – Ein immersives Erlebnis – First Class</h3>
-  <p class="modal-subtitle">Feste Abfahrten 2027 – Deutschsprachiger Reiseleiter</p>
-  <table class="modal-table"><tr><th>Abfahrtsdatum</th></tr>
-    <tr><td>Sa, 09. Jan 2027</td></tr><tr><td>Sa, 20. Feb 2027</td></tr><tr><td>Sa, 13. Mär 2027</td></tr><tr><td>Sa, 10. Apr 2027</td></tr><tr><td>Sa, 08. Mai 2027</td></tr><tr><td>Sa, 12. Jun 2027</td></tr><tr><td>Sa, 10. Jul 2027</td></tr><tr><td>Sa, 07. Aug 2027</td></tr><tr><td>Sa, 11. Sep 2027</td></tr><tr><td>Sa, 16. Okt 2027</td></tr><tr><td>Sa, 13. Nov 2027</td></tr><tr><td>Sa, 11. Dez 2027</td></tr>
-  </table>
-</div></div>
+<!-- PRIVAT: LOOP 7T -->
+<div class="modal-overlay" id="modal-pvt-loop7">
+  <div class="modal-box wide">
+    <button class="modal-close" onclick="closeModal('pvt-loop7')">&#10005;</button>
+    <h3>Galápagos Loop 7T/6N – Ein immersives Erlebnis – Preise für Privatreisen</h3>
+    <p class="modal-subtitle">Nettopreise pro Person in USD · Privatreisen auf Anfrage verfügbar</p>
+    <div class="modal-section-header"><img src="https://flagcdn.com/h20/de.png" alt="Deutsch" style="height:18px;border-radius:2px;vertical-align:middle;"> Deutschsprachiger Reiseleiter</div>
+    <div class="modal-section-dates"><span>Garantierte Abfahrten 2027 – Deutschsprachiger Reiseleiter:</span> Sa, 09. Jan · Sa, 20. Feb · Sa, 13. Mär · Sa, 10. Apr · Sa, 08. Mai · Sa, 12. Jun · Sa, 10. Jul · Sa, 07. Aug · Sa, 11. Sep · Sa, 16. Okt · Sa, 13. Nov · Sa, 11. Dez</div>
+    <div style="overflow-x:auto;"><table class="modal-table"><thead><tr><th>Programm</th><th>SIB</th><th>PVT 2 Pax</th><th>PVT 4 Pax</th><th>PVT 6 Pax</th><th>PVT 8 Pax</th><th>PVT 10 Pax</th><th>PVT 12 Pax</th><th>EZ-Zuschl.</th><th>DRZ-Rabatt</th></tr></thead><tbody>
+      <tr><td>Galápagos Loop 7T/6N / <strong>Tourist</strong></td><td>2.967</td><td>3.362</td><td>2.967</td><td>1.987</td><td>1.708</td><td>1.553</td><td>1.476</td><td>83</td><td>-30</td></tr>
+      <tr><td>Galápagos Loop 7T/6N / <strong>Tourist Superior</strong></td><td>3.024</td><td>3.402</td><td>3.024</td><td>2.065</td><td>1.776</td><td>1.615</td><td>1.534</td><td>292</td><td>-46</td></tr>
+      <tr><td>Galápagos Loop 7T/6N / <strong>First Class</strong></td><td>3.350</td><td>3.716</td><td>3.350</td><td>2.474</td><td>2.161</td><td>1.986</td><td>1.896</td><td>558</td><td>-116</td></tr>
+    </tbody></table></div>
+    <div class="modal-section-header"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" style="height:18px;border-radius:2px;vertical-align:middle;"> Englischsprachiger Reiseleiter</div>
+    <div class="modal-section-dates"><span>Abfahrten:</span> Jeden Samstag</div>
+    <div style="overflow-x:auto;"><table class="modal-table"><thead><tr><th>Programm</th><th>SIB</th><th>PVT 2 Pax</th><th>PVT 4 Pax</th><th>PVT 6 Pax</th><th>PVT 8 Pax</th><th>PVT 10 Pax</th><th>PVT 12 Pax</th><th>EZ-Zuschl.</th><th>DRZ-Rabatt</th></tr></thead><tbody>
+      <tr><td>Galápagos Loop 7T/6N / <strong>Tourist</strong></td><td>2.794</td><td>3.375</td><td>2.794</td><td>2.277</td><td>1.987</td><td>1.708</td><td>1.553</td><td>83</td><td>-30</td></tr>
+      <tr><td>Galápagos Loop 7T/6N / <strong>Tourist Superior</strong></td><td>2.851</td><td>3.415</td><td>2.851</td><td>2.317</td><td>2.065</td><td>1.776</td><td>1.615</td><td>292</td><td>-46</td></tr>
+      <tr><td>Galápagos Loop 7T/6N / <strong>First Class</strong></td><td>3.177</td><td>3.729</td><td>3.177</td><td>2.631</td><td>2.474</td><td>2.161</td><td>1.986</td><td>558</td><td>-116</td></tr>
+    </tbody></table></div>
+    <p class="modal-note">Alle Preise sind Nettopreise in USD pro Person. EZ-Zuschl. = Einzelzimmerzuschlag. DRZ-Rabatt = Dreierzimmer-Rabatt.</p>
+  </div>
+</div>
 
-<!-- DARWIN -->
-<div class="modal-overlay" id="modal-darwin-tourist"><div class="modal-box">
-  <button class="modal-close" onclick="closeModal('darwin-tourist')">&#10005;</button>
-  <h3><img src="https://flagcdn.com/h20/de.png" alt="Deutsch" style="height:20px;border-radius:2px;vertical-align:middle;"> Charles Darwin Path 8T/7N – Tourist</h3>
-  <p class="modal-subtitle">Feste Abfahrten 2027 – Deutschsprachiger Reiseleiter</p>
-  <table class="modal-table"><tr><th>Abfahrtsdatum</th></tr>
-    <tr><td>Fr, 08. Jan 2027</td></tr><tr><td>Fr, 19. Feb 2027</td></tr><tr><td>Fr, 12. Mär 2027</td></tr><tr><td>Fr, 09. Apr 2027</td></tr><tr><td>Fr, 07. Mai 2027</td></tr><tr><td>Fr, 11. Jun 2027</td></tr><tr><td>Fr, 09. Jul 2027</td></tr><tr><td>Fr, 06. Aug 2027</td></tr><tr><td>Fr, 10. Sep 2027</td></tr><tr><td>Fr, 15. Okt 2027</td></tr><tr><td>Fr, 12. Nov 2027</td></tr><tr><td>Fr, 10. Dez 2027</td></tr>
-  </table>
-</div></div>
-<div class="modal-overlay" id="modal-darwin-touristsup"><div class="modal-box">
-  <button class="modal-close" onclick="closeModal('darwin-touristsup')">&#10005;</button>
-  <h3><img src="https://flagcdn.com/h20/de.png" alt="Deutsch" style="height:20px;border-radius:2px;vertical-align:middle;"> Charles Darwin Path 8T/7N – Tourist Superior</h3>
-  <p class="modal-subtitle">Feste Abfahrten 2027 – Deutschsprachiger Reiseleiter</p>
-  <table class="modal-table"><tr><th>Abfahrtsdatum</th></tr>
-    <tr><td>Fr, 08. Jan 2027</td></tr><tr><td>Fr, 19. Feb 2027</td></tr><tr><td>Fr, 12. Mär 2027</td></tr><tr><td>Fr, 09. Apr 2027</td></tr><tr><td>Fr, 07. Mai 2027</td></tr><tr><td>Fr, 11. Jun 2027</td></tr><tr><td>Fr, 09. Jul 2027</td></tr><tr><td>Fr, 06. Aug 2027</td></tr><tr><td>Fr, 10. Sep 2027</td></tr><tr><td>Fr, 15. Okt 2027</td></tr><tr><td>Fr, 12. Nov 2027</td></tr><tr><td>Fr, 10. Dez 2027</td></tr>
-  </table>
-</div></div>
-<div class="modal-overlay" id="modal-darwin-firstclass"><div class="modal-box">
-  <button class="modal-close" onclick="closeModal('darwin-firstclass')">&#10005;</button>
-  <h3><img src="https://flagcdn.com/h20/de.png" alt="Deutsch" style="height:20px;border-radius:2px;vertical-align:middle;"> Charles Darwin Path 8T/7N – First Class</h3>
-  <p class="modal-subtitle">Feste Abfahrten 2027 – Deutschsprachiger Reiseleiter</p>
-  <table class="modal-table"><tr><th>Abfahrtsdatum</th></tr>
-    <tr><td>Fr, 08. Jan 2027</td></tr><tr><td>Fr, 19. Feb 2027</td></tr><tr><td>Fr, 12. Mär 2027</td></tr><tr><td>Fr, 09. Apr 2027</td></tr><tr><td>Fr, 07. Mai 2027</td></tr><tr><td>Fr, 11. Jun 2027</td></tr><tr><td>Fr, 09. Jul 2027</td></tr><tr><td>Fr, 06. Aug 2027</td></tr><tr><td>Fr, 10. Sep 2027</td></tr><tr><td>Fr, 15. Okt 2027</td></tr><tr><td>Fr, 12. Nov 2027</td></tr><tr><td>Fr, 10. Dez 2027</td></tr>
-  </table>
-</div></div>
+<!-- PRIVAT: DARWIN -->
+<div class="modal-overlay" id="modal-pvt-darwin">
+  <div class="modal-box wide">
+    <button class="modal-close" onclick="closeModal('pvt-darwin')">&#10005;</button>
+    <h3>Charles Darwin Path 8T/7N – Preise für Privatreisen</h3>
+    <p class="modal-subtitle">Nettopreise pro Person in USD · Privatreisen auf Anfrage verfügbar</p>
+    <div class="modal-section-header"><img src="https://flagcdn.com/h20/de.png" alt="Deutsch" style="height:18px;border-radius:2px;vertical-align:middle;"> Deutschsprachiger Reiseleiter</div>
+    <div class="modal-section-dates"><span>Garantierte Abfahrten 2027 – Deutschsprachiger Reiseleiter:</span> Fr, 08. Jan · Fr, 19. Feb · Fr, 12. Mär · Fr, 09. Apr · Fr, 07. Mai · Fr, 11. Jun · Fr, 09. Jul · Fr, 06. Aug · Fr, 10. Sep · Fr, 15. Okt · Fr, 12. Nov · Fr, 10. Dez</div>
+    <div style="overflow-x:auto;"><table class="modal-table"><thead><tr><th>Programm</th><th>SIB</th><th>PVT 2 Pax</th><th>PVT 4 Pax</th><th>PVT 6 Pax</th><th>PVT 8 Pax</th><th>PVT 10 Pax</th><th>PVT 12 Pax</th><th>EZ-Zuschl.</th><th>DRZ-Rabatt</th></tr></thead><tbody>
+      <tr><td>Charles Darwin Path 8T/7N / <strong>Tourist</strong></td><td>3.203</td><td>3.696</td><td>3.203</td><td>2.430</td><td>2.109</td><td>1.934</td><td>1.574</td><td>93</td><td>-31</td></tr>
+      <tr><td>Charles Darwin Path 8T/7N / <strong>Tourist Superior</strong></td><td>3.330</td><td>3.812</td><td>3.330</td><td>2.599</td><td>2.264</td><td>2.082</td><td>1.716</td><td>338</td><td>-63</td></tr>
+      <tr><td>Charles Darwin Path 8T/7N / <strong>First Class</strong></td><td>3.752</td><td>4.210</td><td>3.752</td><td>3.126</td><td>2.759</td><td>2.557</td><td>2.179</td><td>732</td><td>-163</td></tr>
+    </tbody></table></div>
+    <div class="modal-section-header"><img src="https://flagcdn.com/h20/gb.png" alt="Englisch" style="height:18px;border-radius:2px;vertical-align:middle;"> Englischsprachiger Reiseleiter</div>
+    <div class="modal-section-dates"><span>Abfahrten:</span> Jeden Freitag</div>
+    <div style="overflow-x:auto;"><table class="modal-table"><thead><tr><th>Programm</th><th>SIB</th><th>PVT 2 Pax</th><th>PVT 4 Pax</th><th>PVT 6 Pax</th><th>PVT 8 Pax</th><th>PVT 10 Pax</th><th>PVT 12 Pax</th><th>EZ-Zuschl.</th><th>DRZ-Rabatt</th></tr></thead><tbody>
+      <tr><td>Charles Darwin Path 8T/7N / <strong>Tourist</strong></td><td>3.053</td><td>3.516</td><td>3.053</td><td>2.250</td><td>1.935</td><td>1.768</td><td>1.677</td><td>93</td><td>-31</td></tr>
+      <tr><td>Charles Darwin Path 8T/7N / <strong>Tourist Superior</strong></td><td>3.180</td><td>3.632</td><td>3.180</td><td>2.419</td><td>2.090</td><td>1.916</td><td>1.819</td><td>338</td><td>-63</td></tr>
+      <tr><td>Charles Darwin Path 8T/7N / <strong>First Class</strong></td><td>3.602</td><td>4.030</td><td>3.602</td><td>2.947</td><td>2.585</td><td>2.391</td><td>2.282</td><td>732</td><td>-163</td></tr>
+    </tbody></table></div>
+    <p class="modal-note">Alle Preise sind Nettopreise in USD pro Person. EZ-Zuschl. = Einzelzimmerzuschlag. DRZ-Rabatt = Dreierzimmer-Rabatt.</p>
+  </div>
+</div>
 
-
+<!-- GARANTIERTE ABFAHRTEN MODALS -->
+<div class="modal-overlay" id="modal-loop6-tourist"><div class="modal-box"><button class="modal-close" onclick="closeModal('loop6-tourist')">&#10005;</button><h3><img src="https://flagcdn.com/h20/de.png" alt="Deutsch" style="height:20px;border-radius:2px;vertical-align:middle;"> Galápagos Loop 6T/5N – Tourist</h3><p class="modal-subtitle">Garantierte Abfahrten 2027 – Deutschsprachiger Reiseleiter</p><table class="modal-table"><tr><th>Abfahrtsdatum</th></tr><tr><td>So, 10. Jan 2027</td></tr><tr><td>So, 21. Feb 2027</td></tr><tr><td>So, 14. Mär 2027</td></tr><tr><td>So, 11. Apr 2027</td></tr><tr><td>So, 09. Mai 2027</td></tr><tr><td>So, 13. Jun 2027</td></tr><tr><td>So, 11. Jul 2027</td></tr><tr><td>So, 08. Aug 2027</td></tr><tr><td>So, 12. Sep 2027</td></tr><tr><td>So, 17. Okt 2027</td></tr><tr><td>So, 14. Nov 2027</td></tr><tr><td>So, 12. Dez 2027</td></tr></table></div></div>
+<div class="modal-overlay" id="modal-loop6-touristsup"><div class="modal-box"><button class="modal-close" onclick="closeModal('loop6-touristsup')">&#10005;</button><h3><img src="https://flagcdn.com/h20/de.png" alt="Deutsch" style="height:20px;border-radius:2px;vertical-align:middle;"> Galápagos Loop 6T/5N – Tourist Superior</h3><p class="modal-subtitle">Garantierte Abfahrten 2027 – Deutschsprachiger Reiseleiter</p><table class="modal-table"><tr><th>Abfahrtsdatum</th></tr><tr><td>So, 10. Jan 2027</td></tr><tr><td>So, 21. Feb 2027</td></tr><tr><td>So, 14. Mär 2027</td></tr><tr><td>So, 11. Apr 2027</td></tr><tr><td>So, 09. Mai 2027</td></tr><tr><td>So, 13. Jun 2027</td></tr><tr><td>So, 11. Jul 2027</td></tr><tr><td>So, 08. Aug 2027</td></tr><tr><td>So, 12. Sep 2027</td></tr><tr><td>So, 17. Okt 2027</td></tr><tr><td>So, 14. Nov 2027</td></tr><tr><td>So, 12. Dez 2027</td></tr></table></div></div>
+<div class="modal-overlay" id="modal-loop6-firstclass"><div class="modal-box"><button class="modal-close" onclick="closeModal('loop6-firstclass')">&#10005;</button><h3><img src="https://flagcdn.com/h20/de.png" alt="Deutsch" style="height:20px;border-radius:2px;vertical-align:middle;"> Galápagos Loop 6T/5N – First Class</h3><p class="modal-subtitle">Garantierte Abfahrten 2027 – Deutschsprachiger Reiseleiter</p><table class="modal-table"><tr><th>Abfahrtsdatum</th></tr><tr><td>So, 10. Jan 2027</td></tr><tr><td>So, 21. Feb 2027</td></tr><tr><td>So, 14. Mär 2027</td></tr><tr><td>So, 11. Apr 2027</td></tr><tr><td>So, 09. Mai 2027</td></tr><tr><td>So, 13. Jun 2027</td></tr><tr><td>So, 11. Jul 2027</td></tr><tr><td>So, 08. Aug 2027</td></tr><tr><td>So, 12. Sep 2027</td></tr><tr><td>So, 17. Okt 2027</td></tr><tr><td>So, 14. Nov 2027</td></tr><tr><td>So, 12. Dez 2027</td></tr></table></div></div>
+<div class="modal-overlay" id="modal-loop7-tourist"><div class="modal-box"><button class="modal-close" onclick="closeModal('loop7-tourist')">&#10005;</button><h3><img src="https://flagcdn.com/h20/de.png" alt="Deutsch" style="height:20px;border-radius:2px;vertical-align:middle;"> Galápagos Loop 7T/6N – Ein immersives Erlebnis – Tourist</h3><p class="modal-subtitle">Garantierte Abfahrten 2027 – Deutschsprachiger Reiseleiter</p><table class="modal-table"><tr><th>Abfahrtsdatum</th></tr><tr><td>Sa, 09. Jan 2027</td></tr><tr><td>Sa, 20. Feb 2027</td></tr><tr><td>Sa, 13. Mär 2027</td></tr><tr><td>Sa, 10. Apr 2027</td></tr><tr><td>Sa, 08. Mai 2027</td></tr><tr><td>Sa, 12. Jun 2027</td></tr><tr><td>Sa, 10. Jul 2027</td></tr><tr><td>Sa, 07. Aug 2027</td></tr><tr><td>Sa, 11. Sep 2027</td></tr><tr><td>Sa, 16. Okt 2027</td></tr><tr><td>Sa, 13. Nov 2027</td></tr><tr><td>Sa, 11. Dez 2027</td></tr></table></div></div>
+<div class="modal-overlay" id="modal-loop7-touristsup"><div class="modal-box"><button class="modal-close" onclick="closeModal('loop7-touristsup')">&#10005;</button><h3><img src="https://flagcdn.com/h20/de.png" alt="Deutsch" style="height:20px;border-radius:2px;vertical-align:middle;"> Galápagos Loop 7T/6N – Ein immersives Erlebnis – Tourist Superior</h3><p class="modal-subtitle">Garantierte Abfahrten 2027 – Deutschsprachiger Reiseleiter</p><table class="modal-table"><tr><th>Abfahrtsdatum</th></tr><tr><td>Sa, 09. Jan 2027</td></tr><tr><td>Sa, 20. Feb 2027</td></tr><tr><td>Sa, 13. Mär 2027</td></tr><tr><td>Sa, 10. Apr 2027</td></tr><tr><td>Sa, 08. Mai 2027</td></tr><tr><td>Sa, 12. Jun 2027</td></tr><tr><td>Sa, 10. Jul 2027</td></tr><tr><td>Sa, 07. Aug 2027</td></tr><tr><td>Sa, 11. Sep 2027</td></tr><tr><td>Sa, 16. Okt 2027</td></tr><tr><td>Sa, 13. Nov 2027</td></tr><tr><td>Sa, 11. Dez 2027</td></tr></table></div></div>
+<div class="modal-overlay" id="modal-loop7-firstclass"><div class="modal-box"><button class="modal-close" onclick="closeModal('loop7-firstclass')">&#10005;</button><h3><img src="https://flagcdn.com/h20/de.png" alt="Deutsch" style="height:20px;border-radius:2px;vertical-align:middle;"> Galápagos Loop 7T/6N – Ein immersives Erlebnis – First Class</h3><p class="modal-subtitle">Garantierte Abfahrten 2027 – Deutschsprachiger Reiseleiter</p><table class="modal-table"><tr><th>Abfahrtsdatum</th></tr><tr><td>Sa, 09. Jan 2027</td></tr><tr><td>Sa, 20. Feb 2027</td></tr><tr><td>Sa, 13. Mär 2027</td></tr><tr><td>Sa, 10. Apr 2027</td></tr><tr><td>Sa, 08. Mai 2027</td></tr><tr><td>Sa, 12. Jun 2027</td></tr><tr><td>Sa, 10. Jul 2027</td></tr><tr><td>Sa, 07. Aug 2027</td></tr><tr><td>Sa, 11. Sep 2027</td></tr><tr><td>Sa, 16. Okt 2027</td></tr><tr><td>Sa, 13. Nov 2027</td></tr><tr><td>Sa, 11. Dez 2027</td></tr></table></div></div>
+<div class="modal-overlay" id="modal-darwin-tourist"><div class="modal-box"><button class="modal-close" onclick="closeModal('darwin-tourist')">&#10005;</button><h3><img src="https://flagcdn.com/h20/de.png" alt="Deutsch" style="height:20px;border-radius:2px;vertical-align:middle;"> Charles Darwin Path 8T/7N – Tourist</h3><p class="modal-subtitle">Garantierte Abfahrten 2027 – Deutschsprachiger Reiseleiter</p><table class="modal-table"><tr><th>Abfahrtsdatum</th></tr><tr><td>Fr, 08. Jan 2027</td></tr><tr><td>Fr, 19. Feb 2027</td></tr><tr><td>Fr, 12. Mär 2027</td></tr><tr><td>Fr, 09. Apr 2027</td></tr><tr><td>Fr, 07. Mai 2027</td></tr><tr><td>Fr, 11. Jun 2027</td></tr><tr><td>Fr, 09. Jul 2027</td></tr><tr><td>Fr, 06. Aug 2027</td></tr><tr><td>Fr, 10. Sep 2027</td></tr><tr><td>Fr, 15. Okt 2027</td></tr><tr><td>Fr, 12. Nov 2027</td></tr><tr><td>Fr, 10. Dez 2027</td></tr></table></div></div>
+<div class="modal-overlay" id="modal-darwin-touristsup"><div class="modal-box"><button class="modal-close" onclick="closeModal('darwin-touristsup')">&#10005;</button><h3><img src="https://flagcdn.com/h20/de.png" alt="Deutsch" style="height:20px;border-radius:2px;vertical-align:middle;"> Charles Darwin Path 8T/7N – Tourist Superior</h3><p class="modal-subtitle">Garantierte Abfahrten 2027 – Deutschsprachiger Reiseleiter</p><table class="modal-table"><tr><th>Abfahrtsdatum</th></tr><tr><td>Fr, 08. Jan 2027</td></tr><tr><td>Fr, 19. Feb 2027</td></tr><tr><td>Fr, 12. Mär 2027</td></tr><tr><td>Fr, 09. Apr 2027</td></tr><tr><td>Fr, 07. Mai 2027</td></tr><tr><td>Fr, 11. Jun 2027</td></tr><tr><td>Fr, 09. Jul 2027</td></tr><tr><td>Fr, 06. Aug 2027</td></tr><tr><td>Fr, 10. Sep 2027</td></tr><tr><td>Fr, 15. Okt 2027</td></tr><tr><td>Fr, 12. Nov 2027</td></tr><tr><td>Fr, 10. Dez 2027</td></tr></table></div></div>
+<div class="modal-overlay" id="modal-darwin-firstclass"><div class="modal-box"><button class="modal-close" onclick="closeModal('darwin-firstclass')">&#10005;</button><h3><img src="https://flagcdn.com/h20/de.png" alt="Deutsch" style="height:20px;border-radius:2px;vertical-align:middle;"> Charles Darwin Path 8T/7N – First Class</h3><p class="modal-subtitle">Garantierte Abfahrten 2027 – Deutschsprachiger Reiseleiter</p><table class="modal-table"><tr><th>Abfahrtsdatum</th></tr><tr><td>Fr, 08. Jan 2027</td></tr><tr><td>Fr, 19. Feb 2027</td></tr><tr><td>Fr, 12. Mär 2027</td></tr><tr><td>Fr, 09. Apr 2027</td></tr><tr><td>Fr, 07. Mai 2027</td></tr><tr><td>Fr, 11. Jun 2027</td></tr><tr><td>Fr, 09. Jul 2027</td></tr><tr><td>Fr, 06. Aug 2027</td></tr><tr><td>Fr, 10. Sep 2027</td></tr><tr><td>Fr, 15. Okt 2027</td></tr><tr><td>Fr, 12. Nov 2027</td></tr><tr><td>Fr, 10. Dez 2027</td></tr></table></div></div>
 
 <script>
 function showSection(id){
