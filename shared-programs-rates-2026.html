@@ -47,11 +47,6 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
 
 .prog-header-row td{background:#e8edf7;color:#002060;font-size:11px;font-weight:700;letter-spacing:0.6px;text-transform:uppercase;padding:9px 14px;border-bottom:2px solid #002060;border-top:2px solid #dde1ea;}
 .prog-header-row.first-header td{border-top:none;}
-.pvt-btn-row td{background:#eef4ff;padding:10px 14px;border-bottom:1px solid #d0d9f0;}
-.private-rates-btn{display:inline-flex;align-items:center;gap:14px;background:#002060;color:#fff;border:none;padding:11px 22px;font-size:12px;font-family:'Montserrat',sans-serif;font-weight:600;cursor:pointer;border-radius:4px;letter-spacing:0.4px;text-transform:uppercase;transition:background 0.18s;border-left:5px solid #1a73e8;}
-.private-rates-btn:hover{background:#003399;}
-.private-rates-btn .btn-arrow{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border:2px solid rgba(255,255,255,0.5);border-radius:50%;font-size:12px;line-height:1;flex-shrink:0;transition:border-color 0.18s;}
-.private-rates-btn:hover .btn-arrow{border-color:#fff;}
 
 .modal-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.55);z-index:1000;justify-content:center;align-items:center;}
 .modal-overlay.active{display:flex;}
@@ -80,8 +75,6 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
   tr.program.hidden{display:none!important;}
   tr.prog-header-row{display:block;border-radius:6px;margin-bottom:4px;}
   tr.prog-header-row td{display:block;}
-  tr.pvt-btn-row{display:block;margin-bottom:10px;}
-  tr.pvt-btn-row td{display:block;padding:10px 14px;}
   td{border:none;border-bottom:1px solid #eef0f5;padding:9px 14px 9px 46%;position:relative;min-height:34px;font-size:11.5px;}
   td:last-child{border-bottom:none;}
   td::before{content:attr(data-label);position:absolute;left:14px;top:9px;width:38%;font-weight:700;color:#002060;font-size:10px;text-transform:uppercase;line-height:1.4;}
@@ -90,7 +83,6 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
   .filter-bar select{max-width:100%;}
   .modal-box{padding:22px;}
   .specific-dep-btn{font-size:10px;padding:5px 9px;}
-  .private-rates-btn{font-size:11px;padding:10px 16px;}
 }
 </style>
 </head>
@@ -163,14 +155,6 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
     <tr class="program prog-header-row first-header" data-category="loop6">
       <td colspan="10">Galápagos Loop 6D/5N &nbsp;·&nbsp; SG-04-A &nbsp;·&nbsp; Santa Cruz · Floreana · Isabela</td>
     </tr>
-    <tr class="program pvt-btn-row" data-category="loop6">
-      <td colspan="10">
-        <button class="private-rates-btn" onclick="openModal('pvt-loop6')">
-          View Private Rates – Galápagos Loop 6D/5N
-          <span class="btn-arrow">&#8594;</span>
-        </button>
-      </td>
-    </tr>
     <tr class="program alt" data-category="loop6">
       <td data-label="Code" rowspan="2">SG-04-A</td>
       <td data-label="Program" rowspan="2">The Galápagos Loop 6D/5N</td>
@@ -220,14 +204,6 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
     <!-- ===== LOOP 7D ===== -->
     <tr class="program prog-header-row" data-category="loop7">
       <td colspan="10">Galápagos Loop 7D/6N – Immersive &nbsp;·&nbsp; SG-04-B &nbsp;·&nbsp; Santa Cruz · Floreana · Isabela</td>
-    </tr>
-    <tr class="program pvt-btn-row" data-category="loop7">
-      <td colspan="10">
-        <button class="private-rates-btn" onclick="openModal('pvt-loop7')">
-          View Private Rates – Galápagos Loop 7D/6N Immersive
-          <span class="btn-arrow">&#8594;</span>
-        </button>
-      </td>
     </tr>
     <tr class="program" data-category="loop7">
       <td data-label="Code" rowspan="2">SG-04-B</td>
@@ -344,14 +320,6 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
     <!-- ===== DARWIN ===== -->
     <tr class="program prog-header-row" data-category="darwin">
       <td colspan="10">Charles Darwin Path 8D/7N &nbsp;·&nbsp; SG-05 &nbsp;·&nbsp; Cristobal · Santa Cruz · Floreana · Isabela</td>
-    </tr>
-    <tr class="program pvt-btn-row" data-category="darwin">
-      <td colspan="10">
-        <button class="private-rates-btn" onclick="openModal('pvt-darwin')">
-          View Private Rates – Charles Darwin Path 8D/7N
-          <span class="btn-arrow">&#8594;</span>
-        </button>
-      </td>
     </tr>
     <tr class="program" data-category="darwin">
       <td data-label="Code" rowspan="2">SG-05</td>
@@ -577,78 +545,6 @@ h2.subsection{color:#002060;font-size:16px;font-weight:700;margin:36px 0 14px;}
 </div>
 
 <!-- ======================== MODALS ======================== -->
-
-<!-- PRIVATE RATES: LOOP 6D -->
-<div class="modal-overlay" id="modal-pvt-loop6">
-  <div class="modal-box wide">
-    <button class="modal-close" onclick="closeModal('pvt-loop6')">&#10005;</button>
-    <h3>Galápagos Loop 6D/5N – Private Rates</h3>
-    <p class="modal-subtitle">Net rates per person in USD · Private departures available upon request</p>
-    <div class="modal-section-header"><img src="https://flagcdn.com/h20/gb.png" alt="English" style="height:18px;border-radius:2px;vertical-align:middle;"> English-Speaking Guide</div>
-    <div class="modal-section-dates"><span>Departures:</span> Every Sunday</div>
-    <div style="overflow-x:auto;"><table class="modal-table"><thead><tr><th>Program</th><th>SIB</th><th>PVT 2 pax</th><th>PVT 4 pax</th><th>PVT 6 pax</th><th>PVT 8 pax</th><th>PVT 10 pax</th><th>PVT 12 pax</th><th>SS</th><th>TPL DSC</th></tr></thead><tbody>
-      <tr><td>Galápagos Loop 6D/5N / <strong>Tourist</strong></td><td>2.420</td><td>2.942</td><td>2.420</td><td>1.664</td><td>1.403</td><td>1.267</td><td>1.191</td><td>71</td><td>-21</td></tr>
-      <tr><td>Galápagos Loop 6D/5N / <strong>Tourist Superior</strong></td><td>2.477</td><td>2.982</td><td>2.477</td><td>1.742</td><td>1.471</td><td>1.329</td><td>1.250</td><td>280</td><td>-37</td></tr>
-      <tr><td>Galápagos Loop 6D/5N / <strong>First Class</strong></td><td>2.803</td><td>3.296</td><td>2.803</td><td>2.151</td><td>1.856</td><td>1.700</td><td>1.611</td><td>546</td><td>-107</td></tr>
-    </tbody></table></div>
-    <div class="modal-section-header"><img src="https://flagcdn.com/h20/de.png" alt="German" style="height:18px;border-radius:2px;vertical-align:middle;"> German-Speaking Guide</div>
-    <div class="modal-section-dates"><span>Guaranteed departures 2027 – German-speaking guide:</span> Sun, 10 Jan · Sun, 21 Feb · Sun, 14 Mar · Sun, 11 Apr · Sun, 09 May · Sun, 13 Jun · Sun, 11 Jul · Sun, 08 Aug · Sun, 12 Sep · Sun, 17 Oct · Sun, 14 Nov · Sun, 12 Dec</div>
-    <div style="overflow-x:auto;"><table class="modal-table"><thead><tr><th>Program</th><th>SIB</th><th>PVT 2 pax</th><th>PVT 4 pax</th><th>PVT 6 pax</th><th>PVT 8 pax</th><th>PVT 10 pax</th><th>PVT 12 pax</th><th>SS</th><th>TPL DSC</th></tr></thead><tbody>
-      <tr><td>Galápagos Loop 6D/5N / <strong>Tourist</strong></td><td>2.570</td><td>3.122</td><td>2.570</td><td>1.844</td><td>1.577</td><td>1.433</td><td>1.359</td><td>71</td><td>-21</td></tr>
-      <tr><td>Galápagos Loop 6D/5N / <strong>Tourist Superior</strong></td><td>2.627</td><td>3.162</td><td>2.627</td><td>1.921</td><td>1.645</td><td>1.495</td><td>1.418</td><td>280</td><td>-37</td></tr>
-      <tr><td>Galápagos Loop 6D/5N / <strong>First Class</strong></td><td>2.953</td><td>3.476</td><td>2.953</td><td>2.330</td><td>2.030</td><td>1.866</td><td>1.779</td><td>546</td><td>-107</td></tr>
-    </tbody></table></div>
-    <p class="modal-note">All prices are net rates in USD per person. SS = Single Supplement. TPL DSC = Triple Discount.</p>
-  </div>
-</div>
-
-<!-- PRIVATE RATES: LOOP 7D -->
-<div class="modal-overlay" id="modal-pvt-loop7">
-  <div class="modal-box wide">
-    <button class="modal-close" onclick="closeModal('pvt-loop7')">&#10005;</button>
-    <h3>Galápagos Loop Immersive 7D/6N – Private Rates</h3>
-    <p class="modal-subtitle">Net rates per person in USD · Private departures available upon request</p>
-    <div class="modal-section-header"><img src="https://flagcdn.com/h20/gb.png" alt="English" style="height:18px;border-radius:2px;vertical-align:middle;"> English-Speaking Guide</div>
-    <div class="modal-section-dates"><span>Departures:</span> Every Saturday</div>
-    <div style="overflow-x:auto;"><table class="modal-table"><thead><tr><th>Program</th><th>SIB</th><th>PVT 2 pax</th><th>PVT 4 pax</th><th>PVT 6 pax</th><th>PVT 8 pax</th><th>PVT 10 pax</th><th>PVT 12 pax</th><th>SS</th><th>TPL DSC</th></tr></thead><tbody>
-      <tr><td>Galápagos Loop Immersive 7D/6N / <strong>Tourist</strong></td><td>2.794</td><td>3.375</td><td>2.794</td><td>2.277</td><td>1.987</td><td>1.708</td><td>1.553</td><td>83</td><td>-30</td></tr>
-      <tr><td>Galápagos Loop Immersive 7D/6N / <strong>Tourist Superior</strong></td><td>2.851</td><td>3.415</td><td>2.851</td><td>2.317</td><td>2.065</td><td>1.776</td><td>1.615</td><td>292</td><td>-46</td></tr>
-      <tr><td>Galápagos Loop Immersive 7D/6N / <strong>First Class</strong></td><td>3.177</td><td>3.729</td><td>3.177</td><td>2.631</td><td>2.474</td><td>2.161</td><td>1.986</td><td>558</td><td>-116</td></tr>
-    </tbody></table></div>
-    <div class="modal-section-header"><img src="https://flagcdn.com/h20/de.png" alt="German" style="height:18px;border-radius:2px;vertical-align:middle;"> German-Speaking Guide</div>
-    <div class="modal-section-dates"><span>Guaranteed departures 2027 – German-speaking guide:</span> Sat, 09 Jan · Sat, 20 Feb · Sat, 13 Mar · Sat, 10 Apr · Sat, 08 May · Sat, 12 Jun · Sat, 10 Jul · Sat, 07 Aug · Sat, 11 Sep · Sat, 16 Oct · Sat, 13 Nov · Sat, 11 Dec</div>
-    <div style="overflow-x:auto;"><table class="modal-table"><thead><tr><th>Program</th><th>SIB</th><th>PVT 2 pax</th><th>PVT 4 pax</th><th>PVT 6 pax</th><th>PVT 8 pax</th><th>PVT 10 pax</th><th>PVT 12 pax</th><th>SS</th><th>TPL DSC</th></tr></thead><tbody>
-      <tr><td>Galápagos Loop Immersive 7D/6N / <strong>Tourist</strong></td><td>2.967</td><td>3.362</td><td>2.967</td><td>1.987</td><td>1.708</td><td>1.553</td><td>1.476</td><td>83</td><td>-30</td></tr>
-      <tr><td>Galápagos Loop Immersive 7D/6N / <strong>Tourist Superior</strong></td><td>3.024</td><td>3.402</td><td>3.024</td><td>2.065</td><td>1.776</td><td>1.615</td><td>1.534</td><td>292</td><td>-46</td></tr>
-      <tr><td>Galápagos Loop Immersive 7D/6N / <strong>First Class</strong></td><td>3.350</td><td>3.716</td><td>3.350</td><td>2.474</td><td>2.161</td><td>1.986</td><td>1.896</td><td>558</td><td>-116</td></tr>
-    </tbody></table></div>
-    <p class="modal-note">All prices are net rates in USD per person. SS = Single Supplement. TPL DSC = Triple Discount.</p>
-  </div>
-</div>
-
-<!-- PRIVATE RATES: DARWIN -->
-<div class="modal-overlay" id="modal-pvt-darwin">
-  <div class="modal-box wide">
-    <button class="modal-close" onclick="closeModal('pvt-darwin')">&#10005;</button>
-    <h3>Charles Darwin Path 8D/7N – Private Rates</h3>
-    <p class="modal-subtitle">Net rates per person in USD · Private departures available upon request</p>
-    <div class="modal-section-header"><img src="https://flagcdn.com/h20/gb.png" alt="English" style="height:18px;border-radius:2px;vertical-align:middle;"> English-Speaking Guide</div>
-    <div class="modal-section-dates"><span>Departures:</span> Every Friday</div>
-    <div style="overflow-x:auto;"><table class="modal-table"><thead><tr><th>Program</th><th>SIB</th><th>PVT 2 pax</th><th>PVT 4 pax</th><th>PVT 6 pax</th><th>PVT 8 pax</th><th>PVT 10 pax</th><th>PVT 12 pax</th><th>SS</th><th>TPL DSC</th></tr></thead><tbody>
-      <tr><td>Charles Darwin Path 8D/7N / <strong>Tourist</strong></td><td>3.053</td><td>3.516</td><td>3.053</td><td>2.250</td><td>1.935</td><td>1.768</td><td>1.677</td><td>93</td><td>-31</td></tr>
-      <tr><td>Charles Darwin Path 8D/7N / <strong>Tourist Superior</strong></td><td>3.180</td><td>3.632</td><td>3.180</td><td>2.419</td><td>2.090</td><td>1.916</td><td>1.819</td><td>338</td><td>-63</td></tr>
-      <tr><td>Charles Darwin Path 8D/7N / <strong>First Class</strong></td><td>3.602</td><td>4.030</td><td>3.602</td><td>2.947</td><td>2.585</td><td>2.391</td><td>2.282</td><td>732</td><td>-163</td></tr>
-    </tbody></table></div>
-    <div class="modal-section-header"><img src="https://flagcdn.com/h20/de.png" alt="German" style="height:18px;border-radius:2px;vertical-align:middle;"> German-Speaking Guide</div>
-    <div class="modal-section-dates"><span>Guaranteed departures 2027 – German-speaking guide:</span> Fri, 08 Jan · Fri, 19 Feb · Fri, 12 Mar · Fri, 09 Apr · Fri, 07 May · Fri, 11 Jun · Fri, 09 Jul · Fri, 06 Aug · Fri, 10 Sep · Fri, 15 Oct · Fri, 12 Nov · Fri, 10 Dec</div>
-    <div style="overflow-x:auto;"><table class="modal-table"><thead><tr><th>Program</th><th>SIB</th><th>PVT 2 pax</th><th>PVT 4 pax</th><th>PVT 6 pax</th><th>PVT 8 pax</th><th>PVT 10 pax</th><th>PVT 12 pax</th><th>SS</th><th>TPL DSC</th></tr></thead><tbody>
-      <tr><td>Charles Darwin Path 8D/7N / <strong>Tourist</strong></td><td>3.203</td><td>3.696</td><td>3.203</td><td>2.430</td><td>2.109</td><td>1.934</td><td>1.574</td><td>93</td><td>-31</td></tr>
-      <tr><td>Charles Darwin Path 8D/7N / <strong>Tourist Superior</strong></td><td>3.330</td><td>3.812</td><td>3.330</td><td>2.599</td><td>2.264</td><td>2.082</td><td>1.716</td><td>338</td><td>-63</td></tr>
-      <tr><td>Charles Darwin Path 8D/7N / <strong>First Class</strong></td><td>3.752</td><td>4.210</td><td>3.752</td><td>3.126</td><td>2.759</td><td>2.557</td><td>2.179</td><td>732</td><td>-163</td></tr>
-    </tbody></table></div>
-    <p class="modal-note">All prices are net rates in USD per person. SS = Single Supplement. TPL DSC = Triple Discount.</p>
-  </div>
-</div>
 
 <!-- GUARANTEED DEPARTURES MODALS -->
 <div class="modal-overlay" id="modal-loop6-tourist"><div class="modal-box"><button class="modal-close" onclick="closeModal('loop6-tourist')">&#10005;</button><h3><img src="https://flagcdn.com/h20/de.png" alt="German" style="height:20px;border-radius:2px;vertical-align:middle;"> Galápagos Loop 6D/5N – Tourist</h3><p class="modal-subtitle">Guaranteed departures 2026 – German-speaking guide</p><table class="modal-table"><tr><th>Departure Date</th></tr><tr><td>Sun, 11 Jan 2026</td></tr><tr><td>Sun, 08 Feb 2026</td></tr><tr><td>Sun, 15 Mar 2026</td></tr><tr><td>Sun, 12 Apr 2026</td></tr><tr><td>Sun, 10 May 2026</td></tr><tr><td>Sun, 14 Jun 2026</td></tr><tr><td>Sun, 12 Jul 2026</td></tr><tr><td>Sun, 09 Aug 2026</td></tr><tr><td>Sun, 13 Sep 2026</td></tr><tr><td>Sun, 11 Oct 2026</td></tr><tr><td>Sun, 15 Nov 2026</td></tr><tr><td>Sun, 13 Dec 2026</td></tr></table></div></div>
